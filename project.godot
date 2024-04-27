@@ -37,6 +37,12 @@ move_right_jerry={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="Tom"
+2d_physics/layer_3="Jerry"
+2d_physics/layer_4="Collectables"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

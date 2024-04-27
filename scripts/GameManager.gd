@@ -35,6 +35,7 @@ func collectTrap() -> void :
 		_number_of_traps += 1
 	
 func catchJerry() -> void :
+	# TO DO : disable Jerry movement on script
 	print_debug("Jerry is caught in the trap!")
 
 # Utility functions ------------------------------------------------------------
