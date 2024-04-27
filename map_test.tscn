@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://lqms5vj1r5re"]
+
+[ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://game_manager.tscn" id="1_bsbho"]
+[ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://cheese.tscn" id="2_orwyy"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="4_l3038"]
+[ext_resource type="PackedScene" uid="uid://c72m4u7mpuxj" path="res://trap.tscn" id="5_wyjd7"]
+[ext_resource type="Texture2D" uid="uid://uptdyucjpcpa" path="res://icon.svg" id="5_yio81"]
+[ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="6_03bv6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crvi1"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_bsbho")]
+
+[node name="Jerry" type="CharacterBody2D" parent="."]
+position = Vector2(-69, 63)
+collision_layer = 4
+script = ExtResource("4_l3038")
+player_id = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jerry"]
+shape = SubResource("RectangleShape2D_crvi1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jerry"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_yio81")
+
+[node name="Tom" type="CharacterBody2D" parent="."]
+position = Vector2(-153, 63)
+collision_layer = 2
+script = ExtResource("4_l3038")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tom"]
+shape = SubResource("RectangleShape2D_crvi1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tom"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_yio81")
+
+[node name="Cheese" parent="." instance=ExtResource("2_orwyy")]
+position = Vector2(101, 66)
+
+[node name="AnimatedSprite2D" parent="Cheese" index="1"]
+scale = Vector2(0.15, 0.15)
+
+[node name="Trap" parent="." instance=ExtResource("5_wyjd7")]
+position = Vector2(-365, 66)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground"]
+texture = ExtResource("6_03bv6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[editable path="Cheese"]
+[editable path="Trap"]
