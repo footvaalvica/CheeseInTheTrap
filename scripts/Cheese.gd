@@ -1,6 +1,5 @@
 class_name	Cheese extends Node2D
 
 func on_collision(body : Node2D) -> void:
-	print_debug("cheese caught")
-	GameManager.instance().collectCheese()
+	GameManager.instance().collect_cheese()
 	queue_free()
