@@ -34,7 +34,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_yio81")
 
 [node name="Tom" type="CharacterBody2D" parent="."]
-position = Vector2(-153, 63)
+position = Vector2(-500, 63)
 collision_layer = 2
 script = ExtResource("4_w5ll2")
 

@@ -19,7 +19,7 @@ func on_collision(body : Node2D) -> void:
 			GameManager.instance().collect_trap()
 			collect()
 	else :
-		if _cooldown == 0 :
+		if active and _cooldown == 0 :
 			GameManager.instance().trap_jerry(self)
 
 func collect() -> void:

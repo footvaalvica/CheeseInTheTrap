@@ -9,6 +9,10 @@ var _trap : Trap = null
 
 const STUCKMAX : int = 10
 
+func _process(delta):
+	if Input.get_action_strength("disable_trap") > 0 : 
+		disable_trap()
+
 func movement(delta) -> void :
 	if _is_trapped :
 		unstuck()
@@ -39,6 +43,21 @@ func trap(trap : Trap) -> void :
 func caught() -> void :
 	queue_free() # TODO : do things when Jerry is caught ?
 	
+func disable_trap() -> void :
+	var in_range_trap : Trap = null
+	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")
+	for trap_object in trap_object_list :
+		var trap_script : Trap = trap_object as Trap
+		if not trap_script.active :
+			continue
+		if GameManager.instance().in_trap_range(self, trap_object) :
+			trap_script.active = false
+			print_debug("disarm")
+		
+# Input action functions -------------------------------------------------------
+
+
+
 # Utility functions ------------------------------------------------------------
 	
 func switch_direction(direction:Direction) -> Direction :

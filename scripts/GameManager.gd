@@ -10,6 +10,7 @@ var _clock : float = 0 :
 @export var jerry : Jerry = null
 
 const TOTAL_CHEESE = 3
+const DISTANCE_TO_TRAP = 100 # FIXME : should this vary between tom and jerry ?
 
 func _init():
 	_instance = self
@@ -47,6 +48,11 @@ func trap_jerry(trap : Trap) -> void :
 	
 func catch_jerry() -> void :
 	jerry.caught()
+	
+func in_trap_range(actor : Player, trap : Node2D) -> bool :
+	var distance : float = actor.position.x - trap.position.x # FIXME : need to improve this to work with floors
+	return distance < DISTANCE_TO_TRAP
+		
 
 # Utility functions ------------------------------------------------------------
 

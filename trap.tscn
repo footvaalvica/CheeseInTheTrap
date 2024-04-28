@@ -17,7 +17,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Trap" type="Node2D"]
+[node name="Trap" type="Node2D" groups=["Trap"]]
 position = Vector2(228, 231)
 script = ExtResource("1_0ti6k")
 
