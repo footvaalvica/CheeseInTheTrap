@@ -52,7 +52,30 @@ func catch_jerry() -> void :
 func in_trap_range(actor : Player, trap : Node2D) -> bool :
 	var distance : float = actor.position.x - trap.position.x # FIXME : need to improve this to work with floors
 	return distance < DISTANCE_TO_TRAP
-		
+
+func can_place_trap(position : Vector2) -> bool :
+	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")
+	for trap_object in trap_object_list :
+		var trap_object_2d : Node2D = trap_object as Node2D
+		var distance : float = abs(trap_object_2d.position.x - position.x) # FIXME Check if in same level 
+		if distance < DISTANCE_TO_TRAP :
+			print_debug(distance)
+			print_debug(trap_object.name)
+			return false
+	return true
+
+func spawn_trap(trap : PackedScene, position : Vector2) -> void :
+	if _number_of_traps == 0 :
+		print_debug("out of traps")
+		return
+	if not can_place_trap(position):
+		print_debug("too close")
+		return
+	print_debug("place")
+	var trap_instance : Node2D = trap.instantiate() as Node2D
+	trap_instance.position = position
+	get_parent().add_child(trap_instance)
+	_number_of_traps -= 1
 
 # Utility functions ------------------------------------------------------------
 
