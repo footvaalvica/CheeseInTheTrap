@@ -11,6 +11,7 @@ var _clock : float = 0 :
 
 const TOTAL_CHEESE = 3
 const DISTANCE_TO_TRAP = 100 # FIXME : should this vary between tom and jerry ?
+const DISTANCE_TO_SHORTCUT = 150
 
 func _init():
 	_instance = self
@@ -45,13 +46,15 @@ func collect_trap() -> void :
 	
 func trap_jerry(trap : Trap) -> void :
 	jerry.trap(trap)
-	
+
 func catch_jerry() -> void :
 	jerry.caught()
-	
-func in_trap_range(actor : Player, trap : Node2D) -> bool :
-	var distance : float = actor.position.x - trap.position.x # FIXME : need to improve this to work with floors
-	return distance < DISTANCE_TO_TRAP
+
+func in_trap_range(actor : Player, trap : Node2D) -> bool :  #FIXME : need to improve this to work with floors
+	return get_distance(actor, trap) < DISTANCE_TO_TRAP
+
+func in_destroy_shortcut_range(actor : Player, shortcut : Node2D) -> bool :
+	return get_distance(actor, shortcut) < DISTANCE_TO_SHORTCUT
 
 func can_place_trap(position : Vector2) -> bool :
 	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")
@@ -88,3 +91,6 @@ func time_pretty_string() -> String :
 	var seconds : int = (time_in_ms / 60) % 60
 	var ms : int = time_in_ms % 60
 	return "%d:%d:%d" % [min, seconds, ms]
+	
+func get_distance(node1 : Node2D, node2 : Node2D) -> float : # check distance on horizontal plane
+	return abs(node1.position.x - node2.position.x)

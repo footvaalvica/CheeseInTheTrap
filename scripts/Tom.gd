@@ -10,6 +10,8 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("place_trap"): 
 		spawn_trap()
+	if Input.get_action_raw_strength("destroy_shortcut_tom") > 0 :
+		destroy_blocking_object(delta)
 
 func on_collision(body : Node2D) -> void :
 	var physics := body as PhysicsBody2D 
@@ -25,3 +27,7 @@ func spawn_trap() -> void :
 
 func get_action_name_extension() -> String :
 	return "tom"
+
+func get_shortcut_name() -> String :
+	return "JerryShortcut"
+

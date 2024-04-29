@@ -13,11 +13,13 @@ const DISABLE_TIME : float = 3
 
 func _process(delta):
 	if Input.get_action_strength("disable_trap") > 0 : 
-		_disable_counter += delta
-		if _disable_counter >= DISABLE_TIME :
-			disable_trap()
+		disable_trap(delta)
 	else :
 		_disable_counter = 0
+	if Input.get_action_strength("destroy_shortcut_jerry") > 0 :
+		destroy_blocking_object(delta)
+	else:
+		_destroy_counter = 0
 
 func movement(delta) -> void :
 	if _is_trapped :
@@ -49,20 +51,20 @@ func trap(trap : Trap) -> void :
 func caught() -> void :
 	queue_free() # TODO : do things when Jerry is caught ?
 	
-func disable_trap() -> void :
-	var in_range_trap : Trap = null
+func disable_trap(delta : float) -> void :
 	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")
 	for trap_object in trap_object_list :
 		var trap_script : Trap = trap_object as Trap
 		if not trap_script.active :
 			continue
 		if GameManager.instance().in_trap_range(self, trap_object) :
-			trap_script.active = false
-			print_debug("disarm")
-		
-# Input action functions -------------------------------------------------------
-
-
+			_disable_counter += delta
+			if _disable_counter >= DISABLE_TIME :
+				trap_script.active = false
+				print_debug("disarm")
+				return
+		else :
+			_disable_counter = 0
 
 # Utility functions ------------------------------------------------------------
 	
@@ -71,3 +73,6 @@ func switch_direction(direction:Direction) -> Direction :
 
 func get_action_name_extension() -> String :
 	return "jerry"
+	
+func get_shortcut_name() -> String :
+	return "TomShortcut"

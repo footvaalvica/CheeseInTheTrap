@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgwjoavqfqj5d"]
+
+[ext_resource type="Texture2D" uid="uid://bm2sdtvcpnakm" path="res://assets/bathtub.png" id="1_3gw0d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhtsc"]
+size = Vector2(163, 59)
+
+[node name="TomShortcut" type="Node2D" groups=["TomShortcut"]]
+position = Vector2(239, 60)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_3gw0d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.5, 5.5)
+shape = SubResource("RectangleShape2D_lhtsc")

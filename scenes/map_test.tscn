@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://lqms5vj1r5re"]
+
+[ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_qblyn"]
+[ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/jerry.tscn" id="2_cb3xo"]
+[ext_resource type="PackedScene" uid="uid://cj3gq3clc4b5o" path="res://scenes/prefabs/tom.tscn" id="3_sn6up"]
+[ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://scenes/prefabs/cheese.tscn" id="4_telum"]
+[ext_resource type="PackedScene" uid="uid://c72m4u7mpuxj" path="res://scenes/prefabs/trap.tscn" id="5_1bxr4"]
+[ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="6_aou2f"]
+[ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/tom_shortcut.tscn" id="7_j8h8u"]
+[ext_resource type="Script" path="res://scripts/shortcuts/GameShortcut.gd" id="8_rx5fb"]
+[ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/jerry_shortcut.tscn" id="9_q2kdp"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry") instance=ExtResource("1_qblyn")]
+tom = NodePath("../Tom")
+jerry = NodePath("../Jerry")
+
+[node name="Jerry" parent="." instance=ExtResource("2_cb3xo")]
+position = Vector2(397, 67)
+collision_mask = 17
+
+[node name="Tom" parent="." instance=ExtResource("3_sn6up")]
+collision_mask = 33
+
+[node name="Cheese" parent="." instance=ExtResource("4_telum")]
+position = Vector2(101, 66)
+
+[node name="AnimatedSprite2D" parent="Cheese" index="1"]
+scale = Vector2(0.15, 0.15)
+
+[node name="Trap" parent="." instance=ExtResource("5_1bxr4")]
+position = Vector2(-365, 66)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground"]
+position = Vector2(6, 7)
+texture = ExtResource("6_aou2f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TomShortcut" parent="." instance=ExtResource("7_j8h8u")]
+script = ExtResource("8_rx5fb")
+
+[node name="JerryShortcut" parent="." instance=ExtResource("9_q2kdp")]
+script = ExtResource("8_rx5fb")
+
+[editable path="Cheese"]
+[editable path="Trap"]

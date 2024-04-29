@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqacf4a3liqfq"]
+
+[ext_resource type="Texture2D" uid="uid://bm2sdtvcpnakm" path="res://assets/bathtub.png" id="1_efe12"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yeve"]
+size = Vector2(58, 179)
+
+[node name="JerryShortcut" type="Node2D" groups=["JerryShortcut"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_efe12")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-5, -1.5)
+shape = SubResource("RectangleShape2D_7yeve")
