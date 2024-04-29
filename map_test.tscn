@@ -1,56 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://lqms5vj1r5re"]
+[gd_scene load_steps=7 format=3 uid="uid://lqms5vj1r5re"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://game_manager.tscn" id="1_bsbho"]
 [ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://cheese.tscn" id="2_orwyy"]
-[ext_resource type="Script" path="res://scripts/Jerry.gd" id="2_rv48y"]
-[ext_resource type="Script" path="res://scripts/Tom.gd" id="4_w5ll2"]
+[ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://jerry.tscn" id="2_r7xgr"]
+[ext_resource type="PackedScene" uid="uid://cj3gq3clc4b5o" path="res://tom.tscn" id="3_f56lp"]
 [ext_resource type="PackedScene" uid="uid://c72m4u7mpuxj" path="res://trap.tscn" id="5_wyjd7"]
-[ext_resource type="Texture2D" uid="uid://uptdyucjpcpa" path="res://icon.svg" id="5_yio81"]
 [ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="6_03bv6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdxlj"]
-size = Vector2(25.5, 27.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_crvi1"]
-size = Vector2(35, 39)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry") instance=ExtResource("1_bsbho")]
-tom = NodePath("../Tom")
-jerry = NodePath("../Jerry")
+tom = NodePath("")
+jerry = NodePath("")
 
-[node name="Jerry" type="CharacterBody2D" parent="."]
-position = Vector2(-69, 63)
-collision_layer = 4
-script = ExtResource("2_rv48y")
+[node name="Jerry" parent="." instance=ExtResource("2_r7xgr")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jerry"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_qdxlj")
-
-[node name="Sprite2D" type="Sprite2D" parent="Jerry"]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("5_yio81")
-
-[node name="Tom" type="CharacterBody2D" parent="."]
-position = Vector2(-500, 63)
-collision_layer = 2
-script = ExtResource("4_w5ll2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tom"]
-shape = SubResource("RectangleShape2D_crvi1")
-
-[node name="Sprite2D" type="Sprite2D" parent="Tom"]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("5_yio81")
-
-[node name="Area2D" type="Area2D" parent="Tom"]
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tom/Area2D"]
-position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_crvi1")
+[node name="Tom" parent="." instance=ExtResource("3_f56lp")]
 
 [node name="Cheese" parent="." instance=ExtResource("2_orwyy")]
 position = Vector2(101, 66)
@@ -70,8 +35,6 @@ position = Vector2(6, 7)
 texture = ExtResource("6_03bv6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[connection signal="body_entered" from="Tom/Area2D" to="Tom" method="on_collision"]
 
 [editable path="Cheese"]
 [editable path="Trap"]

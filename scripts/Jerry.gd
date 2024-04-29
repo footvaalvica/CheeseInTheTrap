@@ -5,13 +5,19 @@ enum Direction {Left, Right}
 var _is_trapped : bool = false
 var _direction_to_press : Direction = Direction.Left
 var _stuck_counter : int = 0
+var _disable_counter : float = 0
 var _trap : Trap = null
 
 const STUCKMAX : int = 10
+const DISABLE_TIME : float = 3
 
 func _process(delta):
 	if Input.get_action_strength("disable_trap") > 0 : 
-		disable_trap()
+		_disable_counter += delta
+		if _disable_counter >= DISABLE_TIME :
+			disable_trap()
+	else :
+		_disable_counter = 0
 
 func movement(delta) -> void :
 	if _is_trapped :

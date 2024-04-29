@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkhktxkigb5cg"]
+
+[ext_resource type="Script" path="res://scripts/Jerry.gd" id="1_4let2"]
+[ext_resource type="Texture2D" uid="uid://uptdyucjpcpa" path="res://icon.svg" id="2_0uy6d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdxlj"]
+size = Vector2(25.5, 27.5)
+
+[node name="Jerry" type="CharacterBody2D"]
+position = Vector2(-69, 63)
+collision_layer = 4
+script = ExtResource("1_4let2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_qdxlj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_0uy6d")

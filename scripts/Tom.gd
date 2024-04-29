@@ -8,7 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.get_action_strength("place_trap") > 0 : 
+	if Input.is_action_just_pressed("place_trap"): 
 		spawn_trap()
 
 func on_collision(body : Node2D) -> void :
