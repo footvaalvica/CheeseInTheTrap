@@ -3,6 +3,7 @@ class_name GameManager extends Node
 static var _instance : GameManager
 var _number_of_cheese : int = 0
 var _number_of_traps : int = 3
+var _floor_0_y = 0
 var _clock : float = 0 : 
 	get : return _clock 
 	
@@ -18,7 +19,7 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	_floor_0_y = jerry.position.y
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -74,6 +75,9 @@ func spawn_trap(trap : PackedScene, position : Vector2) -> void :
 	trap_instance.position = position
 	get_parent().add_child(trap_instance)
 	_number_of_traps -= 1
+
+func adjust_y_to_floor(player : Player, floor : int) -> void : # FIXME : update this to work with actual floors 
+	player.position.y = _floor_0_y - floor * 100
 
 # Utility functions ------------------------------------------------------------
 

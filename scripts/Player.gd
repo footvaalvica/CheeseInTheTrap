@@ -1,6 +1,8 @@
 class_name Player extends CharacterBody2D
 
 var _destroy_counter : float = 0
+var _floor : int = 0 :
+	get : return _floor
 
 const DESTROY_TIME : float = 3
 const SPEED = 300.0
@@ -32,6 +34,12 @@ func destroy_blocking_object(delta : float) -> void :
 				return
 		else :
 			_destroy_counter = 0
+
+func move_to_floor(floor : int) :
+	if abs(floor - _floor) != 1 :
+		return
+	_floor = floor
+	GameManager.instance().adjust_y_to_floor(self, floor)
 
 func get_action_name_extension() -> String :
 	push_error("Using not implemented function.")

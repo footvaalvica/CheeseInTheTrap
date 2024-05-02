@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://lqms5vj1r5re"]
+[gd_scene load_steps=11 format=3 uid="uid://lqms5vj1r5re"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_qblyn"]
 [ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/jerry.tscn" id="2_cb3xo"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/tom_shortcut.tscn" id="7_j8h8u"]
 [ext_resource type="Script" path="res://scripts/shortcuts/GameShortcut.gd" id="8_rx5fb"]
 [ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/jerry_shortcut.tscn" id="9_q2kdp"]
+[ext_resource type="PackedScene" uid="uid://bqj766o4qrfo1" path="res://scenes/prefabs/trapdoor.tscn" id="10_bn61j"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -17,7 +18,7 @@ tom = NodePath("../Tom")
 jerry = NodePath("../Jerry")
 
 [node name="Jerry" parent="." instance=ExtResource("2_cb3xo")]
-position = Vector2(397, 67)
+position = Vector2(-152, 67)
 collision_mask = 17
 
 [node name="Tom" parent="." instance=ExtResource("3_sn6up")]
@@ -37,7 +38,7 @@ position = Vector2(-365, 66)
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground"]
-position = Vector2(6, 7)
+position = Vector2(-39, -93)
 texture = ExtResource("6_aou2f")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -47,6 +48,10 @@ script = ExtResource("8_rx5fb")
 
 [node name="JerryShortcut" parent="." instance=ExtResource("9_q2kdp")]
 script = ExtResource("8_rx5fb")
+
+[node name="Trapdoor" parent="." instance=ExtResource("10_bn61j")]
+position = Vector2(-323, -47)
+floor = 1
 
 [editable path="Cheese"]
 [editable path="Trap"]

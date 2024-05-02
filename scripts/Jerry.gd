@@ -9,7 +9,7 @@ var _disable_counter : float = 0
 var _trap : Trap = null
 
 const STUCKMAX : int = 10
-const DISABLE_TIME : float = 3
+const DISABLE_TIME : float = 1.5
 
 func _process(delta):
 	if Input.get_action_strength("disable_trap") > 0 : 
