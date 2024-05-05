@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8rbjhmyeomre"]
+
+[ext_resource type="Texture2D" uid="uid://bnuvnmmdcv72d" path="res://assets/stairs.png" id="1_10mjk"]
+[ext_resource type="Script" path="res://scripts/Stairs.gd" id="1_kf78t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7ysq"]
+size = Vector2(48, 80)
+
+[node name="Stairs" type="Node2D"]
+script = ExtResource("1_kf78t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("1_10mjk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_c7ysq")
+
+[connection signal="body_entered" from="Area2D" to="." method="add_stairs"]
+[connection signal="body_exited" from="Area2D" to="." method="remove_stairs"]

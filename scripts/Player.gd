@@ -8,6 +8,10 @@ const DESTROY_TIME : float = 3
 const SPEED = 300.0
 
 var player_id : int = 1
+var stairs_available : Array[Stairs]
+
+func _process(delta):
+	stairs()
 
 func _physics_process(delta):
 	movement(delta)
@@ -23,6 +27,11 @@ func get_input_vector() ->  Vector2 :
 	input_vector.x = Input.get_action_strength("move_right_%s" % player_id) \
 		- Input.get_action_strength("move_left_%s" % player_id)
 	return input_vector.normalized() if input_vector.length() > 1 else input_vector
+
+func stairs() -> void :
+	if stairs_available.size() == 0 :
+		return
+	
 
 func destroy_blocking_object(delta : float) -> void :
 	var in_range_blocking_object : Shortcut = null
@@ -42,6 +51,12 @@ func move_to_floor(floor : int) :
 		return
 	_floor = floor
 	GameManager.instance().adjust_y_to_floor(self, floor)
+
+func add_stairs(stairs : Stairs) -> void :
+	stairs_available.append(stairs)
+
+func remove_stairs(stairs : Stairs) -> void :
+	stairs_available.filter(func (st) : st != stairs)
 
 func update_with_resource(player_resource : PlayerResource) -> void :
 	player_id = player_resource.player_id

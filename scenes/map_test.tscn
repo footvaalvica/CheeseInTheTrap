@@ -1,17 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://lqms5vj1r5re"]
+[gd_scene load_steps=14 format=3 uid="uid://lqms5vj1r5re"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_qblyn"]
-[ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/jerry.tscn" id="2_cb3xo"]
+[ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="2_cb3xo"]
 [ext_resource type="Resource" uid="uid://8rn2gole7jue" path="res://resources/player1.tres" id="2_toce4"]
-[ext_resource type="PackedScene" uid="uid://cj3gq3clc4b5o" path="res://scenes/prefabs/tom.tscn" id="3_sn6up"]
+[ext_resource type="PackedScene" uid="uid://cj3gq3clc4b5o" path="res://scenes/prefabs/characters/tom.tscn" id="3_sn6up"]
 [ext_resource type="Resource" uid="uid://jgmqday0wh5l" path="res://resources/player2.tres" id="3_trd54"]
-[ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://scenes/prefabs/cheese.tscn" id="4_telum"]
-[ext_resource type="PackedScene" uid="uid://c72m4u7mpuxj" path="res://scenes/prefabs/trap.tscn" id="5_1bxr4"]
+[ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://scenes/prefabs/collectables/cheese.tscn" id="4_telum"]
 [ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="6_aou2f"]
-[ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/tom_shortcut.tscn" id="7_j8h8u"]
+[ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/shortcuts/tom_shortcut.tscn" id="7_j8h8u"]
 [ext_resource type="Script" path="res://scripts/shortcuts/GameShortcut.gd" id="8_rx5fb"]
-[ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/jerry_shortcut.tscn" id="9_q2kdp"]
-[ext_resource type="PackedScene" uid="uid://bqj766o4qrfo1" path="res://scenes/prefabs/trapdoor.tscn" id="10_bn61j"]
+[ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/shortcuts/jerry_shortcut.tscn" id="9_q2kdp"]
+[ext_resource type="PackedScene" uid="uid://bqj766o4qrfo1" path="res://scenes/prefabs/shortcuts/trapdoor.tscn" id="10_bn61j"]
+[ext_resource type="PackedScene" uid="uid://o1iwho47xbb0" path="res://scenes/prefabs/walls.tscn" id="12_46wad"]
+[ext_resource type="PackedScene" uid="uid://kioghlqk3bao" path="res://scenes/prefabs/stairs_group.tscn" id="13_mbsdk"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -22,20 +23,32 @@ player1 = ExtResource("2_toce4")
 player2 = ExtResource("3_trd54")
 
 [node name="Jerry" parent="." instance=ExtResource("2_cb3xo")]
-position = Vector2(-152, 67)
+z_index = 1
+position = Vector2(-480, 288)
 collision_mask = 17
 
 [node name="Tom" parent="." instance=ExtResource("3_sn6up")]
+z_index = 1
+position = Vector2(448, -256)
 collision_mask = 33
 
 [node name="Cheese" parent="." instance=ExtResource("4_telum")]
-position = Vector2(101, 66)
+position = Vector2(-424, 96)
 
 [node name="AnimatedSprite2D" parent="Cheese" index="1"]
 scale = Vector2(0.15, 0.15)
 
-[node name="Trap" parent="." instance=ExtResource("5_1bxr4")]
-position = Vector2(-365, 66)
+[node name="Cheese2" parent="." instance=ExtResource("4_telum")]
+position = Vector2(360, 0)
+
+[node name="AnimatedSprite2D" parent="Cheese2" index="1"]
+scale = Vector2(0.15, 0.15)
+
+[node name="Cheese3" parent="." instance=ExtResource("4_telum")]
+position = Vector2(-232, -184)
+
+[node name="AnimatedSprite2D" parent="Cheese3" index="1"]
+scale = Vector2(0.15, 0.15)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -48,14 +61,22 @@ texture = ExtResource("6_aou2f")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="TomShortcut" parent="." instance=ExtResource("7_j8h8u")]
+position = Vector2(-208, 272)
 script = ExtResource("8_rx5fb")
 
 [node name="JerryShortcut" parent="." instance=ExtResource("9_q2kdp")]
+position = Vector2(8, 184)
+scale = Vector2(1.22, 1.22)
 script = ExtResource("8_rx5fb")
 
 [node name="Trapdoor" parent="." instance=ExtResource("10_bn61j")]
-position = Vector2(-323, -47)
+position = Vector2(-272, 120)
 floor = 1
 
+[node name="Walls" parent="." instance=ExtResource("12_46wad")]
+
+[node name="StairsGroup" parent="." instance=ExtResource("13_mbsdk")]
+
 [editable path="Cheese"]
-[editable path="Trap"]
+[editable path="Cheese2"]
+[editable path="Cheese3"]
