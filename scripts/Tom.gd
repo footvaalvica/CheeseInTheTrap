@@ -9,11 +9,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("place_trap"): 
+	if Input.is_action_just_pressed("trap_action_%s" % player_id): 
 		spawn_trap()
-	if Input.get_action_raw_strength("destroy_shortcut_tom") > 0 :
+	if Input.get_action_raw_strength("destroy_shortcut_%s" % player_id) > 0 :
 		destroy_blocking_object(delta)
-	if Input.is_action_just_pressed("use_trapdoor") :
+	if Input.is_action_just_pressed("special2nd_%s" % player_id) :
 		use_trapdoor()
 
 func on_collision(body : Node2D) -> void :

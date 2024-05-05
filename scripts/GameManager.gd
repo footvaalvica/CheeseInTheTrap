@@ -9,6 +9,8 @@ var _clock : float = 0 :
 	
 @export var tom : Tom = null
 @export var jerry : Jerry = null
+@export var player1 : PlayerResource = null
+@export var player2 : PlayerResource = null
 
 const TOTAL_CHEESE = 3
 const DISTANCE_TO_TRAP = 100 # FIXME : should this vary between tom and jerry ?
@@ -20,6 +22,8 @@ func _init():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_floor_0_y = jerry.position.y
+	update_resource(player1)
+	update_resource(player2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,6 +33,14 @@ static func instance() -> GameManager :
 	return _instance
 
 # Game Logic functions ---------------------------------------------------------
+
+func update_resource(res : PlayerResource) : 
+	if res.character_name == "Tom":
+		tom.update_with_resource(res)
+	elif res.character_name == "Jerry":
+		jerry.update_with_resource(res)
+	else :
+		push_error("Using resouce with unknown character name.")
 
 func start_game() -> void :
 	_clock = 0

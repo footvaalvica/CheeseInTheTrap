@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=2 format=3 uid="uid://8rn2gole7jue"]
+
+[ext_resource type="Script" path="res://resources/scripts/player_resource.gd" id="1_hf8uq"]
+
+[resource]
+script = ExtResource("1_hf8uq")
+player_id = 1
+character_name = "Tom"

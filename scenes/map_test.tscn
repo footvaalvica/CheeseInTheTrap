@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://lqms5vj1r5re"]
+[gd_scene load_steps=13 format=3 uid="uid://lqms5vj1r5re"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_qblyn"]
 [ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/jerry.tscn" id="2_cb3xo"]
+[ext_resource type="Resource" uid="uid://8rn2gole7jue" path="res://resources/player1.tres" id="2_toce4"]
 [ext_resource type="PackedScene" uid="uid://cj3gq3clc4b5o" path="res://scenes/prefabs/tom.tscn" id="3_sn6up"]
+[ext_resource type="Resource" uid="uid://jgmqday0wh5l" path="res://resources/player2.tres" id="3_trd54"]
 [ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://scenes/prefabs/cheese.tscn" id="4_telum"]
 [ext_resource type="PackedScene" uid="uid://c72m4u7mpuxj" path="res://scenes/prefabs/trap.tscn" id="5_1bxr4"]
 [ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="6_aou2f"]
@@ -16,6 +18,8 @@
 [node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry") instance=ExtResource("1_qblyn")]
 tom = NodePath("../Tom")
 jerry = NodePath("../Jerry")
+player1 = ExtResource("2_toce4")
+player2 = ExtResource("3_trd54")
 
 [node name="Jerry" parent="." instance=ExtResource("2_cb3xo")]
 position = Vector2(-152, 67)

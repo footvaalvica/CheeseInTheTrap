@@ -7,6 +7,8 @@ var _floor : int = 0 :
 const DESTROY_TIME : float = 3
 const SPEED = 300.0
 
+var player_id : int = 1
+
 func _physics_process(delta):
 	movement(delta)
 
@@ -18,8 +20,8 @@ func movement(delta) -> void:
 
 func get_input_vector() ->  Vector2 :
 	var input_vector : Vector2 = Vector2.ZERO
-	var ext : String = get_action_name_extension()
-	input_vector.x = Input.get_action_strength("move_right_" + ext) - Input.get_action_strength("move_left_" + ext)
+	input_vector.x = Input.get_action_strength("move_right_%s" % player_id) \
+		- Input.get_action_strength("move_left_%s" % player_id)
 	return input_vector.normalized() if input_vector.length() > 1 else input_vector
 
 func destroy_blocking_object(delta : float) -> void :
@@ -41,9 +43,8 @@ func move_to_floor(floor : int) :
 	_floor = floor
 	GameManager.instance().adjust_y_to_floor(self, floor)
 
-func get_action_name_extension() -> String :
-	push_error("Using not implemented function.")
-	return ""
+func update_with_resource(player_resource : PlayerResource) -> void :
+	player_id = player_resource.player_id
 
 func get_shortcut_name() -> String :
 	push_error("Using not implemented function.")
