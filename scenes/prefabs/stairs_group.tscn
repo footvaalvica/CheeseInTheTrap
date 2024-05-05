@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://kioghlqk3bao"]
+
+[ext_resource type="PackedScene" uid="uid://c8rbjhmyeomre" path="res://scenes/prefabs/stairs.tscn" id="1_u0bc2"]
+
+[node name="StairsGroup" type="Node2D"]
+
+[node name="LeftStairs" type="Node2D" parent="."]
+
+[node name="Stairs" parent="LeftStairs" instance=ExtResource("1_u0bc2")]
+position = Vector2(-536, 272)
+
+[node name="Stairs2" parent="LeftStairs" instance=ExtResource("1_u0bc2")]
+position = Vector2(-536, 184)
+
+[node name="Stairs3" parent="LeftStairs" instance=ExtResource("1_u0bc2")]
+position = Vector2(-536, 88)
+
+[node name="Stairs4" parent="LeftStairs" instance=ExtResource("1_u0bc2")]
+position = Vector2(-536, 0)
+
+[node name="Stairs5" parent="LeftStairs" instance=ExtResource("1_u0bc2")]
+position = Vector2(-536, -88)
+
+[node name="Stairs6" parent="LeftStairs" instance=ExtResource("1_u0bc2")]
+position = Vector2(-536, -184)
+
+[node name="Stairs7" parent="LeftStairs" instance=ExtResource("1_u0bc2")]
+position = Vector2(-536, -272)
+
+[node name="RightStairs" type="Node2D" parent="."]
+position = Vector2(8, 0)
+scale = Vector2(-1, 1)
+
+[node name="Stairs" parent="RightStairs" instance=ExtResource("1_u0bc2")]
+position = Vector2(-536, 272)
+
+[node name="Stairs2" parent="RightStairs" instance=ExtResource("1_u0bc2")]
+position = Vector2(-536, 184)
+
+[node name="Stairs3" parent="RightStairs" instance=ExtResource("1_u0bc2")]
+position = Vector2(-536, 88)
+
+[node name="Stairs4" parent="RightStairs" instance=ExtResource("1_u0bc2")]
+position = Vector2(-536, 0)
+
+[node name="Stairs5" parent="RightStairs" instance=ExtResource("1_u0bc2")]
+position = Vector2(-536, -88)
+
+[node name="Stairs6" parent="RightStairs" instance=ExtResource("1_u0bc2")]
+position = Vector2(-536, -184)
+
+[node name="Stairs7" parent="RightStairs" instance=ExtResource("1_u0bc2")]
+position = Vector2(-536, -272)
