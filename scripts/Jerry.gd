@@ -12,11 +12,11 @@ const STUCKMAX : int = 10
 const DISABLE_TIME : float = 1.5
 
 func _process(delta):
-	if Input.get_action_strength("disable_trap") > 0 : 
+	if Input.get_action_strength("trap_action_%s" % player_id) > 0 : 
 		disable_trap(delta)
 	else :
 		_disable_counter = 0
-	if Input.get_action_strength("destroy_shortcut_jerry") > 0 :
+	if Input.get_action_strength("destroy_shortcut_%s" % player_id) > 0 :
 		destroy_blocking_object(delta)
 	else:
 		_destroy_counter = 0
@@ -47,7 +47,7 @@ func trap(trap : Trap) -> void :
 	_trap = trap
 	_direction_to_press = Direction.Left
 	_stuck_counter = 0
-	
+
 func caught() -> void :
 	queue_free() # TODO : do things when Jerry is caught ?
 	
@@ -71,8 +71,5 @@ func disable_trap(delta : float) -> void :
 func switch_direction(direction:Direction) -> Direction :
 	return Direction.Right if direction == Direction.Left else Direction.Left
 
-func get_action_name_extension() -> String :
-	return "jerry"
-	
 func get_shortcut_name() -> String :
 	return "TomShortcut"
