@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://370afit8fmo7"]
 
-[ext_resource type="Script" path="res://scripts/Cheese.gd" id="1_7bhrn"]
+[ext_resource type="Script" path="res://scripts/collectables/Cheese.gd" id="1_7bhrn"]
 [ext_resource type="Texture2D" uid="uid://ppd13xe4k4w4" path="res://assets/cheese.png" id="2_r78p1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jwqo8"]
