@@ -4,6 +4,10 @@ var high_score_table : Array[HighScoreEntry]
 const MAX_TABLE = 10
 const FILE_PATH = "res://highscores.dat"
 
+@export var text_edit : TextEdit
+@export var cheese : int
+@export var time : float
+
 func _ready():
 	load_highscores()
 	high_score_table = [HighScoreEntry.new("a", 2, 2)]
@@ -38,13 +42,20 @@ func add_score(name : String, cheese : int, time : float) :
 	var length : int = min(high_score_table.size() + 1, MAX_TABLE)
 	var i : int = 0
 	var propagate : bool = false
+	if length < 10 :
+		high_score_table.resize(length + 1)
 	while i < length:
-		if (entry.compare_to(high_score_table[i]) > 0) or propagate :
+		if (entry == null or entry.compare_to(high_score_table[i]) > 0) or propagate :
 			var tmp = high_score_table[i]
 			high_score_table[i] = entry
 			entry = tmp
 			propagate = true
+		i += 1
 
 func is_new_score(cheese : int, time : float) :
 	var length = min(high_score_table.size() + 1, MAX_TABLE)
 	return high_score_table[length].compare_to_values(cheese, time)
+
+func button_pressed():
+	var name = text_edit.text
+	add_score(name, cheese, time)

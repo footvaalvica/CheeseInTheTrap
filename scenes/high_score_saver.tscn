@@ -5,7 +5,6 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 follow_viewport_enabled = true
 
 [node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
@@ -22,5 +21,18 @@ grow_horizontal = 2
 grow_vertical = 2
 placeholder_text = "player name"
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 520.0
+offset_top = 360.0
+offset_right = 616.0
+offset_bottom = 384.0
+size_flags_horizontal = 4
+text = "Save"
+
+[node name="HighScoreManager" type="Node2D" parent="." node_paths=PackedStringArray("text_edit")]
 script = ExtResource("1_gx6yk")
+text_edit = NodePath("../CanvasLayer/TextEdit")
+cheese = 2
+time = 1.13
+
+[connection signal="button_up" from="CanvasLayer/Button" to="HighScoreManager" method="button_pressed"]
