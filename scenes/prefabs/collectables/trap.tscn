@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c72m4u7mpuxj"]
 
-[ext_resource type="Script" path="res://scripts/Trap.gd" id="1_0ti6k"]
+[ext_resource type="Script" path="res://scripts/collectables/Trap.gd" id="1_0ti6k"]
 [ext_resource type="Texture2D" uid="uid://264o6fsvlvje" path="res://assets/trap1.png" id="2_s7y67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdr73"]

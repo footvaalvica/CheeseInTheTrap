@@ -7,11 +7,16 @@ var _direction_to_press : Direction = Direction.Left
 var _stuck_counter : int = 0
 var _disable_counter : float = 0
 var _trap : Trap = null
+var _holes : Array[Hole]
 
 const STUCKMAX : int = 10
 const DISABLE_TIME : float = 1.5
 
 func _process(delta):
+	super._process(delta)
+	if Input.is_action_just_pressed("special_%s" % player_id) and (_holes.size() > 0):
+		queue_free()
+		print_debug("jerry escaped") # TODO : connect to endgame
 	if Input.get_action_strength("trap_action_%s" % player_id) > 0 : 
 		disable_trap(delta)
 	else :
@@ -67,6 +72,12 @@ func disable_trap(delta : float) -> void :
 			_disable_counter = 0
 
 # Utility functions ------------------------------------------------------------
+	
+func add_hole(hole : Hole) -> void :
+	_holes.append(hole)
+	
+func remove_hole(hole : Hole) -> void :
+	_holes = _holes.filter(func (h) : return h != hole)
 	
 func switch_direction(direction:Direction) -> Direction :
 	return Direction.Right if direction == Direction.Left else Direction.Left

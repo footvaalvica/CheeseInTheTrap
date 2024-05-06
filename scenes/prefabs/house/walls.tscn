@@ -5,6 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crfsq"]
 
 [node name="Walls" type="Node2D"]
+z_index = 1
 
 [node name="Borders" type="Node2D" parent="."]
 
@@ -13,7 +14,6 @@ position = Vector2(0, 320)
 scale = Vector2(1155, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="Borders/WallDown"]
-scale = Vector2(1, 1)
 texture = ExtResource("1_sxiy3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Borders/WallDown"]
@@ -27,7 +27,6 @@ position = Vector2(568, 0)
 scale = Vector2(20, 650)
 
 [node name="Sprite2D" type="Sprite2D" parent="Borders/WallRight"]
-scale = Vector2(1, 1)
 texture = ExtResource("1_sxiy3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Borders/WallRight"]
@@ -41,7 +40,6 @@ position = Vector2(0, -320)
 scale = Vector2(1155, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="Borders/WallTop"]
-scale = Vector2(1, 1)
 texture = ExtResource("1_sxiy3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Borders/WallTop"]
@@ -55,7 +53,6 @@ position = Vector2(-568, 0)
 scale = Vector2(20, 650)
 
 [node name="Sprite2D" type="Sprite2D" parent="Borders/WallLeft"]
-scale = Vector2(1, 1)
 texture = ExtResource("1_sxiy3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Borders/WallLeft"]
@@ -72,7 +69,6 @@ position = Vector2(0, 228.57)
 scale = Vector2(1155, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="Floors/1stFloor"]
-scale = Vector2(1, 1)
 texture = ExtResource("1_sxiy3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Floors/1stFloor"]
@@ -86,7 +82,6 @@ position = Vector2(0, 137.14)
 scale = Vector2(1155, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="Floors/2ndFloor"]
-scale = Vector2(1, 1)
 texture = ExtResource("1_sxiy3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Floors/2ndFloor"]
@@ -100,7 +95,6 @@ position = Vector2(0, 45.71)
 scale = Vector2(1155, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="Floors/3rdFloor"]
-scale = Vector2(1, 1)
 texture = ExtResource("1_sxiy3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Floors/3rdFloor"]
@@ -114,7 +108,6 @@ position = Vector2(0, -45.72)
 scale = Vector2(1155, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="Floors/4thFloor"]
-scale = Vector2(1, 1)
 texture = ExtResource("1_sxiy3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Floors/4thFloor"]
@@ -128,7 +121,6 @@ position = Vector2(0, -137.15)
 scale = Vector2(1155, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="Floors/5thFloor"]
-scale = Vector2(1, 1)
 texture = ExtResource("1_sxiy3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Floors/5thFloor"]
@@ -142,7 +134,6 @@ position = Vector2(0, -228.58)
 scale = Vector2(1155, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="Floors/6thFloor"]
-scale = Vector2(1, 1)
 texture = ExtResource("1_sxiy3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Floors/6thFloor"]

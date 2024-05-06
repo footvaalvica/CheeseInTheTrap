@@ -11,10 +11,13 @@ var _clock : float = 0 :
 @export var jerry : Jerry = null
 @export var player1 : PlayerResource = null
 @export var player2 : PlayerResource = null
+@export var hole2 : Hole = null
 
 const TOTAL_CHEESE = 3
 const DISTANCE_TO_TRAP = 100 # FIXME : should this vary between tom and jerry ?
 const DISTANCE_TO_SHORTCUT = 150
+const MAX_FLOOR = 6
+const FLOOR_Y_DIFFERENCE = 91.43
 
 func _init():
 	_instance = self
@@ -24,6 +27,8 @@ func _ready():
 	_floor_0_y = jerry.position.y
 	update_resource(player1)
 	update_resource(player2)
+	hole2.hide()
+	hole2.process_mode = Node.PROCESS_MODE_DISABLED
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -53,6 +58,9 @@ func end_game_tom() -> void :
 
 func collect_cheese() -> void :
 	_number_of_cheese += 1
+	if _number_of_cheese == 2: # Enable 2nd hole when 2nd cheese caught
+		hole2.visible = true
+		hole2.process_mode = Node.PROCESS_MODE_INHERIT
 
 func collect_trap() -> void :
 	_number_of_traps += 1
@@ -89,7 +97,8 @@ func spawn_trap(trap : PackedScene, position : Vector2) -> void :
 	_number_of_traps -= 1
 
 func adjust_y_to_floor(player : Player, floor : int) -> void : # FIXME : update this to work with actual floors 
-	player.position.y = _floor_0_y - floor * 100
+	print_debug("%s moving to $s" % [player.name, _floor_0_y - floor * FLOOR_Y_DIFFERENCE])
+	player.position.y = _floor_0_y - floor * FLOOR_Y_DIFFERENCE
 
 # Utility functions ------------------------------------------------------------
 

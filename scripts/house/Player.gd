@@ -31,7 +31,11 @@ func get_input_vector() ->  Vector2 :
 func stairs() -> void :
 	if stairs_available.size() == 0 :
 		return
-	
+	var stairs_chosen : Stairs = stairs_available[0]
+	if Input.is_action_just_pressed("move_up_%s" % player_id):
+		move_to_floor(_floor + 1)
+	elif Input.is_action_just_pressed("move_down_%s" % player_id):
+		move_to_floor(_floor - 1)
 
 func destroy_blocking_object(delta : float) -> void :
 	var in_range_blocking_object : Shortcut = null
@@ -47,16 +51,20 @@ func destroy_blocking_object(delta : float) -> void :
 			_destroy_counter = 0
 
 func move_to_floor(floor : int) :
+	if floor > GameManager.instance().MAX_FLOOR or floor < 0:
+		return
+	print_debug("move to floor")
 	if abs(floor - _floor) != 1 :
 		return
 	_floor = floor
+	print_debug("adjusting floor")
 	GameManager.instance().adjust_y_to_floor(self, floor)
 
 func add_stairs(stairs : Stairs) -> void :
 	stairs_available.append(stairs)
 
 func remove_stairs(stairs : Stairs) -> void :
-	stairs_available.filter(func (st) : st != stairs)
+	stairs_available = stairs_available.filter(func (st) : return st != stairs)
 
 func update_with_resource(player_resource : PlayerResource) -> void :
 	player_id = player_resource.player_id

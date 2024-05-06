@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://kioghlqk3bao"]
 
-[ext_resource type="PackedScene" uid="uid://c8rbjhmyeomre" path="res://scenes/prefabs/stairs.tscn" id="1_u0bc2"]
+[ext_resource type="PackedScene" uid="uid://c8rbjhmyeomre" path="res://scenes/prefabs/house/stairs.tscn" id="1_u0bc2"]
 
 [node name="StairsGroup" type="Node2D"]
 
