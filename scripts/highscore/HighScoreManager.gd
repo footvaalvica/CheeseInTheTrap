@@ -10,7 +10,8 @@ const FILE_PATH = "res://highscores.dat"
 
 func _ready():
 	load_highscores()
-	high_score_table = [HighScoreEntry.new("a", 2, 2)]
+
+func _exit_tree():
 	save_highscores()
 
 func load_highscores() : 
@@ -42,10 +43,11 @@ func add_score(name : String, cheese : int, time : float) :
 	var length : int = min(high_score_table.size() + 1, MAX_TABLE)
 	var i : int = 0
 	var propagate : bool = false
-	if length < 10 :
-		high_score_table.resize(length + 1)
+	if high_score_table.size() < length :
+		high_score_table.resize(length)
 	while i < length:
-		if (entry == null or entry.compare_to(high_score_table[i]) > 0) or propagate :
+		if high_score_table[i] == null or entry.compare_to(high_score_table[i]) \
+			> 0 or propagate :
 			var tmp = high_score_table[i]
 			high_score_table[i] = entry
 			entry = tmp
