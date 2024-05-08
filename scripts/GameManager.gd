@@ -99,46 +99,48 @@ func trap_jerry(trap : Trap) -> void :
 func catch_jerry() -> void :
 	jerry.caught()
 
-func in_trap_range(actor : Player, trap : Node2D) -> bool :  #FIXME : need to improve this to work with floors
-	return get_distance(actor, trap) < DISTANCE_TO_TRAP
+func in_trap_range(actor : Player, trap : Trap) -> bool :
+	return trap._floor == actor._floor and get_distance(actor, trap) < DISTANCE_TO_TRAP
 
 func in_destroy_shortcut_range(actor : Player, shortcut : Node2D) -> bool :
 	return get_distance(actor, shortcut) < DISTANCE_TO_SHORTCUT
 
-func can_place_trap(position : Vector2) -> bool :
+func can_place_trap(position : Vector2, floor : int) -> bool :
 	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")
 	for trap_object in trap_object_list :
-		var trap_object_2d : Node2D = trap_object as Node2D
-		var distance : float = abs(trap_object_2d.position.x - position.x) # FIXME Check if in same level 
-		if distance < DISTANCE_TO_TRAP :
+		var trap : Trap = trap_object as Trap
+		var distance : float = abs(trap.position.x - position.x) 
+		if trap._floor == floor and distance < DISTANCE_TO_TRAP :
 			return false
 	return true
 
-func spawn_trap(trap : PackedScene, position : Vector2) -> void :
+func spawn_trap(trap : PackedScene, position : Vector2, floor : int) -> void :
 	if _number_of_traps == 0 :
 		return
-	if not can_place_trap(position):
+	if not can_place_trap(position, floor):
 		return
 	var trap_instance : Node2D = trap.instantiate() as Node2D
 	trap_instance.position = position
 	get_parent().add_child(trap_instance)
+	(trap_instance as Trap).place(floor)
 	_number_of_traps -= 1
 
-func pick_up_trap(position : Vector2) -> void :
+func pick_up_trap(position : Vector2, floor : int) -> void :
 	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")
 	var min_dist : float = INF
 	var min_trap : Trap = null
 	for trap_object in trap_object_list :
 		var trap : Trap = trap_object as Trap
 		var distance : float = abs(trap.position.x - position.x)
-		if (distance < DISTANCE_TO_TRAP and distance < min_dist) :
+		print_debug("%s vs %s" % [trap._floor, floor])
+		if (trap._floor == floor and distance < DISTANCE_TO_TRAP and distance < min_dist) :
 			min_dist = distance
 			min_trap = trap
 	if (min_trap != null) :
 		collect_trap()
 		min_trap.collect()
 
-func adjust_y_to_floor(player : Player, floor : int) -> void : # FIXME : update this to work with actual floors 
+func adjust_y_to_floor(player : Player, floor : int) -> void :
 	print_debug("%s moving to $s" % [player.name, _floor_0_y - floor * FLOOR_Y_DIFFERENCE])
 	player.position.y = _floor_0_y - floor * FLOOR_Y_DIFFERENCE
 

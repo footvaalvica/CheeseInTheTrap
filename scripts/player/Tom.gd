@@ -28,10 +28,10 @@ func on_collision(body : Node2D) -> void :
 		GameManager.instance().catch_jerry()
 
 func spawn_trap() -> void :
-	GameManager.instance().spawn_trap(trap_scene, position)
+	GameManager.instance().spawn_trap(trap_scene, position, _floor)
 
 func pickup_trap() -> void :
-	GameManager.instance().pick_up_trap(position)
+	GameManager.instance().pick_up_trap(position, _floor)
 	
 func add_trapdoor(trapdoor : Trapdoor) -> void :
 	trapdoors_available.append(trapdoor)
