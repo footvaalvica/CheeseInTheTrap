@@ -60,7 +60,7 @@ visible = false
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground"]
-position = Vector2(-39, -93)
+position = Vector2(8, -152)
 texture = ExtResource("6_aou2f")
 
 [node name="Camera2D" type="Camera2D" parent="."]
