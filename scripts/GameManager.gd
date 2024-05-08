@@ -6,6 +6,9 @@ var _number_of_traps : int = 3
 var _floor_0_y = 0
 var _clock : float = 0 : 
 	get : return _clock 
+var _ready1 : bool = true
+var _ready2 : bool = true
+var _spawning : bool = false
 	
 @export var tom : Tom = null
 @export var jerry : Jerry = null
@@ -30,13 +33,17 @@ func _ready():
 	update_resource(player2)
 	hole2.hide()
 	hole2.process_mode = Node.PROCESS_MODE_DISABLED
-	tom.process_mode = Node.PROCESS_MODE_DISABLED
-	jerry.process_mode = Node.PROCESS_MODE_DISABLED
 	start_trap_spawning()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_clock += delta
+	if Input.is_action_just_pressed("ready_1"):
+		_ready1 = not _ready1
+	if Input.is_action_just_pressed("ready_2"):
+		_ready2 = not _ready2
+	if (_spawning and _ready2 and _ready1) :
+		end_trap_spawning()
 
 static func instance() -> GameManager :
 	return _instance
@@ -53,7 +60,18 @@ func update_resource(res : PlayerResource) :
 		push_error("Using resouce with unknown character name.")
 
 func start_trap_spawning() -> void :
-	pass
+	tom.process_mode = Node.PROCESS_MODE_DISABLED
+	jerry.process_mode = Node.PROCESS_MODE_DISABLED
+	_ready1 = false
+	_ready2 = false
+	_spawning = true
+
+func end_trap_spawning() -> void :
+	trap_placer.process_mode = Node.PROCESS_MODE_DISABLED
+	trap_placer.hide()
+	tom.process_mode = Node.PROCESS_MODE_INHERIT
+	jerry.process_mode = Node.PROCESS_MODE_INHERIT
+	_spawning = false
 
 func start_game() -> void :
 	_clock = 0
