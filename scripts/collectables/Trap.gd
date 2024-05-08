@@ -1,7 +1,8 @@
-class_name Trap extends Node
+class_name Trap extends Node2D
 
 var active : bool = true
 var _cooldown : float = 0
+var _floor : float = 0
 
 const COOLDOWN_TIME = 5
 
@@ -25,5 +26,8 @@ func on_collision(body : Node2D) -> void:
 func collect() -> void:
 	queue_free()
 	
+func place(floor : int) -> void :
+	_floor = floor
+
 func activate_cooldown() -> void :
 	_cooldown = COOLDOWN_TIME
