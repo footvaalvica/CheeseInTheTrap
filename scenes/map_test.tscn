@@ -88,7 +88,6 @@ floor = 2
 position = Vector2(184, 104)
 
 [node name="TrapPlacer" parent="." instance=ExtResource("15_lp7f4")]
-visible = false
 
 [editable path="Cheese"]
 [editable path="Cheese2"]
