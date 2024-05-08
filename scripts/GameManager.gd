@@ -80,9 +80,14 @@ func start_game() -> void :
 	
 func end_game_jerry() -> void :
 	print_end_game_string_jerry()
+	end_game()
 
 func end_game_tom() -> void :
 	print_end_game_string_tom()
+	end_game()
+
+func end_game() -> void :
+	get_tree().change_scene_to_file("res://scenes/high_score_saver.tscn")
 
 func collect_cheese() -> void :
 	_number_of_cheese += 1
