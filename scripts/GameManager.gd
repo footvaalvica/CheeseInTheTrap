@@ -9,6 +9,7 @@ var _clock : float = 0 :
 	
 @export var tom : Tom = null
 @export var jerry : Jerry = null
+@export var trap_placer : TrapPlacer = null
 @export var player1 : PlayerResource = null
 @export var player2 : PlayerResource = null
 @export var hole2 : Hole = null
@@ -29,6 +30,9 @@ func _ready():
 	update_resource(player2)
 	hole2.hide()
 	hole2.process_mode = Node.PROCESS_MODE_DISABLED
+	tom.process_mode = Node.PROCESS_MODE_DISABLED
+	jerry.process_mode = Node.PROCESS_MODE_DISABLED
+	start_trap_spawning()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -42,13 +46,19 @@ static func instance() -> GameManager :
 func update_resource(res : PlayerResource) : 
 	if res.character_name == "Tom":
 		tom.update_with_resource(res)
+		trap_placer.update_player_id(res.player_id)
 	elif res.character_name == "Jerry":
 		jerry.update_with_resource(res)
 	else :
 		push_error("Using resouce with unknown character name.")
 
+func start_trap_spawning() -> void :
+	pass
+
 func start_game() -> void :
 	_clock = 0
+	tom.process_mode = Node.PROCESS_MODE_INHERIT
+	jerry.process_mode = Node.PROCESS_MODE_INHERIT
 	
 func end_game_jerry() -> void :
 	print_end_game_string_jerry()
@@ -95,6 +105,20 @@ func spawn_trap(trap : PackedScene, position : Vector2) -> void :
 	trap_instance.position = position
 	get_parent().add_child(trap_instance)
 	_number_of_traps -= 1
+
+func pick_up_trap(position : Vector2) -> void :
+	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")
+	var min_dist : float = INF
+	var min_trap : Trap = null
+	for trap_object in trap_object_list :
+		var trap : Trap = trap_object as Trap
+		var distance : float = abs(trap.position.x - position.x)
+		if (distance < DISTANCE_TO_TRAP and distance < min_dist) :
+			min_dist = distance
+			min_trap = trap
+	if (min_trap != null) :
+		collect_trap()
+		min_trap.collect()
 
 func adjust_y_to_floor(player : Player, floor : int) -> void : # FIXME : update this to work with actual floors 
 	print_debug("%s moving to $s" % [player.name, _floor_0_y - floor * FLOOR_Y_DIFFERENCE])
