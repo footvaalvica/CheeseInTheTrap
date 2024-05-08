@@ -15,8 +15,7 @@ const DISABLE_TIME : float = 1.5
 func _process(delta):
 	super._process(delta)
 	if Input.is_action_just_pressed("special_%s" % player_id) and (_holes.size() > 0):
-		queue_free()
-		print_debug("jerry escaped") # TODO : connect to endgame
+		enter_hole()
 	if Input.get_action_strength("trap_action_%s" % player_id) > 0 : 
 		disable_trap(delta)
 	else :
@@ -54,7 +53,12 @@ func trap(trap : Trap) -> void :
 	_stuck_counter = 0
 
 func caught() -> void :
-	queue_free() # TODO : do things when Jerry is caught ?
+	queue_free()
+	GameManager.instance().end_game_tom()
+	
+func enter_hole() -> void :
+	queue_free()
+	GameManager.instance().end_game_jerry()
 	
 func disable_trap(delta : float) -> void :
 	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")

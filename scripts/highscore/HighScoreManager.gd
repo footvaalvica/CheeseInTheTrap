@@ -10,6 +10,8 @@ const FILE_PATH = "res://highscores.dat"
 
 func _ready():
 	load_highscores()
+	if ( ! is_new_score(cheese, time)) :
+		get_tree().quit()
 
 func _exit_tree():
 	save_highscores()
@@ -55,9 +57,10 @@ func add_score(name : String, cheese : int, time : float) :
 		i += 1
 
 func is_new_score(cheese : int, time : float) :
-	var length = min(high_score_table.size() + 1, MAX_TABLE)
-	return high_score_table[length].compare_to_values(cheese, time)
+	var length = min(high_score_table.size(), MAX_TABLE)
+	return length < 10 or high_score_table[length - 1].compare_to_values(cheese, time) < 0
 
 func button_pressed():
 	var name = text_edit.text
 	add_score(name, cheese, time)
+	get_tree().quit()
