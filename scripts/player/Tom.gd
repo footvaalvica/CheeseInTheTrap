@@ -1,6 +1,6 @@
 class_name Tom extends Player
 
-var trap_scene : PackedScene = load("res://scenes/prefabs/trap.tscn")
+var trap_scene : PackedScene = load("res://scenes/prefabs/collectables/trap.tscn")
 var trapdoors_available : Array[Trapdoor] = []
 
 func _ready():
@@ -9,10 +9,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	super._process(delta)
-	if Input.is_action_just_pressed("trap_action_%s" % player_id): 
+	if Input.is_action_just_pressed("trap_action_%s" % player_id) :
 		spawn_trap()
 	if Input.get_action_raw_strength("destroy_shortcut_%s" % player_id) > 0 :
 		destroy_blocking_object(delta)
+	if Input.is_action_just_pressed("special_%s" % player_id) :
+		pickup_trap()
 	if Input.is_action_just_pressed("special2nd_%s" % player_id) :
 		use_trapdoor()
 
@@ -27,6 +29,9 @@ func on_collision(body : Node2D) -> void :
 
 func spawn_trap() -> void :
 	GameManager.instance().spawn_trap(trap_scene, position)
+
+func pickup_trap() -> void :
+	GameManager.instance().pick_up_trap(position)
 	
 func add_trapdoor(trapdoor : Trapdoor) -> void :
 	trapdoors_available.append(trapdoor)

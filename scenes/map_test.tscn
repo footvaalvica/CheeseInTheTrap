@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://lqms5vj1r5re"]
+[gd_scene load_steps=16 format=3 uid="uid://lqms5vj1r5re"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_qblyn"]
 [ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="2_cb3xo"]
@@ -14,12 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://o1iwho47xbb0" path="res://scenes/prefabs/house/walls.tscn" id="12_46wad"]
 [ext_resource type="PackedScene" uid="uid://kioghlqk3bao" path="res://scenes/prefabs/house/stairs_group.tscn" id="13_mbsdk"]
 [ext_resource type="PackedScene" uid="uid://dbygtbjtb5xnp" path="res://scenes/prefabs/house/hole.tscn" id="14_slfqy"]
+[ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="15_lp7f4"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "hole2") instance=ExtResource("1_qblyn")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "hole2") instance=ExtResource("1_qblyn")]
 tom = NodePath("../Tom")
 jerry = NodePath("../Jerry")
+trap_placer = NodePath("../TrapPlacer")
 player1 = ExtResource("2_toce4")
 player2 = ExtResource("3_trd54")
 hole2 = NodePath("../Hole2")
@@ -84,6 +86,9 @@ floor = 2
 
 [node name="Hole2" parent="." instance=ExtResource("14_slfqy")]
 position = Vector2(184, 104)
+
+[node name="TrapPlacer" parent="." instance=ExtResource("15_lp7f4")]
+visible = false
 
 [editable path="Cheese"]
 [editable path="Cheese2"]
