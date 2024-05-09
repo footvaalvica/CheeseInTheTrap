@@ -28,7 +28,6 @@ position = Vector2(-536, -184)
 position = Vector2(-536, -272)
 
 [node name="RightStairs" type="Node2D" parent="."]
-position = Vector2(8, 0)
 scale = Vector2(-1, 1)
 
 [node name="Stairs" parent="RightStairs" instance=ExtResource("1_u0bc2")]

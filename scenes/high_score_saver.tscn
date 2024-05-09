@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://2hcb8cjnqasc"]
+[gd_scene load_steps=3 format=3 uid="uid://2hcb8cjnqasc"]
 
 [ext_resource type="Script" path="res://scripts/highscore/HighScoreManager.gd" id="1_gx6yk"]
+[ext_resource type="Resource" uid="uid://cgujiwi5yrix5" path="res://resources/game_score.tres" id="2_1lnks"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -32,7 +33,6 @@ text = "Save"
 [node name="HighScoreManager" type="Node2D" parent="." node_paths=PackedStringArray("text_edit")]
 script = ExtResource("1_gx6yk")
 text_edit = NodePath("../CanvasLayer/TextEdit")
-cheese = 2
-time = 1.13
+game_score = ExtResource("2_1lnks")
 
 [connection signal="button_up" from="CanvasLayer/Button" to="HighScoreManager" method="button_pressed"]
