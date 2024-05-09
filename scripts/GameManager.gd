@@ -86,11 +86,12 @@ func end_game_jerry() -> void :
 
 func end_game_tom() -> void :
 	print_end_game_string_tom()
-	game_score.cheese = 3 - _number_of_cheese
+	game_score.cheese = TOTAL_CHEESE - _number_of_cheese
 	end_game()
 
 func end_game() -> void :
 	game_score.time = _clock / 60
+	print_debug("switching scene")
 	get_tree().change_scene_to_file("res://scenes/high_score_saver.tscn")
 
 func collect_cheese() -> void :

@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://jgmqday0wh5l" path="res://resources/player2.tres" id="3_trd54"]
 [ext_resource type="Resource" uid="uid://cgujiwi5yrix5" path="res://resources/game_score.tres" id="4_i13m6"]
 [ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://scenes/prefabs/collectables/cheese.tscn" id="4_telum"]
-[ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="6_aou2f"]
+[ext_resource type="Texture2D" uid="uid://dibtrddfjmnv8" path="res://assets/background.jpg" id="6_aou2f"]
 [ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/shortcuts/tom_shortcut.tscn" id="7_j8h8u"]
 [ext_resource type="Script" path="res://scripts/shortcuts/GameShortcut.gd" id="8_rx5fb"]
 [ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/shortcuts/jerry_shortcut.tscn" id="9_q2kdp"]
