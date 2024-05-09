@@ -71,9 +71,8 @@ func disable_trap(delta : float) -> void :
 			if _disable_counter >= DISABLE_TIME :
 				trap_script.active = false
 				print_debug("disarm")
-				return
-		else :
-			_disable_counter = 0
+			return
+	_disable_counter = 0
 
 # Utility functions ------------------------------------------------------------
 	
