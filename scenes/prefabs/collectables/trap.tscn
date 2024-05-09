@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c72m4u7mpuxj"]
+[gd_scene load_steps=6 format=3 uid="uid://c72m4u7mpuxj"]
 
 [ext_resource type="Script" path="res://scripts/collectables/Trap.gd" id="1_0ti6k"]
 [ext_resource type="Texture2D" uid="uid://264o6fsvlvje" path="res://assets/trap1.png" id="2_s7y67"]
+[ext_resource type="Texture2D" uid="uid://bpncjyi8whcum" path="res://assets/trap_area.png" id="3_dkpnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdr73"]
 size = Vector2(68, 20)
@@ -20,6 +21,7 @@ animations = [{
 [node name="Trap" type="Node2D" groups=["Trap"]]
 position = Vector2(228, 231)
 script = ExtResource("1_0ti6k")
+metadata/_edit_horizontal_guides_ = [-216.0]
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
@@ -32,5 +34,12 @@ shape = SubResource("RectangleShape2D_bdr73")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_q84jl")
+
+[node name="DisarmArea" type="Node2D" parent="."]
+scale = Vector2(20, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="DisarmArea"]
+scale = Vector2(0.008, 0.008)
+texture = ExtResource("3_dkpnd")
 
 [connection signal="body_entered" from="Area2D" to="." method="on_collision"]
