@@ -115,8 +115,8 @@ func catch_jerry() -> void :
 func in_trap_range(actor : Player, trap : Trap) -> bool :
 	return trap._floor == actor._floor and get_distance(actor, trap) < DISTANCE_TO_TRAP
 
-func in_destroy_shortcut_range(actor : Player, shortcut : Node2D) -> bool :
-	return get_distance(actor, shortcut) < DISTANCE_TO_SHORTCUT
+func in_destroy_shortcut_range(actor : Player, shortcut : GameShortcut) -> bool :
+	return actor._floor == shortcut.floor and get_distance(actor, shortcut) < DISTANCE_TO_SHORTCUT
 
 func can_place_trap(position : Vector2, floor : int) -> bool :
 	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")
