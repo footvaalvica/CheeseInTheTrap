@@ -5,10 +5,13 @@ const MAX_TABLE = 10
 const FILE_PATH = "res://highscores.dat"
 
 @export var text_edit : TextEdit
-@export var cheese : int
-@export var time : float
+@export var game_score : GameScore
+var cheese : int
+var time : float
 
 func _ready():
+	cheese = game_score.cheese
+	time = game_score.time
 	load_highscores()
 	if ( ! is_new_score(cheese, time)) :
 		get_tree().quit()

@@ -16,6 +16,7 @@ var _spawning : bool = false
 @export var player1 : PlayerResource = null
 @export var player2 : PlayerResource = null
 @export var hole2 : Hole = null
+@export var game_score : GameScore = null
 
 const TOTAL_CHEESE = 3
 const DISTANCE_TO_TRAP = 100 # FIXME : should this vary between tom and jerry ?
@@ -80,13 +81,16 @@ func start_game() -> void :
 	
 func end_game_jerry() -> void :
 	print_end_game_string_jerry()
+	game_score.cheese = _number_of_cheese
 	end_game()
 
 func end_game_tom() -> void :
 	print_end_game_string_tom()
+	game_score.cheese = 3 - _number_of_cheese
 	end_game()
 
 func end_game() -> void :
+	game_score.time = _clock / 60
 	get_tree().change_scene_to_file("res://scenes/high_score_saver.tscn")
 
 func collect_cheese() -> void :
@@ -165,6 +169,6 @@ func time_pretty_string() -> String :
 	var seconds : int = (time_in_ms / 60) % 60
 	var ms : int = time_in_ms % 60
 	return "%d:%d:%d" % [min, seconds, ms]
-	
+
 func get_distance(node1 : Node2D, node2 : Node2D) -> float : # check distance on horizontal plane
 	return abs(node1.position.x - node2.position.x)
