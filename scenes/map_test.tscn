@@ -72,14 +72,40 @@ texture = ExtResource("6_aou2f")
 position = Vector2(-208, 272)
 script = ExtResource("8_rx5fb")
 
+[node name="TomShortcut2" parent="." instance=ExtResource("7_j8h8u")]
+position = Vector2(336, 88)
+script = ExtResource("8_rx5fb")
+floor = 2
+
 [node name="JerryShortcut" parent="." instance=ExtResource("9_q2kdp")]
 position = Vector2(8, 184)
 scale = Vector2(1.22, 1.22)
 script = ExtResource("8_rx5fb")
+floor = 1
+
+[node name="JerryShortcut2" parent="." instance=ExtResource("9_q2kdp")]
+position = Vector2(-128, 0)
+scale = Vector2(1.22, 1.22)
+script = ExtResource("8_rx5fb")
+floor = 3
+
+[node name="JerryShortcut3" parent="." instance=ExtResource("9_q2kdp")]
+position = Vector2(-160, -184)
+scale = Vector2(1.22, 1.22)
+script = ExtResource("8_rx5fb")
+floor = 5
 
 [node name="Trapdoor" parent="." instance=ExtResource("10_bn61j")]
 position = Vector2(-272, 120)
 floor = 2
+
+[node name="Trapdoor2" parent="." instance=ExtResource("10_bn61j")]
+position = Vector2(-280, -152)
+floor = 5
+
+[node name="Trapdoor3" parent="." instance=ExtResource("10_bn61j")]
+position = Vector2(200, -64)
+floor = 4
 
 [node name="Walls" parent="." instance=ExtResource("12_46wad")]
 

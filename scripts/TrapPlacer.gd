@@ -13,6 +13,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("special_%s" % player_id) :
 		pickup_trap()
 
+func finished_climbing() -> bool : # Trap placer shouldn't have climb delay
+	return true
+
 func spawn_trap() -> void :
 	GameManager.instance().spawn_trap(trap_scene, position, _floor)
 

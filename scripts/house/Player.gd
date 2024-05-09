@@ -3,17 +3,24 @@ class_name Player extends CharacterBody2D
 var _destroy_counter : float = 0
 var _floor : int = 0 :
 	get : return _floor
+var _using_stairs : bool = false
+var _climbing_time : float = 0
 
-const DESTROY_TIME : float = 3
+const DESTROY_TIME : float = 2
+const CLIMBING_TIME : float = .5
 const SPEED = 300.0
 
 var player_id : int = 1
 var stairs_available : Array[Stairs]
 
 func _process(delta):
+	if _using_stairs :
+		stairs_climb(delta)
 	stairs()
 
 func _physics_process(delta):
+	if _using_stairs :
+		return
 	movement(delta)
 
 func movement(delta) -> void:
@@ -46,9 +53,17 @@ func destroy_blocking_object(delta : float) -> void :
 			_destroy_counter += delta
 			if _destroy_counter >= DESTROY_TIME :
 				shortcut_script.destroy()
-				return
-		else :
-			_destroy_counter = 0
+			return
+	_destroy_counter = 0
+
+func stairs_climb(delta : float) :
+	_climbing_time += delta
+	if finished_climbing() :
+		finish_stairs()
+	return
+
+func finished_climbing() -> bool:
+	return _climbing_time >= CLIMBING_TIME
 
 func move_to_floor(floor : int) :
 	if floor > GameManager.instance().MAX_FLOOR or floor < 0:
@@ -57,8 +72,15 @@ func move_to_floor(floor : int) :
 	if abs(floor - _floor) != 1 :
 		return
 	_floor = floor
+	_using_stairs = true
 	print_debug("adjusting floor")
-	GameManager.instance().adjust_y_to_floor(self, floor)
+	hide()
+
+func finish_stairs():
+	_climbing_time = 0
+	_using_stairs = false
+	visible = true
+	GameManager.instance().adjust_y_to_floor(self, _floor)
 
 func add_stairs(stairs : Stairs) -> void :
 	stairs_available.append(stairs)
