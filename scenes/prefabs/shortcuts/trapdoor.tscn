@@ -80,7 +80,6 @@ shape = SubResource("RectangleShape2D_vk0w2")
 position = Vector2(0, 32)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_yueq1")
-frame_progress = 0.835501
 
 [connection signal="body_entered" from="Area2D" to="." method="add_trapdoor"]
 [connection signal="body_exited" from="Area2D" to="." method="remove_trapdoor"]

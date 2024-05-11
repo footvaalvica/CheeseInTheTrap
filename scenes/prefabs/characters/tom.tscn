@@ -10,6 +10,22 @@ animations = [{
 "texture": ExtResource("2_ukfel")
 }],
 "loop": true,
+"name": &"climb_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ukfel")
+}],
+"loop": true,
+"name": &"climb_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ukfel")
+}],
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -34,6 +50,7 @@ script = ExtResource("1_6bf4o")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_lh0yb")
+animation = &"climb_2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_crvi1")
