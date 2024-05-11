@@ -12,16 +12,37 @@ const SPEED = 300.0
 
 var player_id : int = 1
 var stairs_available : Array[Stairs]
+var animated_sprite : AnimatedSprite2D
+
+func _ready():
+	animated_sprite = $AnimatedSprite2D
 
 func _process(delta):
 	if _using_stairs :
 		stairs_climb(delta)
+		return
 	stairs()
+	animation()
 
 func _physics_process(delta):
 	if _using_stairs :
 		return
 	movement(delta)
+
+func animation() :
+	if animated_sprite == null :
+		return
+	if abs(velocity.x) > 0:
+		if animated_sprite.animation != "walk":
+			animated_sprite.animation = "walk"
+			animated_sprite.play("walk")
+		if Input.get_action_strength("move_right_%s" % player_id) > 0 :
+			animated_sprite.scale.x = abs(animated_sprite.scale.x)
+		elif Input.get_action_strength("move_left_%s" % player_id) > 0 :
+			print_debug(scale.x)
+			animated_sprite.scale.x = - abs(animated_sprite.scale.x)
+	else :
+		animated_sprite.animation = "default"
 
 func movement(delta) -> void:
 	velocity.x = get_input_vector().x * SPEED
