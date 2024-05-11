@@ -1,13 +1,15 @@
 class_name Player extends CharacterBody2D
 
+enum Climbing_Phase {None, Entering, Exiting}
+
 var _destroy_counter : float = 0
 var _floor : int = 0 :
 	get : return _floor
-var _using_stairs : bool = false
+var _climbing_phase : Climbing_Phase = Climbing_Phase.None
 var _climbing_time : float = 0
 
 const DESTROY_TIME : float = 2
-const CLIMBING_TIME : float = .5
+const CLIMBING_TIME : float = .3
 const SPEED = 300.0
 
 var player_id : int = 1
@@ -18,19 +20,24 @@ func _ready():
 	animated_sprite = $AnimatedSprite2D
 
 func _process(delta):
-	if _using_stairs :
-		stairs_climb(delta)
-		return
-	stairs()
+	stairs(delta)
 	animation()
 
 func _physics_process(delta):
-	if _using_stairs :
+	if _climbing_phase == Climbing_Phase.Entering :
 		return
 	movement(delta)
 
 func animation() :
 	if animated_sprite == null :
+		return
+	if _climbing_phase == Climbing_Phase.Entering :
+		animated_sprite.animation = "climb_1"
+		animated_sprite.play()
+		return
+	elif _climbing_phase == Climbing_Phase.Exiting :
+		animated_sprite.animation = "climb_2"
+		animated_sprite.play()
 		return
 	if abs(velocity.x) > 0:
 		if animated_sprite.animation != "walk":
@@ -39,7 +46,6 @@ func animation() :
 		if Input.get_action_strength("move_right_%s" % player_id) > 0 :
 			animated_sprite.scale.x = abs(animated_sprite.scale.x)
 		elif Input.get_action_strength("move_left_%s" % player_id) > 0 :
-			print_debug(scale.x)
 			animated_sprite.scale.x = - abs(animated_sprite.scale.x)
 	else :
 		animated_sprite.animation = "default"
@@ -56,8 +62,14 @@ func get_input_vector() ->  Vector2 :
 		- Input.get_action_strength("move_left_%s" % player_id)
 	return input_vector.normalized() if input_vector.length() > 1 else input_vector
 
-func stairs() -> void :
+func stairs(delta) -> void :
 	if stairs_available.size() == 0 :
+		return
+	if _climbing_phase == Climbing_Phase.Entering :
+		stairs_enter(delta)
+		return
+	elif _climbing_phase == Climbing_Phase.Exiting :
+		stairs_exit(delta)
 		return
 	var stairs_chosen : Stairs = stairs_available[0]
 	if Input.is_action_just_pressed("move_up_%s" % player_id):
@@ -77,10 +89,19 @@ func destroy_blocking_object(delta : float) -> void :
 			return
 	_destroy_counter = 0
 
-func stairs_climb(delta : float) :
+func stairs_enter(delta : float) :
 	_climbing_time += delta
 	if finished_climbing() :
-		finish_stairs()
+		_climbing_phase = Climbing_Phase.Exiting
+		_climbing_time = 0
+		GameManager.instance().adjust_y_to_floor(self, _floor)
+	return
+
+func stairs_exit(delta : float) :
+	_climbing_time += delta
+	if finished_climbing() :
+		_climbing_phase = Climbing_Phase.None
+		_climbing_time = 0
 	return
 
 func finished_climbing() -> bool:
@@ -89,19 +110,10 @@ func finished_climbing() -> bool:
 func move_to_floor(floor : int) :
 	if floor > GameManager.instance().MAX_FLOOR or floor < 0:
 		return
-	print_debug("move to floor")
 	if abs(floor - _floor) != 1 :
 		return
 	_floor = floor
-	_using_stairs = true
-	print_debug("adjusting floor")
-	hide()
-
-func finish_stairs():
-	_climbing_time = 0
-	_using_stairs = false
-	visible = true
-	GameManager.instance().adjust_y_to_floor(self, _floor)
+	_climbing_phase = Climbing_Phase.Entering
 
 func add_stairs(stairs : Stairs) -> void :
 	stairs_available.append(stairs)

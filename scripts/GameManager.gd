@@ -154,7 +154,7 @@ func pick_up_trap(position : Vector2, floor : int) -> void :
 		min_trap.collect()
 
 func adjust_y_to_floor(player : Player, floor : int) -> void :
-	print_debug("%s moving to $s" % [player.name, _floor_0_y - floor * FLOOR_Y_DIFFERENCE])
+	print_debug("%s moving to %s" % [player.name, _floor_0_y - floor * FLOOR_Y_DIFFERENCE])
 	player.position.y = _floor_0_y - floor * FLOOR_Y_DIFFERENCE
 
 # Utility functions ------------------------------------------------------------

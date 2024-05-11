@@ -33,6 +33,11 @@ func movement(delta) -> void :
 	var collision : KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision :
 		velocity.slide(collision.get_normal())
+		
+func animation() -> void :
+	super.animation() 
+	if (_is_trapped) :
+		animated_sprite.animation = "stunned"
 
 # Jerry unique functions ---------------------------------------------------------
 
@@ -47,6 +52,7 @@ func unstuck() -> void :
 		_trap = null
 
 func trap(trap : Trap) -> void :
+	position.x = trap.position.x
 	_is_trapped = true
 	_trap = trap
 	_direction_to_press = Direction.Left

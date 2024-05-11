@@ -15,6 +15,7 @@ func _process(delta):
 func reset_animation() :
 	animated_sprite.animation = "default" 
 	animated_sprite.play()
+	animated_sprite.offset = Vector2(0, 0)
 
 func add_trapdoor(body : Node2D) -> void :
 	var tom : Tom = body as Tom
@@ -27,6 +28,7 @@ func remove_trapdoor(body : Node2D) -> void :
 func use(tom : Tom) -> void :
 	animated_sprite.animation = "opening"
 	animated_sprite.play()
+	animated_sprite.offset = Vector2(-6, -100)
 	if tom._floor == floor :
 		tom.move_to_floor(floor - 1)
 	else:
