@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://lqms5vj1r5re"]
+[gd_scene load_steps=19 format=3 uid="uid://lqms5vj1r5re"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_qblyn"]
 [ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="2_cb3xo"]
@@ -12,11 +12,15 @@
 [ext_resource type="Script" path="res://scripts/shortcuts/GameShortcut.gd" id="8_rx5fb"]
 [ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/shortcuts/jerry_shortcut.tscn" id="9_q2kdp"]
 [ext_resource type="PackedScene" uid="uid://bqj766o4qrfo1" path="res://scenes/prefabs/shortcuts/trapdoor.tscn" id="10_bn61j"]
+[ext_resource type="Texture2D" uid="uid://bpswu4fqy86am" path="res://assets/piano.png" id="11_5m5hx"]
 [ext_resource type="PackedScene" uid="uid://o1iwho47xbb0" path="res://scenes/prefabs/house/walls.tscn" id="12_46wad"]
 [ext_resource type="PackedScene" uid="uid://kioghlqk3bao" path="res://scenes/prefabs/house/stairs_group.tscn" id="13_mbsdk"]
 [ext_resource type="PackedScene" uid="uid://dbygtbjtb5xnp" path="res://scenes/prefabs/house/hole.tscn" id="14_slfqy"]
 [ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="15_lp7f4"]
 [ext_resource type="AudioStream" uid="uid://b0mlutn3h0csb" path="res://fmod/cheeseinthetrap/Assets/1-04 Touché - Blue Cat Blues! (1955)  Scott Bradley.mp3" id="17_yjgnj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0rcm"]
+size = Vector2(136, 59)
 
 [node name="Node2D" type="Node2D"]
 
@@ -77,6 +81,13 @@ position = Vector2(336, 88)
 script = ExtResource("8_rx5fb")
 floor = 2
 
+[node name="Sprite2D" parent="TomShortcut2" index="0"]
+texture = ExtResource("11_5m5hx")
+
+[node name="CollisionShape2D" parent="TomShortcut2/StaticBody2D" index="0"]
+position = Vector2(-4, 5.5)
+shape = SubResource("RectangleShape2D_q0rcm")
+
 [node name="JerryShortcut" parent="." instance=ExtResource("9_q2kdp")]
 position = Vector2(8, 184)
 scale = Vector2(1.22, 1.22)
@@ -96,15 +107,15 @@ script = ExtResource("8_rx5fb")
 floor = 5
 
 [node name="Trapdoor" parent="." instance=ExtResource("10_bn61j")]
-position = Vector2(-272, 120)
+position = Vector2(-304, 128)
 floor = 2
 
 [node name="Trapdoor2" parent="." instance=ExtResource("10_bn61j")]
-position = Vector2(-280, -152)
+position = Vector2(-280, -144)
 floor = 5
 
 [node name="Trapdoor3" parent="." instance=ExtResource("10_bn61j")]
-position = Vector2(200, -64)
+position = Vector2(200, -56)
 floor = 4
 
 [node name="Walls" parent="." instance=ExtResource("12_46wad")]
@@ -112,6 +123,7 @@ floor = 4
 [node name="StairsGroup" parent="." instance=ExtResource("13_mbsdk")]
 
 [node name="Hole" parent="." instance=ExtResource("14_slfqy")]
+position = Vector2(0, -264)
 
 [node name="Hole2" parent="." instance=ExtResource("14_slfqy")]
 position = Vector2(184, 104)
@@ -125,3 +137,4 @@ autoplay = true
 [editable path="Cheese"]
 [editable path="Cheese2"]
 [editable path="Cheese3"]
+[editable path="TomShortcut2"]

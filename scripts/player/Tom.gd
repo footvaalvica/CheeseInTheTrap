@@ -4,6 +4,7 @@ var trap_scene : PackedScene = load("res://scenes/prefabs/collectables/trap.tscn
 var trapdoors_available : Array[Trapdoor] = []
 
 func _ready():
+	super._ready()
 	_floor = 6
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
