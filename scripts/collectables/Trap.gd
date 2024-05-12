@@ -7,6 +7,11 @@ var _floor : float = 0
 const COOLDOWN_TIME = 5
 
 func _process(delta):
+	var player_id = get_node("../Jerry").player_id
+	if Input.get_action_raw_strength("trap_action_%s" % player_id) > 0 :
+		$DisarmArea.visible = true
+	else :
+		$DisarmArea.hide()
 	if _cooldown > 0:
 		_cooldown = max(_cooldown - delta, 0)
 

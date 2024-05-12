@@ -52,9 +52,7 @@ func _on_save_score_pressed():
 	leaderboard_button.show()
 	go_to_menu_button.show()
 
-func _on_go_to_menu_pressed():
-	get_tree().change_scene_to_file("res://scenes/menu.tscn")
-
-func _on_button_pressed():
-	leaderboard_canvas_layer.hide()
-	canvas_layer.show()
+	#await leaderboard.refresh_scores()
+	#leaderboard.show()
+	#canvas_layer.hide()
+	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")

@@ -24,7 +24,7 @@ func _process(delta):
 	animation()
 
 func _physics_process(delta):
-	if _climbing_phase == Climbing_Phase.Entering :
+	if _climbing_phase != Climbing_Phase.None :
 		return
 	movement(delta)
 
@@ -33,16 +33,15 @@ func animation() :
 		return
 	if _climbing_phase == Climbing_Phase.Entering :
 		animated_sprite.animation = "climb_1"
-		animated_sprite.play()
 		return
 	elif _climbing_phase == Climbing_Phase.Exiting :
 		animated_sprite.animation = "climb_2"
-		animated_sprite.play()
 		return
 	if abs(velocity.x) > 0:
 		if animated_sprite.animation != "walk":
+			print_debug("walk")
 			animated_sprite.animation = "walk"
-			animated_sprite.play("walk")
+			animated_sprite.play()
 		if Input.get_action_strength("move_right_%s" % player_id) > 0 :
 			animated_sprite.scale.x = abs(animated_sprite.scale.x)
 		elif Input.get_action_strength("move_left_%s" % player_id) > 0 :
@@ -63,13 +62,13 @@ func get_input_vector() ->  Vector2 :
 	return input_vector.normalized() if input_vector.length() > 1 else input_vector
 
 func stairs(delta) -> void :
-	if stairs_available.size() == 0 :
-		return
 	if _climbing_phase == Climbing_Phase.Entering :
 		stairs_enter(delta)
 		return
 	elif _climbing_phase == Climbing_Phase.Exiting :
 		stairs_exit(delta)
+		return
+	if stairs_available.size() == 0 :
 		return
 	var stairs_chosen : Stairs = stairs_available[0]
 	if Input.is_action_just_pressed("move_up_%s" % player_id):
@@ -91,6 +90,7 @@ func destroy_blocking_object(delta : float) -> void :
 
 func stairs_enter(delta : float) :
 	_climbing_time += delta
+	print_debug(_climbing_time)
 	if finished_climbing() :
 		_climbing_phase = Climbing_Phase.Exiting
 		_climbing_time = 0
@@ -102,6 +102,7 @@ func stairs_exit(delta : float) :
 	if finished_climbing() :
 		_climbing_phase = Climbing_Phase.None
 		_climbing_time = 0
+		print_debug("move allowed")
 	return
 
 func finished_climbing() -> bool:
