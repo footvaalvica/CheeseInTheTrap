@@ -1,14 +1,77 @@
-[gd_scene load_steps=2 format=3 uid="uid://fe48smsoijr6"]
+[gd_scene load_steps=12 format=3 uid="uid://fe48smsoijr6"]
 
 [ext_resource type="VideoStream" path="res://resources/menuvid.ogv" id="1_aaqpx"]
+[ext_resource type="Script" path="res://scenes/menu.gd" id="1_iawo3"]
+[ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_u5qb5"]
+[ext_resource type="Texture2D" uid="uid://bwckfb0aoeaj7" path="res://resources/cga_ui_gold/b_3.png" id="4_j0jqu"]
+[ext_resource type="Texture2D" uid="uid://mqm3pfb6ayed" path="res://resources/cga_ui_gold/b_5.png" id="4_y1mbn"]
 
-[node name="Control" type="Control"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l3qxy"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+texture = ExtResource("4_j0jqu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yx5y7"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+texture = ExtResource("4_j0jqu")
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wdw7r"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+texture = ExtResource("4_j0jqu")
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e3j4a"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("4_y1mbn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c3jdq"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("4_y1mbn")
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bmest"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("4_y1mbn")
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[node name="menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_iawo3")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
@@ -21,3 +84,65 @@ stream = ExtResource("1_aaqpx")
 autoplay = true
 expand = true
 loop = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.975309
+anchor_right = 0.5
+anchor_bottom = 0.979938
+offset_left = -136.0
+offset_top = -184.0
+offset_right = -77.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4.00069, 4.00069)
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_u5qb5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_l3qxy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yx5y7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wdw7r")
+text = "Start"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -72.0
+offset_right = 11.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.05583, 1.05583)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_u5qb5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e3j4a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_c3jdq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bmest")
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
