@@ -7,6 +7,8 @@ var _floor : int = 0 :
 	get : return _floor
 var _climbing_phase : Climbing_Phase = Climbing_Phase.None
 var _climbing_time : float = 0
+# this value should be changed to TRAPDOOR_TIME or CLIMBING_TIME upon usage
+var _climbing_bound : float = 0 
 
 const DESTROY_TIME : float = 2
 const CLIMBING_TIME : float = .3
@@ -21,14 +23,14 @@ func _ready():
 
 func _process(delta):
 	stairs(delta)
-	animation()
+	animation(delta)
 
 func _physics_process(delta):
 	if _climbing_phase != Climbing_Phase.None :
 		return
 	movement(delta)
 
-func animation() :
+func animation(delta) :
 	if animated_sprite == null :
 		return
 	if _climbing_phase == Climbing_Phase.Entering :
@@ -38,7 +40,7 @@ func animation() :
 		animated_sprite.animation = "climb_2"
 		return
 	if abs(velocity.x) > 0:
-		if animated_sprite.animation != "walk":
+		if animated_sprite.animation == "default":
 			print_debug("walk")
 			animated_sprite.animation = "walk"
 			animated_sprite.play()
@@ -72,8 +74,10 @@ func stairs(delta) -> void :
 		return
 	var stairs_chosen : Stairs = stairs_available[0]
 	if Input.is_action_just_pressed("move_up_%s" % player_id):
+		_climbing_bound = CLIMBING_TIME
 		move_to_floor(_floor + 1)
 	elif Input.is_action_just_pressed("move_down_%s" % player_id):
+		_climbing_bound = CLIMBING_TIME
 		move_to_floor(_floor - 1)
 
 func destroy_blocking_object(delta : float) -> void :
@@ -106,7 +110,7 @@ func stairs_exit(delta : float) :
 	return
 
 func finished_climbing() -> bool:
-	return _climbing_time >= CLIMBING_TIME
+	return _climbing_time >= _climbing_bound
 
 func move_to_floor(floor : int) :
 	if floor > GameManager.instance().MAX_FLOOR or floor < 0:
