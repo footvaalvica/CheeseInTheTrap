@@ -38,6 +38,7 @@ func _ready():
 		star_3.show()
 	
 func add_score(name : String, cheese : int, time : float) :
+	var score: int = (cheese * 3 - time) * 20
 	var success: bool = await Leaderboards.post_guest_score("cheeseinthetrap-highscore-wHeL", score, name)
 
 func _on_leaderboards_pressed():
