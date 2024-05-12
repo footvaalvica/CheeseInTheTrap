@@ -1,7 +1,35 @@
-[gd_scene load_steps=27 format=3 uid="uid://bkhktxkigb5cg"]
+[gd_scene load_steps=34 format=3 uid="uid://bkhktxkigb5cg"]
 
 [ext_resource type="Script" path="res://scripts/player/Jerry.gd" id="1_v2mo7"]
 [ext_resource type="Texture2D" uid="uid://ba8jbb4a1das1" path="res://assets/jerry_spritesheet.png" id="2_lrwu7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kbgx"]
+atlas = ExtResource("2_lrwu7")
+region = Rect2(0, 0, 148, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of2ri"]
+atlas = ExtResource("2_lrwu7")
+region = Rect2(148, 0, 148, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgwe1"]
+atlas = ExtResource("2_lrwu7")
+region = Rect2(296, 0, 148, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu7ms"]
+atlas = ExtResource("2_lrwu7")
+region = Rect2(444, 0, 148, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elx6q"]
+atlas = ExtResource("2_lrwu7")
+region = Rect2(592, 0, 148, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76kn6"]
+atlas = ExtResource("2_lrwu7")
+region = Rect2(740, 0, 148, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0quca"]
+atlas = ExtResource("2_lrwu7")
+region = Rect2(888, 0, 148, 170)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2q32g"]
 atlas = ExtResource("2_lrwu7")
@@ -93,6 +121,32 @@ region = Rect2(882, 170, 147, 170)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vxops"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kbgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of2ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgwe1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hu7ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elx6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76kn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0quca")
+}],
+"loop": true,
+"name": &"cheese",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2q32g")
@@ -189,7 +243,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdxlj"]
-size = Vector2(40, 48)
+size = Vector2(32, 43)
 
 [node name="Jerry" type="CharacterBody2D"]
 z_index = 2
@@ -197,10 +251,10 @@ collision_layer = 4
 script = ExtResource("1_v2mo7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_vxops")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
+position = Vector2(0, -1.5)
 scale = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_qdxlj")

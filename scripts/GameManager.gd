@@ -99,6 +99,7 @@ func end_game() -> void :
 
 func collect_cheese() -> void :
 	_number_of_cheese += 1
+	jerry.catch_cheese()
 	if _number_of_cheese == 2: # Enable 2nd hole when 2nd cheese caught
 		hole2.visible = true
 		hole2.process_mode = Node.PROCESS_MODE_INHERIT

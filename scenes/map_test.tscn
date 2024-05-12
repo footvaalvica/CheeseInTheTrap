@@ -122,15 +122,15 @@ script = ExtResource("8_rx5fb")
 floor = 5
 
 [node name="Trapdoor" parent="." instance=ExtResource("10_bn61j")]
-position = Vector2(-304, 128)
+position = Vector2(-304, 117)
 floor = 2
 
 [node name="Trapdoor2" parent="." instance=ExtResource("10_bn61j")]
-position = Vector2(-280, -144)
+position = Vector2(-280, -158)
 floor = 5
 
 [node name="Trapdoor3" parent="." instance=ExtResource("10_bn61j")]
-position = Vector2(200, -56)
+position = Vector2(192, -67)
 floor = 4
 
 [node name="Walls" parent="." instance=ExtResource("12_46wad")]

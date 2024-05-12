@@ -6,11 +6,13 @@ var _is_trapped : bool = false
 var _direction_to_press : Direction = Direction.Left
 var _stuck_counter : int = 0
 var _disable_counter : float = 0
+var _cheese_countdown : float = 0
 var _trap : Trap = null
 var _holes : Array[Hole]
 
 const STUCKMAX : int = 10
 const DISABLE_TIME : float = 1.5
+const CHEESE_CATCH_TIME : float = 1.5
 
 func _process(delta):
 	super._process(delta)
@@ -34,10 +36,15 @@ func movement(delta) -> void :
 	if collision :
 		velocity.slide(collision.get_normal())
 		
-func animation() -> void :
-	super.animation() 
+func animation(delta) -> void :
+	super.animation(delta)
 	if (_is_trapped) :
 		animated_sprite.animation = "stunned"
+		return
+	if (_cheese_countdown > 0):
+		animated_sprite.animation = "cheese"
+		_cheese_countdown -= delta
+		return
 
 # Jerry unique functions ---------------------------------------------------------
 
@@ -57,6 +64,11 @@ func trap(trap : Trap) -> void :
 	_trap = trap
 	_direction_to_press = Direction.Left
 	_stuck_counter = 0
+
+func catch_cheese() -> void :
+	animated_sprite.animation = "cheese"
+	animated_sprite.play()
+	_cheese_countdown = CHEESE_CATCH_TIME
 
 func caught() -> void :
 	queue_free()
