@@ -1,10 +1,10 @@
-extends Control
+class_name MainMenu extends Control
 
 @export var options: CanvasLayer
 @export var rest_of_menu: CanvasLayer
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://scenes/map_test.tscn")
+	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")
 
 func _on_quit_pressed():
 	get_tree().quit() 
