@@ -58,7 +58,7 @@ func use_trapdoor(floor : int) -> void:
 	if filtered_trapdoors.size() == 0 :
 		return
 
-	# first element of trapdoor in te respective direction
+	# first element of trapdoor in the respective direction
 	var trapdoor : Trapdoor =  filtered_trapdoors[0] 
 	_climbing_bound = TRAPDOOR_TIME
 	trapdoor.use(self)

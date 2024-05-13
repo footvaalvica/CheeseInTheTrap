@@ -9,15 +9,19 @@ func _ready():
 func _process(delta):
 	stairs(delta)
 	if Input.is_action_just_pressed("trap_action_%s" % player_id): 
-		spawn_trap()
-	if Input.is_action_just_pressed("special_%s" % player_id) :
-		pickup_trap()
+		trap_action()
 
 func _physics_process(delta):
 	movement(delta)
 
 func finished_climbing() -> bool : # Trap placer shouldn't have climb delay
 	return true
+
+func trap_action() -> void :
+	if GameManager.instance().near_trap(position, _floor):
+		pickup_trap()
+	else :
+		spawn_trap()
 
 func spawn_trap() -> void :
 	GameManager.instance().spawn_trap(trap_scene, position, _floor)
