@@ -120,20 +120,28 @@ func in_destroy_shortcut_range(actor : Player, shortcut : GameShortcut) -> bool 
 	return actor._floor == shortcut.floor and get_distance(actor, shortcut) < DISTANCE_TO_SHORTCUT
 
 func can_place_trap(position : Vector2, floor : int) -> bool :
+	if near_trap(position, floor) or near_stairs(position, floor) : 
+		return false
+	var distance : float = abs(jerry.position.x - position.x) 
+	return floor != jerry._floor or distance > DISTANCE_TO_TRAP
+	
+func near_trap(position : Vector2, floor : int) -> bool :
 	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")
 	for trap_object in trap_object_list :
 		var trap : Trap = trap_object as Trap
 		var distance : float = abs(trap.position.x - position.x) 
 		if trap._floor == floor and distance < DISTANCE_TO_TRAP :
-			return false
+			return true
+	return false
+
+func near_stairs(position : Vector2, floor : int) -> bool :
 	var stair_object_list : Array[Node] = get_tree().get_nodes_in_group("Stairs")
 	for stairs_object in stair_object_list :
 		var stairs : Stairs = stairs_object as Stairs
 		var distance : float = abs(stairs.position.x - position.x) 
 		if stairs.floor == floor and distance < DISTANCE_TO_TRAP :
-			return false
-	var distance : float = abs(jerry.position.x - position.x) 
-	return distance < DISTANCE_TO_TRAP
+			return true
+	return false
 
 func spawn_trap(trap : PackedScene, position : Vector2, floor : int) -> void :
 	if _number_of_traps == 0 :

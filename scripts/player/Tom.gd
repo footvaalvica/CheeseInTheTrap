@@ -13,13 +13,16 @@ func _ready():
 func _process(delta):
 	super._process(delta)
 	if Input.is_action_just_pressed("trap_action_%s" % player_id) :
-		spawn_trap()
+		trap_action()
 	if Input.get_action_raw_strength("destroy_shortcut_%s" % player_id) > 0 :
 		destroy_blocking_object(delta)
 	if Input.is_action_just_pressed("special_%s" % player_id) :
 		pickup_trap()
-	if Input.is_action_just_pressed("special2nd_%s" % player_id) :
-		use_trapdoor()
+	if Input.is_action_just_pressed("move_down_%s" % player_id) :
+		print_debug("a")
+		use_trapdoor(_floor - 1)
+	elif Input.is_action_just_pressed("move_up_%s" % player_id) :
+		use_trapdoor(_floor + 1)
 
 func on_collision(body : Node2D) -> void :
 	var physics := body as PhysicsBody2D 
@@ -29,6 +32,12 @@ func on_collision(body : Node2D) -> void :
 	var isJerry : bool = physics.get_collision_layer_value(3)
 	if isJerry:
 		GameManager.instance().catch_jerry()
+
+func trap_action() -> void :
+	if GameManager.instance().near_trap(position, _floor):
+		pickup_trap()
+	else :
+		spawn_trap()
 
 func spawn_trap() -> void :
 	GameManager.instance().spawn_trap(trap_scene, position, _floor)
@@ -42,10 +51,18 @@ func add_trapdoor(trapdoor : Trapdoor) -> void :
 func remove_trapdoor(trapdoor : Trapdoor) -> void :
 	trapdoors_available = trapdoors_available.filter(func(tpd) : return tpd != trapdoor)
 
-func use_trapdoor() -> void:
+func use_trapdoor(floor : int) -> void:
 	if trapdoors_available.size() == 0 :
 		return
-	var trapdoor : Trapdoor = trapdoors_available[0]
+	# filter in direction up or down
+	var filtered_trapdoors = trapdoors_available.filter(
+		func (td : Trapdoor) : td.floor == floor
+	)
+	if filtered_trapdoors.size() == 0 :
+		return
+
+	# first element of trapdoor in te respective direction
+	var trapdoor : Trapdoor =  filtered_trapdoors[0] 
 	_climbing_bound = TRAPDOOR_TIME
 	trapdoor.use(self)
 
