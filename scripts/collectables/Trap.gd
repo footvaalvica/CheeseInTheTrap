@@ -8,7 +8,7 @@ const COOLDOWN_TIME = 5
 
 func _process(delta):
 	var player_id = get_node("../Jerry").player_id
-	if Input.get_action_raw_strength("trap_action_%s" % player_id) > 0 :
+	if Input.get_action_raw_strength("trap_action_%s" % player_id) > 0 && active:
 		$DisarmArea.visible = true
 	else :
 		$DisarmArea.hide()
