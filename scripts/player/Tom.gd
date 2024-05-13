@@ -16,11 +16,8 @@ func _process(delta):
 		trap_action()
 	if Input.get_action_raw_strength("destroy_shortcut_%s" % player_id) > 0 :
 		destroy_blocking_object(delta)
-	if Input.is_action_just_pressed("special_%s" % player_id) :
-		pickup_trap()
 	if Input.is_action_just_pressed("move_down_%s" % player_id) :
-		print_debug("a")
-		use_trapdoor(_floor - 1)
+		use_trapdoor(_floor)
 	elif Input.is_action_just_pressed("move_up_%s" % player_id) :
 		use_trapdoor(_floor + 1)
 
@@ -56,7 +53,7 @@ func use_trapdoor(floor : int) -> void:
 		return
 	# filter in direction up or down
 	var filtered_trapdoors = trapdoors_available.filter(
-		func (td : Trapdoor) : td.floor == floor
+		func (td : Trapdoor) : return td.floor == floor
 	)
 	if filtered_trapdoors.size() == 0 :
 		return

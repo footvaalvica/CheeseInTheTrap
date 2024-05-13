@@ -20,7 +20,7 @@ func _process(delta):
 		_disable_counter = 0
 		_destroy_counter = 0
 		return
-	if Input.is_action_just_pressed("special_%s" % player_id) and (_holes.size() > 0):
+	if Input.is_action_just_pressed("move_up_%s" % player_id) and (_holes.size() > 0):
 		enter_hole()
 	if Input.get_action_strength("trap_action_%s" % player_id) > 0 : 
 		disable_trap(delta)
