@@ -46,7 +46,7 @@ func use_trapdoor() -> void:
 	if trapdoors_available.size() == 0 :
 		return
 	var trapdoor : Trapdoor = trapdoors_available[0]
-	_climbing_time = TRAPDOOR_TIME
+	_climbing_bound = TRAPDOOR_TIME
 	trapdoor.use(self)
 
 func get_shortcut_name() -> String :

@@ -126,7 +126,14 @@ func can_place_trap(position : Vector2, floor : int) -> bool :
 		var distance : float = abs(trap.position.x - position.x) 
 		if trap._floor == floor and distance < DISTANCE_TO_TRAP :
 			return false
-	return true
+	var stair_object_list : Array[Node] = get_tree().get_nodes_in_group("Stairs")
+	for stairs_object in stair_object_list :
+		var stairs : Stairs = stairs_object as Stairs
+		var distance : float = abs(stairs.position.x - position.x) 
+		if stairs.floor == floor and distance < DISTANCE_TO_TRAP :
+			return false
+	var distance : float = abs(jerry.position.x - position.x) 
+	return distance < DISTANCE_TO_TRAP
 
 func spawn_trap(trap : PackedScene, position : Vector2, floor : int) -> void :
 	if _number_of_traps == 0 :

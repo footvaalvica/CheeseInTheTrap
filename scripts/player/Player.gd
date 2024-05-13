@@ -94,7 +94,6 @@ func destroy_blocking_object(delta : float) -> void :
 
 func stairs_enter(delta : float) :
 	_climbing_time += delta
-	print_debug(_climbing_time)
 	if finished_climbing() :
 		_climbing_phase = Climbing_Phase.Exiting
 		_climbing_time = 0
@@ -110,6 +109,7 @@ func stairs_exit(delta : float) :
 	return
 
 func finished_climbing() -> bool:
+	print_debug(_climbing_bound)
 	return _climbing_time >= _climbing_bound
 
 func move_to_floor(floor : int) :

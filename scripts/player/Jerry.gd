@@ -16,6 +16,10 @@ const CHEESE_CATCH_TIME : float = 1.5
 
 func _process(delta):
 	super._process(delta)
+	if _is_trapped :
+		_disable_counter = 0
+		_destroy_counter = 0
+		return
 	if Input.is_action_just_pressed("special_%s" % player_id) and (_holes.size() > 0):
 		enter_hole()
 	if Input.get_action_strength("trap_action_%s" % player_id) > 0 : 
@@ -35,7 +39,11 @@ func movement(delta) -> void :
 	var collision : KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision :
 		velocity.slide(collision.get_normal())
-		
+
+func stairs(delta) -> void :
+	if (not _is_trapped) :
+		super.stairs(delta)
+
 func animation(delta) -> void :
 	super.animation(delta)
 	if (_is_trapped) :

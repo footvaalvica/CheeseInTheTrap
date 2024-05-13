@@ -11,21 +11,27 @@ position = Vector2(-536, 272)
 
 [node name="Stairs2" parent="LeftStairs" instance=ExtResource("1_u0bc2")]
 position = Vector2(-536, 184)
+floor = 1
 
 [node name="Stairs3" parent="LeftStairs" instance=ExtResource("1_u0bc2")]
 position = Vector2(-536, 88)
+floor = 2
 
 [node name="Stairs4" parent="LeftStairs" instance=ExtResource("1_u0bc2")]
 position = Vector2(-536, 0)
+floor = 3
 
 [node name="Stairs5" parent="LeftStairs" instance=ExtResource("1_u0bc2")]
 position = Vector2(-536, -88)
+floor = 4
 
 [node name="Stairs6" parent="LeftStairs" instance=ExtResource("1_u0bc2")]
 position = Vector2(-536, -184)
+floor = 5
 
 [node name="Stairs7" parent="LeftStairs" instance=ExtResource("1_u0bc2")]
 position = Vector2(-536, -272)
+floor = 6
 
 [node name="RightStairs" type="Node2D" parent="."]
 scale = Vector2(-1, 1)
@@ -35,18 +41,24 @@ position = Vector2(-536, 272)
 
 [node name="Stairs2" parent="RightStairs" instance=ExtResource("1_u0bc2")]
 position = Vector2(-536, 184)
+floor = 1
 
 [node name="Stairs3" parent="RightStairs" instance=ExtResource("1_u0bc2")]
 position = Vector2(-536, 88)
+floor = 2
 
 [node name="Stairs4" parent="RightStairs" instance=ExtResource("1_u0bc2")]
 position = Vector2(-536, 0)
+floor = 3
 
 [node name="Stairs5" parent="RightStairs" instance=ExtResource("1_u0bc2")]
 position = Vector2(-536, -88)
+floor = 4
 
 [node name="Stairs6" parent="RightStairs" instance=ExtResource("1_u0bc2")]
 position = Vector2(-536, -184)
+floor = 5
 
 [node name="Stairs7" parent="RightStairs" instance=ExtResource("1_u0bc2")]
 position = Vector2(-536, -272)
+floor = 6
