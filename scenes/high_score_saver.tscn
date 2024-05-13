@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://2hcb8cjnqasc"]
+[gd_scene load_steps=6 format=3 uid="uid://2hcb8cjnqasc"]
 
+[ext_resource type="Texture2D" uid="uid://c57eq0odesavd" path="res://resources/cga_ui_gold/f.png" id="1_bm58p"]
 [ext_resource type="Script" path="res://scripts/highscore/HighScoreManager.gd" id="1_gx6yk"]
 [ext_resource type="Resource" uid="uid://cgujiwi5yrix5" path="res://resources/game_score.tres" id="2_1lnks"]
+[ext_resource type="Theme" uid="uid://drpqbfyn00534" path="res://buttontheme.tres" id="2_p7teq"]
 [ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="3_an75e"]
 
 [node name="Control" type="Control"]
@@ -12,43 +14,166 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.831138, 0.812745, 0.714274, 1)
+
+[node name="ScoreScreen" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
+[node name="Background" type="TextureRect" parent="ScoreScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 56.0
+offset_right = -111.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_bm58p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Insertname" type="TextEdit" parent="ScoreScreen"]
+anchors_preset = -1
+anchor_left = 0.43316
+anchor_top = 0.5
+anchor_right = 0.572917
+anchor_bottom = 0.549383
+offset_left = -133.0
+offset_top = -43.0
+offset_right = 123.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_p7teq")
+placeholder_text = "Insert your name"
+metadata/_edit_use_anchors_ = true
+
+[node name="Save score" type="Button" parent="ScoreScreen"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = -20.0
-offset_right = 128.0
-offset_bottom = 20.0
+offset_left = -161.0
+offset_top = 42.0
+offset_right = 164.0
+offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
-placeholder_text = "player name"
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="CanvasLayer"]
-offset_left = 520.0
-offset_top = 360.0
-offset_right = 616.0
-offset_bottom = 384.0
 size_flags_horizontal = 4
-text = "Save"
+theme = ExtResource("2_p7teq")
+text = "Save score"
+
+[node name="Go to Menu" type="Button" parent="ScoreScreen"]
+visible = false
+anchors_preset = -1
+anchor_left = -0.0789931
+anchor_top = -0.0108025
+anchor_right = 0.00434028
+offset_left = 678.0
+offset_top = 419.0
+offset_right = 774.0
+offset_bottom = 443.0
+size_flags_horizontal = 4
+theme = ExtResource("2_p7teq")
+theme_override_font_sizes/font_size = 20
+text = "Go to menu"
 metadata/_edit_use_anchors_ = true
 
-[node name="HighScoreManager" type="Node2D" parent="." node_paths=PackedStringArray("text_edit", "leaderboard", "canvas_layer")]
-script = ExtResource("1_gx6yk")
-text_edit = NodePath("../CanvasLayer/TextEdit")
-game_score = ExtResource("2_1lnks")
-leaderboard = NodePath("../LeaderboardUI")
-canvas_layer = NodePath("../CanvasLayer")
-
-[node name="LeaderboardUI" parent="." instance=ExtResource("3_an75e")]
+[node name="Leaderboards" type="Button" parent="ScoreScreen"]
 visible = false
-layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0789931
+anchor_top = -0.0108025
+anchor_right = 0.00434028
+offset_left = 449.0
+offset_top = 418.0
+offset_right = 545.0
+offset_bottom = 442.0
+size_flags_horizontal = 4
+theme = ExtResource("2_p7teq")
+theme_override_font_sizes/font_size = 20
+text = "Leaderboards"
+metadata/_edit_use_anchors_ = true
+
+[node name="Level Complete" type="RichTextLabel" parent="ScoreScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -207.0
+offset_right = 276.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme = ExtResource("2_p7teq")
+bbcode_enabled = true
+text = "[rainbow][center]Level complete!"
+scroll_active = false
+
+[node name="Score" type="Label" parent="ScoreScreen"]
+offset_left = 476.0
+offset_top = 237.0
+offset_right = 675.0
+offset_bottom = 286.0
+theme = ExtResource("2_p7teq")
+theme_override_font_sizes/font_size = 0
+text = "Score: 10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScoreManager" type="Node2D" parent="." node_paths=PackedStringArray("text_edit", "leaderboard_canvas_layer", "canvas_layer", "leaderboard_button", "leaderboard", "score_label", "go_to_menu_button", "save_score_button")]
+script = ExtResource("1_gx6yk")
+text_edit = NodePath("../ScoreScreen/Insertname")
+game_score = ExtResource("2_1lnks")
+leaderboard_canvas_layer = NodePath("../Leaderboard")
+canvas_layer = NodePath("../ScoreScreen")
+leaderboard_button = NodePath("../ScoreScreen/Leaderboards")
+leaderboard = NodePath("../Leaderboard/LeaderboardUI")
+score_label = NodePath("../ScoreScreen/Score")
+go_to_menu_button = NodePath("../ScoreScreen/Go to Menu")
+save_score_button = NodePath("../ScoreScreen/Save score")
+
+[node name="Leaderboard" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="LeaderboardUI" parent="Leaderboard" instance=ExtResource("3_an75e")]
+offset_left = 79.0
+offset_top = 37.0
+offset_right = -60.0
+offset_bottom = -60.0
 leaderboard_id = "cheeseinthetrap-highscore-wHeL"
 
-[connection signal="button_up" from="CanvasLayer/Button" to="HighScoreManager" method="button_pressed"]
+[node name="Button" type="Button" parent="Leaderboard"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -313.0
+offset_top = -94.0
+offset_right = -23.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_p7teq")
+text = "Go back!"
+
+[connection signal="pressed" from="ScoreScreen/Save score" to="HighScoreManager" method="_on_save_score_pressed"]
+[connection signal="pressed" from="ScoreScreen/Go to Menu" to="HighScoreManager" method="_on_go_to_menu_pressed"]
+[connection signal="pressed" from="ScoreScreen/Leaderboards" to="HighScoreManager" method="_on_leaderboards_pressed"]
+[connection signal="pressed" from="Leaderboard/Button" to="HighScoreManager" method="_on_button_pressed"]
