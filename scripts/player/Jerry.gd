@@ -45,7 +45,6 @@ func stairs(delta) -> void :
 		super.stairs(delta)
 
 func animation(delta) -> void :
-	super.animation(delta)
 	if (_is_trapped) :
 		animated_sprite.animation = "stunned"
 		return
@@ -53,6 +52,7 @@ func animation(delta) -> void :
 		animated_sprite.animation = "cheese"
 		_cheese_countdown -= delta
 		return
+	super.animation(delta)
 
 # Jerry unique functions ---------------------------------------------------------
 

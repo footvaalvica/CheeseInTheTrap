@@ -40,7 +40,7 @@ func animation(delta) :
 		animated_sprite.animation = "climb_2"
 		return
 	if abs(velocity.x) > 0:
-		if animated_sprite.animation == "default":
+		if animated_sprite.animation != "walk" :
 			print_debug("walk")
 			animated_sprite.animation = "walk"
 			animated_sprite.play()
@@ -109,7 +109,6 @@ func stairs_exit(delta : float) :
 	return
 
 func finished_climbing() -> bool:
-	print_debug(_climbing_bound)
 	return _climbing_time >= _climbing_bound
 
 func move_to_floor(floor : int) :
