@@ -83,7 +83,7 @@ script = ExtResource("8_rx5fb")
 [node name="TomShortcut3" parent="." instance=ExtResource("7_j8h8u")]
 position = Vector2(-48, -88)
 script = ExtResource("8_rx5fb")
-floor = 5
+floor = 4
 
 [node name="Sprite2D" parent="TomShortcut3" index="0"]
 texture = ExtResource("11_ej6iq")
