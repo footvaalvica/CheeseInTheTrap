@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://2hcb8cjnqasc"]
 
-[ext_resource type="Texture2D" uid="uid://ct8byw111qt70" path="res://resources/cga_ui_gold/f.png" id="1_bm58p"]
+[ext_resource type="Texture2D" uid="uid://bc4a28c2qt5vj" path="res://assets/cga_ui_gold/f.png" id="1_bm58p"]
 [ext_resource type="Script" path="res://scripts/highscore/HighScoreManager.gd" id="1_gx6yk"]
 [ext_resource type="Resource" uid="uid://cgujiwi5yrix5" path="res://resources/game_score.tres" id="2_1lnks"]
-[ext_resource type="Theme" uid="uid://drpqbfyn00534" path="res://buttontheme.tres" id="2_p7teq"]
+[ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_p7teq"]
 [ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="3_an75e"]
-[ext_resource type="Texture2D" uid="uid://bw4auhhjp5ch6" path="res://resources/cga_ui_gold/s2.png" id="3_ydjii"]
-[ext_resource type="Texture2D" uid="uid://ce6ydgvmqme17" path="res://resources/cga_ui_gold/s1.png" id="4_qcqiu"]
+[ext_resource type="Texture2D" uid="uid://t7r3ow35bc7s" path="res://assets/cga_ui_gold/s2.png" id="3_ydjii"]
+[ext_resource type="Texture2D" uid="uid://bdep7benguovy" path="res://assets/cga_ui_gold/s1.png" id="4_qcqiu"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
