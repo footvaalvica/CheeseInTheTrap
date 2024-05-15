@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwvtbn87rqyvv"]
+[gd_scene load_steps=16 format=3 uid="uid://cwvtbn87rqyvv"]
 
 [ext_resource type="VideoStream" path="res://resources/menuvid.ogv" id="1_aaqpx"]
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_iawo3"]
 [ext_resource type="Theme" uid="uid://drpqbfyn00534" path="res://buttontheme.tres" id="2_u5qb5"]
-[ext_resource type="Texture2D" uid="uid://bvvv2bx65qj8c" path="res://resources/cga_ui_gold/b_3.png" id="4_j0jqu"]
-[ext_resource type="Texture2D" uid="uid://di36p4xmc006i" path="res://resources/cga_ui_gold/b_5.png" id="4_y1mbn"]
+[ext_resource type="Texture2D" uid="uid://cia3fq1nkc6dk" path="res://resources/cga_ui_gold/b_3.png" id="4_j0jqu"]
+[ext_resource type="Texture2D" uid="uid://6mmsus738c6" path="res://resources/cga_ui_gold/b_5.png" id="4_y1mbn"]
+[ext_resource type="AudioStream" uid="uid://dvqs32y3t3i3m" path="res://fmod/cheeseinthetrap/Assets/Happy-Go-Ducky (1957) - Music track only.mp3" id="8_47ys8"]
+[ext_resource type="Script" path="res://addons/maaacks_game_template/base/scripts/UISoundController.gd" id="8_n5pcd"]
+[ext_resource type="AudioStream" uid="uid://ci481qq1s318y" path="res://addons/kenney_interface_sounds/confirmation_004.wav" id="9_3vypt"]
+[ext_resource type="PackedScene" uid="uid://bgmnoop07s387" path="res://exexamples/scenes/Menus/OptionsMenu/MasterOptionsMenuWithTabs.tscn" id="9_5e2er"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l3qxy"]
 content_margin_left = 10.0
@@ -64,7 +68,7 @@ expand_margin_top = 3.0
 expand_margin_right = 3.0
 expand_margin_bottom = 3.0
 
-[node name="menu" type="Control"]
+[node name="menu" type="Control" node_paths=PackedStringArray("options", "rest_of_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,6 +76,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iawo3")
+options = NodePath("UIOPTIONS")
+rest_of_menu = NodePath("RestofMenu")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
@@ -85,8 +91,9 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="RestofMenu" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="RestofMenu"]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.975309
@@ -100,10 +107,10 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(4.00069, 4.00069)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="RestofMenu/MarginContainer"]
 layout_mode = 2
 
-[node name="play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="play" type="Button" parent="RestofMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -120,8 +127,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_wdw7r")
 text = "Start"
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="MarginContainer2" type="MarginContainer" parent="RestofMenu"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -135,16 +141,58 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.05583, 1.05583)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="RestofMenu/MarginContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer2/VBoxContainer"]
+[node name="Button" type="Button" parent="RestofMenu/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_u5qb5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxTexture_e3j4a")
 theme_override_styles/hover = SubResource("StyleBoxTexture_c3jdq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_bmest")
 text = "Quit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
+[node name="Options" type="Button" parent="RestofMenu"]
+offset_left = 869.0
+offset_top = 508.0
+offset_right = 1089.0
+offset_bottom = 585.0
+theme = ExtResource("2_u5qb5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "OPTIONS"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_47ys8")
+autoplay = true
+bus = &"Music"
+
+[node name="UIOPTIONS" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="MasterOptionsMenu" parent="UIOPTIONS" instance=ExtResource("9_5e2er")]
+
+[node name="goback" type="Button" parent="UIOPTIONS"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -284.0
+offset_top = -143.0
+offset_right = -63.0
+offset_bottom = -62.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_u5qb5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "GO BACK!"
+
+[node name="UISoundController" type="Node" parent="."]
+script = ExtResource("8_n5pcd")
+button_pressed = ExtResource("9_3vypt")
+
+[connection signal="pressed" from="RestofMenu/MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="RestofMenu/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="UIOPTIONS/goback" to="." method="_on_goback_pressed"]

@@ -18,7 +18,7 @@ General/is_memory_tracking_enabled=false
 "Software Format/speaker_mode"=3
 "Software Format/raw_speaker_count"=0
 General/default_listener_count=1
-General/banks_path="res://"
+General/banks_path="res://fmod/cheeseinthetrap/Build/Desktop"
 General/should_load_by_name=false
 DSP/dsp_buffer_size=512
 DSP/dsp_buffer_count=4
@@ -42,10 +42,14 @@ window/stretch/mode="viewport"
 FmodManager="*res://addons/fmod/FmodManager.gd"
 PlayerAccounts="*res://addons/quiver_player_accounts/player_accounts.tscn"
 Leaderboards="*res://addons/quiver_leaderboards/leaderboards.tscn"
+BMOD="*res://addons/bmod/autoloads/bmod/bmod.tscn"
+AppConfig="*res://addons/maaacks_game_template/base/scenes/Autoloads/AppConfig.tscn"
+SceneLoader="*res://addons/maaacks_game_template/base/scenes/Autoloads/SceneLoader.tscn"
+ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/Autoloads/ProjectMusicController.tscn"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/fmod/plugin.cfg", "res://addons/quiver_leaderboards/plugin.cfg", "res://addons/quiver_player_accounts/plugin.cfg")
+enabled=PackedStringArray("res://addons/bmod/plugin.cfg", "res://addons/fmod/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg", "res://addons/quiver_leaderboards/plugin.cfg", "res://addons/quiver_player_accounts/plugin.cfg")
 
 [input]
 
@@ -184,11 +188,11 @@ ready_2={
 2d_physics/layer_6="JerryShortcuts"
 2d_physics/layer_7="TrapPlacer"
 
+[maaacks_game_template]
+
+disable_plugin_dialogues=true
+copy_path="res://exexamples"
+
 [quiver]
 
 general/auth_token="BHW9Wj5Eq07s5FIyeNFbrReuVAQnmKPCkWGRnUAO"
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
