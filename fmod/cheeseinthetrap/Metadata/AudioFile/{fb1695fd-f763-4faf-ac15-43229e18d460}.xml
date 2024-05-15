@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{fb1695fd-f763-4faf-ac15-43229e18d460}">
+		<property name="assetPath">
+			<value>Happy-Go-Ducky (1957) - Music track only.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>61.492244897959182</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1f97a3b1-5cb2-4f23-955b-742c0c58fcfc}</destination>
+		</relationship>
+	</object>
+</objects>

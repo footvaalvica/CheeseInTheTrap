@@ -35,6 +35,7 @@ func _ready():
 	hole2.hide()
 	hole2.process_mode = Node.PROCESS_MODE_DISABLED
 	start_trap_spawning()
+	game_score.winner = "Maaaaa"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -82,11 +83,13 @@ func start_game() -> void :
 func end_game_jerry() -> void :
 	print_end_game_string_jerry()
 	game_score.cheese = _number_of_cheese
+	game_score.winner = "Jerry"
 	end_game()
 
 func end_game_tom() -> void :
 	print_end_game_string_tom()
 	game_score.cheese = TOTAL_CHEESE - _number_of_cheese
+	game_score.winner = "Tom"
 	end_game()
 
 func end_game() -> void :
