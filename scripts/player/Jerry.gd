@@ -50,6 +50,13 @@ func animation(delta) -> void :
 		return
 	if (_cheese_countdown > 0):
 		animated_sprite.animation = "cheese"
+		animated_sprite.play()
+		if Input.get_action_strength("move_right_%s" % player_id) > 0 :
+			animated_sprite.scale.x = abs(animated_sprite.scale.x)
+		elif Input.get_action_strength("move_left_%s" % player_id) > 0 :
+			animated_sprite.scale.x = - abs(animated_sprite.scale.x)
+		else:
+			animated_sprite.stop()
 		_cheese_countdown -= delta
 		return
 	super.animation(delta)
