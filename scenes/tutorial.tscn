@@ -1,0 +1,133 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2cvler4uo01k"]
+
+[ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_p5g2j"]
+[ext_resource type="Texture2D" uid="uid://b04k0w18vwhnc" path="res://resources/cga_ui_gold/b_3.png" id="3_cpr5p"]
+[ext_resource type="Script" path="res://scripts/TutorialManager.gd" id="4_opoej"]
+[ext_resource type="Resource" uid="uid://8rn2gole7jue" path="res://resources/player1.tres" id="5_hhp51"]
+[ext_resource type="Resource" uid="uid://jgmqday0wh5l" path="res://resources/player2.tres" id="6_sgmrt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dkarm"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+texture = ExtResource("3_cpr5p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b617i"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+texture = ExtResource("3_cpr5p")
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ighe"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+texture = ExtResource("3_cpr5p")
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+autoplay = true
+expand = true
+loop = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VideoStreamPlayer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.958333
+anchor_top = 1.12346
+anchor_right = 0.958333
+anchor_bottom = 1.12809
+offset_left = -136.0
+offset_top = -184.0
+offset_right = -77.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.28069, 2.28069)
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VideoStreamPlayer/MarginContainer"]
+layout_mode = 2
+
+[node name="play" type="Button" parent="VideoStreamPlayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_p5g2j")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_dkarm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b617i")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8ighe")
+text = "Start"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VideoStreamPlayer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.555556
+anchor_top = 1.20988
+anchor_right = 0.586806
+anchor_bottom = 1.21451
+offset_left = -136.0
+offset_top = -184.0
+offset_right = -77.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.38294, 1.38294)
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VideoStreamPlayer/MarginContainer2"]
+layout_mode = 2
+
+[node name="switch" type="Button" parent="VideoStreamPlayer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_p5g2j")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_dkarm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b617i")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8ighe")
+text = "Gamepad"
+
+[node name="TutorialManager" type="Node" parent="." node_paths=PackedStringArray("vid", "switch_button")]
+script = ExtResource("4_opoej")
+player1 = ExtResource("5_hhp51")
+player2 = ExtResource("6_sgmrt")
+vid = NodePath("../VideoStreamPlayer")
+switch_button = NodePath("../VideoStreamPlayer/MarginContainer2/VBoxContainer/switch")
+
+[connection signal="pressed" from="VideoStreamPlayer/MarginContainer/VBoxContainer/play" to="TutorialManager" method="_on_play_pressed"]
+[connection signal="pressed" from="VideoStreamPlayer/MarginContainer2/VBoxContainer/switch" to="TutorialManager" method="_switch"]
