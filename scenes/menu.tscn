@@ -1,14 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwvtbn87rqyvv"]
+[gd_scene load_steps=15 format=3 uid="uid://cwvtbn87rqyvv"]
 
 [ext_resource type="VideoStream" path="res://assets/menuvid.ogv" id="1_aaqpx"]
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_iawo3"]
-[ext_resource type="Theme" uid="uid://drpqbfyn00534" path="res://buttontheme.tres" id="2_u5qb5"]
-[ext_resource type="Texture2D" uid="uid://cia3fq1nkc6dk" path="res://resources/cga_ui_gold/b_3.png" id="4_j0jqu"]
-[ext_resource type="Texture2D" uid="uid://6mmsus738c6" path="res://resources/cga_ui_gold/b_5.png" id="4_y1mbn"]
-[ext_resource type="AudioStream" uid="uid://dvqs32y3t3i3m" path="res://fmod/cheeseinthetrap/Assets/Happy-Go-Ducky (1957) - Music track only.mp3" id="8_47ys8"]
+[ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_u5qb5"]
+[ext_resource type="Texture2D" uid="uid://bgniw0epwu85v" path="res://assets/cga_ui_gold/b_3.png" id="4_j0jqu"]
+[ext_resource type="Texture2D" uid="uid://dk2xdh7mildfm" path="res://assets/cga_ui_gold/b_5.png" id="4_y1mbn"]
+[ext_resource type="AudioStream" uid="uid://xuchhgkj56w5" path="res://fmod/cheeseinthetrap/Assets/Happy-Go-Ducky (1957) - Music track only.mp3" id="8_47ys8"]
 [ext_resource type="Script" path="res://addons/maaacks_game_template/base/scripts/UISoundController.gd" id="8_n5pcd"]
-[ext_resource type="AudioStream" uid="uid://ci481qq1s318y" path="res://addons/kenney_interface_sounds/confirmation_004.wav" id="9_3vypt"]
-; [ext_resource type="PackedScene" uid="uid://bgmnoop07s387" path="res://exexamples/scenes/Menus/OptionsMenu/MasterOptionsMenuWithTabs.tscn" id="9_5e2er"]
+[ext_resource type="AudioStream" uid="uid://mv0fnihxbawf" path="res://addons/kenney_interface_sounds/confirmation_004.wav" id="9_3vypt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l3qxy"]
 content_margin_left = 10.0
@@ -170,8 +169,6 @@ bus = &"Music"
 
 [node name="UIOPTIONS" type="CanvasLayer" parent="."]
 visible = false
-
-; [node name="MasterOptionsMenu" parent="UIOPTIONS" instance=ExtResource("9_5e2er")]
 
 [node name="goback" type="Button" parent="UIOPTIONS"]
 anchors_preset = 3
