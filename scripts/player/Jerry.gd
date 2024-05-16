@@ -9,6 +9,7 @@ var _disable_counter : float = 0
 var _cheese_countdown : float = 0
 var _trap : Trap = null
 var _holes : Array[Hole]
+var _traps_available : Array[Trap]
 
 const STUCKMAX : int = 10
 const DISABLE_TIME : float = 1.5
@@ -88,24 +89,29 @@ func enter_hole() -> void :
 	GameManager.instance().end_game_jerry()
 	
 func disable_trap(delta : float) -> void :
-	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")
-	for trap_object in trap_object_list :
-		var trap_script : Trap = trap_object as Trap
-		if not trap_script.active :
-			continue
-		if GameManager.instance().in_trap_range(self, trap_object) :
-			trap_script.hit()
-			print_debug("disarm")
-			return
+	var active_traps : Array[Trap] = \
+		 _traps_available.filter(func (tp) : return tp.active)
+	if active_traps.size() == 0 :
+		return
+	var trap : Trap = active_traps[0]
+	if GameManager.instance().in_trap_range(self, trap) :
+		trap.hit()
+		return
 
 # Utility functions ------------------------------------------------------------
 	
 func add_hole(hole : Hole) -> void :
 	_holes.append(hole)
-	
+
 func remove_hole(hole : Hole) -> void :
 	_holes = _holes.filter(func (h) : return h != hole)
-	
+
+func add_trap(trap : Trap) -> void :
+	_traps_available.append(trap)
+
+func remove_trap(trap : Trap) -> void :
+	_traps_available = _traps_available.filter(func (tp) : return tp != trap)
+
 func switch_direction(direction:Direction) -> Direction :
 	return Direction.Right if direction == Direction.Left else Direction.Left
 
