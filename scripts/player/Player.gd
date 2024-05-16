@@ -2,7 +2,6 @@ class_name Player extends CharacterBody2D
 
 enum Climbing_Phase {None, Entering, Exiting}
 
-var _destroy_counter : float = 0
 var _floor : int = 0 :
 	get : return _floor
 var _climbing_phase : Climbing_Phase = Climbing_Phase.None
@@ -10,7 +9,6 @@ var _climbing_time : float = 0
 # this value should be changed to TRAPDOOR_TIME or CLIMBING_TIME upon usage
 var _climbing_bound : float = 0 
 
-const DESTROY_TIME : float = 2
 const CLIMBING_TIME : float = .3
 const SPEED = 300.0
 
@@ -86,11 +84,8 @@ func destroy_blocking_object(delta : float) -> void :
 	for blocking_object in blocking_object_list :
 		var shortcut_script : GameShortcut = blocking_object as GameShortcut
 		if GameManager.instance().in_destroy_shortcut_range(self, blocking_object) :
-			_destroy_counter += delta
-			if _destroy_counter >= DESTROY_TIME :
-				shortcut_script.destroy()
+			shortcut_script.hit()
 			return
-	_destroy_counter = 0
 
 func stairs_enter(delta : float) :
 	_climbing_time += delta

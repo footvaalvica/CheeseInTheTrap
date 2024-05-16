@@ -14,7 +14,7 @@ func _process(delta):
 	super._process(delta)
 	if Input.is_action_just_pressed("trap_action_%s" % player_id) :
 		trap_action()
-	if Input.get_action_raw_strength("destroy_shortcut_%s" % player_id) > 0 :
+	if Input.is_action_just_pressed("destroy_shortcut_%s" % player_id) :
 		destroy_blocking_object(delta)
 	if Input.is_action_just_pressed("move_down_%s" % player_id) :
 		use_trapdoor(_floor)

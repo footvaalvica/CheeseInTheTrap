@@ -40,6 +40,7 @@ func _ready():
 func add_score(name : String, cheese : int, time : float) :
 	var score: int = (cheese * 3 - time) * 20
 	var success: bool = await Leaderboards.post_guest_score("cheeseinthetrap-highscore-wHeL", score, name)
+	print_debug(success)
 
 func _on_leaderboards_pressed():
 	await leaderboard.refresh_scores()
@@ -59,8 +60,3 @@ func _on_button_pressed():
 
 func _on_go_to_menu_pressed():
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
-
-	#await leaderboard.refresh_scores()
-	#leaderboard.show()
-	#canvas_layer.hide()
-	#get_tree().change_scene_to_file("res://scenes/character_selection.tscn")

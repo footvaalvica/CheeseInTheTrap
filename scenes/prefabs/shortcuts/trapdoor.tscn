@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bqj766o4qrfo1"]
 
-[ext_resource type="Script" path="res://scripts/shortcuts/Trapdoor.gd" id="1_38y76"]
+[ext_resource type="Script" path="res://scripts/interactables/shortcuts/Trapdoor.gd" id="1_38y76"]
 [ext_resource type="Texture2D" uid="uid://dv36tdqo5e6pr" path="res://assets/trapdoor_closed.png" id="2_ssyd1"]
 [ext_resource type="Texture2D" uid="uid://c5p8m4kji71la" path="res://assets/trapdor_spritesheet.png" id="3_wivri"]
 

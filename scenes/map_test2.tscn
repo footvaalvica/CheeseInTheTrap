@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://scenes/prefabs/collectables/cheese.tscn" id="7_3l02i"]
 [ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="8_3alap"]
 [ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/shortcuts/tom_shortcut.tscn" id="9_3mubw"]
-[ext_resource type="Script" path="res://scripts/shortcuts/GameShortcut.gd" id="10_da3nc"]
+[ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="10_da3nc"]
 [ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/shortcuts/jerry_shortcut.tscn" id="11_nxddv"]
 [ext_resource type="PackedScene" uid="uid://bqj766o4qrfo1" path="res://scenes/prefabs/shortcuts/trapdoor.tscn" id="12_o60og"]
 [ext_resource type="PackedScene" uid="uid://o1iwho47xbb0" path="res://scenes/prefabs/house/walls.tscn" id="13_lklsm"]

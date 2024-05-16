@@ -17,19 +17,13 @@ const CHEESE_CATCH_TIME : float = 1.5
 func _process(delta):
 	super._process(delta)
 	if _is_trapped :
-		_disable_counter = 0
-		_destroy_counter = 0
 		return
 	if Input.is_action_just_pressed("move_up_%s" % player_id) and (_holes.size() > 0):
 		enter_hole()
-	if Input.get_action_strength("trap_action_%s" % player_id) > 0 : 
+	if Input.is_action_just_pressed("trap_action_%s" % player_id) : 
 		disable_trap(delta)
-	else :
-		_disable_counter = 0
-	if Input.get_action_strength("destroy_shortcut_%s" % player_id) > 0 :
+	if Input.is_action_just_pressed("destroy_shortcut_%s" % player_id):
 		destroy_blocking_object(delta)
-	else:
-		_destroy_counter = 0
 
 func movement(delta) -> void :
 	if _is_trapped :
@@ -100,12 +94,9 @@ func disable_trap(delta : float) -> void :
 		if not trap_script.active :
 			continue
 		if GameManager.instance().in_trap_range(self, trap_object) :
-			_disable_counter += delta
-			if _disable_counter >= DISABLE_TIME :
-				trap_script.active = false
-				print_debug("disarm")
+			trap_script.hit()
+			print_debug("disarm")
 			return
-	_disable_counter = 0
 
 # Utility functions ------------------------------------------------------------
 	
