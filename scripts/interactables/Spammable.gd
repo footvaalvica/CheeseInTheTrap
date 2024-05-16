@@ -5,6 +5,7 @@ var current_hits_counter : int = 0
 
 func hit():
 	current_hits_counter += 1
+	on_hit_action()
 	if (current_hits_counter == max_hits_counter) :
 		action()
 	

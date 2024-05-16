@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c72m4u7mpuxj"]
+[gd_scene load_steps=7 format=3 uid="uid://c72m4u7mpuxj"]
 
 [ext_resource type="Script" path="res://scripts/interactables/collectables/Trap.gd" id="1_0ti6k"]
 [ext_resource type="Texture2D" uid="uid://264o6fsvlvje" path="res://assets/trap1.png" id="2_s7y67"]
@@ -18,6 +18,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_osdj3"]
+radius = 4.1503
+
 [node name="Trap" type="Node2D" groups=["Trap"]]
 position = Vector2(228, 231)
 script = ExtResource("1_0ti6k")
@@ -36,10 +39,21 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_q84jl")
 
 [node name="DisarmArea" type="Node2D" parent="."]
+visible = false
 scale = Vector2(20, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="DisarmArea"]
 scale = Vector2(0.008, 0.008)
 texture = ExtResource("3_dkpnd")
 
+[node name="Area2D" type="Area2D" parent="DisarmArea"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DisarmArea/Area2D"]
+position = Vector2(-0.1, -1.93715e-07)
+shape = SubResource("CircleShape2D_osdj3")
+
 [connection signal="body_entered" from="Area2D" to="." method="on_collision"]
+[connection signal="body_entered" from="DisarmArea/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="DisarmArea/Area2D" to="." method="_on_area_2d_body_exited"]

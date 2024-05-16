@@ -2,18 +2,23 @@ class_name Trap extends Spammable
 
 var active : bool = true
 var _cooldown : float = 0
+var _restore_counter : float = 0
 var _floor : float = 0
 
 const COOLDOWN_TIME = 5
+const TIME_PER_HIT = 2
 
 func _process(delta):
-	var player_id = get_node("../Jerry").player_id
-	if Input.get_action_raw_strength("trap_action_%s" % player_id) > 0 && active:
-		$DisarmArea.visible = true
-	else :
-		$DisarmArea.hide()
 	if _cooldown > 0:
 		_cooldown = max(_cooldown - delta, 0)
+	if _restore_counter == 0 :
+		if current_hits_counter != 0 :
+			current_hits_counter -= 1
+			if current_hits_counter > 0 :
+				_restore_counter = TIME_PER_HIT
+	else :
+		_restore_counter = max(_restore_counter - delta, 0)
+	
 
 func on_collision(body : Node2D) -> void:
 	var physics := body as PhysicsBody2D 
@@ -30,12 +35,28 @@ func on_collision(body : Node2D) -> void:
 
 func collect() -> void:
 	queue_free()
-	
+
 func place(floor : int) -> void :
 	_floor = floor
 
 func action() -> void : # disarm trap
 	active = false
+	$DisarmArea.hide()
 
 func activate_cooldown() -> void :
 	_cooldown = COOLDOWN_TIME
+
+func on_hit_action() -> void :
+	print_debug(current_hits_counter)
+	_restore_counter = TIME_PER_HIT
+
+func _on_area_2d_body_entered(body : Node2D):
+	if active :
+		$DisarmArea.visible = true
+	var jerry = body as Jerry
+	jerry.add_trap(self)
+
+func _on_area_2d_body_exited(body):
+	$DisarmArea.hide()
+	var jerry = body as Jerry
+	jerry.add_trap(self)
