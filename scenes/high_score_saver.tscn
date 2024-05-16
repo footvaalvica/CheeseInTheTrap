@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://2hcb8cjnqasc"]
+[gd_scene load_steps=21 format=3 uid="uid://2hcb8cjnqasc"]
 
 [ext_resource type="Texture2D" uid="uid://bc4a28c2qt5vj" path="res://assets/cga_ui_gold/f.png" id="1_bm58p"]
 [ext_resource type="Script" path="res://scripts/highscore/HighScoreManager.gd" id="1_gx6yk"]
@@ -7,11 +7,56 @@
 [ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="3_an75e"]
 [ext_resource type="Texture2D" uid="uid://c8ppsq1d4nmc5" path="res://assets/cga_ui_gold/b_2.png" id="3_byvrj"]
 [ext_resource type="Texture2D" uid="uid://t7r3ow35bc7s" path="res://assets/cga_ui_gold/s2.png" id="3_ydjii"]
+[ext_resource type="Texture2D" uid="uid://du1fpkbs74jyg" path="res://assets/cga_ui_gold/b_1.png" id="4_awa48"]
 [ext_resource type="Texture2D" uid="uid://bdep7benguovy" path="res://assets/cga_ui_gold/s1.png" id="4_qcqiu"]
 [ext_resource type="Texture2D" uid="uid://curyq5ugx7xnr" path="res://assets/cga_ui_gold/bar_1.png" id="6_33j82"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2j3sx"]
 texture = ExtResource("3_byvrj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xcfu7"]
+texture = ExtResource("4_awa48")
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tq2na"]
+texture = ExtResource("4_awa48")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uyr6w"]
+texture = ExtResource("4_awa48")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_naf8q"]
+texture = ExtResource("4_awa48")
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_211nq"]
+texture = ExtResource("4_awa48")
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dmh6u"]
+texture = ExtResource("4_awa48")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kg6ay"]
+texture = ExtResource("4_awa48")
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8blsx"]
+texture = ExtResource("4_awa48")
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e3tyk"]
 texture = ExtResource("6_33j82")
@@ -86,6 +131,8 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_p7teq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_2j3sx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xcfu7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tq2na")
 text = "Save score"
 
 [node name="Go to Menu" type="Button" parent="ScoreScreen"]
@@ -101,6 +148,9 @@ offset_bottom = 484.0
 size_flags_horizontal = 4
 theme = ExtResource("2_p7teq")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_uyr6w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_naf8q")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_211nq")
 text = "Go to menu"
 metadata/_edit_use_anchors_ = true
 
@@ -117,6 +167,9 @@ offset_bottom = 483.0
 size_flags_horizontal = 4
 theme = ExtResource("2_p7teq")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_dmh6u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kg6ay")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8blsx")
 text = "Leaderboards"
 metadata/_edit_use_anchors_ = true
 

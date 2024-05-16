@@ -154,7 +154,6 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_bmest")
 text = "Quit"
 
 [node name="Options" type="Button" parent="RestofMenu"]
-visible = false
 offset_left = 869.0
 offset_top = 508.0
 offset_right = 1089.0
