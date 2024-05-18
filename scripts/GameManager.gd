@@ -6,10 +6,12 @@ var _number_of_traps : int = 3
 var _floor_0_y = 0
 var _clock : float = 0 : 
 	get : return _clock 
-var _ready1 : bool = true
-var _ready2 : bool = true
+var _ready_jerry : bool = true
+var _ready_tom : bool = true
 var _spawning : bool = false
-	
+var _green_tick_image : Texture2D = null
+var _red_cross_image : Texture2D = null
+
 @export var tom : Tom = null
 @export var jerry : Jerry = null
 @export var trap_placer : TrapPlacer = null
@@ -17,6 +19,12 @@ var _spawning : bool = false
 @export var player2 : PlayerResource = null
 @export var hole2 : Hole = null
 @export var game_score : GameScore = null
+@export var cheese_text : RichTextLabel = null
+@export var trap_text : RichTextLabel = null
+@export var _jerry_ready_image : TextureRect = null
+@export var _tom_ready_image : TextureRect = null
+@export var _jerry_control : Control = null
+@export var _tom_control : Control = null
 
 const TOTAL_CHEESE = 3
 const DISTANCE_TO_TRAP = 100 # FIXME : should this vary between tom and jerry ?
@@ -36,21 +44,40 @@ func _ready():
 	hole2.process_mode = Node.PROCESS_MODE_DISABLED
 	start_trap_spawning()
 	game_score.winner = "Maaaaa"
+	_green_tick_image = load("res://assets/green_tick.jpg")
+	_red_cross_image = load("res://assets/red_cross.jpg")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_clock += delta
-	if Input.is_action_just_pressed("ready_1"):
-		_ready1 = not _ready1
-	if Input.is_action_just_pressed("ready_2"):
-		_ready2 = not _ready2
-	if (_spawning and _ready2 and _ready1) :
+	update_texts()
+	if Input.is_action_just_pressed("ready_%s" % jerry.player_id):
+		_ready_jerry = not _ready_jerry
+		switch_icon(_ready_jerry, _jerry_ready_image)
+	if Input.is_action_just_pressed("ready_%s" % tom.player_id):
+		_ready_tom = not _ready_tom
+		switch_icon(_ready_tom, _tom_ready_image)
+	if (_spawning and _ready_tom and _ready_jerry) :
 		end_trap_spawning()
 
 static func instance() -> GameManager :
 	return _instance
 
 # Game Logic functions ---------------------------------------------------------
+
+func update_texts() -> void :
+	cheese_text.clear()
+	var cheese_string = "[center]%s[/center]" % _number_of_cheese
+	cheese_text.append_text(cheese_string)
+	trap_text.clear()
+	var trap_string = "[center]%s[/center]" % _number_of_traps
+	trap_text.append_text(trap_string)
+
+func switch_icon(ready : bool, rect : TextureRect) -> void :
+	if ready :
+		rect.texture = _green_tick_image
+	else :
+		rect.texture = _red_cross_image
 
 func update_resource(res : PlayerResource) : 
 	if res.character_name == "Tom":
@@ -64,13 +91,15 @@ func update_resource(res : PlayerResource) :
 func start_trap_spawning() -> void :
 	tom.process_mode = Node.PROCESS_MODE_DISABLED
 	jerry.process_mode = Node.PROCESS_MODE_DISABLED
-	_ready1 = false
-	_ready2 = false
+	_ready_jerry = false
+	_ready_tom = false
 	_spawning = true
 
 func end_trap_spawning() -> void :
 	trap_placer.process_mode = Node.PROCESS_MODE_DISABLED
 	trap_placer.hide()
+	_tom_control.hide()
+	_jerry_control.hide()
 	tom.process_mode = Node.PROCESS_MODE_INHERIT
 	jerry.process_mode = Node.PROCESS_MODE_INHERIT
 	_spawning = false
