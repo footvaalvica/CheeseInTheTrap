@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://lqms5vj1r5re"]
+[gd_scene load_steps=28 format=3 uid="uid://lqms5vj1r5re"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_qblyn"]
 [ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="2_cb3xo"]
@@ -10,11 +10,16 @@
 [ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="6_aou2f"]
 [ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/shortcuts/tom_shortcut.tscn" id="7_j8h8u"]
 [ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="8_rx5fb"]
+[ext_resource type="Texture2D" uid="uid://ppd13xe4k4w4" path="res://assets/cheese.png" id="9_a0p0v"]
 [ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/shortcuts/jerry_shortcut.tscn" id="9_q2kdp"]
+[ext_resource type="Texture2D" uid="uid://264o6fsvlvje" path="res://assets/trap1.png" id="10_b7878"]
 [ext_resource type="PackedScene" uid="uid://bqj766o4qrfo1" path="res://scenes/prefabs/shortcuts/trapdoor.tscn" id="10_bn61j"]
 [ext_resource type="Texture2D" uid="uid://bpswu4fqy86am" path="res://assets/piano.png" id="11_5m5hx"]
 [ext_resource type="Texture2D" uid="uid://c2llgpstjvdft" path="res://assets/djset.png" id="11_ej6iq"]
+[ext_resource type="Texture2D" uid="uid://cp753obyi20re" path="res://assets/jerry_icon.png" id="11_gu6xb"]
 [ext_resource type="PackedScene" uid="uid://o1iwho47xbb0" path="res://scenes/prefabs/house/walls.tscn" id="12_46wad"]
+[ext_resource type="Texture2D" uid="uid://dqjp1ohvp7mvt" path="res://assets/red_cross.jpg" id="12_wjcxj"]
+[ext_resource type="Texture2D" uid="uid://dpgyenakgka4q" path="res://assets/tom_icon.jpg" id="13_81qs8"]
 [ext_resource type="PackedScene" uid="uid://kioghlqk3bao" path="res://scenes/prefabs/house/stairs_group.tscn" id="13_mbsdk"]
 [ext_resource type="PackedScene" uid="uid://dbygtbjtb5xnp" path="res://scenes/prefabs/house/hole.tscn" id="14_slfqy"]
 [ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="15_lp7f4"]
@@ -29,7 +34,7 @@ size = Vector2(136, 59)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "hole2") instance=ExtResource("1_qblyn")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "hole2", "cheese_text", "trap_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_qblyn")]
 tom = NodePath("../Tom")
 jerry = NodePath("../Jerry")
 trap_placer = NodePath("../TrapPlacer")
@@ -37,6 +42,12 @@ player1 = ExtResource("2_toce4")
 player2 = ExtResource("3_trd54")
 hole2 = NodePath("../Hole2")
 game_score = ExtResource("4_i13m6")
+cheese_text = NodePath("../CanvasLayer/Control/Cheese/RichTextLabel")
+trap_text = NodePath("../CanvasLayer/Control/Traps/RichTextLabel")
+_jerry_ready_image = NodePath("../CanvasLayer/Control/Jerry/MarginContainer2/VBoxContainer/TextureRect")
+_tom_ready_image = NodePath("../CanvasLayer/Control/Tom/MarginContainer2/VBoxContainer/TextureRect")
+_jerry_control = NodePath("../CanvasLayer/Control/Jerry")
+_tom_control = NodePath("../CanvasLayer/Control/Tom")
 
 [node name="Jerry" parent="." instance=ExtResource("2_cb3xo")]
 z_index = 1
@@ -74,7 +85,139 @@ scale = Vector2(0.15, 0.15)
 position = Vector2(8, -152)
 texture = ExtResource("6_aou2f")
 
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cheese" type="Control" parent="CanvasLayer/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Cheese"]
+layout_mode = 0
+offset_left = 978.0
+offset_top = 14.0
+offset_right = 1132.0
+offset_bottom = 169.0
+scale = Vector2(0.2, 0.2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Cheese/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Cheese/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_a0p0v")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Cheese"]
+layout_mode = 0
+offset_left = 1012.0
+offset_top = 16.0
+offset_right = 1052.0
+offset_bottom = 39.0
+bbcode_enabled = true
+text = "[center]3[/center]"
+
+[node name="Traps" type="Control" parent="CanvasLayer/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Traps"]
+offset_left = 1065.0
+offset_top = 12.0
+offset_right = 1533.0
+offset_bottom = 167.0
+scale = Vector2(0.2, 0.2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Traps/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Traps/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_b7878")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Traps"]
+offset_left = 1164.0
+offset_top = 14.0
+offset_right = 1204.0
+offset_bottom = 37.0
+bbcode_enabled = true
+text = "[center]3[/center]"
+
+[node name="Jerry" type="Control" parent="CanvasLayer/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Jerry"]
+offset_left = 853.0
+offset_top = 13.0
+offset_right = 1321.0
+offset_bottom = 379.0
+scale = Vector2(0.0918788, 0.0918788)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Jerry/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Jerry/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_gu6xb")
+expand_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Jerry"]
+offset_left = 911.0
+offset_top = 17.0
+offset_right = 1379.0
+offset_bottom = 383.0
+scale = Vector2(0.0849208, 0.0849208)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Jerry/MarginContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Jerry/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_wjcxj")
+expand_mode = 5
+
+[node name="Tom" type="Control" parent="CanvasLayer/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Tom"]
+offset_left = 725.0
+offset_top = 13.0
+offset_right = 1460.0
+offset_bottom = 577.0
+scale = Vector2(0.0706735, 0.0706735)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Tom/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Tom/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("13_81qs8")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Tom"]
+offset_left = 797.0
+offset_top = 16.0
+offset_right = 1265.0
+offset_bottom = 382.0
+scale = Vector2(0.0849208, 0.0849208)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Tom/MarginContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Tom/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_wjcxj")
+expand_mode = 5
+
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -25)
 
 [node name="TomShortcut" parent="." instance=ExtResource("7_j8h8u")]
 position = Vector2(-208, 272)
