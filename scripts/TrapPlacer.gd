@@ -1,15 +1,27 @@
 class_name TrapPlacer extends Player
 
 var trap_scene : PackedScene = load("res://scenes/prefabs/collectables/trap.tscn")
+var sprite : Sprite2D
 
 func _ready():
 	_floor = 6
+	sprite = $Sprite2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	stairs(delta)
 	if Input.is_action_just_pressed("trap_action_%s" % player_id): 
 		trap_action()
+	if ! GameManager.instance().can_place_trap(position, _floor) :
+		sprite.modulate.b = 0
+		sprite.modulate.g = 0
+	else :
+		sprite.modulate.b = 1
+		sprite.modulate.g = 1
+	if ! GameManager.instance().has_more_traps() :
+		sprite.modulate.a = 0.4
+	else :
+		sprite.modulate.a = 1
 
 func _physics_process(delta):
 	movement(delta)
