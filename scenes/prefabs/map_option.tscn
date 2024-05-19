@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3maq0kqtydjf"]
+
+[ext_resource type="Script" path="res://scripts/MapOption.gd" id="1_egft6"]
+[ext_resource type="Texture2D" uid="uid://dhbaaqvfxj6w5" path="res://assets/locked_map.png" id="2_kupe1"]
+[ext_resource type="Texture2D" uid="uid://d135frcdybhmc" path="res://assets/map_1.png" id="3_uln3p"]
+
+[node name="Map" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_egft6")
+locked_image = ExtResource("2_kupe1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -608.0
+offset_top = -196.0
+offset_right = 551.0
+offset_bottom = 465.0
+scale = Vector2(0.35, 0.35)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_uln3p")
+expand_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = -608.0
+offset_top = -196.0
+offset_right = 551.0
+offset_bottom = 465.0
+scale = Vector2(0.35, 0.35)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_uln3p")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -600.0
+offset_top = -253.0
+offset_right = -205.0
+offset_bottom = -211.0
+bbcode_enabled = true
+
+[connection signal="button_down" from="MarginContainer2/VBoxContainer/TextureButton" to="." method="select"]
