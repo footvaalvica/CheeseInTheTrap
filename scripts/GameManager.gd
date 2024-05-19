@@ -51,7 +51,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	_clock += delta
+	if (! _spawning) :
+		_clock += delta
 	update_texts()
 	if Input.is_action_just_pressed("ready_%s" % jerry.player_id):
 		_ready_jerry = not _ready_jerry

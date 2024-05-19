@@ -1,0 +1,198 @@
+[gd_scene load_steps=10 format=3 uid="uid://3qulhsobfrkq"]
+
+[ext_resource type="PackedScene" uid="uid://c3maq0kqtydjf" path="res://scenes/prefabs/map_option.tscn" id="1_sd08u"]
+[ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_g6m1m"]
+[ext_resource type="Texture2D" uid="uid://dhbaaqvfxj6w5" path="res://assets/locked_map.png" id="3_a2djs"]
+[ext_resource type="Texture2D" uid="uid://bgniw0epwu85v" path="res://assets/cga_ui_gold/b_3.png" id="3_wvftq"]
+[ext_resource type="Script" path="res://scripts/MapSelection.gd" id="4_addgb"]
+[ext_resource type="Resource" uid="uid://tbu0urwcrp1d" path="res://resources/map1.tres" id="5_p34o8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xywa6"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+texture = ExtResource("3_wvftq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n2kvm"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+texture = ExtResource("3_wvftq")
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_72lmt"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+texture = ExtResource("3_wvftq")
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Map" parent="." instance=ExtResource("1_sd08u")]
+layout_mode = 1
+resource = ExtResource("5_p34o8")
+
+[node name="Map2" parent="." instance=ExtResource("1_sd08u")]
+layout_mode = 1
+
+[node name="MarginContainer" parent="Map2" index="0"]
+visible = true
+offset_left = -187.0
+offset_top = -194.0
+offset_right = 972.0
+offset_bottom = 467.0
+
+[node name="TextureRect" parent="Map2/MarginContainer/VBoxContainer" index="0"]
+texture = ExtResource("3_a2djs")
+
+[node name="MarginContainer2" parent="Map2" index="1"]
+visible = false
+offset_left = -187.0
+offset_top = -194.0
+offset_right = 1733.0
+offset_bottom = 886.0
+
+[node name="TextureButton" parent="Map2/MarginContainer2/VBoxContainer" index="0"]
+texture_normal = ExtResource("3_a2djs")
+
+[node name="RichTextLabel" parent="Map2" index="2"]
+offset_left = -180.0
+offset_right = 215.0
+
+[node name="Map3" parent="." instance=ExtResource("1_sd08u")]
+layout_mode = 1
+
+[node name="MarginContainer" parent="Map3" index="0"]
+visible = true
+offset_left = 240.0
+offset_top = -192.0
+offset_right = 1399.0
+offset_bottom = 469.0
+
+[node name="TextureRect" parent="Map3/MarginContainer/VBoxContainer" index="0"]
+texture = ExtResource("3_a2djs")
+
+[node name="MarginContainer2" parent="Map3" index="1"]
+visible = false
+offset_left = 240.0
+offset_top = -192.0
+offset_right = 1399.0
+offset_bottom = 469.0
+
+[node name="RichTextLabel" parent="Map3" index="2"]
+offset_left = 252.0
+offset_top = -247.0
+offset_right = 647.0
+offset_bottom = -205.0
+
+[node name="Go Back" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Go Back"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 65.0
+offset_top = -89.0
+offset_right = 124.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.28069, 2.28069)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Go Back/MarginContainer"]
+layout_mode = 2
+
+[node name="back" type="Button" parent="Go Back/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_g6m1m")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_xywa6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_n2kvm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_72lmt")
+text = "Go Back"
+
+[node name="Start" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -93.0
+offset_right = -137.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.28069, 2.28069)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Start/MarginContainer"]
+layout_mode = 2
+
+[node name="play" type="Button" parent="Start/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_g6m1m")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_xywa6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_n2kvm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_72lmt")
+text = "Start"
+
+[node name="MapSelection" type="Node" parent="."]
+script = ExtResource("4_addgb")
+
+[connection signal="pressed" from="Go Back/MarginContainer/VBoxContainer/back" to="MapSelection" method="back"]
+[connection signal="pressed" from="Start/MarginContainer/VBoxContainer/play" to="MapSelection" method="start"]
+
+[editable path="Map2"]
+[editable path="Map3"]
