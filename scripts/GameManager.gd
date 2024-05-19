@@ -21,6 +21,7 @@ var _red_cross_image : Texture2D = null
 @export var game_score : GameScore = null
 @export var cheese_text : RichTextLabel = null
 @export var trap_text : RichTextLabel = null
+@export var time_text : RichTextLabel = null
 @export var _jerry_ready_image : TextureRect = null
 @export var _tom_ready_image : TextureRect = null
 @export var _jerry_control : Control = null
@@ -72,6 +73,10 @@ func update_texts() -> void :
 	trap_text.clear()
 	var trap_string = "[center]%s[/center]" % _number_of_traps
 	trap_text.append_text(trap_string)
+	time_text.clear()
+	var time_string = "[center]%s[center]" % time_pretty_string()
+	time_text.append_text(time_string)
+	
 
 func switch_icon(ready : bool, rect : TextureRect) -> void :
 	if ready :
@@ -229,7 +234,17 @@ func time_pretty_string() -> String :
 	var min : int = time_in_ms / (60 * 60)
 	var seconds : int = (time_in_ms / 60) % 60
 	var ms : int = time_in_ms % 60
-	return "%d:%d:%d" % [min, seconds, ms]
+	var min_string : String = str(min)
+	if min_string.length() == 1 :
+		min_string = "0" + min_string
+	var seconds_string : String = str(seconds)
+	if seconds_string.length() == 1 :
+		seconds_string = "0" + seconds_string
+	var ms_string : String = str(ms)
+	if ms_string.length() == 1 :
+		ms_string = "0" + ms_string
+	print_debug(seconds_string)
+	return "%s:%s:%s" % [min_string, seconds_string, ms_string]
 
 func get_distance(node1 : Node2D, node2 : Node2D) -> float : # check distance on horizontal plane
 	return abs(node1.position.x - node2.position.x)

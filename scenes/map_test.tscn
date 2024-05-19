@@ -34,7 +34,7 @@ size = Vector2(136, 59)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "hole2", "cheese_text", "trap_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_qblyn")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "hole2", "cheese_text", "trap_text", "time_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_qblyn")]
 tom = NodePath("../Tom")
 jerry = NodePath("../Jerry")
 trap_placer = NodePath("../TrapPlacer")
@@ -44,6 +44,7 @@ hole2 = NodePath("../Hole2")
 game_score = ExtResource("4_i13m6")
 cheese_text = NodePath("../CanvasLayer/Control/Cheese/RichTextLabel")
 trap_text = NodePath("../CanvasLayer/Control/Traps/RichTextLabel")
+time_text = NodePath("../CanvasLayer/Control/Time/RichTextLabel")
 _jerry_ready_image = NodePath("../CanvasLayer/Control/Jerry/MarginContainer2/VBoxContainer/TextureRect")
 _tom_ready_image = NodePath("../CanvasLayer/Control/Tom/MarginContainer2/VBoxContainer/TextureRect")
 _jerry_control = NodePath("../CanvasLayer/Control/Jerry")
@@ -98,10 +99,10 @@ offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Cheese"]
 layout_mode = 0
-offset_left = 978.0
-offset_top = 14.0
-offset_right = 1132.0
-offset_bottom = 169.0
+offset_left = 901.0
+offset_top = 15.0
+offset_right = 1055.0
+offset_bottom = 170.0
 scale = Vector2(0.2, 0.2)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Cheese/MarginContainer"]
@@ -113,10 +114,10 @@ texture = ExtResource("9_a0p0v")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Cheese"]
 layout_mode = 0
-offset_left = 1012.0
-offset_top = 16.0
-offset_right = 1052.0
-offset_bottom = 39.0
+offset_left = 931.0
+offset_top = 19.0
+offset_right = 971.0
+offset_bottom = 42.0
 bbcode_enabled = true
 text = "[center]3[/center]"
 
@@ -126,10 +127,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Traps"]
-offset_left = 1065.0
-offset_top = 12.0
-offset_right = 1533.0
-offset_bottom = 167.0
+layout_mode = 0
+offset_left = 978.0
+offset_top = 19.0
+offset_right = 1446.0
+offset_bottom = 174.0
 scale = Vector2(0.2, 0.2)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Traps/MarginContainer"]
@@ -140,10 +142,11 @@ layout_mode = 2
 texture = ExtResource("10_b7878")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Traps"]
-offset_left = 1164.0
-offset_top = 14.0
-offset_right = 1204.0
-offset_bottom = 37.0
+layout_mode = 0
+offset_left = 1077.0
+offset_top = 15.0
+offset_right = 1117.0
+offset_bottom = 38.0
 bbcode_enabled = true
 text = "[center]3[/center]"
 
@@ -153,10 +156,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Jerry"]
-offset_left = 853.0
-offset_top = 13.0
-offset_right = 1321.0
-offset_bottom = 379.0
+layout_mode = 0
+offset_left = 802.0
+offset_top = 14.0
+offset_right = 1270.0
+offset_bottom = 380.0
 scale = Vector2(0.0918788, 0.0918788)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Jerry/MarginContainer"]
@@ -168,10 +172,11 @@ texture = ExtResource("11_gu6xb")
 expand_mode = 5
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Jerry"]
-offset_left = 911.0
-offset_top = 17.0
-offset_right = 1379.0
-offset_bottom = 383.0
+layout_mode = 0
+offset_left = 854.0
+offset_top = 13.0
+offset_right = 1322.0
+offset_bottom = 480.0
 scale = Vector2(0.0849208, 0.0849208)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Jerry/MarginContainer2"]
@@ -188,9 +193,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Tom"]
-offset_left = 725.0
+layout_mode = 0
+offset_left = 682.0
 offset_top = 13.0
-offset_right = 1460.0
+offset_right = 1417.0
 offset_bottom = 577.0
 scale = Vector2(0.0706735, 0.0706735)
 
@@ -202,10 +208,11 @@ layout_mode = 2
 texture = ExtResource("13_81qs8")
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Tom"]
-offset_left = 797.0
-offset_top = 16.0
-offset_right = 1265.0
-offset_bottom = 382.0
+layout_mode = 0
+offset_left = 746.0
+offset_top = 12.0
+offset_right = 1214.0
+offset_bottom = 480.0
 scale = Vector2(0.0849208, 0.0849208)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Tom/MarginContainer2"]
@@ -215,6 +222,20 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("12_wjcxj")
 expand_mode = 5
+
+[node name="Time" type="Control" parent="CanvasLayer/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Time"]
+layout_mode = 0
+offset_left = 1113.0
+offset_top = 14.0
+offset_right = 1253.0
+offset_bottom = 40.0
+bbcode_enabled = true
+text = "[center]0[/center]"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -25)
