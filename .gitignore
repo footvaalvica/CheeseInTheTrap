@@ -11,7 +11,11 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 data_*/
+
+# Ignore save files
 highscores.dat
+game_state.dat
+
 
 # Ignore game build
 builds/
