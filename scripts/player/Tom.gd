@@ -7,7 +7,7 @@ const TRAPDOOR_TIME : float = .15
 
 func _ready():
 	super._ready()
-	_floor = 6
+	_floor = GameManager.instance().MAX_FLOOR
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
