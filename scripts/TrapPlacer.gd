@@ -4,7 +4,7 @@ var trap_scene : PackedScene = load("res://scenes/prefabs/collectables/trap.tscn
 var sprite : Sprite2D
 
 func _ready():
-	_floor = 6
+	_floor = GameManager.instance().MAX_FLOOR
 	sprite = $Sprite2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

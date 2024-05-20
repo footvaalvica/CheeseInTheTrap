@@ -2,7 +2,7 @@ class_name GameManager extends Node
 
 static var _instance : GameManager
 var _number_of_cheese : int = 0
-var _number_of_traps : int = 3
+var _number_of_traps : int = 0
 var _floor_0_y = 0
 var _clock : float = 0 : 
 	get : return _clock 
@@ -12,6 +12,10 @@ var _spawning : bool = false
 var _safety_set : bool = false
 var _green_tick_image : Texture2D = null
 var _red_cross_image : Texture2D = null
+
+@export var MAX_FLOOR = 6 # XXX : this should be a comstant
+@export var TOTAL_CHEESE = 3
+@export var MAX_TRAPS = 3
 
 @export var tom : Tom = null
 @export var jerry : Jerry = null
@@ -35,15 +39,16 @@ const DISTANCE_TO_SAFETY = 110
 const DISTANCE_TO_STAIRS = 75
 const DISTANCE_TO_CHEESE = 75
 const DISTANCE_TO_SHORTCUT = 150
-const MAX_FLOOR = 6
-const FLOOR_Y_DIFFERENCE = 91.43
+const FLOOR_Y_DIFFERENCE = 91.44
 
 func _init():
 	_instance = self
+	print_debug(_number_of_traps)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_floor_0_y = jerry.position.y
+	_number_of_traps = MAX_TRAPS
 	update_resource(player1)
 	update_resource(player2)
 	for hole2 in second_holes :
@@ -146,7 +151,7 @@ func end_game() -> void :
 func collect_cheese() -> void :
 	_number_of_cheese += 1
 	jerry.catch_cheese()
-	if _number_of_cheese == 2: # Enable 2nd hole when 2nd cheese caught
+	if _number_of_cheese > TOTAL_CHEESE * 0.6 : # Enable 2nd hole after 60% of the cheese caught
 		var ind = randi_range(0, second_holes.size() - 1)
 		var hole2 = second_holes[ind]
 		hole2.visible = true
@@ -198,8 +203,6 @@ func near_stairs(position : Vector2, floor : int) -> bool :
 	for stairs_object in stair_object_list :
 		var stairs : Stairs = stairs_object as Stairs
 		var distance : float = abs(stairs.position.x - position.x) 
-		if floor == stairs.floor :
-			print_debug("%s has distance %f" % [stairs_object.name, distance])
 		if stairs.floor == floor and distance < DISTANCE_TO_STAIRS :
 			return true
 	return false
@@ -211,7 +214,6 @@ func near_shortcuts(position : Vector2, floor : int) -> bool :
 		var shortcut : GameShortcut = shortcut_object as GameShortcut
 		var distance : float = abs(shortcut.position.x - position.x)
 		if shortcut.floor == floor and distance < shortcut.distance :
-			print_debug(shortcut.name)
 			return true
 	return false
 
@@ -248,7 +250,6 @@ func pick_up_trap(position : Vector2, floor : int) -> void :
 	for trap_object in trap_object_list :
 		var trap : Trap = trap_object as Trap
 		var distance : float = abs(trap.position.x - position.x)
-		print_debug("%s vs %s" % [trap._floor, floor])
 		if (trap._floor == floor and distance < DISTANCE_TO_TRAP and distance < min_dist) :
 			min_dist = distance
 			min_trap = trap
@@ -267,7 +268,6 @@ func set_safety_zone(position : Vector2, floor : int) -> void :
 	_safety_set = true
 
 func adjust_y_to_floor(player : Player, floor : int) -> void :
-	print_debug("%s moving to %s" % [player.name, _floor_0_y - floor * FLOOR_Y_DIFFERENCE])
 	player.position.y = _floor_0_y - floor * FLOOR_Y_DIFFERENCE
 
 # Utility functions ------------------------------------------------------------
@@ -294,7 +294,6 @@ func time_pretty_string() -> String :
 	var ms_string : String = str(ms)
 	if ms_string.length() == 1 :
 		ms_string = "0" + ms_string
-	print_debug(seconds_string)
 	return "%s:%s:%s" % [min_string, seconds_string, ms_string]
 
 func get_distance(node1 : Node2D, node2 : Node2D) -> float : # check distance on horizontal plane

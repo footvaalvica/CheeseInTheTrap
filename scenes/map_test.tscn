@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://scenes/prefabs/collectables/cheese.tscn" id="4_telum"]
 [ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="6_aou2f"]
 [ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/shortcuts/tom_shortcut.tscn" id="7_j8h8u"]
-[ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="8_rx5fb"]
 [ext_resource type="Texture2D" uid="uid://ppd13xe4k4w4" path="res://assets/cheese.png" id="9_a0p0v"]
 [ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/shortcuts/jerry_shortcut.tscn" id="9_q2kdp"]
 [ext_resource type="Texture2D" uid="uid://264o6fsvlvje" path="res://assets/trap1.png" id="10_b7878"]
@@ -66,22 +65,13 @@ collision_mask = 33
 position = Vector2(-424, 96)
 floor = 2
 
-[node name="AnimatedSprite2D" parent="Cheese" index="1"]
-scale = Vector2(0.15, 0.15)
-
 [node name="Cheese2" parent="." instance=ExtResource("4_telum")]
 position = Vector2(360, 0)
 floor = 3
 
-[node name="AnimatedSprite2D" parent="Cheese2" index="1"]
-scale = Vector2(0.15, 0.15)
-
 [node name="Cheese3" parent="." instance=ExtResource("4_telum")]
 position = Vector2(-232, -184)
 floor = 5
-
-[node name="AnimatedSprite2D" parent="Cheese3" index="1"]
-scale = Vector2(0.15, 0.15)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -252,7 +242,6 @@ distance = 130.0
 
 [node name="TomShortcut3" parent="." instance=ExtResource("7_j8h8u")]
 position = Vector2(-48, -88)
-script = ExtResource("8_rx5fb")
 floor = 4
 distance = 75.0
 
@@ -265,7 +254,6 @@ shape = SubResource("RectangleShape2D_gvkqq")
 
 [node name="TomShortcut2" parent="." instance=ExtResource("7_j8h8u")]
 position = Vector2(336, 88)
-script = ExtResource("8_rx5fb")
 floor = 2
 distance = 110.0
 
@@ -279,21 +267,18 @@ shape = SubResource("RectangleShape2D_q0rcm")
 [node name="JerryShortcut" parent="." instance=ExtResource("9_q2kdp")]
 position = Vector2(8, 184)
 scale = Vector2(1.22, 1.22)
-script = ExtResource("8_rx5fb")
 floor = 1
 distance = 75.0
 
 [node name="JerryShortcut2" parent="." instance=ExtResource("9_q2kdp")]
 position = Vector2(-128, 0)
 scale = Vector2(1.22, 1.22)
-script = ExtResource("8_rx5fb")
 floor = 3
 distance = 75.0
 
 [node name="JerryShortcut3" parent="." instance=ExtResource("9_q2kdp")]
 position = Vector2(-160, -184)
 scale = Vector2(1.22, 1.22)
-script = ExtResource("8_rx5fb")
 floor = 5
 distance = 75.0
 

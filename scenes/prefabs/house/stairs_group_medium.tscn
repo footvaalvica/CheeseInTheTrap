@@ -1,0 +1,97 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7x4driqsukcu"]
+
+[ext_resource type="PackedScene" uid="uid://c8rbjhmyeomre" path="res://scenes/prefabs/house/stairs.tscn" id="1_qbcwy"]
+
+[node name="StairsGroup" type="Node2D"]
+
+[node name="LeftStairs" type="Node2D" parent="."]
+
+[node name="Stairs" parent="LeftStairs" instance=ExtResource("1_qbcwy")]
+position = Vector2(-865, 411.48)
+
+[node name="Stairs2" parent="LeftStairs" instance=ExtResource("1_qbcwy")]
+position = Vector2(-865, 320.04)
+floor = 1
+
+[node name="Stairs3" parent="LeftStairs" instance=ExtResource("1_qbcwy")]
+position = Vector2(-865, 228.6)
+floor = 2
+
+[node name="Stairs4" parent="LeftStairs" instance=ExtResource("1_qbcwy")]
+position = Vector2(-865, 137.16)
+floor = 3
+
+[node name="Stairs5" parent="LeftStairs" instance=ExtResource("1_qbcwy")]
+position = Vector2(-865, 45.72)
+floor = 4
+
+[node name="Stairs6" parent="LeftStairs" instance=ExtResource("1_qbcwy")]
+position = Vector2(-865, -45.72)
+floor = 5
+
+[node name="Stairs7" parent="LeftStairs" instance=ExtResource("1_qbcwy")]
+position = Vector2(-865, -137.16)
+floor = 6
+
+[node name="Stairs8" parent="LeftStairs" instance=ExtResource("1_qbcwy")]
+position = Vector2(-865, -228.6)
+floor = 7
+
+[node name="Stairs9" parent="LeftStairs" instance=ExtResource("1_qbcwy")]
+position = Vector2(-865, -320.04)
+floor = 8
+
+[node name="Stairs10" parent="LeftStairs" instance=ExtResource("1_qbcwy")]
+position = Vector2(-865, -411.48)
+floor = 9
+
+[node name="LeftStairs2" type="Node2D" parent="."]
+
+[node name="Stairs" parent="LeftStairs2" instance=ExtResource("1_qbcwy")]
+position = Vector2(865, 411.48)
+scale = Vector2(-1, 1)
+
+[node name="Stairs2" parent="LeftStairs2" instance=ExtResource("1_qbcwy")]
+position = Vector2(865, 320.04)
+scale = Vector2(-1, 1)
+floor = 1
+
+[node name="Stairs3" parent="LeftStairs2" instance=ExtResource("1_qbcwy")]
+position = Vector2(865, 228.6)
+scale = Vector2(-1, 1)
+floor = 2
+
+[node name="Stairs4" parent="LeftStairs2" instance=ExtResource("1_qbcwy")]
+position = Vector2(865, 137.16)
+scale = Vector2(-1, 1)
+floor = 3
+
+[node name="Stairs5" parent="LeftStairs2" instance=ExtResource("1_qbcwy")]
+position = Vector2(865, 45.72)
+scale = Vector2(-1, 1)
+floor = 4
+
+[node name="Stairs6" parent="LeftStairs2" instance=ExtResource("1_qbcwy")]
+position = Vector2(865, -45.72)
+scale = Vector2(-1, 1)
+floor = 5
+
+[node name="Stairs7" parent="LeftStairs2" instance=ExtResource("1_qbcwy")]
+position = Vector2(865, -137.16)
+scale = Vector2(-1, 1)
+floor = 6
+
+[node name="Stairs8" parent="LeftStairs2" instance=ExtResource("1_qbcwy")]
+position = Vector2(865, -228.6)
+scale = Vector2(-1, 1)
+floor = 7
+
+[node name="Stairs9" parent="LeftStairs2" instance=ExtResource("1_qbcwy")]
+position = Vector2(865, -320.04)
+scale = Vector2(-1, 1)
+floor = 8
+
+[node name="Stairs10" parent="LeftStairs2" instance=ExtResource("1_qbcwy")]
+position = Vector2(865, -411.48)
+scale = Vector2(-1, 1)
+floor = 9
