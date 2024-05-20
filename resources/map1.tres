@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="MapResource" load_steps=4 format=3 uid="uid://tbu0urwcrp1d"]
+[gd_resource type="Resource" script_class="MapResource" load_steps=4 format=3 uid="uid://cdhpedmger07m"]
 
-[ext_resource type="Script" path="res://resources/scripts/map_resource.gd" id="1_1uf5b"]
-[ext_resource type="PackedScene" uid="uid://lqms5vj1r5re" path="res://scenes/map_test.tscn" id="1_50x8y"]
-[ext_resource type="Texture2D" uid="uid://d135frcdybhmc" path="res://assets/map_1.png" id="1_o6noc"]
+[ext_resource type="Texture2D" uid="uid://d135frcdybhmc" path="res://assets/map_1.png" id="1_nsbdl"]
+[ext_resource type="PackedScene" uid="uid://lqms5vj1r5re" path="res://scenes/map_test.tscn" id="2_xyci7"]
+[ext_resource type="Script" path="res://resources/scripts/map_resource.gd" id="3_5t5bf"]
 
 [resource]
-script = ExtResource("1_1uf5b")
+script = ExtResource("3_5t5bf")
 title = "Tom's house"
-necessary_chees = 0
-map_scene = ExtResource("1_50x8y")
-map_image = ExtResource("1_o6noc")
+necessary_cheese = 0
+map_scene = ExtResource("2_xyci7")
+map_image = ExtResource("1_nsbdl")

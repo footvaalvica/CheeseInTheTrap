@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://3qulhsobfrkq"]
+[gd_scene load_steps=12 format=3 uid="uid://3qulhsobfrkq"]
 
 [ext_resource type="PackedScene" uid="uid://c3maq0kqtydjf" path="res://scenes/prefabs/map_option.tscn" id="1_sd08u"]
+[ext_resource type="Resource" uid="uid://cdhpedmger07m" path="res://resources/map1.tres" id="2_8m423"]
 [ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_g6m1m"]
 [ext_resource type="Texture2D" uid="uid://dhbaaqvfxj6w5" path="res://assets/locked_map.png" id="3_a2djs"]
+[ext_resource type="Resource" uid="uid://tbu0urwcrp1d" path="res://resources/map2.tres" id="3_pxafi"]
 [ext_resource type="Texture2D" uid="uid://bgniw0epwu85v" path="res://assets/cga_ui_gold/b_3.png" id="3_wvftq"]
 [ext_resource type="Script" path="res://scripts/MapSelection.gd" id="4_addgb"]
-[ext_resource type="Resource" uid="uid://tbu0urwcrp1d" path="res://resources/map1.tres" id="5_p34o8"]
+[ext_resource type="Texture2D" uid="uid://ppd13xe4k4w4" path="res://assets/cheese.png" id="8_c0ert"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xywa6"]
 content_margin_left = 10.0
@@ -46,10 +48,11 @@ grow_vertical = 2
 
 [node name="Map" parent="." instance=ExtResource("1_sd08u")]
 layout_mode = 1
-resource = ExtResource("5_p34o8")
+resource = ExtResource("2_8m423")
 
 [node name="Map2" parent="." instance=ExtResource("1_sd08u")]
 layout_mode = 1
+resource = ExtResource("3_pxafi")
 
 [node name="MarginContainer" parent="Map2" index="0"]
 visible = true
@@ -71,9 +74,17 @@ offset_bottom = 886.0
 [node name="TextureButton" parent="Map2/MarginContainer2/VBoxContainer" index="0"]
 texture_normal = ExtResource("3_a2djs")
 
-[node name="RichTextLabel" parent="Map2" index="2"]
+[node name="Title" parent="Map2" index="2"]
 offset_left = -180.0
+offset_top = -244.0
 offset_right = 215.0
+offset_bottom = -202.0
+
+[node name="Cheese Needed" parent="Map2" index="3"]
+offset_left = -178.0
+offset_top = 60.0
+offset_right = 217.0
+offset_bottom = 102.0
 
 [node name="Map3" parent="." instance=ExtResource("1_sd08u")]
 layout_mode = 1
@@ -95,11 +106,15 @@ offset_top = -192.0
 offset_right = 1399.0
 offset_bottom = 469.0
 
-[node name="RichTextLabel" parent="Map3" index="2"]
-offset_left = 252.0
-offset_top = -247.0
-offset_right = 647.0
-offset_bottom = -205.0
+[node name="Title" parent="Map3" index="2"]
+offset_left = 248.0
+offset_top = -255.0
+offset_right = 643.0
+offset_bottom = -213.0
+
+[node name="Cheese Needed" parent="Map3" index="3"]
+offset_left = 248.0
+offset_right = 643.0
 
 [node name="Go Back" type="Control" parent="."]
 layout_mode = 1
@@ -188,8 +203,37 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_n2kvm")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_72lmt")
 text = "Start"
 
-[node name="MapSelection" type="Node" parent="."]
+[node name="Cheese" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Cheese"]
+layout_mode = 0
+offset_left = -97.0
+offset_top = 13.0
+offset_right = -57.0
+offset_bottom = 53.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]3[/center]"
+
+[node name="TextureRect" type="TextureRect" parent="Cheese"]
+layout_mode = 0
+offset_left = -38.0
+offset_top = 14.0
+offset_right = 2.0
+offset_bottom = 54.0
+texture = ExtResource("8_c0ert")
+expand_mode = 5
+
+[node name="MapSelection" type="Node" parent="." node_paths=PackedStringArray("cheese_label")]
 script = ExtResource("4_addgb")
+cheese_label = NodePath("../Cheese/RichTextLabel")
 
 [connection signal="pressed" from="Go Back/MarginContainer/VBoxContainer/back" to="MapSelection" method="back"]
 [connection signal="pressed" from="Start/MarginContainer/VBoxContainer/play" to="MapSelection" method="start"]
