@@ -1,0 +1,181 @@
+[gd_scene load_steps=3 format=3 uid="uid://mo3813gedshy"]
+
+[ext_resource type="Texture2D" uid="uid://dp4qdl7g456eo" path="res://assets/block.png" id="1_qdjya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crfsq"]
+
+[node name="Walls" type="Node2D"]
+z_index = 1
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="WallDown" type="Node2D" parent="Borders"]
+position = Vector2(0, 457.2)
+scale = Vector2(1155, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Borders/WallDown"]
+texture = ExtResource("1_qdjya")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders/WallDown"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/WallDown/StaticBody2D"]
+shape = SubResource("RectangleShape2D_crfsq")
+
+[node name="WallRight" type="Node2D" parent="Borders"]
+position = Vector2(568, 0)
+scale = Vector2(20, 920)
+
+[node name="Sprite2D" type="Sprite2D" parent="Borders/WallRight"]
+texture = ExtResource("1_qdjya")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders/WallRight"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/WallRight/StaticBody2D"]
+shape = SubResource("RectangleShape2D_crfsq")
+
+[node name="WallTop" type="Node2D" parent="Borders"]
+position = Vector2(0, -457.2)
+scale = Vector2(1155, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Borders/WallTop"]
+texture = ExtResource("1_qdjya")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders/WallTop"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/WallTop/StaticBody2D"]
+shape = SubResource("RectangleShape2D_crfsq")
+
+[node name="WallLeft" type="Node2D" parent="Borders"]
+position = Vector2(-568, 0)
+scale = Vector2(20, 920)
+
+[node name="Sprite2D" type="Sprite2D" parent="Borders/WallLeft"]
+texture = ExtResource("1_qdjya")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders/WallLeft"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/WallLeft/StaticBody2D"]
+shape = SubResource("RectangleShape2D_crfsq")
+
+[node name="Floors" type="Node2D" parent="."]
+position = Vector2(1.11902e-29, 0)
+
+[node name="1stFloor" type="Node2D" parent="Floors"]
+position = Vector2(0, 365.76)
+scale = Vector2(1155, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/1stFloor"]
+texture = ExtResource("1_qdjya")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floors/1stFloor"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/1stFloor/StaticBody2D"]
+shape = SubResource("RectangleShape2D_crfsq")
+
+[node name="2ndFloor" type="Node2D" parent="Floors"]
+position = Vector2(0, 274.32)
+scale = Vector2(1155, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/2ndFloor"]
+texture = ExtResource("1_qdjya")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floors/2ndFloor"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/2ndFloor/StaticBody2D"]
+shape = SubResource("RectangleShape2D_crfsq")
+
+[node name="3rdFloor" type="Node2D" parent="Floors"]
+position = Vector2(0, 182.88)
+scale = Vector2(1155, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/3rdFloor"]
+texture = ExtResource("1_qdjya")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floors/3rdFloor"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/3rdFloor/StaticBody2D"]
+shape = SubResource("RectangleShape2D_crfsq")
+
+[node name="4thFloor" type="Node2D" parent="Floors"]
+position = Vector2(0, 91.44)
+scale = Vector2(1155, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/4thFloor"]
+texture = ExtResource("1_qdjya")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floors/4thFloor"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/4thFloor/StaticBody2D"]
+shape = SubResource("RectangleShape2D_crfsq")
+
+[node name="5thFloor" type="Node2D" parent="Floors"]
+scale = Vector2(1155, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/5thFloor"]
+texture = ExtResource("1_qdjya")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floors/5thFloor"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/5thFloor/StaticBody2D"]
+shape = SubResource("RectangleShape2D_crfsq")
+
+[node name="6thFloor" type="Node2D" parent="Floors"]
+position = Vector2(0, -91.44)
+scale = Vector2(1155, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/6thFloor"]
+texture = ExtResource("1_qdjya")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floors/6thFloor"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/6thFloor/StaticBody2D"]
+shape = SubResource("RectangleShape2D_crfsq")
+
+[node name="7thFloor" type="Node2D" parent="Floors"]
+position = Vector2(0, -182.88)
+scale = Vector2(1155, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/7thFloor"]
+texture = ExtResource("1_qdjya")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floors/7thFloor"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/7thFloor/StaticBody2D"]
+shape = SubResource("RectangleShape2D_crfsq")
+
+[node name="8thFloor" type="Node2D" parent="Floors"]
+position = Vector2(0, -274.32)
+scale = Vector2(1155, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/8thFloor"]
+texture = ExtResource("1_qdjya")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floors/8thFloor"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/8thFloor/StaticBody2D"]
+shape = SubResource("RectangleShape2D_crfsq")
+
+[node name="9thFloor" type="Node2D" parent="Floors"]
+position = Vector2(0, -365.76)
+scale = Vector2(1155, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/9thFloor"]
+texture = ExtResource("1_qdjya")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floors/9thFloor"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/9thFloor/StaticBody2D"]
+shape = SubResource("RectangleShape2D_crfsq")
