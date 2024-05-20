@@ -130,6 +130,8 @@ func end_game_tom() -> void :
 func end_game() -> void :
 	game_score.time = _clock / 60
 	print_debug("switching scene")
+	GameStateManager.add_cheese(game_score.cheese)
+	GameStateManager.write_game_state()
 	get_tree().change_scene_to_file("res://scenes/high_score_saver.tscn")
 
 func collect_cheese() -> void :
