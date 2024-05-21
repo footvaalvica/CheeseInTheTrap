@@ -1,4 +1,4 @@
-class_name MainMenu extends Control
+class_name MainGameMenu extends Control
 
 @export var options: CanvasLayer
 @export var start : Button
