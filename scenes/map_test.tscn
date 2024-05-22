@@ -34,13 +34,13 @@ size = Vector2(136, 59)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "hole2", "cheese_text", "trap_text", "time_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_qblyn")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "second_holes", "cheese_text", "trap_text", "time_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_qblyn")]
 tom = NodePath("../Tom")
 jerry = NodePath("../Jerry")
 trap_placer = NodePath("../TrapPlacer")
 player1 = ExtResource("2_toce4")
 player2 = ExtResource("3_trd54")
-hole2 = NodePath("../Hole2")
+second_holes = [NodePath("../OptionalDoor"), NodePath("../OptionalDoor2"), NodePath("../OptionalDoor3")]
 game_score = ExtResource("4_i13m6")
 cheese_text = NodePath("../CanvasLayer/Control/Cheese/RichTextLabel")
 trap_text = NodePath("../CanvasLayer/Control/Traps/RichTextLabel")
@@ -305,8 +305,14 @@ floor = 4
 [node name="Hole" parent="." instance=ExtResource("14_slfqy")]
 position = Vector2(0, -264)
 
-[node name="Hole2" parent="." instance=ExtResource("14_slfqy")]
+[node name="OptionalDoor" parent="." instance=ExtResource("14_slfqy")]
 position = Vector2(184, 104)
+
+[node name="OptionalDoor2" parent="." instance=ExtResource("14_slfqy")]
+position = Vector2(-194, -78)
+
+[node name="OptionalDoor3" parent="." instance=ExtResource("14_slfqy")]
+position = Vector2(-304, 11)
 
 [node name="TrapPlacer" parent="." instance=ExtResource("15_lp7f4")]
 
