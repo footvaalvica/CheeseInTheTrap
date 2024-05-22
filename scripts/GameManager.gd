@@ -17,7 +17,7 @@ var _red_cross_image : Texture2D = null
 @export var trap_placer : TrapPlacer = null
 @export var player1 : PlayerResource = null
 @export var player2 : PlayerResource = null
-@export var hole2 : Hole = null
+@export var second_holes : Array[Hole]
 @export var game_score : GameScore = null
 @export var cheese_text : RichTextLabel = null
 @export var trap_text : RichTextLabel = null
@@ -41,8 +41,9 @@ func _ready():
 	_floor_0_y = jerry.position.y
 	update_resource(player1)
 	update_resource(player2)
-	hole2.hide()
-	hole2.process_mode = Node.PROCESS_MODE_DISABLED
+	for hole2 in second_holes :
+		hole2.hide()
+		hole2.process_mode = Node.PROCESS_MODE_DISABLED
 	start_trap_spawning()
 	game_score.winner = "Maaaaa"
 	_green_tick_image = load("res://assets/green_tick.jpg")
@@ -135,6 +136,8 @@ func collect_cheese() -> void :
 	_number_of_cheese += 1
 	jerry.catch_cheese()
 	if _number_of_cheese == 2: # Enable 2nd hole when 2nd cheese caught
+		var ind = randi_range(0, second_holes.size() - 1)
+		var hole2 = second_holes[ind]
 		hole2.visible = true
 		hole2.process_mode = Node.PROCESS_MODE_INHERIT
 
