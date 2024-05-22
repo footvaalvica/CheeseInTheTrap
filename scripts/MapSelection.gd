@@ -14,12 +14,14 @@ func _ready():
 	cheese_label.text = "[center]%s[/center]" % total_cheese
 
 func start() -> void :
-	get_tree().change_scene_to_packed(current_map_resource.map_scene)
+	if (current_map_resource != null) :
+		get_tree().change_scene_to_packed(current_map_resource.map_scene)
 
 func back() -> void :
 	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")
 
 func switch_map(new_map : MapResource) -> void :
+	print_debug("switc")
 	current_map_resource = new_map
 
 
