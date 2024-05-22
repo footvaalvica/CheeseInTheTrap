@@ -67,7 +67,7 @@ expand_margin_top = 3.0
 expand_margin_right = 3.0
 expand_margin_bottom = 3.0
 
-[node name="menu" type="Control" node_paths=PackedStringArray("options", "rest_of_menu")]
+[node name="menu" type="Control" node_paths=PackedStringArray("options", "start", "rest_of_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,6 +76,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iawo3")
 options = NodePath("UIOPTIONS")
+start = NodePath("RestofMenu/MarginContainer/VBoxContainer/play")
 rest_of_menu = NodePath("RestofMenu")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
@@ -113,6 +114,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_bottom = NodePath("../../../MarginContainer2/VBoxContainer/Button")
 theme = ExtResource("2_u5qb5")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -145,6 +147,7 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="RestofMenu/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../../MarginContainer/VBoxContainer/play")
 theme = ExtResource("2_u5qb5")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16

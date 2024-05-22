@@ -77,6 +77,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../../../MarginContainer2/VBoxContainer/switch")
+focus_neighbor_bottom = NodePath("../../../MarginContainer2/VBoxContainer/switch")
 theme = ExtResource("2_p5g2j")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -111,6 +113,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../../MarginContainer/VBoxContainer/play")
+focus_neighbor_right = NodePath("../../../MarginContainer/VBoxContainer/play")
 theme = ExtResource("2_p5g2j")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -122,12 +126,13 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_b617i")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_8ighe")
 text = "Gamepad"
 
-[node name="TutorialManager" type="Node" parent="." node_paths=PackedStringArray("vid", "switch_button")]
+[node name="TutorialManager" type="Node" parent="." node_paths=PackedStringArray("vid", "switch_button", "start_button")]
 script = ExtResource("4_opoej")
 player1 = ExtResource("5_hhp51")
 player2 = ExtResource("6_sgmrt")
 vid = NodePath("../VideoStreamPlayer")
 switch_button = NodePath("../VideoStreamPlayer/MarginContainer2/VBoxContainer/switch")
+start_button = NodePath("../VideoStreamPlayer/MarginContainer/VBoxContainer/play")
 
 [connection signal="pressed" from="VideoStreamPlayer/MarginContainer/VBoxContainer/play" to="TutorialManager" method="_on_play_pressed"]
 [connection signal="pressed" from="VideoStreamPlayer/MarginContainer2/VBoxContainer/switch" to="TutorialManager" method="_switch"]

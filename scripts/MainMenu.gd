@@ -1,7 +1,11 @@
 class_name MainMenu extends Control
 
 @export var options: CanvasLayer
+@export var start : Button
 @export var rest_of_menu: CanvasLayer
+
+func _ready():
+	start.grab_focus()
 
 func _on_play_pressed():
 	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")

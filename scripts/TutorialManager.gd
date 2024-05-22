@@ -4,10 +4,12 @@ class_name TutorialManager extends Node
 @export var player2 : PlayerResource
 @export var vid : VideoStreamPlayer
 @export var switch_button : Button
+@export var start_button : Button
 var vid_stream_keyboard : VideoStreamTheora
 var vid_stream_gamepad : VideoStreamTheora
 
 func _ready():
+	start_button.grab_focus()
 	vid_stream_keyboard = VideoStreamTheora.new() 
 	vid_stream_gamepad = VideoStreamTheora.new()
 	load_video_streams()
