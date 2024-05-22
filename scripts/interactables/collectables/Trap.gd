@@ -51,9 +51,9 @@ func on_hit_action() -> void :
 	_restore_counter = TIME_PER_HIT
 
 func _on_area_2d_body_entered(body : Node2D):
-	if active :
-		$DisarmArea.visible = true
 	var jerry = body as Jerry
+	if active && jerry._floor == _floor :
+		$DisarmArea.visible = true
 	jerry.add_trap(self)
 
 func _on_area_2d_body_exited(body):
