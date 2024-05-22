@@ -233,24 +233,31 @@ position = Vector2(324, -225)
 
 [node name="Trapdoor" parent="." instance=ExtResource("19_hroix")]
 position = Vector2(254, -113)
+floor = 6
 
 [node name="Trapdoor2" parent="." instance=ExtResource("19_hroix")]
 position = Vector2(-554, -21)
+floor = 5
 
 [node name="Trapdoor3" parent="." instance=ExtResource("19_hroix")]
 position = Vector2(-354, -113)
+floor = 6
 
 [node name="Trapdoor4" parent="." instance=ExtResource("19_hroix")]
 position = Vector2(508, 70)
+floor = 4
 
 [node name="Trapdoor5" parent="." instance=ExtResource("19_hroix")]
 position = Vector2(-63, -298)
+floor = 8
 
 [node name="Trapdoor6" parent="." instance=ExtResource("19_hroix")]
 position = Vector2(-448, 161)
+floor = 3
 
 [node name="Trapdoor7" parent="." instance=ExtResource("19_hroix")]
 position = Vector2(192, 253)
+floor = 2
 
 [node name="TomShortcut" parent="." instance=ExtResource("14_f2a4y")]
 position = Vector2(-258, -232)
