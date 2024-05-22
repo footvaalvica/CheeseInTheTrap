@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://3qulhsobfrkq"]
+[gd_scene load_steps=11 format=3 uid="uid://dg3a4dwfbh163"]
 
-[ext_resource type="PackedScene" uid="uid://c3maq0kqtydjf" path="res://scenes/prefabs/map_option.tscn" id="1_sd08u"]
-[ext_resource type="Resource" uid="uid://cdhpedmger07m" path="res://resources/map1.tres" id="2_8m423"]
+[ext_resource type="PackedScene" uid="uid://c2pw7p5caoliy" path="res://scenes/prefabs/map_option.tscn" id="1_sd08u"]
+[ext_resource type="Resource" path="res://resources/map1.tres" id="2_8m423"]
 [ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_g6m1m"]
-[ext_resource type="Texture2D" uid="uid://dhbaaqvfxj6w5" path="res://assets/locked_map.png" id="3_a2djs"]
-[ext_resource type="Resource" uid="uid://tbu0urwcrp1d" path="res://resources/map2.tres" id="3_pxafi"]
+[ext_resource type="Resource" path="res://resources/map2.tres" id="3_pxafi"]
 [ext_resource type="Texture2D" uid="uid://bgniw0epwu85v" path="res://assets/cga_ui_gold/b_3.png" id="3_wvftq"]
 [ext_resource type="Script" path="res://scripts/MapSelection.gd" id="4_addgb"]
 [ext_resource type="Texture2D" uid="uid://ppd13xe4k4w4" path="res://assets/cheese.png" id="8_c0ert"]
@@ -48,73 +47,28 @@ grow_vertical = 2
 
 [node name="Map" parent="." instance=ExtResource("1_sd08u")]
 layout_mode = 1
+anchors_preset = 4
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 186.0
+offset_right = 226.0
+grow_horizontal = 1
 resource = ExtResource("2_8m423")
 
 [node name="Map2" parent="." instance=ExtResource("1_sd08u")]
 layout_mode = 1
+offset_left = -33.0
+offset_right = 7.0
 resource = ExtResource("3_pxafi")
-
-[node name="MarginContainer" parent="Map2" index="0"]
-visible = true
-offset_left = -187.0
-offset_top = -194.0
-offset_right = 972.0
-offset_bottom = 467.0
-
-[node name="TextureRect" parent="Map2/MarginContainer/VBoxContainer" index="0"]
-texture = ExtResource("3_a2djs")
-
-[node name="MarginContainer2" parent="Map2" index="1"]
-visible = false
-offset_left = -187.0
-offset_top = -194.0
-offset_right = 1733.0
-offset_bottom = 886.0
-
-[node name="TextureButton" parent="Map2/MarginContainer2/VBoxContainer" index="0"]
-texture_normal = ExtResource("3_a2djs")
-
-[node name="Title" parent="Map2" index="2"]
-offset_left = -180.0
-offset_top = -244.0
-offset_right = 215.0
-offset_bottom = -202.0
-
-[node name="Cheese Needed" parent="Map2" index="3"]
-offset_left = -178.0
-offset_top = 60.0
-offset_right = 217.0
-offset_bottom = 102.0
 
 [node name="Map3" parent="." instance=ExtResource("1_sd08u")]
 layout_mode = 1
-
-[node name="MarginContainer" parent="Map3" index="0"]
-visible = true
-offset_left = 240.0
-offset_top = -192.0
-offset_right = 1399.0
-offset_bottom = 469.0
-
-[node name="TextureRect" parent="Map3/MarginContainer/VBoxContainer" index="0"]
-texture = ExtResource("3_a2djs")
-
-[node name="MarginContainer2" parent="Map3" index="1"]
-visible = false
-offset_left = 240.0
-offset_top = -192.0
-offset_right = 1399.0
-offset_bottom = 469.0
-
-[node name="Title" parent="Map3" index="2"]
-offset_left = 248.0
-offset_top = -255.0
-offset_right = 643.0
-offset_bottom = -213.0
-
-[node name="Cheese Needed" parent="Map3" index="3"]
-offset_left = 248.0
-offset_right = 643.0
+anchors_preset = 6
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_right = -210.0
+grow_horizontal = 0
 
 [node name="Go Back" type="Control" parent="."]
 layout_mode = 1
@@ -237,6 +191,3 @@ cheese_label = NodePath("../Cheese/RichTextLabel")
 
 [connection signal="pressed" from="Go Back/MarginContainer/VBoxContainer/back" to="MapSelection" method="back"]
 [connection signal="pressed" from="Start/MarginContainer/VBoxContainer/play" to="MapSelection" method="start"]
-
-[editable path="Map2"]
-[editable path="Map3"]

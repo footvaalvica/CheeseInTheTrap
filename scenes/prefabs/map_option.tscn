@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3maq0kqtydjf"]
+[gd_scene load_steps=4 format=3 uid="uid://c2pw7p5caoliy"]
 
 [ext_resource type="Script" path="res://scripts/MapOption.gd" id="1_egft6"]
-[ext_resource type="Texture2D" uid="uid://dhbaaqvfxj6w5" path="res://assets/locked_map.png" id="2_kupe1"]
-[ext_resource type="Texture2D" uid="uid://d135frcdybhmc" path="res://assets/map_1.png" id="3_uln3p"]
+[ext_resource type="Texture2D" path="res://assets/locked_map.png" id="2_kupe1"]
+[ext_resource type="Texture2D" path="res://assets/map_1.png" id="3_uln3p"]
 
 [node name="Map" type="Control"]
 layout_mode = 3
@@ -17,15 +17,17 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_egft6")
 locked_image = ExtResource("2_kupe1")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-visible = false
+z_index = 1
 layout_mode = 0
-offset_left = -608.0
+offset_left = -172.0
 offset_top = -196.0
-offset_right = 551.0
+offset_right = 987.0
 offset_bottom = 465.0
 scale = Vector2(0.35, 0.35)
 
@@ -39,9 +41,9 @@ expand_mode = 5
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_left = -608.0
+offset_left = -171.0
 offset_top = -196.0
-offset_right = 551.0
+offset_right = 988.0
 offset_bottom = 465.0
 scale = Vector2(0.35, 0.35)
 
@@ -54,17 +56,17 @@ texture_normal = ExtResource("3_uln3p")
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = -600.0
-offset_top = -253.0
-offset_right = -205.0
-offset_bottom = -211.0
+offset_left = -162.0
+offset_top = -249.0
+offset_right = 233.0
+offset_bottom = -207.0
 bbcode_enabled = true
 
 [node name="Cheese Needed" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = -600.0
+offset_left = -165.0
 offset_top = 68.0
-offset_right = -205.0
+offset_right = 230.0
 offset_bottom = 110.0
 bbcode_enabled = true
 
