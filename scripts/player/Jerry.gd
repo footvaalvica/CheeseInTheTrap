@@ -90,7 +90,7 @@ func enter_hole() -> void :
 	
 func disable_trap(delta : float) -> void :
 	var active_traps : Array[Trap] = \
-		 _traps_available.filter(func (tp) : return tp.active)
+		 _traps_available.filter(func (tp) : return tp.active && _floor == tp._floor)
 	if active_traps.size() == 0 :
 		return
 	var trap : Trap = active_traps[0]
