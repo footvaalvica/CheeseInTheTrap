@@ -34,6 +34,10 @@ func movement(delta) -> void :
 	if _is_trapped :
 		unstuck()
 		return
+	if _traversing:
+		print_debug("traverse")
+		traverse_shortcut(delta)
+		return
 	velocity.x = get_input_vector().x * SPEED
 	var collision : KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision :

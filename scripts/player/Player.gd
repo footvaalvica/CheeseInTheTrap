@@ -16,8 +16,11 @@ var player_id : int = 1
 var stairs_available : Array[Stairs]
 var animated_sprite : AnimatedSprite2D
 
+var _traversing : bool = false 
+
 func _ready():
 	animated_sprite = $AnimatedSprite2D
+	animated_sprite.animation_looped.connect(animation_finished)
 
 func _process(delta):
 	stairs(delta)
@@ -30,6 +33,10 @@ func _physics_process(delta):
 
 func animation(delta) :
 	if animated_sprite == null :
+		return
+	if _traversing :
+		return
+	if animated_sprite.animation == "destroy" :
 		return
 	if _climbing_phase == Climbing_Phase.Entering :
 		animated_sprite.animation = "climb_1"
@@ -48,8 +55,18 @@ func animation(delta) :
 			animated_sprite.scale.x = - abs(animated_sprite.scale.x)
 	else :
 		animated_sprite.animation = "default"
+		
+func animation_finished() -> void :
+	if animated_sprite.animation != "destroy" :
+		return
+	animated_sprite.animation = "default"
+	animated_sprite.offset.y = 0
 
 func movement(delta) -> void:
+	if _traversing:
+		print_debug("traverse")
+		traverse_shortcut(delta)
+		return
 	velocity.x = get_input_vector().x * SPEED
 	var collision : KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision : 
@@ -85,6 +102,8 @@ func destroy_blocking_object(delta : float) -> void :
 		var shortcut_script : GameShortcut = blocking_object as GameShortcut
 		if GameManager.instance().in_destroy_shortcut_range(self, blocking_object) :
 			shortcut_script.hit()
+			animated_sprite.play("destroy")
+			animated_sprite.offset.y = -90
 			return
 
 func stairs_enter(delta : float) :
@@ -119,6 +138,28 @@ func add_stairs(stairs : Stairs) -> void :
 
 func remove_stairs(stairs : Stairs) -> void :
 	stairs_available = stairs_available.filter(func (st) : return st != stairs)
+
+func progress_frame() -> void :
+	animated_sprite.frame += 1
+
+func regress_frame() -> void :
+	animated_sprite.frame -= 1
+
+func start_traverse_shortcut() -> void :
+	animated_sprite.animation = "shortcut"
+	animated_sprite.play()
+	_traversing = true
+	print_debug("traversing")
+
+func stop_traverse_shortcut() -> void :
+	_traversing = false
+	print_debug("traverse over")
+
+func traverse_shortcut(delta : float) -> void :
+	var side = sign(animated_sprite.scale.x)
+	velocity.x = side * SPEED
+	print_debug(velocity.x)
+	move_and_collide(velocity * delta)
 
 func update_with_resource(player_resource : PlayerResource) -> void :
 	player_id = player_resource.player_id
