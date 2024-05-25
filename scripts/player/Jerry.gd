@@ -41,6 +41,7 @@ func stairs(delta) -> void :
 
 func animation(delta) -> void :
 	if (_is_trapped) :
+		super.animation(delta)
 		animated_sprite.animation = "stunned"
 		return
 	if (_cheese_countdown > 0):
