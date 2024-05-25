@@ -24,6 +24,7 @@ offset_right = 963.0
 offset_bottom = 25.784
 grow_vertical = 2
 size_flags_horizontal = 8
+focus_neighbor_left = NodePath("../JerryvsTom")
 text = "Player 1 : Tom
 Player 2 : Jerry"
 
@@ -40,13 +41,15 @@ offset_bottom = 21.784
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 0
+focus_neighbor_right = NodePath("../TomvsJerry")
 text = "Player 1 : Jerry
 Player 2: Tom"
 
-[node name="CharacterSelectionManager" type="Node2D" parent="CanvasLayer"]
+[node name="CharacterSelectionManager" type="Node2D" parent="CanvasLayer" node_paths=PackedStringArray("starting_button")]
 script = ExtResource("1_aierh")
 player_1 = ExtResource("2_00kpb")
 player_2 = ExtResource("3_7tbnw")
+starting_button = NodePath("../JerryvsTom")
 
 [node name="TomVsJerryImage" type="TextureRect" parent="CanvasLayer"]
 offset_left = 154.0
