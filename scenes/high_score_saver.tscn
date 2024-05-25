@@ -257,7 +257,7 @@ text = "Score: 10000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HighScoreManager" type="Node2D" parent="." node_paths=PackedStringArray("text_edit", "leaderboard_canvas_layer", "canvas_layer", "leaderboard_button", "leaderboard", "score_label", "go_to_menu_button", "save_score_button", "star_3", "star_2", "star_1", "winner_text")]
+[node name="HighScoreManager" type="Node2D" parent="." node_paths=PackedStringArray("text_edit", "leaderboard_canvas_layer", "canvas_layer", "leaderboard_button", "leaderboard", "score_label", "go_to_menu_button", "save_score_button", "go_back_button", "star_3", "star_2", "star_1", "winner_text")]
 script = ExtResource("1_gx6yk")
 text_edit = NodePath("../ScoreScreen/Insertname")
 game_score = ExtResource("2_1lnks")
@@ -268,6 +268,7 @@ leaderboard = NodePath("../Leaderboard/LeaderboardUI")
 score_label = NodePath("../ScoreScreen/Score")
 go_to_menu_button = NodePath("../ScoreScreen/Go to Menu")
 save_score_button = NodePath("../ScoreScreen/Save score")
+go_back_button = NodePath("../Leaderboard/Button")
 star_3 = NodePath("../ScoreScreen/Control3/3Star")
 star_2 = NodePath("../ScoreScreen/Control2/2Star")
 star_1 = NodePath("../ScoreScreen/Control/1Star")

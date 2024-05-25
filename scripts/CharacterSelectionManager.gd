@@ -2,6 +2,10 @@ extends Node
 
 @export var player_1 : PlayerResource
 @export var player_2 : PlayerResource
+@export var starting_button : Button
+
+func _ready():
+	starting_button.grab_focus()
 
 func tom_jerry() -> void :
 	update_resources_and_load_game("Tom", "Jerry")
