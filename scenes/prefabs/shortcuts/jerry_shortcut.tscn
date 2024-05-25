@@ -1,18 +1,96 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqacf4a3liqfq"]
+[gd_scene load_steps=6 format=3 uid="uid://bqacf4a3liqfq"]
 
-[ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="1_c8osc"]
+[ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="1_7gy2v"]
 [ext_resource type="Texture2D" uid="uid://dp4qdl7g456eo" path="res://assets/block.png" id="1_ujsje"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbj7s"]
+size = Vector2(3, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7yeve"]
 size = Vector2(19, 59)
 
-[node name="JerryShortcut" type="Node2D" groups=["JerryShortcut"]]
-script = ExtResource("1_c8osc")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlllh"]
+size = Vector2(50, 60)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -10)
-scale = Vector2(19, 40)
+[node name="JerryShortcut" type="Node2D" groups=["JerryShortcut"]]
+script = ExtResource("1_7gy2v")
+
 texture = ExtResource("1_ujsje")
+[node name="Traverse" type="Node2D" parent="."]
+process_mode = 4
+visible = false
+
+[node name="C1" type="Area2D" parent="Traverse"]
+position = Vector2(-32, 0)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C1"]
+shape = SubResource("RectangleShape2D_vbj7s")
+
+[node name="C2" type="Area2D" parent="Traverse"]
+position = Vector2(-29, 0)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C2"]
+shape = SubResource("RectangleShape2D_vbj7s")
+
+[node name="C3" type="Area2D" parent="Traverse"]
+position = Vector2(-26, 0)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C3"]
+shape = SubResource("RectangleShape2D_vbj7s")
+
+[node name="C4" type="Area2D" parent="Traverse"]
+position = Vector2(-23, 0)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C4"]
+shape = SubResource("RectangleShape2D_vbj7s")
+
+[node name="C5" type="Area2D" parent="Traverse"]
+position = Vector2(-20, 0)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C5"]
+shape = SubResource("RectangleShape2D_vbj7s")
+
+[node name="C6" type="Area2D" parent="Traverse"]
+position = Vector2(-17, 0)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C6"]
+shape = SubResource("RectangleShape2D_vbj7s")
+
+[node name="C7" type="Area2D" parent="Traverse"]
+position = Vector2(-14, 0)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C7"]
+shape = SubResource("RectangleShape2D_vbj7s")
+
+[node name="C8" type="Area2D" parent="Traverse"]
+position = Vector2(-11, 0)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C8"]
+shape = SubResource("RectangleShape2D_vbj7s")
+
+[node name="C9" type="Area2D" parent="Traverse"]
+position = Vector2(-8, 0)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C9"]
+shape = SubResource("RectangleShape2D_vbj7s")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 32
@@ -20,3 +98,22 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_7yeve")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xlllh")
+
+[connection signal="body_entered" from="Traverse/C1" to="." method="enter_traverse_area"]
+[connection signal="body_entered" from="Traverse/C2" to="." method="enter_traverse_area"]
+[connection signal="body_entered" from="Traverse/C3" to="." method="enter_traverse_area"]
+[connection signal="body_entered" from="Traverse/C4" to="." method="enter_traverse_area"]
+[connection signal="body_entered" from="Traverse/C5" to="." method="enter_traverse_area"]
+[connection signal="body_entered" from="Traverse/C6" to="." method="enter_traverse_area"]
+[connection signal="body_entered" from="Traverse/C7" to="." method="enter_traverse_area"]
+[connection signal="body_entered" from="Traverse/C8" to="." method="enter_traverse_area"]
+[connection signal="body_entered" from="Traverse/C9" to="." method="enter_traverse_area"]
+[connection signal="body_entered" from="Area2D" to="." method="enter_traverse_area"]
+[connection signal="body_exited" from="Area2D" to="." method="exit_traverse_area"]
