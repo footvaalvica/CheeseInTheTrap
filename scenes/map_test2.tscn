@@ -24,7 +24,7 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "hole2", "cheese_text", "trap_text", "time_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_xlspn")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "second_holes", "cheese_text", "trap_text", "time_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_xlspn")]
 MAX_FLOOR = 9
 TOTAL_CHEESE = 5
 MAX_TRAPS = 5
@@ -33,7 +33,7 @@ jerry = NodePath("../Jerry")
 trap_placer = NodePath("../TrapPlacer")
 player1 = ExtResource("2_56j4h")
 player2 = ExtResource("3_k3tr5")
-hole2 = NodePath("../Hole2")
+second_holes = [NodePath("../OptionalDoor"), NodePath("../OptionalDoor2"), NodePath("../OptionalDoor3"), NodePath("../OptionalDoor4")]
 game_score = ExtResource("4_dbl4b")
 cheese_text = NodePath("../CanvasLayer/Control/Cheese/RichTextLabel")
 trap_text = NodePath("../CanvasLayer/Control/Traps/RichTextLabel")
@@ -267,6 +267,17 @@ floor = 7
 position = Vector2(82, -232)
 floor = 7
 
+[node name="TomShortcut3" parent="." instance=ExtResource("14_f2a4y")]
+position = Vector2(495, -48)
+floor = 5
+
+[node name="TomShortcut5" parent="." instance=ExtResource("14_f2a4y")]
+position = Vector2(366, 228)
+floor = 2
+
+[node name="TomShortcut4" parent="." instance=ExtResource("14_f2a4y")]
+position = Vector2(-360, 408)
+
 [node name="JerryShortcut" parent="." instance=ExtResource("18_3k52m")]
 position = Vector2(-660, -237)
 floor = 7
@@ -302,8 +313,17 @@ floor = 2
 [node name="Hole" parent="." instance=ExtResource("22_qmbcj")]
 position = Vector2(2, -401)
 
-[node name="Hole2" parent="." instance=ExtResource("22_qmbcj")]
+[node name="OptionalDoor" parent="." instance=ExtResource("22_qmbcj")]
 position = Vector2(313, 149)
+
+[node name="OptionalDoor2" parent="." instance=ExtResource("22_qmbcj")]
+position = Vector2(313, 149)
+
+[node name="OptionalDoor3" parent="." instance=ExtResource("22_qmbcj")]
+position = Vector2(-191, 56)
+
+[node name="OptionalDoor4" parent="." instance=ExtResource("22_qmbcj")]
+position = Vector2(-108, -121)
 
 [node name="TrapPlacer" parent="." instance=ExtResource("23_kyny7")]
 position = Vector2(693, -393)
