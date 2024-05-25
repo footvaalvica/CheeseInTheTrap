@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2pw7p5caoliy"]
+[gd_scene load_steps=4 format=3 uid="uid://iculuh4j4va6"]
 
 [ext_resource type="Script" path="res://scripts/MapOption.gd" id="1_egft6"]
 [ext_resource type="Texture2D" path="res://assets/locked_map.png" id="2_kupe1"]
@@ -19,6 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_mode = 2
 script = ExtResource("1_egft6")
 locked_image = ExtResource("2_kupe1")
 

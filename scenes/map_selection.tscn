@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dg3a4dwfbh163"]
+[gd_scene load_steps=11 format=3 uid="uid://b7nim77kkkio7"]
 
-[ext_resource type="PackedScene" uid="uid://c2pw7p5caoliy" path="res://scenes/prefabs/map_option.tscn" id="1_sd08u"]
+[ext_resource type="PackedScene" uid="uid://iculuh4j4va6" path="res://scenes/prefabs/map_option.tscn" id="1_sd08u"]
 [ext_resource type="Resource" path="res://resources/map1.tres" id="2_8m423"]
 [ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_g6m1m"]
 [ext_resource type="Resource" path="res://resources/map2.tres" id="3_pxafi"]
@@ -53,12 +53,17 @@ anchor_right = 0.0
 offset_left = 186.0
 offset_right = 226.0
 grow_horizontal = 1
+focus_neighbor_right = NodePath("../Map2")
+focus_neighbor_bottom = NodePath("../Go Back/MarginContainer/VBoxContainer/back")
 resource = ExtResource("2_8m423")
 
 [node name="Map2" parent="." instance=ExtResource("1_sd08u")]
 layout_mode = 1
 offset_left = -33.0
 offset_right = 7.0
+focus_neighbor_left = NodePath("../Map")
+focus_neighbor_right = NodePath("../Map3")
+focus_neighbor_bottom = NodePath("../Start/MarginContainer/VBoxContainer/play")
 resource = ExtResource("3_pxafi")
 
 [node name="Map3" parent="." instance=ExtResource("1_sd08u")]
@@ -69,6 +74,8 @@ anchor_right = 1.0
 offset_left = -250.0
 offset_right = -210.0
 grow_horizontal = 0
+focus_neighbor_left = NodePath("../Map2")
+focus_neighbor_bottom = NodePath("../Start/MarginContainer/VBoxContainer/play")
 
 [node name="Go Back" type="Control" parent="."]
 layout_mode = 1
@@ -101,6 +108,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../../../Map")
+focus_neighbor_right = NodePath("../../../../Start/MarginContainer/VBoxContainer/play")
 theme = ExtResource("2_g6m1m")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -146,6 +155,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../../../../Go Back/MarginContainer/VBoxContainer/back")
+focus_neighbor_top = NodePath("../../../../Map")
 theme = ExtResource("2_g6m1m")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -185,9 +196,11 @@ offset_bottom = 54.0
 texture = ExtResource("8_c0ert")
 expand_mode = 5
 
-[node name="MapSelection" type="Node" parent="." node_paths=PackedStringArray("cheese_label")]
+[node name="MapSelection" type="Node" parent="." node_paths=PackedStringArray("cheese_label", "start_focus", "start_button")]
 script = ExtResource("4_addgb")
 cheese_label = NodePath("../Cheese/RichTextLabel")
+start_focus = NodePath("../Map")
+start_button = NodePath("../Start/MarginContainer/VBoxContainer/play")
 
 [connection signal="pressed" from="Go Back/MarginContainer/VBoxContainer/back" to="MapSelection" method="back"]
 [connection signal="pressed" from="Start/MarginContainer/VBoxContainer/play" to="MapSelection" method="start"]
