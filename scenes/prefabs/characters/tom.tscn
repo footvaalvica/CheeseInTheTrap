@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cj3gq3clc4b5o"]
+[gd_scene load_steps=37 format=3 uid="uid://cj3gq3clc4b5o"]
 
 [ext_resource type="Script" path="res://scripts/player/Tom.gd" id="1_6bf4o"]
 [ext_resource type="Texture2D" uid="uid://3fa30iunwymu" path="res://assets/tom_spritesheet.png" id="3_m80w2"]
@@ -98,14 +98,6 @@ region = Rect2(782, 438, 391, 438)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nbmeh"]
 atlas = ExtResource("3_m80w2")
 region = Rect2(1173, 438, 391, 438)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7xv32"]
-atlas = ExtResource("3_m80w2")
-region = Rect2(1564, 438, 391, 438)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gucwm"]
-atlas = ExtResource("3_m80w2")
-region = Rect2(1955, 438, 391, 438)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qdspx"]
 atlas = ExtResource("3_m80w2")
@@ -229,12 +221,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nbmeh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xv32")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gucwm")
 }],
 "loop": true,
 "name": &"shortcut",
