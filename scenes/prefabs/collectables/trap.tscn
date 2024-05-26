@@ -43,7 +43,7 @@ visible = false
 scale = Vector2(20, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="DisarmArea"]
-scale = Vector2(0.008, 0.008)
+scale = Vector2(0.04, 0.04)
 texture = ExtResource("3_dkpnd")
 
 [node name="Area2D" type="Area2D" parent="DisarmArea"]
