@@ -33,7 +33,6 @@ var _red_cross_image : Texture2D = null
 @export var _jerry_control : Control = null
 @export var _tom_control : Control = null
 
-const TOTAL_CHEESE = 3
 const DISTANCE_TO_TRAP = 100
 const DISTANCE_TO_SAFETY = 110
 const DISTANCE_TO_STAIRS = 75

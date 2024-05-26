@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://lqms5vj1r5re"]
+[gd_scene load_steps=28 format=3 uid="uid://lqms5vj1r5re"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_qblyn"]
 [ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="2_cb3xo"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="15_lp7f4"]
 [ext_resource type="AudioStream" uid="uid://btg0xh2k6oja2" path="res://fmod/cheeseinthetrap/Assets/1-04 Touché - Blue Cat Blues! (1955)  Scott Bradley.mp3" id="17_yjgnj"]
 [ext_resource type="PackedScene" uid="uid://ccabibhreo31q" path="res://scenes/prefabs/house/back_ground_object.tscn" id="18_v2qyb"]
-[ext_resource type="PackedScene" uid="uid://dfea4refpbec4" path="res://scenes/prefabs/safety_area.tscn" id="24_pdfyy"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/safety_area.tscn" id="24_pdfyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvkqq"]
 size = Vector2(48, 59)
@@ -237,7 +237,6 @@ offset = Vector2(0, -25)
 
 [node name="TomShortcut" parent="." instance=ExtResource("7_j8h8u")]
 position = Vector2(-208, 272)
-script = ExtResource("8_rx5fb")
 distance = 130.0
 
 [node name="TomShortcut3" parent="." instance=ExtResource("7_j8h8u")]
