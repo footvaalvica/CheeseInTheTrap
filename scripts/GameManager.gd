@@ -9,12 +9,14 @@ var _clock : float = 0 :
 var _ready_jerry : bool = true
 var _ready_tom : bool = true
 var _spawning : bool = false
+var _safety_set : bool = false
 var _green_tick_image : Texture2D = null
 var _red_cross_image : Texture2D = null
 
 @export var tom : Tom = null
 @export var jerry : Jerry = null
 @export var trap_placer : TrapPlacer = null
+@export var safety_zone : SafetyArea = null
 @export var player1 : PlayerResource = null
 @export var player2 : PlayerResource = null
 @export var second_holes : Array[Hole]
@@ -94,6 +96,7 @@ func update_resource(res : PlayerResource) :
 		trap_placer.update_player_id(res.player_id)
 	elif res.character_name == "Jerry":
 		jerry.update_with_resource(res)
+		safety_zone.update_player_id(res.player_id)
 	else :
 		push_error("Using resouce with unknown character name.")
 
@@ -107,6 +110,8 @@ func start_trap_spawning() -> void :
 func end_trap_spawning() -> void :
 	trap_placer.process_mode = Node.PROCESS_MODE_DISABLED
 	trap_placer.hide()
+	safety_zone.process_mode = Node.PROCESS_MODE_DISABLED
+	safety_zone.hide()
 	_tom_control.hide()
 	_jerry_control.hide()
 	tom.process_mode = Node.PROCESS_MODE_INHERIT
@@ -169,11 +174,15 @@ func has_more_traps() -> bool :
 
 func can_place_trap(position : Vector2, floor : int) -> bool :
 	if near_trap(position, floor) or near_stairs(position, floor) \
-		or near_shortcuts(position, floor) or near_cheese(position, floor): 
+		or near_shortcuts(position, floor) or near_cheese(position, floor) \
+		or near_safety_zone(position, floor) : 
 		return false
 	var distance : float = abs(jerry.position.x - position.x) 
 	return floor != jerry._floor or distance > DISTANCE_TO_TRAP
-	
+
+func can_place_safety_zone(position : Vector2, floor : int) -> bool :
+	return !near_stairs(position, floor) and !near_shortcuts(position, floor)
+
 func near_trap(position : Vector2, floor : int) -> bool :
 	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")
 	for trap_object in trap_object_list :
@@ -214,6 +223,11 @@ func near_cheese(position : Vector2, floor : int) -> bool :
 			return true
 	return false
 
+func near_safety_zone(position : Vector2, floor : int) -> bool :
+	print_debug("safety : %s" % safety_zone.position)
+	return _spawning and _safety_set and safety_zone._floor == floor \
+		and abs(safety_zone.position.x - position.x) < DISTANCE_TO_TRAP
+
 func spawn_trap(trap : PackedScene, position : Vector2, floor : int) -> void :
 	if _number_of_traps == 0 :
 		return
@@ -240,6 +254,16 @@ func pick_up_trap(position : Vector2, floor : int) -> void :
 	if (min_trap != null) :
 		collect_trap()
 		min_trap.collect()
+
+func set_safety_zone(position : Vector2, floor : int) -> void :
+	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")
+	for trap_object in trap_object_list :
+		var trap : Trap = trap_object as Trap
+		var distance : float = abs(trap.position.x - position.x)
+		if (trap._floor == floor and distance < DISTANCE_TO_TRAP) :
+			collect_trap()
+			trap.collect()
+	_safety_set = true
 
 func adjust_y_to_floor(player : Player, floor : int) -> void :
 	print_debug("%s moving to %s" % [player.name, _floor_0_y - floor * FLOOR_Y_DIFFERENCE])
