@@ -153,6 +153,9 @@ func trap_jerry(trap : Trap) -> void :
 func catch_jerry() -> void :
 	jerry.caught()
 
+func release_jerry() -> void :
+	jerry.release()
+
 func in_trap_range(actor : Player, trap : Trap) -> bool :
 	return trap._floor == actor._floor and get_distance(actor, trap) < DISTANCE_TO_TRAP
 

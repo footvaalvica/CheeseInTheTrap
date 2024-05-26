@@ -30,6 +30,15 @@ func on_collision(body : Node2D) -> void :
 	if isJerry:
 		GameManager.instance().catch_jerry()
 
+func on_collision_leave(body : Node2D) -> void :
+	var physics := body as PhysicsBody2D 
+	print_debug("catch")
+	if physics == null :
+		return # ignore if not PhysicsBody2D
+	var isJerry : bool = physics.get_collision_layer_value(3)
+	if isJerry:
+		GameManager.instance().release_jerry()
+
 func trap_action() -> void :
 	if GameManager.instance().near_trap(position, _floor):
 		pickup_trap()
