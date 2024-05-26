@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://duscau81htfhq"]
+[gd_scene load_steps=23 format=3 uid="uid://b8757fjmx6wbd"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_xlspn"]
 [ext_resource type="Resource" uid="uid://8rn2gole7jue" path="res://resources/player1.tres" id="2_56j4h"]
@@ -16,21 +16,23 @@
 [ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/shortcuts/tom_shortcut.tscn" id="14_f2a4y"]
 [ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/shortcuts/jerry_shortcut.tscn" id="18_3k52m"]
 [ext_resource type="PackedScene" uid="uid://bqj766o4qrfo1" path="res://scenes/prefabs/shortcuts/trapdoor.tscn" id="19_hroix"]
-[ext_resource type="PackedScene" uid="uid://mo3813gedshy" path="res://scenes/prefabs/house/wallsMedium.tscn" id="20_0y7fu"]
-[ext_resource type="PackedScene" uid="uid://b7x4driqsukcu" path="res://scenes/prefabs/house/stairs_group_medium.tscn" id="21_qu5q7"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/house/wallsMedium.tscn" id="20_0y7fu"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/house/stairs_group_medium.tscn" id="21_qu5q7"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/safety_area.tscn" id="21_w3xu0"]
 [ext_resource type="PackedScene" uid="uid://dbygtbjtb5xnp" path="res://scenes/prefabs/house/hole.tscn" id="22_qmbcj"]
 [ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="23_kyny7"]
 [ext_resource type="AudioStream" uid="uid://btg0xh2k6oja2" path="res://fmod/cheeseinthetrap/Assets/1-04 Touché - Blue Cat Blues! (1955)  Scott Bradley.mp3" id="24_adwt7"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "second_holes", "cheese_text", "trap_text", "time_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_xlspn")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "safety_zone", "second_holes", "cheese_text", "trap_text", "time_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_xlspn")]
 MAX_FLOOR = 9
 TOTAL_CHEESE = 5
 MAX_TRAPS = 5
 tom = NodePath("../Tom")
 jerry = NodePath("../Jerry")
 trap_placer = NodePath("../TrapPlacer")
+safety_zone = NodePath("../SafetyArea")
 player1 = ExtResource("2_56j4h")
 player2 = ExtResource("3_k3tr5")
 second_holes = [NodePath("../OptionalDoor"), NodePath("../OptionalDoor2"), NodePath("../OptionalDoor3"), NodePath("../OptionalDoor4")]
@@ -260,23 +262,23 @@ position = Vector2(192, 253)
 floor = 2
 
 [node name="TomShortcut" parent="." instance=ExtResource("14_f2a4y")]
-position = Vector2(-258, -232)
+position = Vector2(-258, -216)
 floor = 7
 
 [node name="TomShortcut2" parent="." instance=ExtResource("14_f2a4y")]
-position = Vector2(82, -232)
+position = Vector2(82, -216)
 floor = 7
 
 [node name="TomShortcut3" parent="." instance=ExtResource("14_f2a4y")]
-position = Vector2(495, -48)
+position = Vector2(495, -28)
 floor = 5
 
 [node name="TomShortcut5" parent="." instance=ExtResource("14_f2a4y")]
-position = Vector2(366, 228)
+position = Vector2(366, 240)
 floor = 2
 
 [node name="TomShortcut4" parent="." instance=ExtResource("14_f2a4y")]
-position = Vector2(-360, 408)
+position = Vector2(-360, 424)
 
 [node name="JerryShortcut" parent="." instance=ExtResource("18_3k52m")]
 position = Vector2(-660, -237)
@@ -327,6 +329,9 @@ position = Vector2(-108, -121)
 
 [node name="TrapPlacer" parent="." instance=ExtResource("23_kyny7")]
 position = Vector2(693, -393)
+
+[node name="SafetyArea" parent="." instance=ExtResource("21_w3xu0")]
+position = Vector2(-646, 413)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_adwt7")
