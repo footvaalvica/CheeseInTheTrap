@@ -16,6 +16,10 @@ const STUCKMAX : int = 10
 const DISABLE_TIME : float = 1.5
 const CHEESE_CATCH_TIME : float = 1.5
 
+func _ready():
+	super._ready()
+	_destroy_offset = -90
+
 func _process(delta):
 	super._process(delta)
 	if _is_caught and _climbing_phase == Climbing_Phase.None:

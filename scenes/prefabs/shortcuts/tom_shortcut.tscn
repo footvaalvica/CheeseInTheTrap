@@ -4,14 +4,17 @@
 [ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="1_s8nh0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhtsc"]
-size = Vector2(163, 59)
+size = Vector2(119, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_113me"]
+size = Vector2(184, 46)
 
 [node name="TomShortcut" type="Node2D" groups=["TomShortcut"]]
 position = Vector2(239, 60)
 script = ExtResource("1_s8nh0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_3gw0d")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -19,5 +22,16 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2.5, 5.5)
+position = Vector2(-1.5, -0.5)
 shape = SubResource("RectangleShape2D_lhtsc")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_113me")
+
+[connection signal="body_entered" from="Area2D" to="." method="enter_traverse_area"]
+[connection signal="body_exited" from="Area2D" to="." method="exit_traverse_area"]

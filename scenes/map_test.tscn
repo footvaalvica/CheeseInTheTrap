@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://lqms5vj1r5re"]
+[gd_scene load_steps=29 format=3 uid="uid://lqms5vj1r5re"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_qblyn"]
 [ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="2_cb3xo"]
@@ -27,10 +27,16 @@
 [ext_resource type="PackedScene" path="res://scenes/prefabs/safety_area.tscn" id="24_pdfyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvkqq"]
-size = Vector2(48, 59)
+size = Vector2(48, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fji7j"]
+size = Vector2(99, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0rcm"]
-size = Vector2(136, 59)
+size = Vector2(67, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1hsw"]
+size = Vector2(118, 46)
 
 [node name="Node2D" type="Node2D"]
 
@@ -58,7 +64,7 @@ collision_mask = 17
 
 [node name="Tom" parent="." instance=ExtResource("3_sn6up")]
 z_index = 1
-position = Vector2(469, -271)
+position = Vector2(469, -278)
 collision_mask = 33
 
 [node name="Cheese" parent="." instance=ExtResource("4_telum")]
@@ -236,11 +242,11 @@ text = "[center]0[/center]"
 offset = Vector2(0, -25)
 
 [node name="TomShortcut" parent="." instance=ExtResource("7_j8h8u")]
-position = Vector2(-208, 272)
+position = Vector2(-208, 287)
 distance = 130.0
 
 [node name="TomShortcut3" parent="." instance=ExtResource("7_j8h8u")]
-position = Vector2(-48, -88)
+position = Vector2(-48, -78)
 floor = 4
 distance = 75.0
 
@@ -248,20 +254,29 @@ distance = 75.0
 texture = ExtResource("11_ej6iq")
 
 [node name="CollisionShape2D" parent="TomShortcut3/StaticBody2D" index="0"]
-position = Vector2(0, 5.5)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_gvkqq")
 
+[node name="CollisionShape2D" parent="TomShortcut3/Area2D" index="0"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_fji7j")
+
 [node name="TomShortcut2" parent="." instance=ExtResource("7_j8h8u")]
-position = Vector2(336, 88)
+position = Vector2(336, 106)
 floor = 2
 distance = 110.0
 
 [node name="Sprite2D" parent="TomShortcut2" index="0"]
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("11_5m5hx")
 
 [node name="CollisionShape2D" parent="TomShortcut2/StaticBody2D" index="0"]
-position = Vector2(-4, 5.5)
+position = Vector2(-4.5, -1)
 shape = SubResource("RectangleShape2D_q0rcm")
+
+[node name="CollisionShape2D" parent="TomShortcut2/Area2D" index="0"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_r1hsw")
 
 [node name="JerryShortcut" parent="." instance=ExtResource("9_q2kdp")]
 position = Vector2(8, 184)

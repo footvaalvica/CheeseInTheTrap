@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqacf4a3liqfq"]
+[gd_scene load_steps=5 format=3 uid="uid://bqacf4a3liqfq"]
 
 [ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="1_7gy2v"]
 [ext_resource type="Texture2D" uid="uid://dp4qdl7g456eo" path="res://assets/block.png" id="1_ujsje"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbj7s"]
-size = Vector2(3, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7yeve"]
 size = Vector2(19, 59)
@@ -106,14 +103,5 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_xlllh")
 
-[connection signal="body_entered" from="Traverse/C1" to="." method="enter_traverse_area"]
-[connection signal="body_entered" from="Traverse/C2" to="." method="enter_traverse_area"]
-[connection signal="body_entered" from="Traverse/C3" to="." method="enter_traverse_area"]
-[connection signal="body_entered" from="Traverse/C4" to="." method="enter_traverse_area"]
-[connection signal="body_entered" from="Traverse/C5" to="." method="enter_traverse_area"]
-[connection signal="body_entered" from="Traverse/C6" to="." method="enter_traverse_area"]
-[connection signal="body_entered" from="Traverse/C7" to="." method="enter_traverse_area"]
-[connection signal="body_entered" from="Traverse/C8" to="." method="enter_traverse_area"]
-[connection signal="body_entered" from="Traverse/C9" to="." method="enter_traverse_area"]
 [connection signal="body_entered" from="Area2D" to="." method="enter_traverse_area"]
 [connection signal="body_exited" from="Area2D" to="." method="exit_traverse_area"]
