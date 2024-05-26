@@ -8,11 +8,13 @@ var _direction_to_press : Direction = Direction.Left
 var _stuck_counter : int = 0
 var _disable_counter : float = 0
 var _cheese_countdown : float = 0
+var _disarm_animation_counter : float = 0
 var _trap : Trap = null
 var _holes : Array[Hole]
 var _traps_available : Array[Trap]
 
 const STUCKMAX : int = 10
+const DISARM_ANIMATION_STEP : float = .2
 const DISABLE_TIME : float = 1.5
 const CHEESE_CATCH_TIME : float = 1.5
 
@@ -20,7 +22,7 @@ func _ready():
 	super._ready()
 	_destroy_offset = -90
 
-func _process(delta):
+func _process(delta) -> void :
 	super._process(delta)
 	if _is_caught and _climbing_phase == Climbing_Phase.None:
 		queue_free()
@@ -52,9 +54,12 @@ func stairs(delta) -> void :
 		super.stairs(delta)
 
 func animation(delta) -> void :
+	_disarm_animation_counter -= delta
 	if (_is_trapped) :
 		super.animation(delta)
 		animated_sprite.animation = "stunned"
+		return
+	if (_disarm_animation_counter > 0) : # continue disarm animation
 		return
 	if (_cheese_countdown > 0):
 		animated_sprite.animation = "cheese"
@@ -89,7 +94,7 @@ func trap(trap : Trap) -> void :
 	_stuck_counter = 0
 
 func catch_cheese() -> void :
-	animated_sprite.animation = "cheese"
+	animated_sprite.animation = "cheese" 
 	animated_sprite.play()
 	_cheese_countdown = CHEESE_CATCH_TIME
 
@@ -112,6 +117,9 @@ func disable_trap(delta : float) -> void :
 	var trap : Trap = active_traps[0]
 	if GameManager.instance().in_trap_range(self, trap) :
 		trap.hit()
+		if animated_sprite.animation != "disarm":
+			animated_sprite.animation = "disarm"
+		_disarm_animation_counter = DISARM_ANIMATION_STEP
 		return
 
 # Utility functions ------------------------------------------------------------
