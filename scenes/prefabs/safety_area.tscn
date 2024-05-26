@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2207gaie4gm7"]
+
+[ext_resource type="Texture2D" uid="uid://264o6fsvlvje" path="res://assets/trap1.png" id="1_8htnq"]
+[ext_resource type="Script" path="res://scripts/SafetyArea.gd" id="1_t2eu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whhqd"]
+size = Vector2(104, 20)
+
+[node name="SafetyArea" type="CharacterBody2D"]
+collision_layer = 64
+script = ExtResource("1_t2eu2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_8htnq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_whhqd")

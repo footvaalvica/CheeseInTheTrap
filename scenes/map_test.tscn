@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://lqms5vj1r5re"]
+[gd_scene load_steps=29 format=3 uid="uid://lqms5vj1r5re"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_qblyn"]
 [ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="2_cb3xo"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="15_lp7f4"]
 [ext_resource type="AudioStream" uid="uid://btg0xh2k6oja2" path="res://fmod/cheeseinthetrap/Assets/1-04 Touché - Blue Cat Blues! (1955)  Scott Bradley.mp3" id="17_yjgnj"]
 [ext_resource type="PackedScene" uid="uid://ccabibhreo31q" path="res://scenes/prefabs/house/back_ground_object.tscn" id="18_v2qyb"]
+[ext_resource type="PackedScene" uid="uid://d2207gaie4gm7" path="res://scenes/prefabs/safety_area.tscn" id="24_pdfyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvkqq"]
 size = Vector2(48, 59)
@@ -34,10 +35,11 @@ size = Vector2(136, 59)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "second_holes", "cheese_text", "trap_text", "time_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_qblyn")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "safety_zone", "second_holes", "cheese_text", "trap_text", "time_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_qblyn")]
 tom = NodePath("../Tom")
 jerry = NodePath("../Jerry")
 trap_placer = NodePath("../TrapPlacer")
+safety_zone = NodePath("../SafetyArea")
 player1 = ExtResource("2_toce4")
 player2 = ExtResource("3_trd54")
 second_holes = [NodePath("../OptionalDoor"), NodePath("../OptionalDoor2"), NodePath("../OptionalDoor3")]
@@ -324,6 +326,9 @@ position = Vector2(-194, -78)
 position = Vector2(-304, 11)
 
 [node name="TrapPlacer" parent="." instance=ExtResource("15_lp7f4")]
+
+[node name="SafetyArea" parent="." instance=ExtResource("24_pdfyy")]
+position = Vector2(-443, 289)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_yjgnj")
