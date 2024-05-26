@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="15_lp7f4"]
 [ext_resource type="AudioStream" uid="uid://btg0xh2k6oja2" path="res://fmod/cheeseinthetrap/Assets/1-04 Touché - Blue Cat Blues! (1955)  Scott Bradley.mp3" id="17_yjgnj"]
 [ext_resource type="PackedScene" uid="uid://ccabibhreo31q" path="res://scenes/prefabs/house/back_ground_object.tscn" id="18_v2qyb"]
-[ext_resource type="PackedScene" uid="uid://d2207gaie4gm7" path="res://scenes/prefabs/safety_area.tscn" id="24_pdfyy"]
+[ext_resource type="PackedScene" uid="uid://dfea4refpbec4" path="res://scenes/prefabs/safety_area.tscn" id="24_pdfyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvkqq"]
 size = Vector2(48, 59)
@@ -328,7 +328,7 @@ position = Vector2(-304, 11)
 [node name="TrapPlacer" parent="." instance=ExtResource("15_lp7f4")]
 
 [node name="SafetyArea" parent="." instance=ExtResource("24_pdfyy")]
-position = Vector2(-443, 289)
+position = Vector2(-443, 277)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_yjgnj")

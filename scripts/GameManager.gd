@@ -31,6 +31,7 @@ var _red_cross_image : Texture2D = null
 
 const TOTAL_CHEESE = 3
 const DISTANCE_TO_TRAP = 100
+const DISTANCE_TO_SAFETY = 110
 const DISTANCE_TO_STAIRS = 75
 const DISTANCE_TO_CHEESE = 75
 const DISTANCE_TO_SHORTCUT = 150
@@ -226,7 +227,7 @@ func near_cheese(position : Vector2, floor : int) -> bool :
 func near_safety_zone(position : Vector2, floor : int) -> bool :
 	print_debug("safety : %s" % safety_zone.position)
 	return _spawning and _safety_set and safety_zone._floor == floor \
-		and abs(safety_zone.position.x - position.x) < DISTANCE_TO_TRAP
+		and abs(safety_zone.position.x - position.x) < DISTANCE_TO_SAFETY
 
 func spawn_trap(trap : PackedScene, position : Vector2, floor : int) -> void :
 	if _number_of_traps == 0 :
@@ -260,7 +261,7 @@ func set_safety_zone(position : Vector2, floor : int) -> void :
 	for trap_object in trap_object_list :
 		var trap : Trap = trap_object as Trap
 		var distance : float = abs(trap.position.x - position.x)
-		if (trap._floor == floor and distance < DISTANCE_TO_TRAP) :
+		if (trap._floor == floor and distance < DISTANCE_TO_SAFETY) :
 			collect_trap()
 			trap.collect()
 	_safety_set = true

@@ -27,7 +27,6 @@ func trap_action() -> void :
 	GameManager.instance().set_safety_zone(position, _floor)
 	process_mode = Node.PROCESS_MODE_DISABLED
 
-
 func stairs(delta) -> void :
 	if _climbing_phase == Climbing_Phase.Entering :
 		stairs_enter(delta)
