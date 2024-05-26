@@ -209,3 +209,4 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_ugg2g")
 
 [connection signal="body_entered" from="Area2D" to="." method="on_collision"]
+[connection signal="body_exited" from="Area2D" to="." method="on_collision_leave"]

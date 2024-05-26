@@ -3,6 +3,7 @@ class_name Jerry extends Player
 enum Direction {Left, Right}
 
 var _is_trapped : bool = false
+var _is_caught : bool = false
 var _direction_to_press : Direction = Direction.Left
 var _stuck_counter : int = 0
 var _disable_counter : float = 0
@@ -17,6 +18,9 @@ const CHEESE_CATCH_TIME : float = 1.5
 
 func _process(delta):
 	super._process(delta)
+	if _is_caught and _climbing_phase == Climbing_Phase.None:
+		queue_free()
+		GameManager.instance().end_game_tom()
 	if _is_trapped :
 		return
 	if Input.is_action_just_pressed("move_up_%s" % player_id) and (_holes.size() > 0):
@@ -82,9 +86,12 @@ func catch_cheese() -> void :
 	_cheese_countdown = CHEESE_CATCH_TIME
 
 func caught() -> void :
-	queue_free()
-	GameManager.instance().end_game_tom()
-	
+	_is_caught = true
+
+func release() -> void :
+	print_debug("release")
+	_is_caught = false
+
 func enter_hole() -> void :
 	queue_free()
 	GameManager.instance().end_game_jerry()
