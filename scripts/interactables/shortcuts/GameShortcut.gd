@@ -10,9 +10,17 @@ func action():
 func enter_traverse_area(body : Node2D) :
 	print_debug(body.name)
 	var jerry = body as Jerry
-	jerry.start_traverse_shortcut()
+	if (jerry != null) :
+		jerry.start_traverse_shortcut()
+	var tom = body as Tom
+	if (tom != null) :
+		tom.start_traverse_shortcut()
 
 func exit_traverse_area(body : Node2D):
 	print_debug(body.name)
 	var jerry = body as Jerry
-	jerry.stop_traverse_shortcut()
+	if (jerry != null) :
+		jerry.stop_traverse_shortcut()
+	var tom = body as Tom
+	if (tom != null) :
+		tom.stop_traverse_shortcut()

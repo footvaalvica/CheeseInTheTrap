@@ -9,6 +9,8 @@ var _climbing_time : float = 0
 # this value should be changed to TRAPDOOR_TIME or CLIMBING_TIME upon usage
 var _climbing_bound : float = 0 
 
+var _destroy_offset : float = 0
+
 const CLIMBING_TIME : float = .15
 const SPEED = 300.0
 
@@ -103,7 +105,7 @@ func destroy_blocking_object(delta : float) -> void :
 		if GameManager.instance().in_destroy_shortcut_range(self, blocking_object) :
 			shortcut_script.hit()
 			animated_sprite.play("destroy")
-			animated_sprite.offset.y = -90
+			animated_sprite.offset.y = _destroy_offset
 			return
 
 func stairs_enter(delta : float) :
