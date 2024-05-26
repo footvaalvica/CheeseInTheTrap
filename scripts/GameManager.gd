@@ -28,7 +28,9 @@ var _red_cross_image : Texture2D = null
 @export var _tom_control : Control = null
 
 const TOTAL_CHEESE = 3
-const DISTANCE_TO_TRAP = 100 # FIXME : should this vary between tom and jerry ?
+const DISTANCE_TO_TRAP = 100
+const DISTANCE_TO_STAIRS = 75
+const DISTANCE_TO_CHEESE = 75
 const DISTANCE_TO_SHORTCUT = 150
 const MAX_FLOOR = 6
 const FLOOR_Y_DIFFERENCE = 91.43
@@ -167,7 +169,7 @@ func has_more_traps() -> bool :
 
 func can_place_trap(position : Vector2, floor : int) -> bool :
 	if near_trap(position, floor) or near_stairs(position, floor) \
-		or near_shortcuts(position, floor) : 
+		or near_shortcuts(position, floor) or near_cheese(position, floor): 
 		return false
 	var distance : float = abs(jerry.position.x - position.x) 
 	return floor != jerry._floor or distance > DISTANCE_TO_TRAP
@@ -188,7 +190,7 @@ func near_stairs(position : Vector2, floor : int) -> bool :
 		var distance : float = abs(stairs.position.x - position.x) 
 		if floor == stairs.floor :
 			print_debug("%s has distance %f" % [stairs_object.name, distance])
-		if stairs.floor == floor and distance < DISTANCE_TO_TRAP :
+		if stairs.floor == floor and distance < DISTANCE_TO_STAIRS :
 			return true
 	return false
 	
@@ -198,8 +200,17 @@ func near_shortcuts(position : Vector2, floor : int) -> bool :
 	for shortcut_object in shortcuts_object_list :
 		var shortcut : GameShortcut = shortcut_object as GameShortcut
 		var distance : float = abs(shortcut.position.x - position.x)
-		if shortcut.floor == floor and distance < DISTANCE_TO_TRAP :
+		if shortcut.floor == floor and distance < shortcut.distance :
 			print_debug(shortcut.name)
+			return true
+	return false
+
+func near_cheese(position : Vector2, floor : int) -> bool :
+	var cheese_object_list : Array[Node] = get_tree().get_nodes_in_group("Cheese")
+	for cheese_object in cheese_object_list :
+		var cheese : Cheese = cheese_object as Cheese
+		var distance : float = abs(cheese.position.x - position.x)
+		if cheese.floor == floor and distance < DISTANCE_TO_CHEESE :
 			return true
 	return false
 

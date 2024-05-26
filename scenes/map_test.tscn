@@ -34,13 +34,12 @@ size = Vector2(136, 59)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "second_holes", "cheese_text", "trap_text", "time_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_qblyn")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "cheese_text", "trap_text", "time_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_qblyn")]
 tom = NodePath("../Tom")
 jerry = NodePath("../Jerry")
 trap_placer = NodePath("../TrapPlacer")
 player1 = ExtResource("2_toce4")
 player2 = ExtResource("3_trd54")
-second_holes = [NodePath("../OptionalDoor"), NodePath("../OptionalDoor2"), NodePath("../OptionalDoor3")]
 game_score = ExtResource("4_i13m6")
 cheese_text = NodePath("../CanvasLayer/Control/Cheese/RichTextLabel")
 trap_text = NodePath("../CanvasLayer/Control/Traps/RichTextLabel")
@@ -62,18 +61,21 @@ collision_mask = 33
 
 [node name="Cheese" parent="." instance=ExtResource("4_telum")]
 position = Vector2(-424, 96)
+floor = 2
 
 [node name="AnimatedSprite2D" parent="Cheese" index="1"]
 scale = Vector2(0.15, 0.15)
 
 [node name="Cheese2" parent="." instance=ExtResource("4_telum")]
 position = Vector2(360, 0)
+floor = 3
 
 [node name="AnimatedSprite2D" parent="Cheese2" index="1"]
 scale = Vector2(0.15, 0.15)
 
 [node name="Cheese3" parent="." instance=ExtResource("4_telum")]
 position = Vector2(-232, -184)
+floor = 5
 
 [node name="AnimatedSprite2D" parent="Cheese3" index="1"]
 scale = Vector2(0.15, 0.15)
@@ -243,11 +245,13 @@ offset = Vector2(0, -25)
 [node name="TomShortcut" parent="." instance=ExtResource("7_j8h8u")]
 position = Vector2(-208, 272)
 script = ExtResource("8_rx5fb")
+distance = 130.0
 
 [node name="TomShortcut3" parent="." instance=ExtResource("7_j8h8u")]
 position = Vector2(-48, -88)
 script = ExtResource("8_rx5fb")
 floor = 4
+distance = 75.0
 
 [node name="Sprite2D" parent="TomShortcut3" index="0"]
 texture = ExtResource("11_ej6iq")
@@ -260,6 +264,7 @@ shape = SubResource("RectangleShape2D_gvkqq")
 position = Vector2(336, 88)
 script = ExtResource("8_rx5fb")
 floor = 2
+distance = 110.0
 
 [node name="Sprite2D" parent="TomShortcut2" index="0"]
 texture = ExtResource("11_5m5hx")
@@ -273,18 +278,21 @@ position = Vector2(8, 184)
 scale = Vector2(1.22, 1.22)
 script = ExtResource("8_rx5fb")
 floor = 1
+distance = 75.0
 
 [node name="JerryShortcut2" parent="." instance=ExtResource("9_q2kdp")]
 position = Vector2(-128, 0)
 scale = Vector2(1.22, 1.22)
 script = ExtResource("8_rx5fb")
 floor = 3
+distance = 75.0
 
 [node name="JerryShortcut3" parent="." instance=ExtResource("9_q2kdp")]
 position = Vector2(-160, -184)
 scale = Vector2(1.22, 1.22)
 script = ExtResource("8_rx5fb")
 floor = 5
+distance = 75.0
 
 [node name="Trapdoor" parent="." instance=ExtResource("10_bn61j")]
 position = Vector2(-304, 117)
