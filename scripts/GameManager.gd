@@ -221,6 +221,7 @@ func spawn_trap(trap : PackedScene, position : Vector2, floor : int) -> void :
 		return
 	var trap_instance : Node2D = trap.instantiate() as Node2D
 	trap_instance.position = position
+	trap_instance.position.y = (_floor_0_y - FLOOR_Y_DIFFERENCE * floor) + FLOOR_Y_DIFFERENCE * 1/8
 	get_parent().add_child(trap_instance)
 	(trap_instance as Trap).place(floor)
 	_number_of_traps -= 1
