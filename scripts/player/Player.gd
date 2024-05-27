@@ -4,6 +4,7 @@ enum Climbing_Phase {None, Entering, Exiting}
 
 var _floor : int = 0 :
 	get : return _floor
+var _floor_0_y = 0
 var _climbing_phase : Climbing_Phase = Climbing_Phase.None
 var _climbing_time : float = 0
 # this value should be changed to TRAPDOOR_TIME or CLIMBING_TIME upon usage

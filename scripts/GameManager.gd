@@ -3,7 +3,6 @@ class_name GameManager extends Node
 static var _instance : GameManager
 var _number_of_cheese : int = 0
 var _number_of_traps : int = 0
-var _floor_0_y = 0
 var _clock : float = 0 : 
 	get : return _clock 
 var _ready_jerry : bool = true
@@ -46,7 +45,6 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_floor_0_y = jerry.position.y
 	_number_of_traps = MAX_TRAPS
 	update_resource(player1)
 	update_resource(player2)
@@ -267,7 +265,10 @@ func set_safety_zone(position : Vector2, floor : int) -> void :
 	_safety_set = true
 
 func adjust_y_to_floor(player : Player, floor : int) -> void :
-	player.position.y = _floor_0_y - floor * FLOOR_Y_DIFFERENCE
+	print_debug("%s moving to %s" % [player.name, player._floor_0_y - floor * FLOOR_Y_DIFFERENCE])
+	print_debug("previous y : %s" % player.position.y)
+	player.position.y = player._floor_0_y - floor * FLOOR_Y_DIFFERENCE
+	print_debug("current y : %s" % player.position.y)
 
 # Utility functions ------------------------------------------------------------
 
