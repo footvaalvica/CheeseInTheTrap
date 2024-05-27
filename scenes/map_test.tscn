@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://lqms5vj1r5re"]
+[gd_scene load_steps=30 format=3 uid="uid://lqms5vj1r5re"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_qblyn"]
 [ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="2_cb3xo"]
@@ -30,13 +30,13 @@
 size = Vector2(48, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fji7j"]
-size = Vector2(133, 46)
+size = Vector2(75, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0rcm"]
 size = Vector2(67, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1hsw"]
-size = Vector2(118, 46)
+size = Vector2(93, 46)
 
 [node name="Node2D" type="Node2D"]
 
@@ -260,7 +260,6 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_gvkqq")
 
 [node name="CollisionShape2D" parent="TomShortcut3/Area2D" index="0"]
-position = Vector2(4.5, 0)
 shape = SubResource("RectangleShape2D_fji7j")
 
 [node name="TomShortcut2" parent="." instance=ExtResource("7_j8h8u")]
@@ -277,7 +276,7 @@ position = Vector2(-4.5, -1)
 shape = SubResource("RectangleShape2D_q0rcm")
 
 [node name="CollisionShape2D" parent="TomShortcut2/Area2D" index="0"]
-position = Vector2(-4, 0)
+position = Vector2(-5.5, 0)
 shape = SubResource("RectangleShape2D_r1hsw")
 
 [node name="JerryShortcut" parent="." instance=ExtResource("9_q2kdp")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgwjoavqfqj5d"]
+[gd_scene load_steps=5 format=3 uid="uid://bgwjoavqfqj5d"]
 
 [ext_resource type="Texture2D" uid="uid://bm2sdtvcpnakm" path="res://assets/bathtub.png" id="1_3gw0d"]
 [ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="1_s8nh0"]
