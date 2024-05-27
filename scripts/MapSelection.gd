@@ -18,10 +18,12 @@ func _ready():
 
 func start() -> void :
 	if (current_map_resource != null) :
-		get_tree().change_scene_to_packed(current_map_resource.map_scene)
+		#get_tree().change_scene_to_packed(current_map_resource.map_scene)
+		get_tree().change_scene_to_file("res://scenes/tutorial.tscn")
+		GameStateManager.map = current_map_resource.map_scene
 
 func back() -> void :
-	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func switch_map(new_map : MapResource) -> void :
 	print_debug("switc")

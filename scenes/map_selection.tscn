@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://b7nim77kkkio7"]
 
 [ext_resource type="PackedScene" uid="uid://iculuh4j4va6" path="res://scenes/prefabs/map_option.tscn" id="1_sd08u"]
-[ext_resource type="Resource" path="res://resources/map1.tres" id="2_8m423"]
+[ext_resource type="Resource" uid="uid://cdhpedmger07m" path="res://resources/map1.tres" id="2_8m423"]
 [ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_g6m1m"]
-[ext_resource type="Resource" path="res://resources/map2.tres" id="3_pxafi"]
+[ext_resource type="Resource" uid="uid://tbu0urwcrp1d" path="res://resources/map2.tres" id="3_pxafi"]
 [ext_resource type="Texture2D" uid="uid://bgniw0epwu85v" path="res://assets/cga_ui_gold/b_3.png" id="3_wvftq"]
 [ext_resource type="Script" path="res://scripts/MapSelection.gd" id="4_addgb"]
 [ext_resource type="Texture2D" uid="uid://ppd13xe4k4w4" path="res://assets/cheese.png" id="8_c0ert"]
