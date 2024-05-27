@@ -18,7 +18,6 @@ func _ready():
 
 func start() -> void :
 	if (current_map_resource != null) :
-		#get_tree().change_scene_to_packed(current_map_resource.map_scene)
 		get_tree().change_scene_to_file("res://scenes/tutorial.tscn")
 		GameStateManager.map = current_map_resource.map_scene
 
