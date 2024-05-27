@@ -1,0 +1,74 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://4vqpi3yuyfwx"]
+
+[ext_resource type="FontFile" uid="uid://cj6s078gkwwt0" path="res://new_font_file.tres" id="1_nt7dy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_di47m"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.818794, 0.599014, 0.393526, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utru4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.805061, 0.820639, 0.82922, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qggu2"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.67, 0.323833, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[resource]
+Button/colors/font_color = Color(0.983338, 0.390145, 0.143398, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_nt7dy")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_di47m")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_utru4")
+HSlider/styles/slider = SubResource("StyleBoxFlat_qggu2")
+Label/fonts/font = ExtResource("1_nt7dy")
+RichTextLabel/font_sizes/bold_font_size = 30
+RichTextLabel/font_sizes/bold_italics_font_size = 30
+RichTextLabel/font_sizes/italics_font_size = 30
+RichTextLabel/font_sizes/mono_font_size = 30
+RichTextLabel/font_sizes/normal_font_size = 60
+RichTextLabel/fonts/normal_font = ExtResource("1_nt7dy")
+TextEdit/colors/background_color = Color(0.966918, 0.948604, 0.929773, 1)
+TextEdit/colors/caret_color = Color(0, 0, 0, 0.639216)
+TextEdit/colors/font_color = Color(0.933935, 0.456016, 9.62615e-07, 1)
+TextEdit/colors/font_placeholder_color = Color(0.688316, 0.342639, 0.287232, 0.6)
+TextEdit/fonts/font = ExtResource("1_nt7dy")
