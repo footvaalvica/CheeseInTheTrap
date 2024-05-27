@@ -12,82 +12,10 @@ size = Vector2(50, 60)
 [node name="JerryShortcut" type="Node2D" groups=["JerryShortcut"]]
 script = ExtResource("1_7gy2v")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+scale = Vector2(19, 40)
 texture = ExtResource("1_ujsje")
-[node name="Traverse" type="Node2D" parent="."]
-process_mode = 4
-visible = false
-
-[node name="C1" type="Area2D" parent="Traverse"]
-position = Vector2(-32, 0)
-collision_layer = 32
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C1"]
-shape = SubResource("RectangleShape2D_vbj7s")
-
-[node name="C2" type="Area2D" parent="Traverse"]
-position = Vector2(-29, 0)
-collision_layer = 32
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C2"]
-shape = SubResource("RectangleShape2D_vbj7s")
-
-[node name="C3" type="Area2D" parent="Traverse"]
-position = Vector2(-26, 0)
-collision_layer = 32
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C3"]
-shape = SubResource("RectangleShape2D_vbj7s")
-
-[node name="C4" type="Area2D" parent="Traverse"]
-position = Vector2(-23, 0)
-collision_layer = 32
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C4"]
-shape = SubResource("RectangleShape2D_vbj7s")
-
-[node name="C5" type="Area2D" parent="Traverse"]
-position = Vector2(-20, 0)
-collision_layer = 32
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C5"]
-shape = SubResource("RectangleShape2D_vbj7s")
-
-[node name="C6" type="Area2D" parent="Traverse"]
-position = Vector2(-17, 0)
-collision_layer = 32
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C6"]
-shape = SubResource("RectangleShape2D_vbj7s")
-
-[node name="C7" type="Area2D" parent="Traverse"]
-position = Vector2(-14, 0)
-collision_layer = 32
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C7"]
-shape = SubResource("RectangleShape2D_vbj7s")
-
-[node name="C8" type="Area2D" parent="Traverse"]
-position = Vector2(-11, 0)
-collision_layer = 32
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C8"]
-shape = SubResource("RectangleShape2D_vbj7s")
-
-[node name="C9" type="Area2D" parent="Traverse"]
-position = Vector2(-8, 0)
-collision_layer = 32
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Traverse/C9"]
-shape = SubResource("RectangleShape2D_vbj7s")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 32

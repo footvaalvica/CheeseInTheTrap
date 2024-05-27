@@ -3,6 +3,7 @@ class_name SafetyArea extends Player
 var sprite : Sprite2D
 
 func _ready():
+	_floor_0_y = position.y
 	sprite = $Sprite2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
