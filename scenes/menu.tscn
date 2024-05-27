@@ -3,10 +3,10 @@
 [ext_resource type="VideoStream" path="res://assets/menuvid.ogv" id="1_aaqpx"]
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_iawo3"]
 [ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_u5qb5"]
-[ext_resource type="Texture2D" uid="uid://bgniw0epwu85v" path="res://assets/cga_ui_gold/b_3.png" id="4_j0jqu"]
-[ext_resource type="Texture2D" uid="uid://dk2xdh7mildfm" path="res://assets/cga_ui_gold/b_5.png" id="4_y1mbn"]
-[ext_resource type="PackedScene" uid="uid://hmx6o472ropw" path="res://addons/maaacks_game_template/base/scenes/Menus/OptionsMenu/MasterOptionsMenuWithTabs.tscn" id="7_1hdwj"]
-[ext_resource type="AudioStream" uid="uid://dvqs32y3t3i3m" path="res://fmod/cheeseinthetrap/Assets/Happy-Go-Ducky (1957) - Music track only.mp3" id="8_47ys8"]
+[ext_resource type="Texture2D" uid="uid://p7nbrc6ee0al" path="res://assets/cga_ui_gold/b_3.png" id="4_j0jqu"]
+[ext_resource type="Texture2D" uid="uid://cv41l3wlfyb2l" path="res://assets/cga_ui_gold/b_5.png" id="4_y1mbn"]
+[ext_resource type="PackedScene" uid="uid://c157gqj3jcnh1" path="res://scenes/mateus_options_menu.tscn" id="7_8ulci"]
+[ext_resource type="AudioStream" uid="uid://86o2pi5sp0fs" path="res://fmod/cheeseinthetrap/Assets/Happy-Go-Ducky (1957) - Music track only.mp3" id="8_47ys8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l3qxy"]
 content_margin_left = 10.0
@@ -172,7 +172,7 @@ bus = &"Music"
 [node name="UIOPTIONS" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="MasterOptionsMenu" parent="UIOPTIONS" instance=ExtResource("7_1hdwj")]
+[node name="MateusOptionsMenu" parent="UIOPTIONS" instance=ExtResource("7_8ulci")]
 
 [node name="goback" type="Button" parent="UIOPTIONS"]
 anchors_preset = 3
@@ -180,10 +180,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -284.0
-offset_top = -143.0
-offset_right = -63.0
-offset_bottom = -62.0
+offset_left = -251.0
+offset_top = -108.0
+offset_right = -30.0
+offset_bottom = -27.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("2_u5qb5")

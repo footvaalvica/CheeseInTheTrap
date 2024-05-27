@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8vnncjwqcpab"]
+[gd_scene load_steps=6 format=3 uid="uid://c8vnncjwqcpab"]
 
 [ext_resource type="Script" path="res://addons/maaacks_game_template/base/scenes/Menus/OptionsMenu/Audio/AudioOptionsMenu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://cl416gdb1fgwr" path="res://addons/maaacks_game_template/base/scenes/Menus/OptionsMenu/OptionControl/SliderOptionControl.tscn" id="2_raehj"]
 [ext_resource type="Script" path="res://addons/maaacks_game_template/base/scripts/CaptureFocus.gd" id="3_dtraq"]
+[ext_resource type="Theme" uid="uid://4vqpi3yuyfwx" path="res://options_theme.tres" id="3_iwjhk"]
 [ext_resource type="PackedScene" uid="uid://bsxh6v7j0257h" path="res://addons/maaacks_game_template/base/scenes/Menus/OptionsMenu/OptionControl/ToggleOptionControl.tscn" id="4_ojfec"]
 
 [node name="Audio" type="MarginContainer"]
@@ -21,6 +22,7 @@ audio_control_scene = ExtResource("2_raehj")
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("3_iwjhk")
 theme_override_constants/separation = 8
 alignment = 1
 script = ExtResource("3_dtraq")

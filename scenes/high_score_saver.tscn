@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://2hcb8cjnqasc"]
 
-[ext_resource type="Texture2D" uid="uid://bc4a28c2qt5vj" path="res://assets/cga_ui_gold/f.png" id="1_bm58p"]
+[ext_resource type="Texture2D" uid="uid://d4d4xnif6olju" path="res://assets/cga_ui_gold/f.png" id="1_bm58p"]
 [ext_resource type="Script" path="res://scripts/highscore/HighScoreManager.gd" id="1_gx6yk"]
 [ext_resource type="Resource" uid="uid://cgujiwi5yrix5" path="res://resources/game_score.tres" id="2_1lnks"]
 [ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_p7teq"]
