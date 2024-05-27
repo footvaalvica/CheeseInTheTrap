@@ -9,7 +9,7 @@ var _climbing_time : float = 0
 # this value should be changed to TRAPDOOR_TIME or CLIMBING_TIME upon usage
 var _climbing_bound : float = 0 
 
-const CLIMBING_TIME : float = .3
+const CLIMBING_TIME : float = .15
 const SPEED = 300.0
 
 var player_id : int = 1
