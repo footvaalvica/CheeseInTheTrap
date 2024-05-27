@@ -5,6 +5,7 @@ var sprite : Sprite2D
 
 func _ready():
 	_floor = GameManager.instance().MAX_FLOOR
+	_floor_0_y = position.y + GameManager.instance().MAX_FLOOR * GameManager.instance().FLOOR_Y_DIFFERENCE
 	sprite = $Sprite2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -236,11 +236,12 @@ offset = Vector2(0, -25)
 
 [node name="TomShortcut" parent="." instance=ExtResource("7_j8h8u")]
 position = Vector2(-208, 287)
-distance = 130.0
+distance = 120.0
 
 [node name="TomShortcut3" parent="." instance=ExtResource("7_j8h8u")]
 position = Vector2(-55, -80)
-distance = 130.0
+floor = 4
+distance = 120.0
 
 [node name="TomShortcut2" parent="." instance=ExtResource("7_j8h8u")]
 position = Vector2(336, 106)
