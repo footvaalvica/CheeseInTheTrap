@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://lqms5vj1r5re"]
+[gd_scene load_steps=27 format=3 uid="uid://lqms5vj1r5re"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_qblyn"]
 [ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="2_cb3xo"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://264o6fsvlvje" path="res://assets/trap1.png" id="10_b7878"]
 [ext_resource type="PackedScene" uid="uid://bqj766o4qrfo1" path="res://scenes/prefabs/shortcuts/trapdoor.tscn" id="10_bn61j"]
 [ext_resource type="Texture2D" uid="uid://bpswu4fqy86am" path="res://assets/piano.png" id="11_5m5hx"]
-[ext_resource type="Texture2D" uid="uid://c2llgpstjvdft" path="res://assets/djset.png" id="11_ej6iq"]
 [ext_resource type="Texture2D" uid="uid://cp753obyi20re" path="res://assets/jerry_icon.png" id="11_gu6xb"]
 [ext_resource type="PackedScene" uid="uid://o1iwho47xbb0" path="res://scenes/prefabs/house/walls.tscn" id="12_46wad"]
 [ext_resource type="Texture2D" uid="uid://dqjp1ohvp7mvt" path="res://assets/red_cross.jpg" id="12_wjcxj"]
@@ -25,12 +24,6 @@
 [ext_resource type="AudioStream" uid="uid://btg0xh2k6oja2" path="res://fmod/cheeseinthetrap/Assets/1-04 Touché - Blue Cat Blues! (1955)  Scott Bradley.mp3" id="17_yjgnj"]
 [ext_resource type="PackedScene" uid="uid://ccabibhreo31q" path="res://scenes/prefabs/house/back_ground_object.tscn" id="18_v2qyb"]
 [ext_resource type="PackedScene" path="res://scenes/prefabs/safety_area.tscn" id="24_pdfyy"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvkqq"]
-size = Vector2(48, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fji7j"]
-size = Vector2(75, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0rcm"]
 size = Vector2(67, 46)
@@ -246,21 +239,8 @@ position = Vector2(-208, 287)
 distance = 130.0
 
 [node name="TomShortcut3" parent="." instance=ExtResource("7_j8h8u")]
-position = Vector2(-48, -78)
-floor = 4
-distance = 75.0
-
-[node name="Sprite2D" parent="TomShortcut3" index="0"]
-position = Vector2(0, 4)
-scale = Vector2(0.18, 0.18)
-texture = ExtResource("11_ej6iq")
-
-[node name="CollisionShape2D" parent="TomShortcut3/StaticBody2D" index="0"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_gvkqq")
-
-[node name="CollisionShape2D" parent="TomShortcut3/Area2D" index="0"]
-shape = SubResource("RectangleShape2D_fji7j")
+position = Vector2(-55, -80)
+distance = 130.0
 
 [node name="TomShortcut2" parent="." instance=ExtResource("7_j8h8u")]
 position = Vector2(336, 106)
@@ -340,5 +320,4 @@ position = Vector2(-432, -192)
 [editable path="Cheese"]
 [editable path="Cheese2"]
 [editable path="Cheese3"]
-[editable path="TomShortcut3"]
 [editable path="TomShortcut2"]
