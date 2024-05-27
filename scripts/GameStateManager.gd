@@ -1,6 +1,7 @@
 class_name GameStateManager
 
 static var cheese : int = 0
+static var map : PackedScene = null
 const FILE_PATH : String = "res://game_state.dat"
 
 static func read_game_state() :
