@@ -3,11 +3,13 @@ class_name Tom extends Player
 var trap_scene : PackedScene = load("res://scenes/prefabs/collectables/trap.tscn")
 var trapdoors_available : Array[Trapdoor] = []
 
-const TRAPDOOR_TIME : float = .15
+const TRAPDOOR_TIME : float = .1
 
 func _ready():
 	super._ready()
 	_floor = GameManager.instance().MAX_FLOOR
+	_floor_0_y = position.y + GameManager.instance().MAX_FLOOR * GameManager.instance().FLOOR_Y_DIFFERENCE
+	_floor = 6
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

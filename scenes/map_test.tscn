@@ -30,7 +30,7 @@
 size = Vector2(48, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fji7j"]
-size = Vector2(99, 46)
+size = Vector2(133, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0rcm"]
 size = Vector2(67, 46)
@@ -251,6 +251,8 @@ floor = 4
 distance = 75.0
 
 [node name="Sprite2D" parent="TomShortcut3" index="0"]
+position = Vector2(0, 4)
+scale = Vector2(0.18, 0.18)
 texture = ExtResource("11_ej6iq")
 
 [node name="CollisionShape2D" parent="TomShortcut3/StaticBody2D" index="0"]
@@ -258,7 +260,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_gvkqq")
 
 [node name="CollisionShape2D" parent="TomShortcut3/Area2D" index="0"]
-position = Vector2(-0.5, 0)
+position = Vector2(4.5, 0)
 shape = SubResource("RectangleShape2D_fji7j")
 
 [node name="TomShortcut2" parent="." instance=ExtResource("7_j8h8u")]
