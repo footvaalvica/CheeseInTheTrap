@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwvtbn87rqyvv"]
+[gd_scene load_steps=14 format=3 uid="uid://cwvtbn87rqyvv"]
 
 [ext_resource type="VideoStream" path="res://assets/menuvid.ogv" id="1_aaqpx"]
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_iawo3"]
@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dk2xdh7mildfm" path="res://assets/cga_ui_gold/b_5.png" id="4_y1mbn"]
 [ext_resource type="PackedScene" uid="uid://hmx6o472ropw" path="res://addons/maaacks_game_template/base/scenes/Menus/OptionsMenu/MasterOptionsMenuWithTabs.tscn" id="7_1hdwj"]
 [ext_resource type="AudioStream" uid="uid://dvqs32y3t3i3m" path="res://fmod/cheeseinthetrap/Assets/Happy-Go-Ducky (1957) - Music track only.mp3" id="8_47ys8"]
-[ext_resource type="Script" path="res://addons/maaacks_game_template/base/scripts/UISoundController.gd" id="8_phfqn"]
-[ext_resource type="AudioStream" uid="uid://ci481qq1s318y" path="res://addons/kenney_interface_sounds/confirmation_004.wav" id="9_lo67s"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l3qxy"]
 content_margin_left = 10.0
@@ -192,11 +190,6 @@ theme = ExtResource("2_u5qb5")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "GO BACK!"
 
-[node name="UISoundController" type="Node" parent="."]
-script = ExtResource("8_phfqn")
-button_pressed = ExtResource("9_lo67s")
-
 [connection signal="pressed" from="RestofMenu/MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="RestofMenu/MarginContainer2/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="RestofMenu/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="UIOPTIONS/goback" to="." method="_on_goback_pressed"]
