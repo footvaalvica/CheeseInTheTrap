@@ -16,12 +16,14 @@ class_name HighScoreManager extends Node
 @export var winner_text: RichTextLabel
 
 var cheese : int
+var max_cheese : int
 var time : float
 var score : int
 var winner : String
 
 func _ready():
 	cheese = game_score.cheese
+	max_cheese = game_score.max_cheese
 	save_score_button.grab_focus()
 	time = game_score.time
 	winner = game_score.winner
@@ -30,13 +32,11 @@ func _ready():
 	score_label.text = "Score:" + str(score)
 	winner_text.text = "[rainbow][center]Winner: " + winner
 	
-	# todo fix this
-	var cheese_to_star = cheese
-	if cheese_to_star > 0:
+	if cheese > 0:
 		star_1.show()
-	if cheese_to_star > 1:
+	if cheese >= max_cheese * 0.5:
 		star_2.show()
-	if cheese_to_star > 2:
+	if cheese == max_cheese:
 		star_3.show()
 	
 func add_score(name : String, cheese : int, time : float) :
