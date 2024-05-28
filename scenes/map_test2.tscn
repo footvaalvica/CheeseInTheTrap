@@ -25,7 +25,7 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "safety_zone", "second_holes", "cheese_text", "trap_text", "time_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_xlspn")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "safety_zone", "second_holes", "cheese_text", "trap_text", "time_text", "hint_text", "start_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_xlspn")]
 MAX_FLOOR = 9
 TOTAL_CHEESE = 5
 MAX_TRAPS = 5
@@ -40,6 +40,8 @@ game_score = ExtResource("4_dbl4b")
 cheese_text = NodePath("../CanvasLayer/Control/Cheese/RichTextLabel")
 trap_text = NodePath("../CanvasLayer/Control/Traps/RichTextLabel")
 time_text = NodePath("../CanvasLayer/Control/Time/RichTextLabel")
+hint_text = NodePath("../CanvasLayer/Control/Preparation Phase")
+start_text = NodePath("../CanvasLayer/Control/Start Game")
 _jerry_ready_image = NodePath("../CanvasLayer/Control/Jerry/MarginContainer2/VBoxContainer/TextureRect")
 _tom_ready_image = NodePath("../CanvasLayer/Control/Tom/MarginContainer2/VBoxContainer/TextureRect")
 _jerry_control = NodePath("../CanvasLayer/Control/Jerry")
@@ -213,6 +215,34 @@ offset_right = 1253.0
 offset_bottom = 40.0
 bbcode_enabled = true
 text = "[center]0[/center]"
+
+[node name="Preparation Phase" type="RichTextLabel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 7.0
+offset_top = 14.0
+offset_right = 697.0
+offset_bottom = 94.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center][font_size={15}]Preparation Phase![/font_size][/center]
+[center][font_size={15}]Jerry - Place Safety Zone. Tom - Place traps[/font_size][/center]"
+
+[node name="Start Game" type="RichTextLabel" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 3.0
+offset_top = 14.0
+offset_right = 693.0
+offset_bottom = 94.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center][font_size={15}]Start![/font_size][/center]"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -45)
