@@ -8,6 +8,7 @@ var _clock : float = 0 :
 var _ready_jerry : bool = true
 var _ready_tom : bool = true
 var _spawning : bool = false
+var _second_door : bool = false
 var _safety_set : bool = false
 var _green_tick_image : Texture2D = null
 var _red_cross_image : Texture2D = null
@@ -148,11 +149,12 @@ func end_game() -> void :
 func collect_cheese() -> void :
 	_number_of_cheese += 1
 	jerry.catch_cheese()
-	if _number_of_cheese > TOTAL_CHEESE * 0.6 : # Enable 2nd hole after 60% of the cheese caught
+	if _number_of_cheese > TOTAL_CHEESE * 0.6 and ! _second_door: # Enable 2nd hole after 60% of the cheese caught
 		var ind = randi_range(0, second_holes.size() - 1)
 		var hole2 = second_holes[ind]
 		hole2.visible = true
 		hole2.process_mode = Node.PROCESS_MODE_INHERIT
+		_second_door = true
 
 func collect_trap() -> void :
 	_number_of_traps += 1
