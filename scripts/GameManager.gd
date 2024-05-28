@@ -12,6 +12,7 @@ var _second_door : bool = false
 var _safety_set : bool = false
 var _green_tick_image : Texture2D = null
 var _red_cross_image : Texture2D = null
+var start_counter : float = 0
 
 @export var MAX_FLOOR = 6 # XXX : this should be a comstant
 @export var TOTAL_CHEESE = 3
@@ -28,6 +29,8 @@ var _red_cross_image : Texture2D = null
 @export var cheese_text : RichTextLabel = null
 @export var trap_text : RichTextLabel = null
 @export var time_text : RichTextLabel = null
+@export var hint_text : RichTextLabel = null
+@export var start_text : RichTextLabel = null
 @export var _jerry_ready_image : TextureRect = null
 @export var _tom_ready_image : TextureRect = null
 @export var _jerry_control : Control = null
@@ -39,6 +42,7 @@ const DISTANCE_TO_STAIRS = 75
 const DISTANCE_TO_CHEESE = 75
 const DISTANCE_TO_SHORTCUT = 150
 const FLOOR_Y_DIFFERENCE = 91.44
+const START_TEXT_TIME = 1
 
 func _init():
 	_instance = self
@@ -61,7 +65,7 @@ func _ready():
 func _process(delta):
 	if (! _spawning) :
 		_clock += delta
-	update_texts()
+	update_texts(delta)
 	if Input.is_action_just_pressed("ready_%s" % jerry.player_id):
 		_ready_jerry = not _ready_jerry
 		switch_icon(_ready_jerry, _jerry_ready_image)
@@ -76,7 +80,7 @@ static func instance() -> GameManager :
 
 # Game Logic functions ---------------------------------------------------------
 
-func update_texts() -> void :
+func update_texts(delta : float) -> void :
 	cheese_text.clear()
 	var cheese_string = "[center]%s[/center]" % _number_of_cheese
 	cheese_text.append_text(cheese_string)
@@ -86,7 +90,10 @@ func update_texts() -> void :
 	time_text.clear()
 	var time_string = "[center]%s[center]" % time_pretty_string()
 	time_text.append_text(time_string)
-	
+	if (start_counter > 0):
+		start_counter = max(start_counter - delta, 0)
+	else :
+		start_text.hide()
 
 func switch_icon(ready : bool, rect : TextureRect) -> void :
 	if ready :
@@ -116,6 +123,9 @@ func end_trap_spawning() -> void :
 	trap_placer.hide()
 	safety_zone.process_mode = Node.PROCESS_MODE_DISABLED
 	safety_zone.hide()
+	hint_text.hide()
+	start_text.visible = true
+	start_counter = START_TEXT_TIME
 	_tom_control.hide()
 	_jerry_control.hide()
 	tom.process_mode = Node.PROCESS_MODE_INHERIT
@@ -226,7 +236,6 @@ func near_cheese(position : Vector2, floor : int) -> bool :
 	return false
 
 func near_safety_zone(position : Vector2, floor : int) -> bool :
-	print_debug("safety : %s" % safety_zone.position)
 	return _spawning and _safety_set and safety_zone._floor == floor \
 		and abs(safety_zone.position.x - position.x) < DISTANCE_TO_SAFETY
 
