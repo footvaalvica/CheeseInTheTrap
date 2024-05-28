@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/house/Stairs.gd" id="1_kf78t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7ysq"]
-size = Vector2(12, 80)
+size = Vector2(18, 80)
 
 [node name="Stairs" type="Node2D" groups=["Stairs"]]
 z_index = -2
@@ -18,7 +18,7 @@ texture = ExtResource("1_10mjk")
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-18, 0)
+position = Vector2(-15, 0)
 shape = SubResource("RectangleShape2D_c7ysq")
 
 [connection signal="body_entered" from="Area2D" to="." method="add_stairs"]
