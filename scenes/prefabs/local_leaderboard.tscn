@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt8r5nsrcvn1h"]
+
+[ext_resource type="Script" path="res://scenes/prefabs/leaderboard.gd" id="1_s3taq"]
+
+[node name="LocalLeaderboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s3taq")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Leaderboards"
+horizontal_alignment = 1
+
+[node name="Nav" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PrevButton" type="Button" parent="PanelContainer/VBoxContainer/Nav"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = " < "
+
+[node name="Map" type="Label" parent="PanelContainer/VBoxContainer/Nav"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Map Name"
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="PanelContainer/VBoxContainer/Nav"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = " > "
+
+[node name="ScoreList" type="Tree" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+column_titles_visible = true
+allow_search = false
+hide_folding = true
+hide_root = true
+select_mode = 1
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Nav/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Nav/NextButton" to="." method="_on_next_button_pressed"]

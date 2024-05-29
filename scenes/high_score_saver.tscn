@@ -4,12 +4,12 @@
 [ext_resource type="Script" path="res://scripts/highscore/HighScoreManager.gd" id="1_gx6yk"]
 [ext_resource type="Resource" uid="uid://cgujiwi5yrix5" path="res://resources/game_score.tres" id="2_1lnks"]
 [ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_p7teq"]
-[ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="3_an75e"]
 [ext_resource type="Texture2D" uid="uid://c8ppsq1d4nmc5" path="res://assets/cga_ui_gold/b_2.png" id="3_byvrj"]
 [ext_resource type="Texture2D" uid="uid://t7r3ow35bc7s" path="res://assets/cga_ui_gold/s2.png" id="3_ydjii"]
 [ext_resource type="Texture2D" uid="uid://du1fpkbs74jyg" path="res://assets/cga_ui_gold/b_1.png" id="4_awa48"]
 [ext_resource type="Texture2D" uid="uid://bdep7benguovy" path="res://assets/cga_ui_gold/s1.png" id="4_qcqiu"]
 [ext_resource type="Texture2D" uid="uid://curyq5ugx7xnr" path="res://assets/cga_ui_gold/bar_1.png" id="6_33j82"]
+[ext_resource type="PackedScene" uid="uid://dt8r5nsrcvn1h" path="res://scenes/prefabs/local_leaderboard.tscn" id="10_f3eg8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2j3sx"]
 texture = ExtResource("3_byvrj")
@@ -264,7 +264,7 @@ game_score = ExtResource("2_1lnks")
 leaderboard_canvas_layer = NodePath("../Leaderboard")
 canvas_layer = NodePath("../ScoreScreen")
 leaderboard_button = NodePath("../ScoreScreen/Leaderboards")
-leaderboard = NodePath("../Leaderboard/LeaderboardUI")
+leaderboard = NodePath("../Leaderboard/LocalLeaderboard")
 score_label = NodePath("../ScoreScreen/Score")
 go_to_menu_button = NodePath("../ScoreScreen/Go to Menu")
 save_score_button = NodePath("../ScoreScreen/Save score")
@@ -277,12 +277,7 @@ winner_text = NodePath("../ScoreScreen/Level Complete")
 [node name="Leaderboard" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="LeaderboardUI" parent="Leaderboard" instance=ExtResource("3_an75e")]
-offset_left = 79.0
-offset_top = 37.0
-offset_right = -60.0
-offset_bottom = -60.0
-leaderboard_id = "cheeseinthetrap-highscore-wHeL"
+[node name="LocalLeaderboard" parent="Leaderboard" instance=ExtResource("10_f3eg8")]
 
 [node name="Button" type="Button" parent="Leaderboard"]
 anchors_preset = 3
