@@ -1,7 +1,8 @@
-[gd_scene load_steps=49 format=3 uid="uid://bkhktxkigb5cg"]
+[gd_scene load_steps=50 format=3 uid="uid://bkhktxkigb5cg"]
 
 [ext_resource type="Script" path="res://scripts/player/Jerry.gd" id="1_v2mo7"]
-[ext_resource type="Texture2D" uid="uid://ba8jbb4a1das1" path="res://assets/jerry_spritesheet.png" id="2_lrwu7"]
+[ext_resource type="Texture2D" uid="uid://tf5vh2sfm74a" path="res://assets/jerry_spritesheet.png" id="2_lrwu7"]
+[ext_resource type="AudioStream" uid="uid://dkd8kiogd4257" path="res://fmod/cheeseinthetrap/Assets/squeeze_through.wav" id="3_yhkha"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wsdsh"]
 atlas = ExtResource("2_lrwu7")
@@ -362,10 +363,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdxlj"]
 size = Vector2(32, 43)
 
-[node name="Jerry" type="CharacterBody2D"]
+[node name="Jerry" type="CharacterBody2D" node_paths=PackedStringArray("shortcut")]
 z_index = 2
 collision_layer = 4
 script = ExtResource("1_v2mo7")
+shortcut = NodePath("shortcut")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
@@ -375,3 +377,7 @@ sprite_frames = SubResource("SpriteFrames_vxops")
 position = Vector2(0, -1.5)
 scale = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_qdxlj")
+
+[node name="shortcut" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yhkha")
+bus = &"SFX"

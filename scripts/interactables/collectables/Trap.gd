@@ -50,6 +50,7 @@ func place(floor : int) -> void :
 
 func action() -> void : # disarm trap
 	active = false
+	# TODO MATEUS: PLACE SUCCESFULL TRAP DISARM SOUND HERE
 	$DisarmArea.hide()
 
 func activate_cooldown() -> void :

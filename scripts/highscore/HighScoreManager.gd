@@ -16,6 +16,8 @@ class_name HighScoreManager extends Node
 @export var star_2: Sprite2D
 @export var star_1: Sprite2D
 @export var winner_text: RichTextLabel
+@export var jerry_wins : AudioStreamPlayer
+@export var tom_wins : AudioStreamPlayer
 
 var high_score_map : Dictionary
 const MAX_TABLE = 20
@@ -51,6 +53,11 @@ func _ready():
 		tmp = star_3
 		star_3 = star_4
 		star_4 = tmp
+	
+	if winner == "Jerry":
+		jerry_wins.play()
+	else:
+		tom_wins.play()
 	
 	if cheese > 0:
 		star_1.show()

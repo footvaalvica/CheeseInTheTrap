@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://lqms5vj1r5re"]
+[gd_scene load_steps=34 format=3 uid="uid://lqms5vj1r5re"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_vwut4"]
 [ext_resource type="Resource" uid="uid://8rn2gole7jue" path="res://resources/player1.tres" id="2_4s5y3"]
@@ -23,20 +23,22 @@
 [ext_resource type="PackedScene" uid="uid://dbygtbjtb5xnp" path="res://scenes/prefabs/house/hole.tscn" id="21_hfo8k"]
 [ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="22_81un2"]
 [ext_resource type="PackedScene" uid="uid://dfea4refpbec4" path="res://scenes/prefabs/safety_area.tscn" id="23_hi7ql"]
-[ext_resource type="AudioStream" uid="uid://btg0xh2k6oja2" path="res://fmod/cheeseinthetrap/Assets/1-04 Touché - Blue Cat Blues! (1955)  Scott Bradley.mp3" id="24_fvaga"]
 [ext_resource type="PackedScene" uid="uid://ccabibhreo31q" path="res://scenes/prefabs/house/back_ground_object.tscn" id="25_mgcgw"]
 [ext_resource type="AudioStream" uid="uid://b78f6o2vqpwvs" path="res://fmod/cheeseinthetrap/Assets/figt music.mp3" id="24_a8u6i"]
 [ext_resource type="AudioStream" uid="uid://c62js34pdmj4m" path="res://fmod/cheeseinthetrap/Assets/Shoji Meguro - I'll Face Myself (special ver.).mp3" id="25_7gyb5"]
+[ext_resource type="AudioStream" uid="uid://cqlmtqqfhh3fq" path="res://fmod/cheeseinthetrap/Assets/apanhar_queijo.wav" id="26_8qrm0"]
+[ext_resource type="AudioStream" uid="uid://b6c4yvmdfpib5" path="res://fmod/cheeseinthetrap/Assets/apanhar_trap.wav" id="27_e0m1s"]
+[ext_resource type="AudioStream" uid="uid://gqgblat1ewry" path="res://fmod/cheeseinthetrap/Assets/deixar_cair_trap.wav" id="28_rjpqp"]
+[ext_resource type="AudioStream" uid="uid://30ew8hfrj6l4" path="res://fmod/cheeseinthetrap/Assets/jerrry_caught.wav" id="29_xxy33"]
+[ext_resource type="AudioStream" uid="uid://cjxeuvyqogdb3" path="res://fmod/cheeseinthetrap/Assets/jerry_ready.wav" id="30_n53j3"]
+[ext_resource type="AudioStream" uid="uid://xw36yr5t4rk0" path="res://fmod/cheeseinthetrap/Assets/om_Tom_Ready.vag.wav" id="31_yyvs6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvkqq"]
 size = Vector2(48, 59)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0rcm"]
-size = Vector2(136, 59)
-
 [node name="Node2D" type="Node2D"]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "safety_zone", "second_holes", "cheese_text", "trap_text", "time_text", "hint_text", "start_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control", "preparation_song", "main_music") instance=ExtResource("1_vwut4")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "safety_zone", "second_holes", "cheese_text", "trap_text", "time_text", "hint_text", "start_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control", "preparation_song", "main_music", "catch_cheese", "pickup_trap", "drop_trap", "jerry_caught_in_trap", "jerry_ready", "tom_ready") instance=ExtResource("1_vwut4")]
 _title = "Tom's house"
 tom = NodePath("../Tom")
 jerry = NodePath("../Jerry")
@@ -55,8 +57,14 @@ _jerry_ready_image = NodePath("../CanvasLayer/Control/Jerry/MarginContainer2/VBo
 _tom_ready_image = NodePath("../CanvasLayer/Control/Tom/MarginContainer2/VBoxContainer/TextureRect")
 _jerry_control = NodePath("../CanvasLayer/Control/Jerry")
 _tom_control = NodePath("../CanvasLayer/Control/Tom")
-preparation_song = NodePath("../PreparationSong")
-main_music = NodePath("../MainMusic")
+preparation_song = NodePath("../preparation_song")
+main_music = NodePath("../main_music")
+catch_cheese = NodePath("../Node/catch_cheese")
+pickup_trap = NodePath("../Node/pickup_trap")
+drop_trap = NodePath("../Node/drop_trap")
+jerry_caught_in_trap = NodePath("../Node/jerry_caught_in_trap")
+jerry_ready = NodePath("../Node/ready_jerry")
+tom_ready = NodePath("../Node/ready_tom")
 
 [node name="Jerry" parent="." instance=ExtResource("5_s0y5b")]
 z_index = 1
@@ -326,33 +334,46 @@ position = Vector2(-304, 11)
 
 [node name="TrapPlacer" parent="." instance=ExtResource("22_81un2")]
 
-<<<<<<< HEAD:scenes/maps/map_test.tscn
 [node name="SafetyArea" parent="." instance=ExtResource("23_hi7ql")]
 position = Vector2(-443, 277)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("24_fvaga")
-=======
-<<<<<<< HEAD
-[node name="SafetyArea" parent="." instance=ExtResource("24_pdfyy")]
-position = Vector2(-443, 277)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_yjgnj")
-=======
-[node name="MainMusic" type="AudioStreamPlayer" parent="."]
+[node name="main_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_a8u6i")
 bus = &"Music"
 
-[node name="PreparationSong" type="AudioStreamPlayer" parent="."]
+[node name="preparation_song" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_7gyb5")
->>>>>>> cfd9dfc (add sounds (not yet implemented))
->>>>>>> bb075d7 (add sounds (not yet implemented)):scenes/map_test.tscn
 autoplay = true
 bus = &"Music"
 
 [node name="BackGroundObject" parent="." instance=ExtResource("25_mgcgw")]
 position = Vector2(-432, -192)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="catch_cheese" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("26_8qrm0")
+bus = &"SFX"
+
+[node name="pickup_trap" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("27_e0m1s")
+bus = &"SFX"
+
+[node name="drop_trap" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("28_rjpqp")
+bus = &"SFX"
+
+[node name="jerry_caught_in_trap" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("29_xxy33")
+bus = &"SFX"
+
+[node name="ready_jerry" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("30_n53j3")
+bus = &"SFX"
+
+[node name="ready_tom" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("31_yyvs6")
+bus = &"SFX"
 
 [editable path="Cheese"]
 [editable path="Cheese2"]

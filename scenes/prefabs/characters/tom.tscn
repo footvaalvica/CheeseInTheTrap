@@ -1,7 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://cj3gq3clc4b5o"]
+[gd_scene load_steps=38 format=3 uid="uid://cj3gq3clc4b5o"]
 
 [ext_resource type="Script" path="res://scripts/player/Tom.gd" id="1_6bf4o"]
-[ext_resource type="Texture2D" uid="uid://3fa30iunwymu" path="res://assets/tom_spritesheet.png" id="3_m80w2"]
+[ext_resource type="Texture2D" uid="uid://enn4olpqemcq" path="res://assets/tom_spritesheet.png" id="3_m80w2"]
+[ext_resource type="AudioStream" uid="uid://cumcsnud33tc5" path="res://fmod/cheeseinthetrap/Assets/voicebooking-speech.wav" id="3_o8k7o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ah5f0"]
 atlas = ExtResource("3_m80w2")
@@ -259,11 +260,12 @@ size = Vector2(48, 56)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugg2g"]
 size = Vector2(49, 60)
 
-[node name="Tom" type="CharacterBody2D"]
+[node name="Tom" type="CharacterBody2D" node_paths=PackedStringArray("shortcut")]
 z_index = 2
 position = Vector2(0, 63)
 collision_layer = 2
 script = ExtResource("1_6bf4o")
+shortcut = NodePath("shortcut")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.175, 0.175)
@@ -279,6 +281,10 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_ugg2g")
+
+[node name="shortcut" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_o8k7o")
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="." method="on_collision"]
 [connection signal="body_exited" from="Area2D" to="." method="on_collision_leave"]

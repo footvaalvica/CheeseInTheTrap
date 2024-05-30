@@ -3,6 +3,8 @@ class_name Trapdoor extends Node
 @export var floor : int = 0
 var animated_sprite : AnimatedSprite2D
 
+@export var open_trapdoor : AudioStreamPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animated_sprite = $AnimatedSprite2D
@@ -33,4 +35,5 @@ func use(tom : Tom) -> void :
 		tom.move_to_floor(floor - 1)
 	else:
 		tom.move_to_floor(floor)
-		
+	open_trapdoor.play()
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://2hcb8cjnqasc"]
+[gd_scene load_steps=24 format=3 uid="uid://2hcb8cjnqasc"]
 
 [ext_resource type="Texture2D" uid="uid://bc4a28c2qt5vj" path="res://assets/cga_ui_gold/f.png" id="1_bm58p"]
 [ext_resource type="Script" path="res://scripts/highscore/HighScoreManager.gd" id="1_gx6yk"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bdep7benguovy" path="res://assets/cga_ui_gold/s1.png" id="4_qcqiu"]
 [ext_resource type="Texture2D" uid="uid://curyq5ugx7xnr" path="res://assets/cga_ui_gold/bar_1.png" id="6_33j82"]
 [ext_resource type="PackedScene" uid="uid://dt8r5nsrcvn1h" path="res://scenes/prefabs/local_leaderboard.tscn" id="10_f3eg8"]
+[ext_resource type="AudioStream" uid="uid://c4menrvvkdlab" path="res://fmod/cheeseinthetrap/Assets/victory track.mp3" id="11_v507o"]
+[ext_resource type="AudioStream" uid="uid://p0w43cqe77c" path="res://fmod/cheeseinthetrap/Assets/erry_Victory.vag.wav" id="12_cd77x"]
+[ext_resource type="AudioStream" uid="uid://4y3o4spff8v4" path="res://fmod/cheeseinthetrap/Assets/-Tom_Victory.vag.wav" id="13_alnui"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2j3sx"]
 texture = ExtResource("3_byvrj")
@@ -293,7 +296,7 @@ text = "Time: 00:00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HighScoreManager" type="Node2D" parent="." node_paths=PackedStringArray("text_edit", "leaderboard_canvas_layer", "canvas_layer", "leaderboard_button", "leaderboard", "score_label", "go_to_menu_button", "save_score_button", "go_back_button", "star_5", "star_4", "star_3", "star_2", "star_1", "winner_text")]
+[node name="HighScoreManager" type="Node2D" parent="." node_paths=PackedStringArray("text_edit", "leaderboard_canvas_layer", "canvas_layer", "leaderboard_button", "leaderboard", "score_label", "go_to_menu_button", "save_score_button", "go_back_button", "star_5", "star_4", "star_3", "star_2", "star_1", "winner_text", "jerry_wins", "tom_wins")]
 script = ExtResource("1_gx6yk")
 text_edit = NodePath("../ScoreScreen/Insertname")
 game_score = ExtResource("2_1lnks")
@@ -311,6 +314,8 @@ star_3 = NodePath("../ScoreScreen/Control3/3Star")
 star_2 = NodePath("../ScoreScreen/Control2/2Star")
 star_1 = NodePath("../ScoreScreen/Control/1Star")
 winner_text = NodePath("../ScoreScreen/Level Complete")
+jerry_wins = NodePath("../jerry_wins")
+tom_wins = NodePath("../tom_wins")
 
 [node name="Leaderboard" type="CanvasLayer" parent="."]
 visible = false
@@ -331,6 +336,19 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("2_p7teq")
 text = "Go back!"
+
+[node name="victory_track" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_v507o")
+autoplay = true
+bus = &"Music"
+
+[node name="jerry_wins" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_cd77x")
+bus = &"SFX"
+
+[node name="tom_wins" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_alnui")
+bus = &"SFX"
 
 [connection signal="pressed" from="ScoreScreen/Save score" to="HighScoreManager" method="_on_save_score_pressed"]
 [connection signal="pressed" from="ScoreScreen/Go to Menu" to="HighScoreManager" method="_on_go_to_menu_pressed"]
