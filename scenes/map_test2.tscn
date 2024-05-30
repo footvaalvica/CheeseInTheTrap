@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b8757fjmx6wbd"]
+[gd_scene load_steps=25 format=3 uid="uid://b8757fjmx6wbd"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_xlspn"]
 [ext_resource type="Resource" uid="uid://8rn2gole7jue" path="res://resources/player1.tres" id="2_56j4h"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dqjp1ohvp7mvt" path="res://assets/red_cross.jpg" id="12_krtqc"]
 [ext_resource type="Texture2D" uid="uid://dpgyenakgka4q" path="res://assets/tom_icon.jpg" id="13_sfw64"]
 [ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/shortcuts/tom_shortcut.tscn" id="14_f2a4y"]
+[ext_resource type="PackedScene" uid="uid://dvix5xnryqlca" path="res://scenes/prefabs/shortcuts/piano.tscn" id="16_8myty"]
+[ext_resource type="PackedScene" uid="uid://utjpgli4glaa" path="res://scenes/prefabs/shortcuts/bed.tscn" id="16_ainbu"]
 [ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/shortcuts/jerry_shortcut.tscn" id="18_3k52m"]
 [ext_resource type="PackedScene" uid="uid://bqj766o4qrfo1" path="res://scenes/prefabs/shortcuts/trapdoor.tscn" id="19_hroix"]
 [ext_resource type="PackedScene" path="res://scenes/prefabs/house/wallsMedium.tscn" id="20_0y7fu"]
@@ -299,16 +301,16 @@ floor = 7
 position = Vector2(82, -216)
 floor = 7
 
-[node name="TomShortcut3" parent="." instance=ExtResource("14_f2a4y")]
+[node name="TomShortcut3" parent="." instance=ExtResource("16_8myty")]
 position = Vector2(495, -28)
 floor = 5
 
-[node name="TomShortcut5" parent="." instance=ExtResource("14_f2a4y")]
-position = Vector2(366, 240)
-floor = 2
-
 [node name="TomShortcut4" parent="." instance=ExtResource("14_f2a4y")]
 position = Vector2(-360, 424)
+
+[node name="TomShortcut5" parent="." instance=ExtResource("16_ainbu")]
+position = Vector2(366, 245)
+floor = 2
 
 [node name="JerryShortcut" parent="." instance=ExtResource("18_3k52m")]
 position = Vector2(-660, -237)
