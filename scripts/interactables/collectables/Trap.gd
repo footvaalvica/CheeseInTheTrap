@@ -14,6 +14,8 @@ const NUMBER_OF_FRAMES = 7
 func _ready():
 	max_hits_counter = 12
 
+@export var successful_disarm : AudioStreamPlayer
+
 func _process(delta):
 	if (active) :
 		var frames_to_hit_ratio = max_hits_counter / (NUMBER_OF_FRAMES - 1)
@@ -50,7 +52,7 @@ func place(floor : int) -> void :
 
 func action() -> void : # disarm trap
 	active = false
-	# TODO MATEUS: PLACE SUCCESFULL TRAP DISARM SOUND HERE
+	successful_disarm.play()
 	$DisarmArea.hide()
 
 func activate_cooldown() -> void :

@@ -45,6 +45,7 @@ var start_counter : float = 0
 @export var jerry_caught_in_trap : AudioStreamPlayer
 @export var jerry_ready : AudioStreamPlayer
 @export var tom_ready : AudioStreamPlayer
+@export var both_ready : AudioStreamPlayer
 
 const DISTANCE_TO_TRAP = 70
 const DISTANCE_TO_SAFETY = 80
@@ -88,6 +89,7 @@ func _process(delta):
 		if _ready_tom:
 			tom_ready.play()
 	if (_spawning and _ready_tom and _ready_jerry) :
+		both_ready.play()
 		end_trap_spawning()
 
 static func instance() -> GameManager :

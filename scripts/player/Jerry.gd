@@ -18,6 +18,8 @@ const DISARM_ANIMATION_STEP : float = .2
 const DISABLE_TIME : float = 1.5
 const CHEESE_CATCH_TIME : float = 1.5
 
+@export var disabling_trap : AudioStreamPlayer
+
 func _ready():
 	super._ready()
 	SPEED *= 1.05
@@ -123,7 +125,7 @@ func disable_trap(delta : float) -> void :
 	var trap : Trap = active_traps[0]
 	if GameManager.instance().in_trap_range(self, trap) :
 		trap.hit()
-		# TODO MATEUS: PLACE JERRY DISABLING TRAP SOUND HERE
+		disabling_trap.play()
 		if animated_sprite.animation != "disarm":
 			animated_sprite.animation = "disarm"
 		_disarm_animation_counter = DISARM_ANIMATION_STEP

@@ -1,8 +1,13 @@
-[gd_scene load_steps=50 format=3 uid="uid://bkhktxkigb5cg"]
+[gd_scene load_steps=57 format=3 uid="uid://bkhktxkigb5cg"]
 
 [ext_resource type="Script" path="res://scripts/player/Jerry.gd" id="1_v2mo7"]
 [ext_resource type="Texture2D" uid="uid://tf5vh2sfm74a" path="res://assets/jerry_spritesheet.png" id="2_lrwu7"]
 [ext_resource type="AudioStream" uid="uid://dkd8kiogd4257" path="res://fmod/cheeseinthetrap/Assets/squeeze_through.wav" id="3_yhkha"]
+[ext_resource type="AudioStream" uid="uid://c8gi5fo0gkdbt" path="res://fmod/cheeseinthetrap/Assets/pulling cables.mp3" id="4_m68ay"]
+[ext_resource type="AudioStream" uid="uid://dnyoouhqwu71l" path="res://fmod/cheeseinthetrap/Assets/punch sound1.vag.wav" id="5_vaowe"]
+[ext_resource type="AudioStream" uid="uid://ba8b65ryom2nx" path="res://fmod/cheeseinthetrap/Assets/punch sound2.vag.wav" id="6_k6jlp"]
+[ext_resource type="AudioStream" uid="uid://d3whv10y0x7kp" path="res://fmod/cheeseinthetrap/Assets/punch sound3.vag.wav" id="7_0dlg8"]
+[ext_resource type="AudioStream" uid="uid://cvfssyt3kq02s" path="res://fmod/cheeseinthetrap/Assets/punch sound4.vag.wav" id="8_ifxvt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wsdsh"]
 atlas = ExtResource("2_lrwu7")
@@ -363,11 +368,33 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdxlj"]
 size = Vector2(32, 43)
 
-[node name="Jerry" type="CharacterBody2D" node_paths=PackedStringArray("shortcut")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e36oj"]
+random_pitch = 5.49
+random_volume_offset_db = 3.35
+streams_count = 1
+stream_0/stream = ExtResource("4_m68ay")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_65rm1"]
+random_pitch = 2.02
+random_volume_offset_db = 6.99
+streams_count = 4
+stream_0/stream = ExtResource("5_vaowe")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_k6jlp")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_0dlg8")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("8_ifxvt")
+stream_3/weight = 1.0
+
+[node name="Jerry" type="CharacterBody2D" node_paths=PackedStringArray("disabling_trap", "shortcut", "hammer_sound")]
 z_index = 2
 collision_layer = 4
 script = ExtResource("1_v2mo7")
+disabling_trap = NodePath("disable_trap")
 shortcut = NodePath("shortcut")
+hammer_sound = NodePath("hammer_sound")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
@@ -381,3 +408,12 @@ shape = SubResource("RectangleShape2D_qdxlj")
 [node name="shortcut" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_yhkha")
 bus = &"SFX"
+
+[node name="disable_trap" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_e36oj")
+volume_db = -8.0
+bus = &"SFX"
+
+[node name="hammer_sound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_65rm1")
+volume_db = -5.846

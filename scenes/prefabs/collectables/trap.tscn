@@ -67,9 +67,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_osdj3"]
 radius = 4.1503
 
-[node name="Trap" type="Node2D" groups=["Trap"]]
+[node name="Trap" type="Node2D" node_paths=PackedStringArray("successful_disarm") groups=["Trap"]]
 position = Vector2(228, 231)
 script = ExtResource("1_0ti6k")
+successful_disarm = NodePath("successful_disarm")
 metadata/_edit_horizontal_guides_ = [-216.0]
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -98,6 +99,11 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DisarmArea/Area2D"]
 position = Vector2(-0.1, -1.93715e-07)
 shape = SubResource("CircleShape2D_osdj3")
+
+[node name="successful_disarm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_78rfx")
+volume_db = 2.796
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="." method="on_collision"]
 [connection signal="body_entered" from="DisarmArea/Area2D" to="." method="_on_area_2d_body_entered"]
