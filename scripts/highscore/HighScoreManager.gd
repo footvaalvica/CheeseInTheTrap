@@ -31,7 +31,7 @@ func _ready():
 	save_score_button.grab_focus()
 	time = game_score.time
 	winner = game_score.winner
-	score_label.text = "Time:" + str(time)
+	score_label.text = "Time:" + str(Utils.time_pretty_string(time))
 	winner_text.text = "[rainbow][center]Winner: " + winner
 	load_highscores()
 	

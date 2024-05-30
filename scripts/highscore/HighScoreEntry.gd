@@ -14,7 +14,7 @@ func compare_to(other : HighScoreEntry) :
 		
 func compare_to_values(cheese : int, time : float) :
 	if _cheese == cheese :
-		return _time - time
+		return time - _time # less time is better
 	else :
 		return _cheese - cheese
 
