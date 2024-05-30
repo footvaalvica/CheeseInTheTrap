@@ -18,6 +18,7 @@ var start_counter : float = 0
 @export var TOTAL_CHEESE = 3
 @export var MAX_TRAPS = 3
 
+@export var _title : String
 @export var tom : Tom = null
 @export var jerry : Jerry = null
 @export var trap_placer : TrapPlacer = null
@@ -50,6 +51,7 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print_debug(_title)
 	_number_of_traps = MAX_TRAPS
 	update_resource(player1)
 	update_resource(player2)
@@ -140,19 +142,19 @@ func start_game() -> void :
 func end_game_jerry() -> void :
 	print_end_game_string_jerry()
 	game_score.cheese = _number_of_cheese
-	game_score.max_cheese = TOTAL_CHEESE
 	game_score.winner = "Jerry"
 	end_game()
 
 func end_game_tom() -> void :
 	print_end_game_string_tom()
 	game_score.cheese = TOTAL_CHEESE - _number_of_cheese
-	game_score.max_cheese = TOTAL_CHEESE
 	game_score.winner = "Tom"
 	end_game()
 
 func end_game() -> void :
 	game_score.time = _clock / 60
+	game_score.max_cheese = TOTAL_CHEESE
+	game_score.map_name = _title
 	print_debug("switching scene")
 	GameStateManager.add_cheese(game_score.cheese)
 	GameStateManager.write_game_state()

@@ -1,8 +1,9 @@
 class_name Leaderboard extends Control
 
 @onready var score_list : Tree = %ScoreList
+@onready var title_label : Label = %Map
+
 var scores : Dictionary
-var map_names : Array[String]
 var map_index : int = -1
 
 func _ready():
@@ -14,13 +15,16 @@ func _ready():
 		score_list.set_column_title_alignment(i, HORIZONTAL_ALIGNMENT_LEFT)
 	if map_index == -1 :
 		map_index = 0
-	if (scores != null):
+	if (! scores.is_empty()):
+		print_debug(scores)
 		refresh()
 
 func refresh() -> void :
 	score_list.clear()
+	var map_name = scores.keys()[map_index]
+	title_label.text = map_name
 	var root = score_list.create_item()
-	var scores_in_map = scores[map_names[map_index]]
+	var scores_in_map = scores[map_name]
 	for score in scores_in_map :
 		var score_entry : TreeItem = score_list.create_item(root)
 		score_entry.set_text(0, score._name)
@@ -28,7 +32,10 @@ func refresh() -> void :
 		score_entry.set_text(2, str(score._time))
 
 func _on_prev_button_pressed():
-	map_index = (map_index - 1) % map_names.size()
+	map_index = (map_index - 1) % scores.keys().size()
+	print_debug(-1 % 3)
+	refresh()
 
 func _on_next_button_pressed():
-	map_index = (map_index + 1) % map_names.size()
+	map_index = (map_index + 1) % scores.keys().size()
+	refresh()
