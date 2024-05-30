@@ -29,6 +29,7 @@
 MAX_FLOOR = 9
 TOTAL_CHEESE = 5
 MAX_TRAPS = 5
+_title = "Tom's haunted mansion"
 tom = NodePath("../Tom")
 jerry = NodePath("../Jerry")
 trap_placer = NodePath("../TrapPlacer")
