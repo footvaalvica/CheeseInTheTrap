@@ -35,7 +35,10 @@ var start_counter : float = 0
 @export var _jerry_ready_image : TextureRect = null
 @export var _tom_ready_image : TextureRect = null
 @export var _jerry_control : Control = null
-@export var _tom_control : Control = null
+@export var _tom_control : Control = null	
+
+@export var preparation_song : AudioStreamPlayer
+@export var main_music : AudioStreamPlayer
 
 const DISTANCE_TO_TRAP = 70
 const DISTANCE_TO_SAFETY = 80
@@ -133,6 +136,8 @@ func end_trap_spawning() -> void :
 	tom.process_mode = Node.PROCESS_MODE_INHERIT
 	jerry.process_mode = Node.PROCESS_MODE_INHERIT
 	_spawning = false
+	preparation_song.stop()
+	main_music.play()
 
 func start_game() -> void :
 	_clock = 0
