@@ -22,6 +22,7 @@ var stairs_available : Array[Stairs]
 var _traversing : bool = false 
 
 @export var shortcut : AudioStreamPlayer 
+@export var hammer_sound : AudioStreamPlayer
 
 func _ready():
 	animated_sprite.animation_looped.connect(animation_finished)
@@ -106,7 +107,7 @@ func destroy_blocking_object(delta : float) -> void :
 		var shortcut_script : GameShortcut = blocking_object as GameShortcut
 		if GameManager.instance().in_destroy_shortcut_range(self, blocking_object) :
 			shortcut_script.hit()
-			# TODO MATEUS: PLACE SOUND EFFECT OF HAMMER HERE
+			hammer_sound.play()
 			animated_sprite.play("destroy")
 			animated_sprite.offset.y = _destroy_offset
 			return
