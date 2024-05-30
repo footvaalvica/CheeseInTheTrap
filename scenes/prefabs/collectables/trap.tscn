@@ -84,8 +84,7 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_q84jl")
 
 [node name="DisarmArea" type="Node2D" parent="."]
-visible = false
-scale = Vector2(20, 20)
+scale = Vector2(17.5, 17.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="DisarmArea"]
 scale = Vector2(0.04, 0.04)
