@@ -39,6 +39,12 @@ var start_counter : float = 0
 
 @export var preparation_song : AudioStreamPlayer
 @export var main_music : AudioStreamPlayer
+@export var catch_cheese : AudioStreamPlayer
+@export var pickup_trap : AudioStreamPlayer
+@export var drop_trap : AudioStreamPlayer
+@export var jerry_caught_in_trap : AudioStreamPlayer
+@export var jerry_ready : AudioStreamPlayer
+@export var tom_ready : AudioStreamPlayer
 
 const DISTANCE_TO_TRAP = 70
 const DISTANCE_TO_SAFETY = 80
@@ -74,9 +80,13 @@ func _process(delta):
 	if Input.is_action_just_pressed("ready_%s" % jerry.player_id):
 		_ready_jerry = not _ready_jerry
 		switch_icon(_ready_jerry, _jerry_ready_image)
+		if _ready_jerry:
+			jerry_ready.play()
 	if Input.is_action_just_pressed("ready_%s" % tom.player_id):
 		_ready_tom = not _ready_tom
 		switch_icon(_ready_tom, _tom_ready_image)
+		if _ready_tom:
+			tom_ready.play()
 	if (_spawning and _ready_tom and _ready_jerry) :
 		end_trap_spawning()
 
@@ -169,6 +179,7 @@ func end_game() -> void :
 	get_tree().change_scene_to_file("res://scenes/high_score_saver.tscn")
 
 func collect_cheese() -> void :
+	catch_cheese.play()
 	_number_of_cheese += 1
 	jerry.catch_cheese()
 	if _number_of_cheese > TOTAL_CHEESE * 0.6 and ! _second_door: # Enable 2nd hole after 60% of the cheese caught
@@ -180,13 +191,15 @@ func collect_cheese() -> void :
 
 func collect_trap() -> void :
 	_number_of_traps += 1
+	pickup_trap.play()
 	
 func trap_jerry(trap : Trap) -> void :
 	jerry.trap(trap)
+	jerry_caught_in_trap.play()
 
 func catch_jerry() -> void :
 	jerry.caught()
-
+	
 func release_jerry() -> void :
 	jerry.release()
 
@@ -256,6 +269,8 @@ func spawn_trap(trap : PackedScene, position : Vector2, floor : int) -> void :
 		return
 	if not can_place_trap(position, floor):
 		return
+		
+	
 	var trap_instance : Node2D = trap.instantiate() as Node2D
 	trap_instance.position = position
 	trap_instance.position.y = (jerry._floor_0_y - FLOOR_Y_DIFFERENCE * floor) + FLOOR_Y_DIFFERENCE * 1/8
@@ -263,6 +278,7 @@ func spawn_trap(trap : PackedScene, position : Vector2, floor : int) -> void :
 	(trap_instance as Trap).place(floor)
 	_number_of_traps -= 1
 	InteractionLogManager.save_trap_set_position(position)
+	drop_trap.play()
 
 func pick_up_trap(position : Vector2, floor : int) -> void :
 	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")
@@ -277,6 +293,7 @@ func pick_up_trap(position : Vector2, floor : int) -> void :
 	if (min_trap != null) :
 		collect_trap()
 		min_trap.collect()
+	
 
 func set_safety_zone(position : Vector2, floor : int) -> void :
 	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")

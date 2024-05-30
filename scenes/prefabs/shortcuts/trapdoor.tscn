@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqj766o4qrfo1"]
+[gd_scene load_steps=13 format=3 uid="uid://bqj766o4qrfo1"]
 
 [ext_resource type="Script" path="res://scripts/interactables/shortcuts/Trapdoor.gd" id="1_38y76"]
-[ext_resource type="Texture2D" uid="uid://dv36tdqo5e6pr" path="res://assets/trapdoor_closed.png" id="2_ssyd1"]
-[ext_resource type="Texture2D" uid="uid://c5p8m4kji71la" path="res://assets/trapdor_spritesheet.png" id="3_wivri"]
+[ext_resource type="Texture2D" uid="uid://p5krc5o6slo7" path="res://assets/trapdoor_closed.png" id="2_ssyd1"]
+[ext_resource type="Texture2D" uid="uid://cwyd8vto7ueho" path="res://assets/trapdor_spritesheet.png" id="3_wivri"]
+[ext_resource type="AudioStream" uid="uid://bcrtywp1bg3ja" path="res://fmod/cheeseinthetrap/Assets/trapdoor.wav" id="4_txwvw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk0w2"]
 size = Vector2(80, 80)
@@ -65,8 +66,9 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Trapdoor" type="Node2D"]
+[node name="Trapdoor" type="Node2D" node_paths=PackedStringArray("open_trapdoor")]
 script = ExtResource("1_38y76")
+open_trapdoor = NodePath("open_trapdoor")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16
@@ -80,6 +82,10 @@ shape = SubResource("RectangleShape2D_vk0w2")
 position = Vector2(0, 32)
 scale = Vector2(0.344909, 0.310513)
 sprite_frames = SubResource("SpriteFrames_yueq1")
+
+[node name="open_trapdoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_txwvw")
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="." method="add_trapdoor"]
 [connection signal="body_exited" from="Area2D" to="." method="remove_trapdoor"]

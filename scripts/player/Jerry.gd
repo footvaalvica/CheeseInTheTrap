@@ -123,6 +123,7 @@ func disable_trap(delta : float) -> void :
 	var trap : Trap = active_traps[0]
 	if GameManager.instance().in_trap_range(self, trap) :
 		trap.hit()
+		# TODO MATEUS: PLACE JERRY DISABLING TRAP SOUND HERE
 		if animated_sprite.animation != "disarm":
 			animated_sprite.animation = "disarm"
 		_disarm_animation_counter = DISARM_ANIMATION_STEP
