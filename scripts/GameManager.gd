@@ -90,7 +90,7 @@ func update_texts(delta : float) -> void :
 	var trap_string = "[center]%s[/center]" % _number_of_traps
 	trap_text.append_text(trap_string)
 	time_text.clear()
-	var time_string = "[center]%s[center]" % time_pretty_string()
+	var time_string = "[center]%s[center]" % Utils.time_pretty_string(_clock)
 	time_text.append_text(time_string)
 	if (start_counter > 0):
 		start_counter = max(start_counter - delta, 0)
@@ -288,28 +288,12 @@ func adjust_y_to_floor(player : Player, floor : int) -> void :
 # Utility functions ------------------------------------------------------------
 
 func print_end_game_string_jerry() -> void :
-	print_debug("Jerry escaped in " + time_pretty_string() + \
+	print_debug("Jerry escaped in " + Utils.time_pretty_string(_clock) + \
 		" with " + str(_number_of_cheese) + " cheese caught")
 		
 func print_end_game_string_tom() -> void :
-	print_debug("Tom caught Jerry in " + time_pretty_string() + \
+	print_debug("Tom caught Jerry in " + Utils.time_pretty_string(_clock) + \
 		" with " + str(TOTAL_CHEESE - _number_of_cheese) + " cheese left")
-	
-func time_pretty_string() -> String :
-	var time_in_ms : int = round(_clock * 60) # convert s to ms
-	var min : int = time_in_ms / (60 * 60)
-	var seconds : int = (time_in_ms / 60) % 60
-	var ms : int = time_in_ms % 60
-	var min_string : String = str(min)
-	if min_string.length() == 1 :
-		min_string = "0" + min_string
-	var seconds_string : String = str(seconds)
-	if seconds_string.length() == 1 :
-		seconds_string = "0" + seconds_string
-	var ms_string : String = str(ms)
-	if ms_string.length() == 1 :
-		ms_string = "0" + ms_string
-	return "%s:%s:%s" % [min_string, seconds_string, ms_string]
 
 func get_distance(node1 : Node2D, node2 : Node2D) -> float : # check distance on horizontal plane
 	return abs(node1.position.x - node2.position.x)
