@@ -2,10 +2,20 @@ class_name GameShortcut extends Spammable
 
 @export var floor : int
 @export var distance : float
+@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+
+const NUMBER_OF_FRAMES = 3
+
+func _ready():
+	max_hits_counter = 12
 
 func action():
-	# TODO : trigger animation of destruction ?
 	queue_free()
+	
+func on_hit_action():
+	var frames_to_hit_ratio = max_hits_counter / NUMBER_OF_FRAMES
+	var frame : int = current_hits_counter / frames_to_hit_ratio
+	animated_sprite.frame = frame
 
 func enter_traverse_area(body : Node2D) :
 	print_debug(body.name)

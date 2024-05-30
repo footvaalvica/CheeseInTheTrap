@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c3t1gu16t1ea1"]
 
 [ext_resource type="Script" path="res://scripts/TrapPlacer.gd" id="1_on5iu"]
-[ext_resource type="Texture2D" path="res://assets/trap_spritesheet.png" id="2_gjajg"]
+[ext_resource type="Texture2D" uid="uid://c5xo0fktmewfw" path="res://assets/trap_spritesheet.png" id="2_gjajg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a32j0"]
 atlas = ExtResource("2_gjajg")

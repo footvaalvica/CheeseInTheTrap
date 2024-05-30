@@ -1,31 +1,31 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgwjoavqfqj5d"]
+[gd_scene load_steps=9 format=3 uid="uid://ctqqoyedh15m8"]
 
-[ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="1_s8nh0"]
-[ext_resource type="Texture2D" uid="uid://d1y6idjp2otsg" path="res://assets/bathtub_sprites.png" id="2_w0x8i"]
+[ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="1_fuclp"]
+[ext_resource type="Texture2D" uid="uid://ltpaxt2n10t3" path="res://assets/sofa_sprites.png" id="2_phjkb"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_13n55"]
-atlas = ExtResource("2_w0x8i")
-region = Rect2(0, 0, 597, 298)
+[sub_resource type="AtlasTexture" id="AtlasTexture_777aa"]
+atlas = ExtResource("2_phjkb")
+region = Rect2(0, 0, 344, 202)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lu15j"]
-atlas = ExtResource("2_w0x8i")
-region = Rect2(597, 0, 597, 298)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lccqr"]
+atlas = ExtResource("2_phjkb")
+region = Rect2(344, 0, 344, 202)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e1usj"]
-atlas = ExtResource("2_w0x8i")
-region = Rect2(1194, 0, 597, 298)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul4dh"]
+atlas = ExtResource("2_phjkb")
+region = Rect2(688, 0, 344, 202)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_7v5gg"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_rxstv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_13n55")
+"texture": SubResource("AtlasTexture_777aa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lu15j")
+"texture": SubResource("AtlasTexture_lccqr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e1usj")
+"texture": SubResource("AtlasTexture_ul4dh")
 }],
 "loop": true,
 "name": &"default",
@@ -33,26 +33,26 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhtsc"]
-size = Vector2(119, 47)
+size = Vector2(72, 39)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_113me"]
-size = Vector2(132, 46)
+size = Vector2(89, 36)
 
 [node name="TomShortcut" type="Node2D" groups=["TomShortcut"]]
 position = Vector2(239, 60)
-script = ExtResource("1_s8nh0")
-distance = 90.0
+script = ExtResource("1_fuclp")
+distance = 80.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-sprite_frames = SubResource("SpriteFrames_7v5gg")
+sprite_frames = SubResource("SpriteFrames_rxstv")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1.5, -0.5)
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_lhtsc")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -60,6 +60,7 @@ collision_layer = 16
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_113me")
 
 [connection signal="body_entered" from="Area2D" to="." method="enter_traverse_area"]

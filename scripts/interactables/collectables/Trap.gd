@@ -7,7 +7,7 @@ var _floor : float = 0
 
 const COOLDOWN_TIME = 5
 const TIME_PER_HIT = 2
-const NUMBRE_OF_FRAMES = 7
+const NUMBER_OF_FRAMES = 7
 
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -15,6 +15,10 @@ func _ready():
 	max_hits_counter = 12
 
 func _process(delta):
+	if (active) :
+		var frames_to_hit_ratio = max_hits_counter / (NUMBER_OF_FRAMES - 1)
+		var frame : int = current_hits_counter / frames_to_hit_ratio
+		animated_sprite.frame = frame
 	if _cooldown > 0:
 		_cooldown = max(_cooldown - delta, 0)
 	if _restore_counter == 0 :
@@ -54,9 +58,6 @@ func activate_cooldown() -> void :
 func on_hit_action() -> void :
 	print_debug(current_hits_counter)
 	_restore_counter = TIME_PER_HIT
-	var frames_to_hit_ratio = max_hits_counter / NUMBRE_OF_FRAMES
-	var frame : int = current_hits_counter / 2
-	animated_sprite.frame = frame
 
 func _on_area_2d_body_entered(body : Node2D):
 	var jerry = body as Jerry
