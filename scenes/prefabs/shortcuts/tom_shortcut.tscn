@@ -1,7 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgwjoavqfqj5d"]
+[gd_scene load_steps=9 format=3 uid="uid://bgwjoavqfqj5d"]
 
-[ext_resource type="Texture2D" uid="uid://bm2sdtvcpnakm" path="res://assets/bathtub.png" id="1_3gw0d"]
 [ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="1_s8nh0"]
+[ext_resource type="Texture2D" path="res://assets/bathtub_sprites.png" id="2_w0x8i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13n55"]
+atlas = ExtResource("2_w0x8i")
+region = Rect2(0, 0, 597, 298)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu15j"]
+atlas = ExtResource("2_w0x8i")
+region = Rect2(597, 0, 597, 298)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1usj"]
+atlas = ExtResource("2_w0x8i")
+region = Rect2(1194, 0, 597, 298)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7v5gg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13n55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu15j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1usj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhtsc"]
 size = Vector2(119, 47)
@@ -13,9 +42,9 @@ size = Vector2(132, 46)
 position = Vector2(239, 60)
 script = ExtResource("1_s8nh0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_3gw0d")
+sprite_frames = SubResource("SpriteFrames_7v5gg")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 16
