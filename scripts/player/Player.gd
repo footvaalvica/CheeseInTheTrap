@@ -17,12 +17,11 @@ const SPEED = 300.0
 
 var player_id : int = 1
 var stairs_available : Array[Stairs]
-var animated_sprite : AnimatedSprite2D
+@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 var _traversing : bool = false 
 
 func _ready():
-	animated_sprite = $AnimatedSprite2D
 	animated_sprite.animation_looped.connect(animation_finished)
 
 func _process(delta):

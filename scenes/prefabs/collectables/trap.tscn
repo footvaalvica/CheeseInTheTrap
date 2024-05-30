@@ -1,17 +1,63 @@
-[gd_scene load_steps=7 format=3 uid="uid://c72m4u7mpuxj"]
+[gd_scene load_steps=14 format=3 uid="uid://c72m4u7mpuxj"]
 
 [ext_resource type="Script" path="res://scripts/interactables/collectables/Trap.gd" id="1_0ti6k"]
-[ext_resource type="Texture2D" uid="uid://264o6fsvlvje" path="res://assets/trap1.png" id="2_s7y67"]
+[ext_resource type="Texture2D" path="res://assets/trap_spritesheet.png" id="2_p3peh"]
 [ext_resource type="Texture2D" uid="uid://bpncjyi8whcum" path="res://assets/trap_area.png" id="3_dkpnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdr73"]
-size = Vector2(68, 20)
+size = Vector2(48, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05ltd"]
+atlas = ExtResource("2_p3peh")
+region = Rect2(0, 0, 234, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhtyy"]
+atlas = ExtResource("2_p3peh")
+region = Rect2(234, 0, 234, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwyk0"]
+atlas = ExtResource("2_p3peh")
+region = Rect2(468, 0, 234, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssk37"]
+atlas = ExtResource("2_p3peh")
+region = Rect2(702, 0, 234, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2ff1"]
+atlas = ExtResource("2_p3peh")
+region = Rect2(936, 0, 234, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocbfi"]
+atlas = ExtResource("2_p3peh")
+region = Rect2(1170, 0, 234, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lckru"]
+atlas = ExtResource("2_p3peh")
+region = Rect2(1404, 0, 234, 110)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q84jl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_s7y67")
+"texture": SubResource("AtlasTexture_05ltd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhtyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwyk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssk37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2ff1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocbfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lckru")
 }],
 "loop": true,
 "name": &"default",
@@ -31,7 +77,6 @@ collision_layer = 8
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_bdr73")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

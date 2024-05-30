@@ -36,10 +36,10 @@ var start_counter : float = 0
 @export var _jerry_control : Control = null
 @export var _tom_control : Control = null
 
-const DISTANCE_TO_TRAP = 100
-const DISTANCE_TO_SAFETY = 110
-const DISTANCE_TO_STAIRS = 75
-const DISTANCE_TO_CHEESE = 75
+const DISTANCE_TO_TRAP = 70
+const DISTANCE_TO_SAFETY = 80
+const DISTANCE_TO_STAIRS = 45
+const DISTANCE_TO_CHEESE = 45
 const DISTANCE_TO_SHORTCUT = 150
 const FLOOR_Y_DIFFERENCE = 91.44
 const START_TEXT_TIME = 1
