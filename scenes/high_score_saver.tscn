@@ -113,7 +113,7 @@ offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_p7teq")
-placeholder_text = "Insert your name"
+placeholder_text = "New top 10 score! Insert your name to save score"
 metadata/_edit_use_anchors_ = true
 
 [node name="Save score" type="Button" parent="ScoreScreen"]
