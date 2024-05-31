@@ -35,10 +35,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-FmodManager="*res://addons/fmod/FmodManager.gd"
 PlayerAccounts="*res://addons/quiver_player_accounts/player_accounts.tscn"
 Leaderboards="*res://addons/quiver_leaderboards/leaderboards.tscn"
-BMOD="*res://addons/bmod/autoloads/bmod/bmod.tscn"
 
 [display]
 
@@ -48,7 +46,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/bmod/plugin.cfg", "res://addons/quiver_leaderboards/plugin.cfg", "res://addons/quiver_player_accounts/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
