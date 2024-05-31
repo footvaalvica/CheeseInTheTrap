@@ -7,6 +7,11 @@ class_name MainGameMenu extends Control
 func _ready():
 	start.grab_focus()
 
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel") && options.visible :
+		_on_go_back_pressed()
+		start.grab_focus()
+
 func _on_play_pressed():
 	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")
 

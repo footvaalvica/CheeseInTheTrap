@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_u5qb5"]
 [ext_resource type="Texture2D" uid="uid://bgniw0epwu85v" path="res://assets/cga_ui_gold/b_3.png" id="4_j0jqu"]
 [ext_resource type="Texture2D" uid="uid://dk2xdh7mildfm" path="res://assets/cga_ui_gold/b_5.png" id="4_y1mbn"]
-[ext_resource type="PackedScene" path="res://scenes/mateus_options_menu.tscn" id="7_8ulci"]
+[ext_resource type="PackedScene" uid="uid://bpolcy7few7wo" path="res://scenes/mateus_options_menu.tscn" id="7_8ulci"]
 [ext_resource type="AudioStream" uid="uid://xuchhgkj56w5" path="res://fmod/cheeseinthetrap/Assets/Happy-Go-Ducky (1957) - Music track only.mp3" id="8_47ys8"]
 [ext_resource type="Texture2D" uid="uid://bhx13hde82jga" path="res://assets/cga_ui_gold/x symbol.png" id="8_ft16c"]
 [ext_resource type="Texture2D" uid="uid://b05hojyvoh7a0" path="res://assets/cga_ui_gold/b_4.png" id="8_m8uo1"]
@@ -117,6 +117,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_right = NodePath("../../../Options")
 focus_neighbor_bottom = NodePath("../../../MarginContainer2/VBoxContainer/Button")
 theme = ExtResource("2_u5qb5")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -151,6 +152,7 @@ layout_mode = 2
 [node name="Button" type="Button" parent="RestofMenu/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../../../MarginContainer/VBoxContainer/play")
+focus_neighbor_right = NodePath("../../../Options")
 theme = ExtResource("2_u5qb5")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
@@ -164,6 +166,9 @@ offset_left = 1030.0
 offset_top = 613.0
 offset_right = 1250.0
 offset_bottom = 690.0
+focus_neighbor_left = NodePath("../MarginContainer/VBoxContainer/play")
+focus_neighbor_top = NodePath("../MarginContainer/VBoxContainer/play")
+focus_neighbor_bottom = NodePath("../MarginContainer2/VBoxContainer/Button")
 theme = ExtResource("2_u5qb5")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "OPTIONS"
@@ -177,12 +182,14 @@ bus = &"Music"
 visible = false
 
 [node name="MateusOptionsMenu" parent="UIOPTIONS" instance=ExtResource("7_8ulci")]
+focus_neighbor_top = NodePath("../GO BACK")
 
 [node name="GO BACK" type="TextureButton" parent="UIOPTIONS"]
 offset_left = 878.0
 offset_top = 208.0
 offset_right = 937.0
 offset_bottom = 273.0
+focus_neighbor_bottom = NodePath("../MateusOptionsMenu")
 texture_normal = ExtResource("4_y1mbn")
 texture_pressed = ExtResource("8_m8uo1")
 texture_hover = ExtResource("8_m8uo1")
