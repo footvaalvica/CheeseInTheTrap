@@ -65,6 +65,9 @@ func animation(delta) -> void :
 	if (_disarm_animation_counter > 0) : # continue disarm animation
 		return
 	if (_cheese_countdown > 0):
+		_cheese_countdown -= delta
+		if _traversing :
+			return
 		animated_sprite.animation = "cheese"
 		animated_sprite.play()
 		if Input.get_action_strength("move_right_%s" % player_id) > 0 :
@@ -73,7 +76,6 @@ func animation(delta) -> void :
 			animated_sprite.scale.x = - abs(animated_sprite.scale.x)
 		else:
 			animated_sprite.stop()
-		_cheese_countdown -= delta
 		return
 	super.animation(delta)
 
