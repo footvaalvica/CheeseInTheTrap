@@ -5,4 +5,7 @@
 [resource]
 script = ExtResource("1_nlj0j")
 cheese = 0
+max_cheese = 0
 time = 0.0
+winner = ""
+map_name = ""

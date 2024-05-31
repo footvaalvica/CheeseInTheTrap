@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://du1fpkbs74jyg" path="res://assets/cga_ui_gold/b_1.png" id="4_awa48"]
 [ext_resource type="Texture2D" uid="uid://bdep7benguovy" path="res://assets/cga_ui_gold/s1.png" id="4_qcqiu"]
 [ext_resource type="Texture2D" uid="uid://curyq5ugx7xnr" path="res://assets/cga_ui_gold/bar_1.png" id="6_33j82"]
-[ext_resource type="PackedScene" uid="uid://dt8r5nsrcvn1h" path="res://scenes/prefabs/local_leaderboard.tscn" id="10_f3eg8"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/local_leaderboard.tscn" id="10_f3eg8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2j3sx"]
 texture = ExtResource("3_byvrj")
@@ -141,9 +141,9 @@ anchors_preset = -1
 anchor_left = -0.0789931
 anchor_top = -0.0108025
 anchor_right = 0.00434028
-offset_left = 678.0
+offset_left = 752.0
 offset_top = 460.0
-offset_right = 774.0
+offset_right = 848.0
 offset_bottom = 484.0
 size_flags_horizontal = 4
 focus_neighbor_left = NodePath("../Leaderboards")
@@ -161,9 +161,9 @@ anchors_preset = -1
 anchor_left = -0.0789931
 anchor_top = -0.0108025
 anchor_right = 0.00434028
-offset_left = 449.0
+offset_left = 523.0
 offset_top = 459.0
-offset_right = 545.0
+offset_right = 619.0
 offset_bottom = 483.0
 size_flags_horizontal = 4
 focus_neighbor_right = NodePath("../Go to Menu")
@@ -201,13 +201,49 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="S2" type="Sprite2D" parent="ScoreScreen/Control3"]
-position = Vector2(645.125, 234.625)
+position = Vector2(724.125, 234.625)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_ydjii")
 
 [node name="3Star" type="Sprite2D" parent="ScoreScreen/Control3"]
 visible = false
-position = Vector2(645.125, 234.625)
+position = Vector2(724.125, 234.625)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_qcqiu")
+
+[node name="Control4" type="Control" parent="ScoreScreen"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="S2" type="Sprite2D" parent="ScoreScreen/Control4"]
+position = Vector2(473.125, 234.625)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_ydjii")
+
+[node name="4Star" type="Sprite2D" parent="ScoreScreen/Control4"]
+visible = false
+position = Vector2(473.125, 234.625)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_qcqiu")
+
+[node name="Control5" type="Control" parent="ScoreScreen"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="S2" type="Sprite2D" parent="ScoreScreen/Control5"]
+position = Vector2(808.125, 234.625)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_ydjii")
+
+[node name="5Star" type="Sprite2D" parent="ScoreScreen/Control5"]
+visible = false
+position = Vector2(808.125, 234.625)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_qcqiu")
 
@@ -218,13 +254,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="S2" type="Sprite2D" parent="ScoreScreen/Control2"]
-position = Vector2(573.125, 234.625)
+position = Vector2(640.125, 234.625)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_ydjii")
 
 [node name="2Star" type="Sprite2D" parent="ScoreScreen/Control2"]
 visible = false
-position = Vector2(573.125, 234.625)
+position = Vector2(640.125, 234.625)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_qcqiu")
 
@@ -235,29 +271,29 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="S2" type="Sprite2D" parent="ScoreScreen/Control"]
-position = Vector2(501.125, 234.625)
+position = Vector2(557.125, 234.625)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_ydjii")
 
 [node name="1Star" type="Sprite2D" parent="ScoreScreen/Control"]
 visible = false
-position = Vector2(501.125, 234.625)
+position = Vector2(557.125, 234.625)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_qcqiu")
 
 [node name="Score" type="Label" parent="ScoreScreen"]
-offset_left = 476.0
+offset_left = 537.0
 offset_top = 278.0
-offset_right = 675.0
+offset_right = 736.0
 offset_bottom = 327.0
 theme = ExtResource("2_p7teq")
 theme_override_font_sizes/font_size = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_e3tyk")
-text = "Score: 10000"
+text = "Time: 00:00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HighScoreManager" type="Node2D" parent="." node_paths=PackedStringArray("text_edit", "leaderboard_canvas_layer", "canvas_layer", "leaderboard_button", "leaderboard", "score_label", "go_to_menu_button", "save_score_button", "go_back_button", "star_3", "star_2", "star_1", "winner_text")]
+[node name="HighScoreManager" type="Node2D" parent="." node_paths=PackedStringArray("text_edit", "leaderboard_canvas_layer", "canvas_layer", "leaderboard_button", "leaderboard", "score_label", "go_to_menu_button", "save_score_button", "go_back_button", "star_5", "star_4", "star_3", "star_2", "star_1", "winner_text")]
 script = ExtResource("1_gx6yk")
 text_edit = NodePath("../ScoreScreen/Insertname")
 game_score = ExtResource("2_1lnks")
@@ -269,6 +305,8 @@ score_label = NodePath("../ScoreScreen/Score")
 go_to_menu_button = NodePath("../ScoreScreen/Go to Menu")
 save_score_button = NodePath("../ScoreScreen/Save score")
 go_back_button = NodePath("../Leaderboard/Button")
+star_5 = NodePath("../ScoreScreen/Control5/5Star")
+star_4 = NodePath("../ScoreScreen/Control4/4Star")
 star_3 = NodePath("../ScoreScreen/Control3/3Star")
 star_2 = NodePath("../ScoreScreen/Control2/2Star")
 star_1 = NodePath("../ScoreScreen/Control/1Star")
