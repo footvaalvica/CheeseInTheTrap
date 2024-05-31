@@ -13,7 +13,7 @@ var _climbing_bound : float = 0
 var _destroy_offset : float = 0
 
 const CLIMBING_TIME : float = .15
-const SPEED = 300.0
+var SPEED = 300.0
 
 var player_id : int = 1
 var stairs_available : Array[Stairs]

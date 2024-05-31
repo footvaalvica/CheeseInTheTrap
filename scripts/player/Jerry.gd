@@ -20,6 +20,7 @@ const CHEESE_CATCH_TIME : float = 1.5
 
 func _ready():
 	super._ready()
+	SPEED *= 1.05
 	_floor_0_y = position.y
 	_destroy_offset = -90
 
