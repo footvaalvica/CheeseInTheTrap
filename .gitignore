@@ -15,7 +15,7 @@ data_*/
 # Ignore save files
 highscores.dat
 game_state.dat
-
+logs/*
 
 # Ignore game build
 builds/

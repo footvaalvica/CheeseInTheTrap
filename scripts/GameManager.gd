@@ -141,6 +141,7 @@ func start_game() -> void :
 	
 func end_game_jerry() -> void :
 	print_end_game_string_jerry()
+	InteractionLogManager.save_jerry_win(_number_of_cheese)
 	game_score.cheese = _number_of_cheese
 	game_score.winner = "Jerry"
 	end_game()
@@ -148,6 +149,7 @@ func end_game_jerry() -> void :
 func end_game_tom() -> void :
 	print_end_game_string_tom()
 	game_score.cheese = TOTAL_CHEESE - _number_of_cheese
+	InteractionLogManager.save_tom_win(TOTAL_CHEESE - _number_of_cheese)
 	game_score.winner = "Tom"
 	end_game()
 
@@ -156,6 +158,7 @@ func end_game() -> void :
 	game_score.max_cheese = TOTAL_CHEESE
 	game_score.map_name = _title
 	print_debug("switching scene")
+	InteractionLogManager.save_log()
 	GameStateManager.add_cheese(game_score.cheese)
 	GameStateManager.write_game_state()
 	get_tree().change_scene_to_file("res://scenes/high_score_saver.tscn")
@@ -254,6 +257,7 @@ func spawn_trap(trap : PackedScene, position : Vector2, floor : int) -> void :
 	get_parent().add_child(trap_instance)
 	(trap_instance as Trap).place(floor)
 	_number_of_traps -= 1
+	InteractionLogManager.save_trap_set_position(position)
 
 func pick_up_trap(position : Vector2, floor : int) -> void :
 	var trap_object_list : Array [Node] = get_tree().get_nodes_in_group("Trap")

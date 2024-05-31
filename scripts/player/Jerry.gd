@@ -26,6 +26,7 @@ func _ready():
 func _process(delta) -> void :
 	super._process(delta)
 	if _is_caught and _climbing_phase == Climbing_Phase.None:
+		InteractionLogManager.save_jerry_death_position(position)
 		queue_free()
 		GameManager.instance().end_game_tom()
 	if _is_trapped :
@@ -108,6 +109,7 @@ func release() -> void :
 
 func enter_hole() -> void :
 	queue_free()
+	InteractionLogManager.save_door_used(_holes[0].name)
 	GameManager.instance().end_game_jerry()
 	
 func disable_trap(delta : float) -> void :
