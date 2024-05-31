@@ -1,12 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwvtbn87rqyvv"]
+[gd_scene load_steps=17 format=3 uid="uid://cwvtbn87rqyvv"]
 
 [ext_resource type="VideoStream" path="res://assets/menuvid.ogv" id="1_aaqpx"]
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_iawo3"]
 [ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_u5qb5"]
-[ext_resource type="Texture2D" uid="uid://p7nbrc6ee0al" path="res://assets/cga_ui_gold/b_3.png" id="4_j0jqu"]
-[ext_resource type="Texture2D" uid="uid://cv41l3wlfyb2l" path="res://assets/cga_ui_gold/b_5.png" id="4_y1mbn"]
-[ext_resource type="PackedScene" uid="uid://c157gqj3jcnh1" path="res://scenes/mateus_options_menu.tscn" id="7_8ulci"]
-[ext_resource type="AudioStream" uid="uid://86o2pi5sp0fs" path="res://fmod/cheeseinthetrap/Assets/Happy-Go-Ducky (1957) - Music track only.mp3" id="8_47ys8"]
+[ext_resource type="Texture2D" uid="uid://bgniw0epwu85v" path="res://assets/cga_ui_gold/b_3.png" id="4_j0jqu"]
+[ext_resource type="Texture2D" uid="uid://dk2xdh7mildfm" path="res://assets/cga_ui_gold/b_5.png" id="4_y1mbn"]
+[ext_resource type="PackedScene" path="res://scenes/mateus_options_menu.tscn" id="7_8ulci"]
+[ext_resource type="AudioStream" uid="uid://xuchhgkj56w5" path="res://fmod/cheeseinthetrap/Assets/Happy-Go-Ducky (1957) - Music track only.mp3" id="8_47ys8"]
+[ext_resource type="Texture2D" uid="uid://bhx13hde82jga" path="res://assets/cga_ui_gold/x symbol.png" id="8_ft16c"]
+[ext_resource type="Texture2D" uid="uid://b05hojyvoh7a0" path="res://assets/cga_ui_gold/b_4.png" id="8_m8uo1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l3qxy"]
 content_margin_left = 10.0
@@ -65,6 +67,8 @@ expand_margin_left = 3.0
 expand_margin_top = 3.0
 expand_margin_right = 3.0
 expand_margin_bottom = 3.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u8c7x"]
 
 [node name="menu" type="Control" node_paths=PackedStringArray("options", "start", "rest_of_menu")]
 layout_mode = 3
@@ -174,22 +178,25 @@ visible = false
 
 [node name="MateusOptionsMenu" parent="UIOPTIONS" instance=ExtResource("7_8ulci")]
 
-[node name="goback" type="Button" parent="UIOPTIONS"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -251.0
-offset_top = -108.0
-offset_right = -30.0
-offset_bottom = -27.0
-grow_horizontal = 0
-grow_vertical = 0
-theme = ExtResource("2_u5qb5")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "GO BACK!"
+[node name="GO BACK" type="TextureButton" parent="UIOPTIONS"]
+offset_left = 878.0
+offset_top = 208.0
+offset_right = 937.0
+offset_bottom = 273.0
+texture_normal = ExtResource("4_y1mbn")
+texture_pressed = ExtResource("8_m8uo1")
+texture_hover = ExtResource("8_m8uo1")
+texture_disabled = ExtResource("8_m8uo1")
+texture_focused = ExtResource("8_m8uo1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="XSymbol" type="Sprite2D" parent="UIOPTIONS"]
+material = SubResource("CanvasItemMaterial_u8c7x")
+position = Vector2(908, 240)
+scale = Vector2(0.0981445, 0.102539)
+texture = ExtResource("8_ft16c")
 
 [connection signal="pressed" from="RestofMenu/MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="RestofMenu/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="UIOPTIONS/goback" to="." method="_on_goback_pressed"]
+[connection signal="pressed" from="UIOPTIONS/GO BACK" to="." method="_on_go_back_pressed"]
