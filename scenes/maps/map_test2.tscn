@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b8757fjmx6wbd"]
+[gd_scene load_steps=31 format=3 uid="uid://b8757fjmx6wbd"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_xlspn"]
 [ext_resource type="Resource" uid="uid://8rn2gole7jue" path="res://resources/player1.tres" id="2_56j4h"]
@@ -23,11 +23,17 @@
 [ext_resource type="PackedScene" uid="uid://dfea4refpbec4" path="res://scenes/prefabs/safety_area.tscn" id="21_w3xu0"]
 [ext_resource type="PackedScene" uid="uid://dbygtbjtb5xnp" path="res://scenes/prefabs/house/hole.tscn" id="22_qmbcj"]
 [ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="23_kyny7"]
-[ext_resource type="AudioStream" uid="uid://btg0xh2k6oja2" path="res://fmod/cheeseinthetrap/Assets/1-04 Touché - Blue Cat Blues! (1955)  Scott Bradley.mp3" id="24_adwt7"]
+[ext_resource type="AudioStream" uid="uid://bdy22qbw3y48l" path="res://fmod/cheeseinthetrap/Assets/Shoji Meguro - I'll Face Myself (special ver.).mp3" id="24_tt2hd"]
+[ext_resource type="AudioStream" uid="uid://dh2j4yrpun84g" path="res://fmod/cheeseinthetrap/Assets/figt music.mp3" id="25_wmu2g"]
+[ext_resource type="AudioStream" uid="uid://cgmgiji4a0el7" path="res://fmod/cheeseinthetrap/Assets/apanhar_queijo.wav" id="26_2xvux"]
+[ext_resource type="AudioStream" uid="uid://yqxrm8yo5f3w" path="res://fmod/cheeseinthetrap/Assets/apanhar_trap.wav" id="27_1hpea"]
+[ext_resource type="AudioStream" uid="uid://vlyhva2xhv4s" path="res://fmod/cheeseinthetrap/Assets/deixar_cair_trap.wav" id="28_hxfyw"]
+[ext_resource type="AudioStream" uid="uid://d4au8jmg6fjtf" path="res://fmod/cheeseinthetrap/Assets/jerrry_caught.wav" id="29_0h6pj"]
+[ext_resource type="AudioStream" uid="uid://cxudo6vknjumw" path="res://fmod/cheeseinthetrap/Assets/both_ready.mp3" id="30_yu5er"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "safety_zone", "second_holes", "cheese_text", "trap_text", "time_text", "hint_text", "start_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_xlspn")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "safety_zone", "second_holes", "cheese_text", "trap_text", "time_text", "hint_text", "start_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control", "preparation_song", "main_music", "catch_cheese", "pickup_trap", "drop_trap", "jerry_caught_in_trap", "jerry_ready", "tom_ready", "both_ready") instance=ExtResource("1_xlspn")]
 MAX_FLOOR = 9
 TOTAL_CHEESE = 5
 MAX_TRAPS = 5
@@ -49,6 +55,15 @@ _jerry_ready_image = NodePath("../CanvasLayer/Control/Jerry/MarginContainer2/VBo
 _tom_ready_image = NodePath("../CanvasLayer/Control/Tom/MarginContainer2/VBoxContainer/TextureRect")
 _jerry_control = NodePath("../CanvasLayer/Control/Jerry")
 _tom_control = NodePath("../CanvasLayer/Control/Tom")
+preparation_song = NodePath("../preparation_song")
+main_music = NodePath("../main_music")
+catch_cheese = NodePath("../Node/catch_cheese")
+pickup_trap = NodePath("../Node/pickup_trap")
+drop_trap = NodePath("../Node/drop_trap")
+jerry_caught_in_trap = NodePath("../Node/jerry_caught_in_trap")
+jerry_ready = NodePath("../Node/ready_jerry")
+tom_ready = NodePath("../Node/ready_tom")
+both_ready = NodePath("../Node/both_ready")
 
 [node name="Jerry" parent="." instance=ExtResource("5_up5cv")]
 z_index = 1
@@ -253,18 +268,23 @@ zoom = Vector2(0.7, 0.7)
 
 [node name="Cheese" parent="." instance=ExtResource("7_kl0up")]
 position = Vector2(-626, 56)
+floor = 4
 
 [node name="Cheese2" parent="." instance=ExtResource("7_kl0up")]
 position = Vector2(-383, -225)
+floor = 7
 
 [node name="Cheese3" parent="." instance=ExtResource("7_kl0up")]
 position = Vector2(151, -43)
+floor = 5
 
 [node name="Cheese4" parent="." instance=ExtResource("7_kl0up")]
 position = Vector2(-26, 235)
+floor = 2
 
 [node name="Cheese5" parent="." instance=ExtResource("7_kl0up")]
 position = Vector2(324, -225)
+floor = 7
 
 [node name="Trapdoor" parent="." instance=ExtResource("19_hroix")]
 position = Vector2(254, -113)
@@ -366,6 +386,39 @@ position = Vector2(693, -393)
 [node name="SafetyArea" parent="." instance=ExtResource("21_w3xu0")]
 position = Vector2(-646, 413)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("24_adwt7")
+[node name="preparation_song" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_tt2hd")
 autoplay = true
+bus = &"Music"
+
+[node name="main_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_wmu2g")
+bus = &"Music"
+
+[node name="Node" type="Node" parent="."]
+
+[node name="catch_cheese" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("26_2xvux")
+bus = &"SFX"
+
+[node name="pickup_trap" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("27_1hpea")
+bus = &"SFX"
+
+[node name="drop_trap" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("28_hxfyw")
+bus = &"SFX"
+
+[node name="jerry_caught_in_trap" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("29_0h6pj")
+bus = &"SFX"
+
+[node name="ready_jerry" type="AudioStreamPlayer" parent="Node"]
+bus = &"SFX"
+
+[node name="ready_tom" type="AudioStreamPlayer" parent="Node"]
+bus = &"SFX"
+
+[node name="both_ready" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("30_yu5er")
+volume_db = 2.044
