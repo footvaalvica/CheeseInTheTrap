@@ -35,6 +35,7 @@ func trap_action() -> void :
 		spawn_trap()
 
 func spawn_trap() -> void :
+	print_debug(trap_scene)
 	GameManager.instance().spawn_trap(trap_scene, position, _floor)
 
 func pickup_trap() -> void :
