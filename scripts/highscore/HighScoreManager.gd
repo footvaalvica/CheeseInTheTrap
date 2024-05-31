@@ -71,6 +71,7 @@ func _ready():
 		star_5.show()
 		
 	if (game_score.map_name == "" || ! is_new_score()) :
+		print_debug(game_score.map_name)
 		next_buttons_show()
 
 func _exit_tree():

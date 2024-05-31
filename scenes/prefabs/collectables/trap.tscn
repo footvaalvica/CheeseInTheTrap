@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c72m4u7mpuxj"]
+[gd_scene load_steps=15 format=3 uid="uid://c72m4u7mpuxj"]
 
 [ext_resource type="Script" path="res://scripts/interactables/collectables/Trap.gd" id="1_0ti6k"]
-[ext_resource type="Texture2D" path="res://assets/trap_spritesheet.png" id="2_p3peh"]
+[ext_resource type="Texture2D" uid="uid://c5xo0fktmewfw" path="res://assets/trap_spritesheet.png" id="2_p3peh"]
 [ext_resource type="Texture2D" uid="uid://bpncjyi8whcum" path="res://assets/trap_area.png" id="3_dkpnd"]
+[ext_resource type="AudioStream" uid="uid://umt440dh744h" path="res://fmod/cheeseinthetrap/Assets/succes_disable.mp3" id="4_3ynpu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdr73"]
 size = Vector2(48, 20)
@@ -101,7 +102,7 @@ position = Vector2(-0.1, -1.93715e-07)
 shape = SubResource("CircleShape2D_osdj3")
 
 [node name="successful_disarm" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_78rfx")
+stream = ExtResource("4_3ynpu")
 volume_db = 2.796
 bus = &"SFX"
 

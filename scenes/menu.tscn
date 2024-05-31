@@ -5,11 +5,10 @@
 [ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_u5qb5"]
 [ext_resource type="Texture2D" uid="uid://bgniw0epwu85v" path="res://assets/cga_ui_gold/b_3.png" id="4_j0jqu"]
 [ext_resource type="Texture2D" uid="uid://dk2xdh7mildfm" path="res://assets/cga_ui_gold/b_5.png" id="4_y1mbn"]
+[ext_resource type="AudioStream" uid="uid://bchrjclotqiqt" path="res://fmod/cheeseinthetrap/Assets/Gravity Rush OST - Douse Shinundakara (Instrumental).mp3" id="6_jvktc"]
 [ext_resource type="PackedScene" uid="uid://bpolcy7few7wo" path="res://scenes/mateus_options_menu.tscn" id="7_8ulci"]
-[ext_resource type="AudioStream" uid="uid://bp7orakkymcox" path="res://fmod/cheeseinthetrap/Assets/Gravity Rush OST - Douse Shinundakara (Instrumental).mp3" id="6_jvktc"]
 [ext_resource type="Texture2D" uid="uid://bhx13hde82jga" path="res://assets/cga_ui_gold/x symbol.png" id="8_ft16c"]
 [ext_resource type="Texture2D" uid="uid://b05hojyvoh7a0" path="res://assets/cga_ui_gold/b_4.png" id="8_m8uo1"]
-[ext_resource type="AudioStream" uid="uid://bjmbwolqsn26y" path="res://addons/kenney_interface_sounds/confirmation_004.wav" id="9_3vypt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l3qxy"]
 content_margin_left = 10.0
