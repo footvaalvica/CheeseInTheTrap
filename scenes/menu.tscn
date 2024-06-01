@@ -205,5 +205,6 @@ scale = Vector2(0.0981445, 0.102539)
 texture = ExtResource("8_ft16c")
 
 [connection signal="pressed" from="RestofMenu/MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="RestofMenu/MarginContainer2/VBoxContainer/Button" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="RestofMenu/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="UIOPTIONS/GO BACK" to="." method="_on_go_back_pressed"]

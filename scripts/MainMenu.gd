@@ -24,3 +24,4 @@ func _on_options_pressed():
 
 func _on_go_back_pressed():
 	options.hide()
+	rest_of_menu.show()
