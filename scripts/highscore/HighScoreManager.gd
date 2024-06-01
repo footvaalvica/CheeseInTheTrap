@@ -18,8 +18,8 @@ class_name HighScoreManager extends Node
 @export var winner_text: RichTextLabel
 
 var high_score_map : Dictionary
-const MAX_TABLE = 10
-const FILE_PATH = "res://highscores.dat"
+const MAX_TABLE = 20
+const FILE_PATH = "user://highscores.dat"
 
 var cheese : int
 var max_cheese : int
