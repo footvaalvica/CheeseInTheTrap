@@ -27,6 +27,8 @@ func on_collision(body : Node2D) -> void :
 	print_debug("catch")
 	if physics == null :
 		return # ignore if not PhysicsBody2D
+	if (_climbing_phase != Climbing_Phase.None) : # Tom can't catch while climbing stairs
+		return
 	var isJerry : bool = physics.get_collision_layer_value(3)
 	if isJerry:
 		GameManager.instance().catch_jerry()
