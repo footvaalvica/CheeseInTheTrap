@@ -69,9 +69,10 @@ func _ready():
 func _exit_tree():
 	save_highscores()
 
-func add_score(name : String, cheese : int, time : float, map_name : String) :
+func add_score(name : String) :
 	var entry : HighScoreEntry = HighScoreEntry.new(name, cheese, time)
-	var high_score_table = high_score_map.get(map_name)
+	var title = "%s - %s" % [map_name, winner]
+	var high_score_table = high_score_map.get(title)
 	if high_score_table == null :
 		high_score_table = []
 	var length : int = min(high_score_table.size() + 1, MAX_TABLE)
@@ -87,8 +88,7 @@ func add_score(name : String, cheese : int, time : float, map_name : String) :
 			entry = tmp
 			propagate = true
 		i += 1
-	high_score_map[map_name] = high_score_table
-	print_debug(high_score_map)
+	high_score_map[title] = high_score_table
 	save_highscores()
 
 func is_new_score() :
@@ -108,16 +108,15 @@ func load_highscores() :
 	highscore_file.get_line() # first line is {
 	var line = highscore_file.get_line()
 	while line != "}" :
-		var map_name = line.split(" :")[0].rstrip("\"").lstrip("\"")
+		var title = line.split(" :")[0].rstrip("\"").lstrip("\"")
 		var high_score_table = []
 		line = highscore_file.get_line().rstrip(",").strip_edges()
 		while line != "]" and line != "],":
-			print_debug(line)
 			var content : Dictionary = JSON.parse_string(line)
 			var entry = HighScoreEntry.new(content["name"], content["cheese"], content["time"])
 			high_score_table.append(entry)
 			line = highscore_file.get_line().rstrip(",").strip_edges()
-		high_score_map[map_name] = high_score_table
+		high_score_map[title] = high_score_table
 		line = highscore_file.get_line().strip_edges()
 	highscore_file.close()
 
@@ -151,7 +150,7 @@ func _on_leaderboards_pressed():
 
 func _on_save_score_pressed():
 	var name = text_edit.text
-	add_score(name, cheese, time, game_score.map_name)
+	add_score(name)
 	next_buttons_show()
 
 func next_buttons_show() :
