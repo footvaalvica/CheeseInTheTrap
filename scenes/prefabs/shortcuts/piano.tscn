@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvix5xnryqlca"]
+[gd_scene load_steps=10 format=3 uid="uid://dvix5xnryqlca"]
 
 [ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="1_bw4e6"]
 [ext_resource type="Texture2D" uid="uid://c46jwrrpjuxt4" path="res://assets/piano_sprites.png" id="2_dye8m"]
+[ext_resource type="AudioStream" uid="uid://dfnv6uvill8g7" path="res://fmod/cheeseinthetrap/Assets/_Knock_Over1.vag.wav" id="3_pmale"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w3nv7"]
 atlas = ExtResource("2_dye8m")
@@ -38,10 +39,11 @@ size = Vector2(88, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_113me"]
 size = Vector2(107, 41)
 
-[node name="TomShortcut" type="Node2D" groups=["TomShortcut"]]
+[node name="TomShortcut" type="Node2D" node_paths=PackedStringArray("breaking_sound") groups=["TomShortcut"]]
 position = Vector2(239, 60)
 script = ExtResource("1_bw4e6")
 distance = 80.0
+breaking_sound = NodePath("breaking")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
@@ -62,6 +64,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1.5, 2.5)
 shape = SubResource("RectangleShape2D_113me")
+
+[node name="breaking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pmale")
 
 [connection signal="body_entered" from="Area2D" to="." method="enter_traverse_area"]
 [connection signal="body_exited" from="Area2D" to="." method="exit_traverse_area"]

@@ -4,13 +4,18 @@ class_name GameShortcut extends Spammable
 @export var distance : float
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
+@export var breaking_sound : AudioStreamPlayer
+
 const NUMBER_OF_FRAMES = 3
 
 func _ready():
 	max_hits_counter = 12
 
 func action():
-	queue_free()
+	breaking_sound.play()
+	animated_sprite.hide()
+	#  remove object from map
+	self.position = Vector2(1000000, 1000000)
 	
 func on_hit_action():
 	var frames_to_hit_ratio = max_hits_counter / NUMBER_OF_FRAMES

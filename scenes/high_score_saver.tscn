@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bdep7benguovy" path="res://assets/cga_ui_gold/s1.png" id="4_qcqiu"]
 [ext_resource type="Texture2D" uid="uid://curyq5ugx7xnr" path="res://assets/cga_ui_gold/bar_1.png" id="6_33j82"]
 [ext_resource type="PackedScene" uid="uid://dt8r5nsrcvn1h" path="res://scenes/prefabs/local_leaderboard.tscn" id="10_f3eg8"]
-[ext_resource type="AudioStream" uid="uid://c4menrvvkdlab" path="res://fmod/cheeseinthetrap/Assets/victory track.mp3" id="11_v507o"]
-[ext_resource type="AudioStream" uid="uid://p0w43cqe77c" path="res://fmod/cheeseinthetrap/Assets/erry_Victory.vag.wav" id="12_cd77x"]
-[ext_resource type="AudioStream" uid="uid://4y3o4spff8v4" path="res://fmod/cheeseinthetrap/Assets/-Tom_Victory.vag.wav" id="13_alnui"]
+[ext_resource type="AudioStream" uid="uid://hvcm2rtd2d4g" path="res://fmod/cheeseinthetrap/Assets/victory track.mp3" id="11_v507o"]
+[ext_resource type="AudioStream" uid="uid://ebbpttvyfy40" path="res://fmod/cheeseinthetrap/Assets/erry_Victory.vag.wav" id="12_cd77x"]
+[ext_resource type="AudioStream" uid="uid://d14xguii5ovxp" path="res://fmod/cheeseinthetrap/Assets/-Tom_Victory.vag.wav" id="13_alnui"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2j3sx"]
 texture = ExtResource("3_byvrj")
