@@ -11,28 +11,14 @@ static var winner : String
 
 static var file_counter : int = 0
 
-const LOG_FOLDER = "res://logs"
-const LOG_FORMAT = "res://logs/log%d.log"
+const LOG_FOLDER = "user://game_logs"
+const LOG_FORMAT = "user://game_logs/log%d.log"
 
 static func save_log() :
 	if file_counter <= 0 :
 		load_file_counter()
 	var log_file = FileAccess.open(LOG_FORMAT % file_counter, FileAccess.WRITE)
 	log_file.store_line("{")
-	log_file.store_line("\"tom_positions\" : [")
-	for i in range(tom_positions.size()):
-		var pos = tom_positions[i]
-		log_file.store_line(str(pos))
-		if (i < tom_positions.size() - 1):
-			log_file.store_line(",")
-	log_file.store_line("],")
-	log_file.store_line("\"jerry_positions\" : [")
-	for i in range(jerry_positions.size()):
-		var pos = jerry_positions[i]
-		log_file.store_line(str(pos))
-		if (i < jerry_positions.size() - 1):
-			log_file.store_line(",")
-	log_file.store_line("],")
 	if (death_position != Vector2.ZERO) : 
 		log_file.store_line("\"death_position\" : " + str(death_position) + ",")
 	log_file.store_line("\"trap_positions\" : [")
