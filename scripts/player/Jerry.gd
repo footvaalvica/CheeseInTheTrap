@@ -66,7 +66,7 @@ func animation(delta) -> void :
 		return
 	if (_cheese_countdown > 0):
 		_cheese_countdown -= delta
-		if _traversing :
+		if _traversing or animated_sprite.animation == "destroy":
 			return
 		animated_sprite.animation = "cheese"
 		animated_sprite.play()
