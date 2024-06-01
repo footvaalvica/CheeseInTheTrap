@@ -1,43 +1,43 @@
 [gd_scene load_steps=26 format=3 uid="uid://lqms5vj1r5re"]
 
-[ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_qblyn"]
-[ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="2_cb3xo"]
-[ext_resource type="Resource" uid="uid://8rn2gole7jue" path="res://resources/player1.tres" id="2_toce4"]
-[ext_resource type="PackedScene" uid="uid://cj3gq3clc4b5o" path="res://scenes/prefabs/characters/tom.tscn" id="3_sn6up"]
-[ext_resource type="Resource" uid="uid://jgmqday0wh5l" path="res://resources/player2.tres" id="3_trd54"]
-[ext_resource type="Resource" uid="uid://cgujiwi5yrix5" path="res://resources/game_score.tres" id="4_i13m6"]
-[ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://scenes/prefabs/collectables/cheese.tscn" id="4_telum"]
-[ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="6_aou2f"]
-[ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/shortcuts/tom_shortcut.tscn" id="7_j8h8u"]
-[ext_resource type="Texture2D" uid="uid://ppd13xe4k4w4" path="res://assets/cheese.png" id="9_a0p0v"]
-[ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/shortcuts/jerry_shortcut.tscn" id="9_q2kdp"]
-[ext_resource type="Texture2D" uid="uid://264o6fsvlvje" path="res://assets/trap1.png" id="10_b7878"]
-[ext_resource type="PackedScene" uid="uid://bqj766o4qrfo1" path="res://scenes/prefabs/shortcuts/trapdoor.tscn" id="10_bn61j"]
-[ext_resource type="Texture2D" uid="uid://cp753obyi20re" path="res://assets/jerry_icon.png" id="11_gu6xb"]
-[ext_resource type="PackedScene" uid="uid://o1iwho47xbb0" path="res://scenes/prefabs/house/walls.tscn" id="12_46wad"]
-[ext_resource type="Texture2D" uid="uid://dqjp1ohvp7mvt" path="res://assets/red_cross.jpg" id="12_wjcxj"]
-[ext_resource type="Texture2D" uid="uid://dpgyenakgka4q" path="res://assets/tom_icon.jpg" id="13_81qs8"]
-[ext_resource type="PackedScene" uid="uid://kioghlqk3bao" path="res://scenes/prefabs/house/stairs_group.tscn" id="13_mbsdk"]
-[ext_resource type="PackedScene" uid="uid://dbygtbjtb5xnp" path="res://scenes/prefabs/house/hole.tscn" id="14_slfqy"]
-[ext_resource type="PackedScene" uid="uid://dvix5xnryqlca" path="res://scenes/prefabs/shortcuts/piano.tscn" id="15_63f5h"]
-[ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="15_lp7f4"]
-[ext_resource type="PackedScene" uid="uid://ctqqoyedh15m8" path="res://scenes/prefabs/shortcuts/sofa.tscn" id="16_pdo24"]
-[ext_resource type="AudioStream" uid="uid://btg0xh2k6oja2" path="res://fmod/cheeseinthetrap/Assets/1-04 Touché - Blue Cat Blues! (1955)  Scott Bradley.mp3" id="17_yjgnj"]
-[ext_resource type="PackedScene" uid="uid://ccabibhreo31q" path="res://scenes/prefabs/house/back_ground_object.tscn" id="18_v2qyb"]
-[ext_resource type="PackedScene" uid="uid://dfea4refpbec4" path="res://scenes/prefabs/safety_area.tscn" id="24_pdfyy"]
+[ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_vwut4"]
+[ext_resource type="Resource" uid="uid://8rn2gole7jue" path="res://resources/player1.tres" id="2_4s5y3"]
+[ext_resource type="Resource" uid="uid://jgmqday0wh5l" path="res://resources/player2.tres" id="3_avfx7"]
+[ext_resource type="Resource" uid="uid://cgujiwi5yrix5" path="res://resources/game_score.tres" id="4_jnmiq"]
+[ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="5_s0y5b"]
+[ext_resource type="PackedScene" uid="uid://cj3gq3clc4b5o" path="res://scenes/prefabs/characters/tom.tscn" id="6_4dbs3"]
+[ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://scenes/prefabs/collectables/cheese.tscn" id="7_qjh10"]
+[ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="8_l20v5"]
+[ext_resource type="Texture2D" uid="uid://ppd13xe4k4w4" path="res://assets/cheese.png" id="9_neglr"]
+[ext_resource type="Texture2D" uid="uid://264o6fsvlvje" path="res://assets/trap1.png" id="10_4h3ew"]
+[ext_resource type="Texture2D" uid="uid://cp753obyi20re" path="res://assets/jerry_icon.png" id="11_w25j3"]
+[ext_resource type="Texture2D" uid="uid://dqjp1ohvp7mvt" path="res://assets/red_cross.jpg" id="12_n3xch"]
+[ext_resource type="Texture2D" uid="uid://dpgyenakgka4q" path="res://assets/tom_icon.jpg" id="13_j35gl"]
+[ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/shortcuts/tom_shortcut.tscn" id="14_cs3d8"]
+[ext_resource type="PackedScene" uid="uid://dvix5xnryqlca" path="res://scenes/prefabs/shortcuts/piano.tscn" id="15_4wxxm"]
+[ext_resource type="PackedScene" uid="uid://ctqqoyedh15m8" path="res://scenes/prefabs/shortcuts/sofa.tscn" id="16_sl371"]
+[ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/shortcuts/jerry_shortcut.tscn" id="17_7cbx1"]
+[ext_resource type="PackedScene" uid="uid://bqj766o4qrfo1" path="res://scenes/prefabs/shortcuts/trapdoor.tscn" id="18_0h0s8"]
+[ext_resource type="PackedScene" uid="uid://o1iwho47xbb0" path="res://scenes/prefabs/house/walls.tscn" id="19_ardv6"]
+[ext_resource type="PackedScene" uid="uid://kioghlqk3bao" path="res://scenes/prefabs/house/stairs_group.tscn" id="20_dklgh"]
+[ext_resource type="PackedScene" uid="uid://dbygtbjtb5xnp" path="res://scenes/prefabs/house/hole.tscn" id="21_hfo8k"]
+[ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="22_81un2"]
+[ext_resource type="PackedScene" uid="uid://dfea4refpbec4" path="res://scenes/prefabs/safety_area.tscn" id="23_hi7ql"]
+[ext_resource type="AudioStream" uid="uid://btg0xh2k6oja2" path="res://fmod/cheeseinthetrap/Assets/1-04 Touché - Blue Cat Blues! (1955)  Scott Bradley.mp3" id="24_fvaga"]
+[ext_resource type="PackedScene" uid="uid://ccabibhreo31q" path="res://scenes/prefabs/house/back_ground_object.tscn" id="25_mgcgw"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "safety_zone", "second_holes", "cheese_text", "trap_text", "time_text", "hint_text", "start_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_qblyn")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "safety_zone", "second_holes", "cheese_text", "trap_text", "time_text", "hint_text", "start_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_vwut4")]
 _title = "Tom's house"
 tom = NodePath("../Tom")
 jerry = NodePath("../Jerry")
 trap_placer = NodePath("../TrapPlacer")
 safety_zone = NodePath("../SafetyArea")
-player1 = ExtResource("2_toce4")
-player2 = ExtResource("3_trd54")
+player1 = ExtResource("2_4s5y3")
+player2 = ExtResource("3_avfx7")
 second_holes = [NodePath("../OptionalDoor"), NodePath("../OptionalDoor2"), NodePath("../OptionalDoor3")]
-game_score = ExtResource("4_i13m6")
+game_score = ExtResource("4_jnmiq")
 cheese_text = NodePath("../CanvasLayer/Control/Cheese/RichTextLabel")
 trap_text = NodePath("../CanvasLayer/Control/Traps/RichTextLabel")
 time_text = NodePath("../CanvasLayer/Control/Time/RichTextLabel")
@@ -48,25 +48,25 @@ _tom_ready_image = NodePath("../CanvasLayer/Control/Tom/MarginContainer2/VBoxCon
 _jerry_control = NodePath("../CanvasLayer/Control/Jerry")
 _tom_control = NodePath("../CanvasLayer/Control/Tom")
 
-[node name="Jerry" parent="." instance=ExtResource("2_cb3xo")]
+[node name="Jerry" parent="." instance=ExtResource("5_s0y5b")]
 z_index = 1
 position = Vector2(-480, 288)
 collision_mask = 17
 
-[node name="Tom" parent="." instance=ExtResource("3_sn6up")]
+[node name="Tom" parent="." instance=ExtResource("6_4dbs3")]
 z_index = 1
 position = Vector2(469, -278)
 collision_mask = 33
 
-[node name="Cheese" parent="." instance=ExtResource("4_telum")]
+[node name="Cheese" parent="." instance=ExtResource("7_qjh10")]
 position = Vector2(-424, 96)
 floor = 2
 
-[node name="Cheese2" parent="." instance=ExtResource("4_telum")]
+[node name="Cheese2" parent="." instance=ExtResource("7_qjh10")]
 position = Vector2(360, 0)
 floor = 3
 
-[node name="Cheese3" parent="." instance=ExtResource("4_telum")]
+[node name="Cheese3" parent="." instance=ExtResource("7_qjh10")]
 position = Vector2(-232, -184)
 floor = 5
 
@@ -76,7 +76,7 @@ floor = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground"]
 position = Vector2(8, -152)
-texture = ExtResource("6_aou2f")
+texture = ExtResource("8_l20v5")
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -102,7 +102,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Cheese/MarginContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("9_a0p0v")
+texture = ExtResource("9_neglr")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Cheese"]
 layout_mode = 0
@@ -131,7 +131,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Traps/MarginContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("10_b7878")
+texture = ExtResource("10_4h3ew")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Traps"]
 layout_mode = 0
@@ -160,7 +160,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Jerry/MarginContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("11_gu6xb")
+texture = ExtResource("11_w25j3")
 expand_mode = 5
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Jerry"]
@@ -176,7 +176,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Jerry/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("12_wjcxj")
+texture = ExtResource("12_n3xch")
 expand_mode = 5
 
 [node name="Tom" type="Control" parent="CanvasLayer/Control"]
@@ -197,7 +197,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Tom/MarginContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("13_81qs8")
+texture = ExtResource("13_j35gl")
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Tom"]
 layout_mode = 0
@@ -212,7 +212,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Tom/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("12_wjcxj")
+texture = ExtResource("12_n3xch")
 expand_mode = 5
 
 [node name="Time" type="Control" parent="CanvasLayer/Control"]
@@ -260,70 +260,70 @@ text = "[center][font_size={15}]Start![/font_size][/center]"
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -25)
 
-[node name="TomShortcut" parent="." instance=ExtResource("7_j8h8u")]
+[node name="TomShortcut" parent="." instance=ExtResource("14_cs3d8")]
 position = Vector2(-208, 287)
 
-[node name="TomShortcut2" parent="." instance=ExtResource("15_63f5h")]
+[node name="TomShortcut2" parent="." instance=ExtResource("15_4wxxm")]
 position = Vector2(336, 103)
 floor = 2
 
-[node name="TomShortcut3" parent="." instance=ExtResource("16_pdo24")]
+[node name="TomShortcut3" parent="." instance=ExtResource("16_sl371")]
 position = Vector2(-55, -77)
 floor = 4
 
-[node name="JerryShortcut" parent="." instance=ExtResource("9_q2kdp")]
+[node name="JerryShortcut" parent="." instance=ExtResource("17_7cbx1")]
 position = Vector2(8, 184)
 scale = Vector2(1.22, 1.22)
 floor = 1
 
-[node name="JerryShortcut2" parent="." instance=ExtResource("9_q2kdp")]
+[node name="JerryShortcut2" parent="." instance=ExtResource("17_7cbx1")]
 position = Vector2(-128, 0)
 scale = Vector2(1.22, 1.22)
 floor = 3
 
-[node name="JerryShortcut3" parent="." instance=ExtResource("9_q2kdp")]
+[node name="JerryShortcut3" parent="." instance=ExtResource("17_7cbx1")]
 position = Vector2(-160, -184)
 scale = Vector2(1.22, 1.22)
 floor = 5
 
-[node name="Trapdoor" parent="." instance=ExtResource("10_bn61j")]
+[node name="Trapdoor" parent="." instance=ExtResource("18_0h0s8")]
 position = Vector2(-304, 117)
 floor = 2
 
-[node name="Trapdoor2" parent="." instance=ExtResource("10_bn61j")]
+[node name="Trapdoor2" parent="." instance=ExtResource("18_0h0s8")]
 position = Vector2(-280, -158)
 floor = 5
 
-[node name="Trapdoor3" parent="." instance=ExtResource("10_bn61j")]
+[node name="Trapdoor3" parent="." instance=ExtResource("18_0h0s8")]
 position = Vector2(192, -67)
 floor = 4
 
-[node name="Walls" parent="." instance=ExtResource("12_46wad")]
+[node name="Walls" parent="." instance=ExtResource("19_ardv6")]
 
-[node name="StairsGroup" parent="." instance=ExtResource("13_mbsdk")]
+[node name="StairsGroup" parent="." instance=ExtResource("20_dklgh")]
 
-[node name="Hole" parent="." instance=ExtResource("14_slfqy")]
+[node name="Hole" parent="." instance=ExtResource("21_hfo8k")]
 position = Vector2(0, -264)
 
-[node name="OptionalDoor" parent="." instance=ExtResource("14_slfqy")]
+[node name="OptionalDoor" parent="." instance=ExtResource("21_hfo8k")]
 position = Vector2(184, 104)
 
-[node name="OptionalDoor2" parent="." instance=ExtResource("14_slfqy")]
+[node name="OptionalDoor2" parent="." instance=ExtResource("21_hfo8k")]
 position = Vector2(-194, -78)
 
-[node name="OptionalDoor3" parent="." instance=ExtResource("14_slfqy")]
+[node name="OptionalDoor3" parent="." instance=ExtResource("21_hfo8k")]
 position = Vector2(-304, 11)
 
-[node name="TrapPlacer" parent="." instance=ExtResource("15_lp7f4")]
+[node name="TrapPlacer" parent="." instance=ExtResource("22_81un2")]
 
-[node name="SafetyArea" parent="." instance=ExtResource("24_pdfyy")]
+[node name="SafetyArea" parent="." instance=ExtResource("23_hi7ql")]
 position = Vector2(-443, 277)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_yjgnj")
+stream = ExtResource("24_fvaga")
 autoplay = true
 
-[node name="BackGroundObject" parent="." instance=ExtResource("18_v2qyb")]
+[node name="BackGroundObject" parent="." instance=ExtResource("25_mgcgw")]
 position = Vector2(-432, -192)
 
 [editable path="Cheese"]

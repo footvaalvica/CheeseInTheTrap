@@ -1,0 +1,400 @@
+[gd_scene load_steps=25 format=3 uid="uid://bek1yalhlkun3"]
+
+[ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_l0fq5"]
+[ext_resource type="Resource" uid="uid://8rn2gole7jue" path="res://resources/player1.tres" id="2_2al44"]
+[ext_resource type="Resource" uid="uid://jgmqday0wh5l" path="res://resources/player2.tres" id="3_um32j"]
+[ext_resource type="Resource" uid="uid://cgujiwi5yrix5" path="res://resources/game_score.tres" id="4_glqt3"]
+[ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="5_rhf3o"]
+[ext_resource type="PackedScene" uid="uid://cj3gq3clc4b5o" path="res://scenes/prefabs/characters/tom.tscn" id="6_608td"]
+[ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="7_7o0un"]
+[ext_resource type="Texture2D" uid="uid://ppd13xe4k4w4" path="res://assets/cheese.png" id="8_xecff"]
+[ext_resource type="Texture2D" uid="uid://264o6fsvlvje" path="res://assets/trap1.png" id="9_nmbla"]
+[ext_resource type="Texture2D" uid="uid://cp753obyi20re" path="res://assets/jerry_icon.png" id="10_iko7s"]
+[ext_resource type="Texture2D" uid="uid://dqjp1ohvp7mvt" path="res://assets/red_cross.jpg" id="11_msmde"]
+[ext_resource type="Texture2D" uid="uid://dpgyenakgka4q" path="res://assets/tom_icon.jpg" id="12_qai1v"]
+[ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://scenes/prefabs/collectables/cheese.tscn" id="13_m3r3y"]
+[ext_resource type="PackedScene" uid="uid://bqj766o4qrfo1" path="res://scenes/prefabs/shortcuts/trapdoor.tscn" id="14_qguk8"]
+[ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/shortcuts/tom_shortcut.tscn" id="15_oq0k1"]
+[ext_resource type="PackedScene" uid="uid://dvix5xnryqlca" path="res://scenes/prefabs/shortcuts/piano.tscn" id="16_syanh"]
+[ext_resource type="PackedScene" uid="uid://utjpgli4glaa" path="res://scenes/prefabs/shortcuts/bed.tscn" id="17_0stja"]
+[ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/shortcuts/jerry_shortcut.tscn" id="18_gpdi3"]
+[ext_resource type="PackedScene" uid="uid://mo3813gedshy" path="res://scenes/prefabs/house/wallsMedium.tscn" id="19_t13pc"]
+[ext_resource type="PackedScene" uid="uid://b7x4driqsukcu" path="res://scenes/prefabs/house/stairs_group_medium.tscn" id="20_ls4ws"]
+[ext_resource type="PackedScene" uid="uid://dbygtbjtb5xnp" path="res://scenes/prefabs/house/hole.tscn" id="21_gb5mp"]
+[ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="22_hd6pj"]
+[ext_resource type="PackedScene" uid="uid://dfea4refpbec4" path="res://scenes/prefabs/safety_area.tscn" id="23_xn6li"]
+[ext_resource type="AudioStream" uid="uid://btg0xh2k6oja2" path="res://fmod/cheeseinthetrap/Assets/1-04 Touché - Blue Cat Blues! (1955)  Scott Bradley.mp3" id="24_7m88j"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("tom", "jerry", "trap_placer", "safety_zone", "second_holes", "cheese_text", "trap_text", "time_text", "hint_text", "start_text", "_jerry_ready_image", "_tom_ready_image", "_jerry_control", "_tom_control") instance=ExtResource("1_l0fq5")]
+MAX_FLOOR = 9
+TOTAL_CHEESE = 5
+MAX_TRAPS = 5
+_title = "Tom's haunted mansion"
+tom = NodePath("../Tom")
+jerry = NodePath("../Jerry")
+trap_placer = NodePath("../TrapPlacer")
+safety_zone = NodePath("../SafetyArea")
+player1 = ExtResource("2_2al44")
+player2 = ExtResource("3_um32j")
+second_holes = [NodePath("../OptionalDoor"), NodePath("../OptionalDoor2"), NodePath("../OptionalDoor3"), NodePath("../OptionalDoor4")]
+game_score = ExtResource("4_glqt3")
+cheese_text = NodePath("../CanvasLayer/Control/Cheese/RichTextLabel")
+trap_text = NodePath("../CanvasLayer/Control/Traps/RichTextLabel")
+time_text = NodePath("../CanvasLayer/Control/Time/RichTextLabel")
+hint_text = NodePath("../CanvasLayer/Control/Preparation Phase")
+start_text = NodePath("../CanvasLayer/Control/Start Game")
+_jerry_ready_image = NodePath("../CanvasLayer/Control/Jerry/MarginContainer2/VBoxContainer/TextureRect")
+_tom_ready_image = NodePath("../CanvasLayer/Control/Tom/MarginContainer2/VBoxContainer/TextureRect")
+_jerry_control = NodePath("../CanvasLayer/Control/Jerry")
+_tom_control = NodePath("../CanvasLayer/Control/Tom")
+
+[node name="Jerry" parent="." instance=ExtResource("5_rhf3o")]
+z_index = 1
+position = Vector2(-740, 426)
+collision_mask = 17
+
+[node name="Tom" parent="." instance=ExtResource("6_608td")]
+z_index = 1
+position = Vector2(801, -409)
+collision_mask = 33
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground"]
+position = Vector2(8, -152)
+texture = ExtResource("7_7o0un")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cheese" type="Control" parent="CanvasLayer/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Cheese"]
+layout_mode = 0
+offset_left = 901.0
+offset_top = 15.0
+offset_right = 1055.0
+offset_bottom = 170.0
+scale = Vector2(0.2, 0.2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Cheese/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Cheese/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_xecff")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Cheese"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 19.0
+offset_right = 971.0
+offset_bottom = 42.0
+bbcode_enabled = true
+text = "[center]3[/center]"
+
+[node name="Traps" type="Control" parent="CanvasLayer/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Traps"]
+layout_mode = 0
+offset_left = 978.0
+offset_top = 19.0
+offset_right = 1446.0
+offset_bottom = 174.0
+scale = Vector2(0.2, 0.2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Traps/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Traps/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_nmbla")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Traps"]
+layout_mode = 0
+offset_left = 1077.0
+offset_top = 15.0
+offset_right = 1117.0
+offset_bottom = 38.0
+bbcode_enabled = true
+text = "[center]3[/center]"
+
+[node name="Jerry" type="Control" parent="CanvasLayer/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Jerry"]
+layout_mode = 0
+offset_left = 802.0
+offset_top = 14.0
+offset_right = 1270.0
+offset_bottom = 380.0
+scale = Vector2(0.0918788, 0.0918788)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Jerry/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Jerry/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_iko7s")
+expand_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Jerry"]
+layout_mode = 0
+offset_left = 854.0
+offset_top = 13.0
+offset_right = 1322.0
+offset_bottom = 480.0
+scale = Vector2(0.0849208, 0.0849208)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Jerry/MarginContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Jerry/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_msmde")
+expand_mode = 5
+
+[node name="Tom" type="Control" parent="CanvasLayer/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Tom"]
+layout_mode = 0
+offset_left = 682.0
+offset_top = 13.0
+offset_right = 1417.0
+offset_bottom = 577.0
+scale = Vector2(0.0706735, 0.0706735)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Tom/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Tom/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_qai1v")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Tom"]
+layout_mode = 0
+offset_left = 746.0
+offset_top = 12.0
+offset_right = 1214.0
+offset_bottom = 480.0
+scale = Vector2(0.0849208, 0.0849208)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Tom/MarginContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Tom/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_msmde")
+expand_mode = 5
+
+[node name="Time" type="Control" parent="CanvasLayer/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Time"]
+layout_mode = 0
+offset_left = 1113.0
+offset_top = 14.0
+offset_right = 1253.0
+offset_bottom = 40.0
+bbcode_enabled = true
+text = "[center]0[/center]"
+
+[node name="Preparation Phase" type="RichTextLabel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 7.0
+offset_top = 14.0
+offset_right = 697.0
+offset_bottom = 94.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center][font_size={15}]Preparation Phase![/font_size][/center]
+[center][font_size={15}]Jerry - Place Safety Zone. Tom - Place traps[/font_size][/center]"
+
+[node name="Start Game" type="RichTextLabel" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 3.0
+offset_top = 14.0
+offset_right = 693.0
+offset_bottom = 94.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center][font_size={15}]Start![/font_size][/center]"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -45)
+zoom = Vector2(0.7, 0.7)
+
+[node name="Cheese" parent="." instance=ExtResource("13_m3r3y")]
+position = Vector2(-236, 140)
+floor = 3
+
+[node name="Cheese2" parent="." instance=ExtResource("13_m3r3y")]
+position = Vector2(-533, -43)
+floor = 5
+
+[node name="Cheese3" parent="." instance=ExtResource("13_m3r3y")]
+position = Vector2(-75, -134)
+floor = 6
+
+[node name="Cheese4" parent="." instance=ExtResource("13_m3r3y")]
+position = Vector2(65, -223)
+floor = 7
+
+[node name="Cheese5" parent="." instance=ExtResource("13_m3r3y")]
+position = Vector2(265, 245)
+floor = 2
+
+[node name="Trapdoor" parent="." instance=ExtResource("14_qguk8")]
+position = Vector2(-156, 163)
+floor = 3
+
+[node name="Trapdoor2" parent="." instance=ExtResource("14_qguk8")]
+position = Vector2(-208, -110)
+floor = 6
+
+[node name="Trapdoor3" parent="." instance=ExtResource("14_qguk8")]
+position = Vector2(512, -206)
+floor = 7
+
+[node name="Trapdoor4" parent="." instance=ExtResource("14_qguk8")]
+position = Vector2(120, -21)
+floor = 5
+
+[node name="Trapdoor5" parent="." instance=ExtResource("14_qguk8")]
+position = Vector2(746, -298)
+floor = 8
+
+[node name="Trapdoor6" parent="." instance=ExtResource("14_qguk8")]
+position = Vector2(-443, -206)
+floor = 7
+
+[node name="Trapdoor7" parent="." instance=ExtResource("14_qguk8")]
+position = Vector2(-437, 342)
+floor = 1
+
+[node name="Trapdoor8" parent="." instance=ExtResource("14_qguk8")]
+position = Vector2(529, 66)
+floor = 4
+
+[node name="Trapdoor9" parent="." instance=ExtResource("14_qguk8")]
+position = Vector2(117, 249)
+floor = 1
+
+[node name="Trapdoor10" parent="." instance=ExtResource("14_qguk8")]
+position = Vector2(-332, -299)
+floor = 8
+
+[node name="TomShortcut" parent="." instance=ExtResource("15_oq0k1")]
+position = Vector2(-50, 331)
+floor = 1
+
+[node name="TomShortcut2" parent="." instance=ExtResource("15_oq0k1")]
+position = Vector2(-504, 148)
+floor = 3
+
+[node name="TomShortcut3" parent="." instance=ExtResource("16_syanh")]
+position = Vector2(385, -214)
+floor = 7
+
+[node name="TomShortcut4" parent="." instance=ExtResource("15_oq0k1")]
+position = Vector2(-364, -35)
+floor = 5
+
+[node name="TomShortcut5" parent="." instance=ExtResource("17_0stja")]
+position = Vector2(366, 245)
+floor = 2
+
+[node name="JerryShortcut" parent="." instance=ExtResource("18_gpdi3")]
+position = Vector2(-262, 405)
+
+[node name="JerryShortcut2" parent="." instance=ExtResource("18_gpdi3")]
+position = Vector2(285, 130)
+floor = 3
+
+[node name="JerryShortcut3" parent="." instance=ExtResource("18_gpdi3")]
+position = Vector2(-677, -144)
+floor = 6
+
+[node name="JerryShortcut4" parent="." instance=ExtResource("18_gpdi3")]
+position = Vector2(150, -144)
+floor = 6
+
+[node name="JerryShortcut5" parent="." instance=ExtResource("18_gpdi3")]
+position = Vector2(419, 40)
+floor = 4
+
+[node name="JerryShortcut6" parent="." instance=ExtResource("18_gpdi3")]
+position = Vector2(-177, -235)
+floor = 7
+
+[node name="JerryShortcut7" parent="." instance=ExtResource("18_gpdi3")]
+position = Vector2(659, -326)
+floor = 8
+
+[node name="JerryShortcut8" parent="." instance=ExtResource("18_gpdi3")]
+position = Vector2(-428, 223)
+floor = 2
+
+[node name="JerryShortcut9" parent="." instance=ExtResource("18_gpdi3")]
+position = Vector2(304, 314)
+floor = 1
+
+[node name="JerryShortcut10" parent="." instance=ExtResource("18_gpdi3")]
+position = Vector2(-513, -328)
+floor = 8
+
+[node name="Walls" parent="." instance=ExtResource("19_t13pc")]
+
+[node name="StairsGroup" parent="." instance=ExtResource("20_ls4ws")]
+
+[node name="Hole" parent="." instance=ExtResource("21_gb5mp")]
+position = Vector2(2, -401)
+
+[node name="OptionalDoor" parent="." instance=ExtResource("21_gb5mp")]
+position = Vector2(261, -217)
+
+[node name="OptionalDoor2" parent="." instance=ExtResource("21_gb5mp")]
+position = Vector2(163, 422)
+
+[node name="OptionalDoor3" parent="." instance=ExtResource("21_gb5mp")]
+position = Vector2(-328, 240)
+
+[node name="OptionalDoor4" parent="." instance=ExtResource("21_gb5mp")]
+position = Vector2(-285, 57)
+
+[node name="TrapPlacer" parent="." instance=ExtResource("22_hd6pj")]
+position = Vector2(693, -393)
+
+[node name="SafetyArea" parent="." instance=ExtResource("23_xn6li")]
+position = Vector2(-646, 413)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_7m88j")
+autoplay = true

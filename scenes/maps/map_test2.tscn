@@ -352,7 +352,7 @@ position = Vector2(2, -401)
 position = Vector2(313, 149)
 
 [node name="OptionalDoor2" parent="." instance=ExtResource("22_qmbcj")]
-position = Vector2(313, 149)
+position = Vector2(-301, 241)
 
 [node name="OptionalDoor3" parent="." instance=ExtResource("22_qmbcj")]
 position = Vector2(-191, 56)
