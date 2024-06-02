@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dvix5xnryqlca"]
 
 [ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="1_bw4e6"]
-[ext_resource type="Texture2D" uid="uid://duil8wp1cheqt" path="res://assets/piano_sprites.png" id="2_dye8m"]
-[ext_resource type="AudioStream" uid="uid://ccto4t0kv2xp" path="res://fmod/cheeseinthetrap/Assets/_Knock_Over1.vag.wav" id="3_pmale"]
+[ext_resource type="Texture2D" uid="uid://c46jwrrpjuxt4" path="res://assets/piano_sprites.png" id="2_dye8m"]
+[ext_resource type="AudioStream" uid="uid://dfnv6uvill8g7" path="res://fmod/cheeseinthetrap/Assets/_Knock_Over1.vag.wav" id="3_pmale"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w3nv7"]
 atlas = ExtResource("2_dye8m")

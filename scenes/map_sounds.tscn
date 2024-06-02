@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://dfi2mvuka07j8"]
 
-[ext_resource type="AudioStream" uid="uid://cqlmtqqfhh3fq" path="res://fmod/cheeseinthetrap/Assets/apanhar_queijo.wav" id="1_m7ogc"]
-[ext_resource type="AudioStream" uid="uid://b6c4yvmdfpib5" path="res://fmod/cheeseinthetrap/Assets/apanhar_trap.wav" id="2_2qavj"]
-[ext_resource type="AudioStream" uid="uid://gqgblat1ewry" path="res://fmod/cheeseinthetrap/Assets/deixar_cair_trap.wav" id="3_xcsrg"]
-[ext_resource type="AudioStream" uid="uid://b7rhcknars5sw" path="res://fmod/cheeseinthetrap/Assets/caught_in_the_trap.wav" id="4_q3vce"]
-[ext_resource type="AudioStream" uid="uid://cjxeuvyqogdb3" path="res://fmod/cheeseinthetrap/Assets/jerry_ready.wav" id="5_ic50y"]
-[ext_resource type="AudioStream" uid="uid://xw36yr5t4rk0" path="res://fmod/cheeseinthetrap/Assets/om_Tom_Ready.vag.wav" id="6_55p3s"]
-[ext_resource type="AudioStream" uid="uid://bvud2h4mb8ljk" path="res://fmod/cheeseinthetrap/Assets/both_ready.mp3" id="7_fiq7o"]
+[ext_resource type="AudioStream" uid="uid://cgmgiji4a0el7" path="res://fmod/cheeseinthetrap/Assets/apanhar_queijo.wav" id="1_m7ogc"]
+[ext_resource type="AudioStream" uid="uid://yqxrm8yo5f3w" path="res://fmod/cheeseinthetrap/Assets/apanhar_trap.wav" id="2_2qavj"]
+[ext_resource type="AudioStream" uid="uid://vlyhva2xhv4s" path="res://fmod/cheeseinthetrap/Assets/deixar_cair_trap.wav" id="3_xcsrg"]
+[ext_resource type="AudioStream" uid="uid://bgf2c1kk70c3e" path="res://fmod/cheeseinthetrap/Assets/caught_in_the_trap.wav" id="4_q3vce"]
+[ext_resource type="AudioStream" uid="uid://2c80s7uhfbwf" path="res://fmod/cheeseinthetrap/Assets/jerry_ready.wav" id="5_ic50y"]
+[ext_resource type="AudioStream" uid="uid://cv611bpydw6q1" path="res://fmod/cheeseinthetrap/Assets/om_Tom_Ready.vag.wav" id="6_55p3s"]
+[ext_resource type="AudioStream" uid="uid://cxudo6vknjumw" path="res://fmod/cheeseinthetrap/Assets/both_ready.mp3" id="7_fiq7o"]
 
 [node name="Sounds" type="Node"]
 
@@ -43,3 +43,4 @@ bus = &"SFX"
 [node name="both_ready" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_fiq7o")
 volume_db = -2.806
+bus = &"SFX"
