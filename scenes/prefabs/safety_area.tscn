@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfea4refpbec4"]
 
 [ext_resource type="Script" path="res://scripts/SafetyArea.gd" id="1_t2eu2"]
-[ext_resource type="Texture2D" uid="uid://b0iufkiv1m4g3" path="res://assets/safety_area.png" id="2_j4xrk"]
-[ext_resource type="AudioStream" uid="uid://cgmgiji4a0el7" path="res://fmod/cheeseinthetrap/Assets/apanhar_queijo.wav" id="3_ofujs"]
+[ext_resource type="Texture2D" uid="uid://bs4i3m8qrncfv" path="res://assets/safety_area.png" id="2_j4xrk"]
+[ext_resource type="AudioStream" uid="uid://cplp3undls7n6" path="res://fmod/cheeseinthetrap/Assets/squeeze_through.wav" id="3_mb0n5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whhqd"]
 size = Vector2(126, 69.5)
@@ -25,5 +25,5 @@ position = Vector2(0, -2.25)
 shape = SubResource("RectangleShape2D_whhqd")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_ofujs")
+stream = ExtResource("3_mb0n5")
 bus = &"SFX"
