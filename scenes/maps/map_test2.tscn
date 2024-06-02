@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b8757fjmx6wbd"]
+[gd_scene load_steps=33 format=3 uid="uid://b8757fjmx6wbd"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_xlspn"]
 [ext_resource type="Resource" uid="uid://8rn2gole7jue" path="res://resources/player1.tres" id="2_56j4h"]
@@ -28,8 +28,10 @@
 [ext_resource type="AudioStream" uid="uid://cgmgiji4a0el7" path="res://fmod/cheeseinthetrap/Assets/apanhar_queijo.wav" id="26_2xvux"]
 [ext_resource type="AudioStream" uid="uid://yqxrm8yo5f3w" path="res://fmod/cheeseinthetrap/Assets/apanhar_trap.wav" id="27_1hpea"]
 [ext_resource type="AudioStream" uid="uid://vlyhva2xhv4s" path="res://fmod/cheeseinthetrap/Assets/deixar_cair_trap.wav" id="28_hxfyw"]
-[ext_resource type="AudioStream" uid="uid://d4au8jmg6fjtf" path="res://fmod/cheeseinthetrap/Assets/jerrry_caught.wav" id="29_0h6pj"]
+[ext_resource type="AudioStream" uid="uid://bgf2c1kk70c3e" path="res://fmod/cheeseinthetrap/Assets/caught_in_the_trap.wav" id="29_phj13"]
+[ext_resource type="AudioStream" uid="uid://2c80s7uhfbwf" path="res://fmod/cheeseinthetrap/Assets/jerry_ready.wav" id="30_dpiyr"]
 [ext_resource type="AudioStream" uid="uid://cxudo6vknjumw" path="res://fmod/cheeseinthetrap/Assets/both_ready.mp3" id="30_yu5er"]
+[ext_resource type="AudioStream" uid="uid://cv611bpydw6q1" path="res://fmod/cheeseinthetrap/Assets/om_Tom_Ready.vag.wav" id="31_maygv"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -37,7 +39,7 @@
 MAX_FLOOR = 9
 TOTAL_CHEESE = 5
 MAX_TRAPS = 5
-_title = "Tom's haunted mansion"
+_title = "Family mansion"
 tom = NodePath("../Tom")
 jerry = NodePath("../Jerry")
 trap_placer = NodePath("../TrapPlacer")
@@ -410,13 +412,15 @@ stream = ExtResource("28_hxfyw")
 bus = &"SFX"
 
 [node name="jerry_caught_in_trap" type="AudioStreamPlayer" parent="Node"]
-stream = ExtResource("29_0h6pj")
+stream = ExtResource("29_phj13")
 bus = &"SFX"
 
 [node name="ready_jerry" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("30_dpiyr")
 bus = &"SFX"
 
 [node name="ready_tom" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("31_maygv")
 bus = &"SFX"
 
 [node name="both_ready" type="AudioStreamPlayer" parent="Node"]
