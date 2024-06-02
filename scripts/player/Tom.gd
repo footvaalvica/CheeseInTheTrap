@@ -2,6 +2,7 @@ class_name Tom extends Player
 
 var trap_scene : PackedScene = load("res://scenes/prefabs/collectables/trap.tscn")
 var trapdoors_available : Array[Trapdoor] = []
+var _catching : PhysicsBody2D = null
 
 const TRAPDOOR_TIME : float = .1
 
@@ -13,6 +14,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	super._process(delta)
+	if (_catching != null) :
+		if (_climbing_phase != Climbing_Phase.None) : # Tom can't catch while climbing stairs
+			return
+		var isJerry : bool = _catching.get_collision_layer_value(3)
+		if isJerry:
+			GameManager.instance().catch_jerry()
 	if Input.is_action_just_pressed("trap_action_%s" % player_id) :
 		trap_action()
 	if Input.is_action_just_pressed("destroy_shortcut_%s" % player_id) :
@@ -27,17 +34,14 @@ func on_collision(body : Node2D) -> void :
 	print_debug("catch")
 	if physics == null :
 		return # ignore if not PhysicsBody2D
-	if (_climbing_phase != Climbing_Phase.None) : # Tom can't catch while climbing stairs
-		return
-	var isJerry : bool = physics.get_collision_layer_value(3)
-	if isJerry:
-		GameManager.instance().catch_jerry()
+	_catching = physics
 
 func on_collision_leave(body : Node2D) -> void :
 	var physics := body as PhysicsBody2D 
 	print_debug("catch")
 	if physics == null :
 		return # ignore if not PhysicsBody2D
+	_catching = null
 	var isJerry : bool = physics.get_collision_layer_value(3)
 	if isJerry:
 		GameManager.instance().release_jerry()

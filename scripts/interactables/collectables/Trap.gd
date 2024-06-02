@@ -2,6 +2,7 @@ class_name Trap extends Spammable
 
 var active : bool = true
 var _collectable : bool = false
+var _in_zone : Jerry = null
 var _cooldown : float = 0
 var _restore_counter : float = 0
 var _floor : float = 0
@@ -22,6 +23,10 @@ func _process(delta):
 		GameManager.instance().collect_trap(self)
 		collect()
 	if (active) :
+		if (_in_zone != null and _in_zone._floor == _floor) :
+			$DisarmArea.show()
+		else :
+			$DisarmArea.hide()
 		var frames_to_hit_ratio = max_hits_counter / (NUMBER_OF_FRAMES - 1)
 		var frame : int = current_hits_counter / frames_to_hit_ratio
 		animated_sprite.frame = frame
@@ -74,11 +79,12 @@ func on_hit_action() -> void :
 
 func _on_area_2d_body_entered(body : Node2D):
 	var jerry = body as Jerry
-	if active && jerry._floor == _floor :
-		$DisarmArea.visible = true
+	if active:
+		_in_zone = jerry
 	jerry.add_trap(self)
 
 func _on_area_2d_body_exited(body):
 	$DisarmArea.hide()
 	var jerry = body as Jerry
+	_in_zone = jerry
 	jerry.remove_trap(self)

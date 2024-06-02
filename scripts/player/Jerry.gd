@@ -143,9 +143,7 @@ func add_trap(trap : Trap) -> void :
 	_traps_available.append(trap)
 
 func remove_trap(trap : Trap) -> void :
-	print_debug(_traps_available.size())
 	_traps_available = _traps_available.filter(func (tp) : return tp != trap)
-	print_debug(_traps_available.size())
 
 func switch_direction(direction:Direction) -> Direction :
 	return Direction.Right if direction == Direction.Left else Direction.Left
