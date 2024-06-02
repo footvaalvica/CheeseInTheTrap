@@ -5,6 +5,7 @@ class_name MainGameMenu extends Control
 @export var rest_of_menu: CanvasLayer
 
 func _ready():
+	MenuMusic.play()
 	start.grab_focus()
 
 func _process(delta):

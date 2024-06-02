@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://cwvtbn87rqyvv"]
+[gd_scene load_steps=17 format=3 uid="uid://cwvtbn87rqyvv"]
 
 [ext_resource type="VideoStream" path="res://assets/menuvid.ogv" id="1_aaqpx"]
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_iawo3"]
 [ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_u5qb5"]
 [ext_resource type="Texture2D" uid="uid://bgniw0epwu85v" path="res://assets/cga_ui_gold/b_3.png" id="4_j0jqu"]
 [ext_resource type="Texture2D" uid="uid://dk2xdh7mildfm" path="res://assets/cga_ui_gold/b_5.png" id="4_y1mbn"]
-[ext_resource type="AudioStream" uid="uid://bchrjclotqiqt" path="res://fmod/cheeseinthetrap/Assets/Gravity Rush OST - Douse Shinundakara (Instrumental).mp3" id="6_jvktc"]
 [ext_resource type="PackedScene" uid="uid://bpolcy7few7wo" path="res://scenes/mateus_options_menu.tscn" id="7_8ulci"]
 [ext_resource type="Texture2D" uid="uid://bhx13hde82jga" path="res://assets/cga_ui_gold/x symbol.png" id="8_ft16c"]
 [ext_resource type="Texture2D" uid="uid://b05hojyvoh7a0" path="res://assets/cga_ui_gold/b_4.png" id="8_m8uo1"]
@@ -179,11 +178,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_m202o")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7dfr6")
 theme_override_styles/focus = SubResource("StyleBoxTexture_tectu")
 text = "Options"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_jvktc")
-autoplay = true
-bus = &"Music"
 
 [node name="UIOPTIONS" type="CanvasLayer" parent="."]
 visible = false

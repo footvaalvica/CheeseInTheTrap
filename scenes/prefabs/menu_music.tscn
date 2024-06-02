@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://buon5vi7xkua2"]
+
+[ext_resource type="AudioStream" uid="uid://bchrjclotqiqt" path="res://fmod/cheeseinthetrap/Assets/Gravity Rush OST - Douse Shinundakara (Instrumental).mp3" id="1_wkq3e"]
+
+[node name="MenuMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_wkq3e")
+autoplay = true
+bus = &"Music"

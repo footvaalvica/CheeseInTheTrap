@@ -61,6 +61,7 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MenuMusic.stop()
 	print_debug(_title)
 	_number_of_traps = MAX_TRAPS
 	update_resource(player1)

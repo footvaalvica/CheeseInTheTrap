@@ -35,8 +35,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-PlayerAccounts="*res://addons/quiver_player_accounts/player_accounts.tscn"
-Leaderboards="*res://addons/quiver_leaderboards/leaderboards.tscn"
+MenuMusic="*res://scenes/prefabs/menu_music.tscn"
 
 [display]
 
