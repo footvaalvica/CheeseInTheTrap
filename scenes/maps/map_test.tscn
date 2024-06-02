@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://lqms5vj1r5re"]
+[gd_scene load_steps=34 format=3 uid="uid://lqms5vj1r5re"]
 
 [ext_resource type="PackedScene" uid="uid://dqxm20uxrxtc0" path="res://scenes/prefabs/game_manager.tscn" id="1_vwut4"]
 [ext_resource type="Resource" uid="uid://8rn2gole7jue" path="res://resources/player1.tres" id="2_4s5y3"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dbygtbjtb5xnp" path="res://scenes/prefabs/house/hole.tscn" id="21_hfo8k"]
 [ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="22_81un2"]
 [ext_resource type="PackedScene" uid="uid://dfea4refpbec4" path="res://scenes/prefabs/safety_area.tscn" id="23_hi7ql"]
+[ext_resource type="AudioStream" uid="uid://dh2j4yrpun84g" path="res://fmod/cheeseinthetrap/Assets/figt music.mp3" id="24_u8qrv"]
 [ext_resource type="AudioStream" uid="uid://bdy22qbw3y48l" path="res://fmod/cheeseinthetrap/Assets/Shoji Meguro - I'll Face Myself (special ver.).mp3" id="25_7gyb5"]
 [ext_resource type="PackedScene" uid="uid://ccabibhreo31q" path="res://scenes/prefabs/house/back_ground_object.tscn" id="25_mgcgw"]
 [ext_resource type="AudioStream" uid="uid://cgmgiji4a0el7" path="res://fmod/cheeseinthetrap/Assets/apanhar_queijo.wav" id="26_8qrm0"]
@@ -336,6 +337,7 @@ position = Vector2(-304, 11)
 position = Vector2(-443, 277)
 
 [node name="main_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_u8qrv")
 bus = &"Music"
 
 [node name="preparation_song" type="AudioStreamPlayer" parent="."]

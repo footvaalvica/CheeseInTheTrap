@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://utjpgli4glaa"]
+[gd_scene load_steps=10 format=3 uid="uid://cgmcutybhnet4"]
 
 [ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="1_pxt4k"]
 [ext_resource type="Texture2D" uid="uid://d0482ivnfgip8" path="res://assets/bed_sprites.png" id="2_cp4a5"]
+[ext_resource type="AudioStream" uid="uid://clv7dsb7v6gt8" path="res://fmod/cheeseinthetrap/Assets/Wood Break, Breaking Wood - Sound Effect SFX - Wood Sound Effects.mp3" id="3_u8fay"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1ddv"]
 atlas = ExtResource("2_cp4a5")
@@ -38,10 +39,11 @@ size = Vector2(72, 39)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_113me"]
 size = Vector2(89, 36)
 
-[node name="TomShortcut" type="Node2D" groups=["TomShortcut"]]
+[node name="TomShortcut" type="Node2D" node_paths=PackedStringArray("breaking_sound") groups=["TomShortcut"]]
 position = Vector2(239, 60)
 script = ExtResource("1_pxt4k")
 distance = 80.0
+breaking_sound = NodePath("AudioStreamPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
@@ -62,6 +64,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_113me")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u8fay")
 
 [connection signal="body_entered" from="Area2D" to="." method="enter_traverse_area"]
 [connection signal="body_exited" from="Area2D" to="." method="exit_traverse_area"]
