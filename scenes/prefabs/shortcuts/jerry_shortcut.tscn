@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/interactables/shortcuts/JerryShortcut.gd" id="1_3xst3"]
 [ext_resource type="Texture2D" uid="uid://dp4qdl7g456eo" path="res://assets/block.png" id="1_ujsje"]
 [ext_resource type="Texture2D" uid="uid://bqbcv6giuh6eb" path="res://assets/broken.png" id="2_emkvh"]
-[ext_resource type="AudioStream" path="res://fmod/cheeseinthetrap/Assets/Concrete break - TheFkksounds.mp3" id="4_uqrcf"]
+[ext_resource type="AudioStream" uid="uid://bo134ronmtr1t" path="res://fmod/cheeseinthetrap/Assets/Concrete break - TheFkksounds.mp3" id="4_uqrcf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mtxxr"]
 atlas = ExtResource("2_emkvh")

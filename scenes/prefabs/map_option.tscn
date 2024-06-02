@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://iculuh4j4va6"]
 
 [ext_resource type="Script" path="res://scripts/MapOption.gd" id="1_egft6"]
-[ext_resource type="Texture2D" path="res://assets/locked_map.png" id="2_kupe1"]
-[ext_resource type="Texture2D" path="res://assets/map_1.png" id="3_uln3p"]
+[ext_resource type="Texture2D" uid="uid://7vd7a3ma0rkn" path="res://assets/locked_map.png" id="2_kupe1"]
+[ext_resource type="Texture2D" uid="uid://cwdxcer8h8kwv" path="res://assets/map_1.png" id="3_uln3p"]
 
 [node name="Map" type="Control"]
 layout_mode = 3
@@ -53,11 +53,12 @@ layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="MarginContainer2/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("3_uln3p")
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = -162.0
+offset_left = -173.0
 offset_top = -249.0
 offset_right = 233.0
 offset_bottom = -207.0
@@ -65,7 +66,7 @@ bbcode_enabled = true
 
 [node name="Cheese Needed" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = -165.0
+offset_left = -168.0
 offset_top = 68.0
 offset_right = 230.0
 offset_bottom = 110.0

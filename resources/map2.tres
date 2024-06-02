@@ -1,12 +1,16 @@
-[gd_resource type="Resource" script_class="MapResource" load_steps=4 format=3 uid="uid://tbu0urwcrp1d"]
+[gd_resource type="Resource" script_class="MapResource" load_steps=6 format=3 uid="uid://tbu0urwcrp1d"]
 
 [ext_resource type="Script" path="res://resources/scripts/map_resource.gd" id="1_1uf5b"]
-[ext_resource type="Texture2D" uid="uid://d135frcdybhmc" path="res://assets/map_1.png" id="1_o6noc"]
-[ext_resource type="PackedScene" uid="uid://b8757fjmx6wbd" path="res://scenes/maps/map_test2.tscn" id="2_650tj"]
+[ext_resource type="Texture2D" uid="uid://uiwkaon76hef" path="res://assets/images/MAPA2.png" id="1_qbce5"]
+[ext_resource type="PackedScene" uid="uid://b8757fjmx6wbd" path="res://scenes/map_test2.tscn" id="2_650tj"]
+[ext_resource type="Texture2D" uid="uid://7yqfc6870idr" path="res://assets/images/mapa2foc.png" id="2_wvdxi"]
+[ext_resource type="Texture2D" uid="uid://llyu5yo7rowh" path="res://assets/images/map2sel.png" id="3_41sqd"]
 
 [resource]
 script = ExtResource("1_1uf5b")
 title = "Tom's haunted mansion"
 necessary_cheese = 5
 map_scene = ExtResource("2_650tj")
-map_image = ExtResource("1_o6noc")
+map_image = ExtResource("1_qbce5")
+map_image_focus = ExtResource("2_wvdxi")
+map_image_selected = ExtResource("3_41sqd")

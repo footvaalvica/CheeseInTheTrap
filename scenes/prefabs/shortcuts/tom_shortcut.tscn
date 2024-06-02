@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="1_s8nh0"]
 [ext_resource type="Texture2D" uid="uid://d1y6idjp2otsg" path="res://assets/bathtub_sprites.png" id="2_w0x8i"]
-[ext_resource type="AudioStream" path="res://fmod/cheeseinthetrap/Assets/Vase Breaking (Sound Effect) - Mr Sound Nostalgie.mp3" id="3_x2x1q"]
+[ext_resource type="AudioStream" uid="uid://cfg2mihrvguh1" path="res://fmod/cheeseinthetrap/Assets/Vase Breaking (Sound Effect) - Mr Sound Nostalgie.mp3" id="3_x2x1q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13n55"]
 atlas = ExtResource("2_w0x8i")

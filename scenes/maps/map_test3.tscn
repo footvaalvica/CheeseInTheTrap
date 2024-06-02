@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bqj766o4qrfo1" path="res://scenes/prefabs/shortcuts/trapdoor.tscn" id="14_qguk8"]
 [ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/shortcuts/tom_shortcut.tscn" id="15_oq0k1"]
 [ext_resource type="PackedScene" uid="uid://dvix5xnryqlca" path="res://scenes/prefabs/shortcuts/piano.tscn" id="16_syanh"]
-[ext_resource type="PackedScene" uid="uid://utjpgli4glaa" path="res://scenes/prefabs/shortcuts/bed.tscn" id="17_0stja"]
+[ext_resource type="PackedScene" uid="uid://cgmcutybhnet4" path="res://scenes/prefabs/shortcuts/bed.tscn" id="17_0stja"]
 [ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/shortcuts/jerry_shortcut.tscn" id="18_gpdi3"]
 [ext_resource type="PackedScene" uid="uid://mo3813gedshy" path="res://scenes/prefabs/house/wallsMedium.tscn" id="19_t13pc"]
 [ext_resource type="PackedScene" uid="uid://b7x4driqsukcu" path="res://scenes/prefabs/house/stairs_group_medium.tscn" id="20_ls4ws"]
