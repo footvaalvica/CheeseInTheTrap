@@ -35,14 +35,18 @@ func _ready():
 func on_focus():
 	print_debug("focus")
 	button.grab_focus()
-	image.texture = resource.map_image_focus 
+	if (! is_locked()):
+		image.texture = resource.map_image_focus 
 	
 func off_focus():
-	if image.texture!= resource.map_image_selected:
+	if !is_locked() and image.texture!= resource.map_image_selected:
 		image.texture = resource.map_image
 
+func is_locked() :
+	return resource == null or resource.necessary_cheese > cheese
+
 func select():
-	if resource != null and resource.necessary_cheese <= GameStateManager.cheese:
+	if resource != null and resource.necessary_cheese <= cheese:
 		image.texture = resource.map_image_selected
 		print(name)
 		MapSelection.instance.switch_map(resource)
