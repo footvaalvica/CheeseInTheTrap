@@ -36,4 +36,4 @@ func load_video_streams():
 
 
 func _on_play_pressed():
-	get_tree().change_scene_to_packed(GameStateManager.map)
+	get_tree().change_scene_to_file("res://scenes/rules.tscn")
