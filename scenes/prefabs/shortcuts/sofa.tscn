@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://ctqqoyedh15m8"]
 
 [ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="1_fuclp"]
-[ext_resource type="Texture2D" uid="uid://ltpaxt2n10t3" path="res://assets/sofa_sprites.png" id="2_phjkb"]
-[ext_resource type="AudioStream" uid="uid://clv7dsb7v6gt8" path="res://fmod/cheeseinthetrap/Assets/Wood Break, Breaking Wood - Sound Effect SFX - Wood Sound Effects.mp3" id="3_fuxeq"]
+[ext_resource type="Texture2D" uid="uid://crkm2hpd1s500" path="res://assets/sofa_sprites.png" id="2_phjkb"]
+[ext_resource type="AudioStream" uid="uid://5nnit23fg1y7" path="res://fmod/cheeseinthetrap/Assets/Wood Break, Breaking Wood - Sound Effect SFX - Wood Sound Effects.mp3" id="3_fuxeq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_777aa"]
 atlas = ExtResource("2_phjkb")
@@ -67,6 +67,7 @@ shape = SubResource("RectangleShape2D_113me")
 
 [node name="breaking" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_fuxeq")
+volume_db = -1.009
 
 [connection signal="body_entered" from="Area2D" to="." method="enter_traverse_area"]
 [connection signal="body_exited" from="Area2D" to="." method="exit_traverse_area"]
