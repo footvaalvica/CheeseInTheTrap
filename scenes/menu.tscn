@@ -3,12 +3,12 @@
 [ext_resource type="VideoStream" path="res://assets/menuvid.ogv" id="1_aaqpx"]
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_iawo3"]
 [ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_u5qb5"]
-[ext_resource type="Texture2D" uid="uid://xdriet3j7pei" path="res://assets/cga_ui_gold/b_3.png" id="4_j0jqu"]
-[ext_resource type="Texture2D" uid="uid://deebvkhsyxtkm" path="res://assets/cga_ui_gold/b_5.png" id="4_y1mbn"]
-[ext_resource type="AudioStream" uid="uid://csth2dr0653ud" path="res://fmod/cheeseinthetrap/Assets/Gravity Rush OST - Douse Shinundakara (Instrumental).mp3" id="6_jvktc"]
+[ext_resource type="Texture2D" uid="uid://bgniw0epwu85v" path="res://assets/cga_ui_gold/b_3.png" id="4_j0jqu"]
+[ext_resource type="Texture2D" uid="uid://dk2xdh7mildfm" path="res://assets/cga_ui_gold/b_5.png" id="4_y1mbn"]
+[ext_resource type="AudioStream" uid="uid://bchrjclotqiqt" path="res://fmod/cheeseinthetrap/Assets/Gravity Rush OST - Douse Shinundakara (Instrumental).mp3" id="6_jvktc"]
 [ext_resource type="PackedScene" uid="uid://bpolcy7few7wo" path="res://scenes/mateus_options_menu.tscn" id="7_8ulci"]
-[ext_resource type="Texture2D" uid="uid://c6xd074k4bp63" path="res://assets/cga_ui_gold/x symbol.png" id="8_ft16c"]
-[ext_resource type="Texture2D" uid="uid://cdsme01rycjqu" path="res://assets/cga_ui_gold/b_4.png" id="8_m8uo1"]
+[ext_resource type="Texture2D" uid="uid://bhx13hde82jga" path="res://assets/cga_ui_gold/x symbol.png" id="8_ft16c"]
+[ext_resource type="Texture2D" uid="uid://b05hojyvoh7a0" path="res://assets/cga_ui_gold/b_4.png" id="8_m8uo1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e3j4a"]
 texture = ExtResource("4_y1mbn")
