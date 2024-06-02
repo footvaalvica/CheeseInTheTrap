@@ -191,8 +191,9 @@ func collect_cheese() -> void :
 		hole2.process_mode = Node.PROCESS_MODE_INHERIT
 		_second_door = true
 
-func collect_trap() -> void :
+func collect_trap(trap : Trap) -> void :
 	_number_of_traps += 1
+	jerry.remove_trap(trap)
 	pickup_trap.play()
 	
 func trap_jerry(trap : Trap) -> void :
@@ -293,7 +294,7 @@ func pick_up_trap(position : Vector2, floor : int) -> void :
 			min_dist = distance
 			min_trap = trap
 	if (min_trap != null) :
-		collect_trap()
+		collect_trap(min_trap)
 		min_trap.collect()
 	
 
@@ -303,7 +304,7 @@ func set_safety_zone(position : Vector2, floor : int) -> void :
 		var trap : Trap = trap_object as Trap
 		var distance : float = abs(trap.position.x - position.x)
 		if (trap._floor == floor and distance < DISTANCE_TO_SAFETY) :
-			collect_trap()
+			collect_trap(trap)
 			trap.collect()
 	_safety_set = true
 

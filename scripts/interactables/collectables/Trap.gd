@@ -1,6 +1,7 @@
 class_name Trap extends Spammable
 
 var active : bool = true
+var _collectable : bool = false
 var _cooldown : float = 0
 var _restore_counter : float = 0
 var _floor : float = 0
@@ -17,6 +18,9 @@ func _ready():
 @export var successful_disarm : AudioStreamPlayer
 
 func _process(delta):
+	if (_collectable and not active) :
+		GameManager.instance().collect_trap(self)
+		collect()
 	if (active) :
 		var frames_to_hit_ratio = max_hits_counter / (NUMBER_OF_FRAMES - 1)
 		var frame : int = current_hits_counter / frames_to_hit_ratio
@@ -37,12 +41,18 @@ func on_collision(body : Node2D) -> void:
 		return # ignore if not PhysicsBody2D
 	var isTom : bool = physics.get_collision_layer_value(2)
 	if isTom:
-		if not active :
-			GameManager.instance().collect_trap()
-			collect()
+		_collectable = true
 	else :
 		if active and _cooldown == 0 :
 			GameManager.instance().trap_jerry(self)
+
+func on_collision_exit(body : Node2D) -> void :
+	var physics := body as PhysicsBody2D 
+	if physics == null :
+		return # ignore if not PhysicsBody2D
+	var isTom : bool = physics.get_collision_layer_value(2)
+	if isTom:
+		_collectable = false
 
 func collect() -> void:
 	queue_free()
@@ -71,4 +81,4 @@ func _on_area_2d_body_entered(body : Node2D):
 func _on_area_2d_body_exited(body):
 	$DisarmArea.hide()
 	var jerry = body as Jerry
-	jerry.add_trap(self)
+	jerry.remove_trap(self)
