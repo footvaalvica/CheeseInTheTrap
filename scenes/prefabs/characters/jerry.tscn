@@ -1,13 +1,13 @@
 [gd_scene load_steps=57 format=3 uid="uid://bkhktxkigb5cg"]
 
 [ext_resource type="Script" path="res://scripts/player/Jerry.gd" id="1_v2mo7"]
-[ext_resource type="Texture2D" uid="uid://tf5vh2sfm74a" path="res://assets/jerry_spritesheet.png" id="2_lrwu7"]
-[ext_resource type="AudioStream" uid="uid://dkd8kiogd4257" path="res://fmod/cheeseinthetrap/Assets/squeeze_through.wav" id="3_yhkha"]
-[ext_resource type="AudioStream" uid="uid://c8gi5fo0gkdbt" path="res://fmod/cheeseinthetrap/Assets/pulling cables.mp3" id="4_m68ay"]
-[ext_resource type="AudioStream" uid="uid://dnyoouhqwu71l" path="res://fmod/cheeseinthetrap/Assets/punch sound1.vag.wav" id="5_vaowe"]
-[ext_resource type="AudioStream" uid="uid://ba8b65ryom2nx" path="res://fmod/cheeseinthetrap/Assets/punch sound2.vag.wav" id="6_k6jlp"]
-[ext_resource type="AudioStream" uid="uid://d3whv10y0x7kp" path="res://fmod/cheeseinthetrap/Assets/punch sound3.vag.wav" id="7_0dlg8"]
-[ext_resource type="AudioStream" uid="uid://cvfssyt3kq02s" path="res://fmod/cheeseinthetrap/Assets/punch sound4.vag.wav" id="8_ifxvt"]
+[ext_resource type="Texture2D" uid="uid://ba8jbb4a1das1" path="res://assets/jerry_spritesheet.png" id="2_lrwu7"]
+[ext_resource type="AudioStream" uid="uid://ci4pn8ppgoy6g" path="res://fmod/cheeseinthetrap/Assets/squeeze_through.wav" id="3_yhkha"]
+[ext_resource type="AudioStream" uid="uid://bu8p7baedke6q" path="res://fmod/cheeseinthetrap/Assets/pulling cables.mp3" id="4_m68ay"]
+[ext_resource type="AudioStream" uid="uid://boedn8w1gw444" path="res://fmod/cheeseinthetrap/Assets/punch sound1.vag.wav" id="5_vaowe"]
+[ext_resource type="AudioStream" uid="uid://bv2oegww8va3e" path="res://fmod/cheeseinthetrap/Assets/punch sound2.vag.wav" id="6_k6jlp"]
+[ext_resource type="AudioStream" uid="uid://cu07l04r7qy0n" path="res://fmod/cheeseinthetrap/Assets/punch sound3.vag.wav" id="7_0dlg8"]
+[ext_resource type="AudioStream" uid="uid://cbxuum7jb6eow" path="res://fmod/cheeseinthetrap/Assets/punch sound4.vag.wav" id="8_ifxvt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wsdsh"]
 atlas = ExtResource("2_lrwu7")

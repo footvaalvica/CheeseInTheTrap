@@ -1,12 +1,12 @@
 [gd_scene load_steps=43 format=3 uid="uid://cj3gq3clc4b5o"]
 
 [ext_resource type="Script" path="res://scripts/player/Tom.gd" id="1_6bf4o"]
-[ext_resource type="Texture2D" uid="uid://enn4olpqemcq" path="res://assets/tom_spritesheet.png" id="3_m80w2"]
-[ext_resource type="AudioStream" uid="uid://cl5v2qk0o1ybl" path="res://fmod/cheeseinthetrap/Assets/jump_start_alternative.mp3" id="3_s3up2"]
-[ext_resource type="AudioStream" uid="uid://dnyoouhqwu71l" path="res://fmod/cheeseinthetrap/Assets/punch sound1.vag.wav" id="4_2aifm"]
-[ext_resource type="AudioStream" uid="uid://ba8b65ryom2nx" path="res://fmod/cheeseinthetrap/Assets/punch sound2.vag.wav" id="5_xkrvf"]
-[ext_resource type="AudioStream" uid="uid://d3whv10y0x7kp" path="res://fmod/cheeseinthetrap/Assets/punch sound3.vag.wav" id="6_0s6hk"]
-[ext_resource type="AudioStream" uid="uid://cvfssyt3kq02s" path="res://fmod/cheeseinthetrap/Assets/punch sound4.vag.wav" id="7_t54sf"]
+[ext_resource type="Texture2D" uid="uid://3fa30iunwymu" path="res://assets/tom_spritesheet.png" id="3_m80w2"]
+[ext_resource type="AudioStream" uid="uid://dvkhbvwvooxcb" path="res://fmod/cheeseinthetrap/Assets/jump_start_alternative.mp3" id="3_s3up2"]
+[ext_resource type="AudioStream" uid="uid://boedn8w1gw444" path="res://fmod/cheeseinthetrap/Assets/punch sound1.vag.wav" id="4_2aifm"]
+[ext_resource type="AudioStream" uid="uid://bv2oegww8va3e" path="res://fmod/cheeseinthetrap/Assets/punch sound2.vag.wav" id="5_xkrvf"]
+[ext_resource type="AudioStream" uid="uid://cu07l04r7qy0n" path="res://fmod/cheeseinthetrap/Assets/punch sound3.vag.wav" id="6_0s6hk"]
+[ext_resource type="AudioStream" uid="uid://cbxuum7jb6eow" path="res://fmod/cheeseinthetrap/Assets/punch sound4.vag.wav" id="7_t54sf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ah5f0"]
 atlas = ExtResource("3_m80w2")
