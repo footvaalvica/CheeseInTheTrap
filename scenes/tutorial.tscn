@@ -60,9 +60,9 @@ text = "Start"
 [node name="MarginContainer2" type="MarginContainer" parent="VideoStreamPlayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.542188
+anchor_left = 0.544532
 anchor_top = 1.17917
-anchor_right = 0.577344
+anchor_right = 0.579688
 anchor_bottom = 1.1875
 offset_left = -136.0
 offset_top = -184.0
@@ -88,7 +88,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
-text = "Gamepad"
+text = "Keyboard"
 
 [node name="TutorialManager" type="Node" parent="." node_paths=PackedStringArray("vid", "switch_button", "start_button")]
 script = ExtResource("4_opoej")
