@@ -89,6 +89,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.666006, 0.666071)
+texture = ExtResource("8_4ppua")
+
 [node name="Map" parent="." instance=ExtResource("1_sd08u")]
 layout_mode = 1
 anchors_preset = 4
@@ -108,6 +115,9 @@ offset_bottom = 410.0
 
 [node name="TextureRect" parent="Map/MarginContainer/VBoxContainer" index="0"]
 texture = ExtResource("3_jn2vq")
+
+[node name="MarginContainer2" parent="Map" index="1"]
+visible = false
 
 [node name="Title" parent="Map" index="2"]
 offset_left = -166.0
@@ -136,6 +146,9 @@ offset_right = 986.0
 
 [node name="TextureRect" parent="Map2/MarginContainer/VBoxContainer" index="0"]
 texture = ExtResource("5_mad3f")
+
+[node name="MarginContainer2" parent="Map2" index="1"]
+visible = false
 
 [node name="Title" parent="Map2" index="2"]
 offset_left = -172.0
@@ -171,6 +184,9 @@ offset_bottom = 467.0
 [node name="TextureRect" parent="Map3/MarginContainer/VBoxContainer" index="0"]
 texture = ExtResource("6_h4lv7")
 
+[node name="MarginContainer2" parent="Map3" index="1"]
+visible = false
+
 [node name="Title" parent="Map3" index="2"]
 offset_left = -176.0
 offset_top = -248.077
@@ -180,13 +196,6 @@ offset_bottom = -206.077
 [node name="Cheese Needed" parent="Map3" index="3"]
 offset_top = 41.3461
 offset_bottom = 83.3461
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-scale = Vector2(0.666006, 0.666071)
-texture = ExtResource("8_4ppua")
 
 [node name="Go Back" type="Control" parent="."]
 layout_mode = 1
