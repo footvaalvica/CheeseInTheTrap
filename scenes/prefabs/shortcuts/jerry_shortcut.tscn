@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://bqacf4a3liqfq"]
 
 [ext_resource type="Script" path="res://scripts/interactables/shortcuts/JerryShortcut.gd" id="1_3xst3"]
-[ext_resource type="Texture2D" uid="uid://dp4qdl7g456eo" path="res://assets/block.png" id="1_ujsje"]
-[ext_resource type="Texture2D" uid="uid://bqbcv6giuh6eb" path="res://assets/broken.png" id="2_emkvh"]
-[ext_resource type="AudioStream" uid="uid://bo134ronmtr1t" path="res://fmod/cheeseinthetrap/Assets/Concrete break - TheFkksounds.mp3" id="4_uqrcf"]
+[ext_resource type="Texture2D" uid="uid://d07nk1046y7hk" path="res://assets/block.png" id="1_ujsje"]
+[ext_resource type="Texture2D" uid="uid://6gos1g53rfv" path="res://assets/broken.png" id="2_emkvh"]
+[ext_resource type="AudioStream" uid="uid://cfd3nqfu6et7d" path="res://fmod/cheeseinthetrap/Assets/Concrete break - TheFkksounds.mp3" id="4_uqrcf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mtxxr"]
 atlas = ExtResource("2_emkvh")
@@ -72,6 +72,7 @@ shape = SubResource("RectangleShape2D_xlllh")
 
 [node name="breaking" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_uqrcf")
+volume_db = -5.76
 
 [connection signal="body_entered" from="Area2D" to="." method="enter_traverse_area"]
 [connection signal="body_exited" from="Area2D" to="." method="exit_traverse_area"]

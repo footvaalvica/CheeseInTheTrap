@@ -6,32 +6,26 @@
 [ext_resource type="Resource" uid="uid://cgujiwi5yrix5" path="res://resources/game_score.tres" id="4_glqt3"]
 [ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="5_rhf3o"]
 [ext_resource type="PackedScene" uid="uid://cj3gq3clc4b5o" path="res://scenes/prefabs/characters/tom.tscn" id="6_608td"]
-[ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="7_7o0un"]
-[ext_resource type="Texture2D" uid="uid://ppd13xe4k4w4" path="res://assets/cheese.png" id="8_xecff"]
-[ext_resource type="Texture2D" uid="uid://264o6fsvlvje" path="res://assets/trap1.png" id="9_nmbla"]
-[ext_resource type="Texture2D" uid="uid://cp753obyi20re" path="res://assets/jerry_icon.png" id="10_iko7s"]
-[ext_resource type="Texture2D" uid="uid://dqjp1ohvp7mvt" path="res://assets/red_cross.jpg" id="11_msmde"]
-[ext_resource type="Texture2D" uid="uid://dpgyenakgka4q" path="res://assets/tom_icon.jpg" id="12_qai1v"]
+[ext_resource type="Texture2D" uid="uid://dckvwo3inv8do" path="res://assets/background.jpg" id="7_7o0un"]
+[ext_resource type="Texture2D" uid="uid://bybk43k7cf84q" path="res://assets/cheese.png" id="8_xecff"]
+[ext_resource type="Texture2D" uid="uid://dqifm3ay7fvtw" path="res://assets/trap1.png" id="9_nmbla"]
+[ext_resource type="Texture2D" uid="uid://bkk5nfhls36vv" path="res://assets/jerry_icon.png" id="10_iko7s"]
+[ext_resource type="Texture2D" uid="uid://b1417n7g244vr" path="res://assets/red_cross.jpg" id="11_msmde"]
+[ext_resource type="Texture2D" uid="uid://dftjucibiaodu" path="res://assets/tom_icon.jpg" id="12_qai1v"]
 [ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://scenes/prefabs/collectables/cheese.tscn" id="13_m3r3y"]
 [ext_resource type="PackedScene" uid="uid://bqj766o4qrfo1" path="res://scenes/prefabs/shortcuts/trapdoor.tscn" id="14_qguk8"]
 [ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/shortcuts/tom_shortcut.tscn" id="15_oq0k1"]
 [ext_resource type="PackedScene" uid="uid://dvix5xnryqlca" path="res://scenes/prefabs/shortcuts/piano.tscn" id="16_syanh"]
 [ext_resource type="PackedScene" uid="uid://cgmcutybhnet4" path="res://scenes/prefabs/shortcuts/bed.tscn" id="17_0stja"]
 [ext_resource type="PackedScene" uid="uid://bqacf4a3liqfq" path="res://scenes/prefabs/shortcuts/jerry_shortcut.tscn" id="18_gpdi3"]
-[ext_resource type="PackedScene" uid="uid://mo3813gedshy" path="res://scenes/prefabs/house/wallsMedium.tscn" id="19_t13pc"]
-[ext_resource type="PackedScene" uid="uid://b7x4driqsukcu" path="res://scenes/prefabs/house/stairs_group_medium.tscn" id="20_ls4ws"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/house/wallsMedium.tscn" id="19_t13pc"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/house/stairs_group_medium.tscn" id="20_ls4ws"]
 [ext_resource type="PackedScene" uid="uid://dbygtbjtb5xnp" path="res://scenes/prefabs/house/hole.tscn" id="21_gb5mp"]
 [ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="22_hd6pj"]
 [ext_resource type="PackedScene" uid="uid://dfea4refpbec4" path="res://scenes/prefabs/safety_area.tscn" id="23_xn6li"]
-[ext_resource type="AudioStream" uid="uid://bdy22qbw3y48l" path="res://fmod/cheeseinthetrap/Assets/Shoji Meguro - I'll Face Myself (special ver.).mp3" id="24_fb2vp"]
-[ext_resource type="AudioStream" uid="uid://dh2j4yrpun84g" path="res://fmod/cheeseinthetrap/Assets/figt music.mp3" id="25_a60jk"]
-[ext_resource type="AudioStream" uid="uid://cgmgiji4a0el7" path="res://fmod/cheeseinthetrap/Assets/apanhar_queijo.wav" id="26_ueund"]
-[ext_resource type="AudioStream" uid="uid://yqxrm8yo5f3w" path="res://fmod/cheeseinthetrap/Assets/apanhar_trap.wav" id="27_k6xn5"]
-[ext_resource type="AudioStream" uid="uid://vlyhva2xhv4s" path="res://fmod/cheeseinthetrap/Assets/deixar_cair_trap.wav" id="28_xkpsi"]
-[ext_resource type="AudioStream" uid="uid://bgf2c1kk70c3e" path="res://fmod/cheeseinthetrap/Assets/caught_in_the_trap.wav" id="29_en417"]
-[ext_resource type="AudioStream" uid="uid://2c80s7uhfbwf" path="res://fmod/cheeseinthetrap/Assets/jerry_ready.wav" id="30_n6ako"]
-[ext_resource type="AudioStream" uid="uid://cv611bpydw6q1" path="res://fmod/cheeseinthetrap/Assets/om_Tom_Ready.vag.wav" id="31_f7v24"]
-[ext_resource type="AudioStream" uid="uid://cxudo6vknjumw" path="res://fmod/cheeseinthetrap/Assets/both_ready.mp3" id="32_pkgnw"]
+[ext_resource type="AudioStream" uid="uid://b78f6o2vqpwvs" path="res://fmod/cheeseinthetrap/Assets/figt music.mp3" id="24_1b7i6"]
+[ext_resource type="AudioStream" uid="uid://c62js34pdmj4m" path="res://fmod/cheeseinthetrap/Assets/Shoji Meguro - I'll Face Myself (special ver.).mp3" id="25_wu0av"]
+[ext_resource type="PackedScene" uid="uid://dfi2mvuka07j8" path="res://scenes/map_sounds.tscn" id="26_hj0tg"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -59,13 +53,13 @@ _jerry_control = NodePath("../CanvasLayer/Control/Jerry")
 _tom_control = NodePath("../CanvasLayer/Control/Tom")
 preparation_song = NodePath("../preparation_song")
 main_music = NodePath("../main_music")
-catch_cheese = NodePath("../Node/catch_cheese")
-pickup_trap = NodePath("../Node/pickup_trap")
-drop_trap = NodePath("../Node/drop_trap")
-jerry_caught_in_trap = NodePath("../Node/jerry_caught_in_trap")
-jerry_ready = NodePath("../Node/ready_jerry")
-tom_ready = NodePath("../Node/ready_tom")
-both_ready = NodePath("../Node/both_ready")
+catch_cheese = NodePath("../Sounds/catch_cheese")
+pickup_trap = NodePath("../Sounds/pickup_trap")
+drop_trap = NodePath("../Sounds/drop_trap")
+jerry_caught_in_trap = NodePath("../Sounds/jerry_caught_in_trap")
+jerry_ready = NodePath("../Sounds/ready_jerry")
+tom_ready = NodePath("../Sounds/ready_tom")
+both_ready = NodePath("../Sounds/both_ready")
 
 [node name="Jerry" parent="." instance=ExtResource("5_rhf3o")]
 z_index = 1
@@ -412,41 +406,15 @@ position = Vector2(693, -393)
 [node name="SafetyArea" parent="." instance=ExtResource("23_xn6li")]
 position = Vector2(-718, 413)
 
+[node name="main_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_1b7i6")
+bus = &"Music"
+
 [node name="preparation_song" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("24_fb2vp")
+stream = ExtResource("25_wu0av")
 autoplay = true
 bus = &"Music"
 
-[node name="main_music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("25_a60jk")
-bus = &"Music"
+[node name="Sounds" parent="." instance=ExtResource("26_hj0tg")]
 
-[node name="Node" type="Node" parent="."]
-
-[node name="catch_cheese" type="AudioStreamPlayer" parent="Node"]
-stream = ExtResource("26_ueund")
-bus = &"SFX"
-
-[node name="pickup_trap" type="AudioStreamPlayer" parent="Node"]
-stream = ExtResource("27_k6xn5")
-bus = &"SFX"
-
-[node name="drop_trap" type="AudioStreamPlayer" parent="Node"]
-stream = ExtResource("28_xkpsi")
-bus = &"SFX"
-
-[node name="jerry_caught_in_trap" type="AudioStreamPlayer" parent="Node"]
-stream = ExtResource("29_en417")
-bus = &"SFX"
-
-[node name="ready_jerry" type="AudioStreamPlayer" parent="Node"]
-stream = ExtResource("30_n6ako")
-bus = &"SFX"
-
-[node name="ready_tom" type="AudioStreamPlayer" parent="Node"]
-stream = ExtResource("31_f7v24")
-bus = &"SFX"
-
-[node name="both_ready" type="AudioStreamPlayer" parent="Node"]
-stream = ExtResource("32_pkgnw")
-volume_db = 2.044
+[editable path="Sounds"]

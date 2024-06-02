@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bgwjoavqfqj5d"]
 
 [ext_resource type="Script" path="res://scripts/interactables/shortcuts/GameShortcut.gd" id="1_s8nh0"]
-[ext_resource type="Texture2D" uid="uid://d1y6idjp2otsg" path="res://assets/bathtub_sprites.png" id="2_w0x8i"]
-[ext_resource type="AudioStream" uid="uid://cfg2mihrvguh1" path="res://fmod/cheeseinthetrap/Assets/Vase Breaking (Sound Effect) - Mr Sound Nostalgie.mp3" id="3_x2x1q"]
+[ext_resource type="Texture2D" uid="uid://ck18pj06ktisy" path="res://assets/bathtub_sprites.png" id="2_w0x8i"]
+[ext_resource type="AudioStream" uid="uid://2svqblhl3kwa" path="res://fmod/cheeseinthetrap/Assets/Vase Breaking (Sound Effect) - Mr Sound Nostalgie.mp3" id="3_x2x1q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13n55"]
 atlas = ExtResource("2_w0x8i")
@@ -66,6 +66,7 @@ shape = SubResource("RectangleShape2D_113me")
 
 [node name="breaking" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_x2x1q")
+volume_db = -3.029
 
 [connection signal="body_entered" from="Area2D" to="." method="enter_traverse_area"]
 [connection signal="body_exited" from="Area2D" to="." method="exit_traverse_area"]

@@ -356,10 +356,12 @@ bus = &"Music"
 
 [node name="jerry_wins" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_cd77x")
+volume_db = -5.049
 bus = &"SFX"
 
 [node name="tom_wins" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_alnui")
+volume_db = -5.049
 bus = &"SFX"
 
 [connection signal="pressed" from="ScoreScreen/Save score" to="HighScoreManager" method="_on_save_score_pressed"]

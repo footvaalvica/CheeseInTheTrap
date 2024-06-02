@@ -85,6 +85,7 @@ sprite_frames = SubResource("SpriteFrames_yueq1")
 
 [node name="open_trapdoor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_txwvw")
+volume_db = -4.039
 bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="." method="add_trapdoor"]
