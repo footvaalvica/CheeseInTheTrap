@@ -13,7 +13,7 @@ func _ready():
 	vid_stream_keyboard = VideoStreamTheora.new() 
 	vid_stream_gamepad = VideoStreamTheora.new()
 	load_video_streams()
-	vid.stream = vid_stream_keyboard
+	vid.stream = vid_stream_gamepad
 	vid.play()
 	
 
@@ -28,11 +28,11 @@ func _switch():
 
 func load_video_streams():
 	if player1.character_name == "Jerry":
-		vid_stream_keyboard.file = "res://assets/videos/jerry1tom2keyboard.ogv"
-		vid_stream_gamepad.file = "res://assets/videos/jerry1tom2gamepad.ogv"
+		vid_stream_keyboard.file = "res://assets/videostutorial/jerrytomkeyboardc.ogv"
+		vid_stream_gamepad.file = "res://assets/videostutorial/jerrytompadc.ogv"
 	else :
-		vid_stream_keyboard.file = "res://assets/videos/tom1jerry2keyboard.ogv"
-		vid_stream_gamepad.file = "res://assets/videos/tom1jerry2gamepad.ogv"
+		vid_stream_keyboard.file = "res://assets/videostutorial/tomjerrykeyboard.ogv"
+		vid_stream_gamepad.file = "res://assets/videostutorial/tomjerrypad.ogv"
 
 
 func _on_play_pressed():

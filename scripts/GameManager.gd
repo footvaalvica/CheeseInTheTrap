@@ -99,13 +99,13 @@ static func instance() -> GameManager :
 
 func update_texts(delta : float) -> void :
 	cheese_text.clear()
-	var cheese_string = "[center]%s[/center]" % _number_of_cheese
+	var cheese_string = "[center][color=orange]%s[/color][/center]" % _number_of_cheese
 	cheese_text.append_text(cheese_string)
 	trap_text.clear()
-	var trap_string = "[center]%s[/center]" % _number_of_traps
+	var trap_string = "[center][color=orange]%s[/color][/center]" % _number_of_traps
 	trap_text.append_text(trap_string)
 	time_text.clear()
-	var time_string = "[center]%s[center]" % Utils.time_pretty_string(_clock)
+	var time_string = "[center][color=orange]%s[/color][/center]" % Utils.time_pretty_string(_clock)
 	time_text.append_text(time_string)
 	if (start_counter > 0):
 		start_counter = max(start_counter - delta, 0)

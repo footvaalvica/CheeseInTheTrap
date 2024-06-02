@@ -3,15 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://iculuh4j4va6" path="res://scenes/prefabs/map_option.tscn" id="1_sd08u"]
 [ext_resource type="Resource" uid="uid://cdhpedmger07m" path="res://resources/map1.tres" id="2_8m423"]
 [ext_resource type="Theme" uid="uid://itekljcgr8rq" path="res://buttontheme.tres" id="2_g6m1m"]
-[ext_resource type="Texture2D" uid="uid://bn5cpy4puly8b" path="res://assets/images/MAPA1.png" id="3_jn2vq"]
+[ext_resource type="Texture2D" uid="uid://t04wvdxwa7sr" path="res://assets/images/MAPA1.png" id="3_jn2vq"]
 [ext_resource type="Resource" uid="uid://tbu0urwcrp1d" path="res://resources/map2.tres" id="3_pxafi"]
-[ext_resource type="Texture2D" uid="uid://bgniw0epwu85v" path="res://assets/cga_ui_gold/b_3.png" id="3_wvftq"]
+[ext_resource type="Texture2D" uid="uid://xdriet3j7pei" path="res://assets/cga_ui_gold/b_3.png" id="3_wvftq"]
 [ext_resource type="Resource" uid="uid://cvwf6sunw367o" path="res://resources/map3.tres" id="4_3qrg4"]
 [ext_resource type="Script" path="res://scripts/MapSelection.gd" id="4_addgb"]
-[ext_resource type="Texture2D" uid="uid://d2817lqwanrb3" path="res://assets/images/MAPA2.png" id="5_mad3f"]
-[ext_resource type="Texture2D" uid="uid://dk0t0oqf6bcse" path="res://assets/images/MAPA3.png" id="6_h4lv7"]
-[ext_resource type="Texture2D" uid="uid://cksu4udxdcto7" path="res://assets/images/cheese.png" id="7_d6vlc"]
-[ext_resource type="Texture2D" uid="uid://sg0luu6qul1a" path="res://assets/images/mapbg.png" id="8_4ppua"]
+[ext_resource type="Texture2D" uid="uid://uiwkaon76hef" path="res://assets/images/MAPA2.png" id="5_mad3f"]
+[ext_resource type="Texture2D" uid="uid://bic6novpnsvv7" path="res://assets/images/MAPA3.png" id="6_h4lv7"]
+[ext_resource type="Texture2D" uid="uid://dw70qvsvaafe7" path="res://assets/images/cheese.png" id="7_d6vlc"]
+[ext_resource type="Texture2D" uid="uid://cbjep6t3thiqg" path="res://assets/images/mapbg.png" id="8_4ppua"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vsh24"]
 content_margin_left = 5.0
@@ -46,33 +46,33 @@ expand_margin_top = 5.0
 expand_margin_right = 15.0
 expand_margin_bottom = 5.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pp1kd"]
-texture = ExtResource("3_wvftq")
-texture_margin_left = 15.0
-texture_margin_top = 5.0
-texture_margin_right = 15.0
-texture_margin_bottom = 5.0
-expand_margin_left = 5.0
-expand_margin_top = 2.0
-expand_margin_right = 5.0
-expand_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a15f3"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gl1dl"]
 content_margin_left = 5.0
-content_margin_top = 2.0
+content_margin_top = 3.0
 content_margin_right = 5.0
-content_margin_bottom = 2.0
+content_margin_bottom = 3.0
 texture = ExtResource("3_wvftq")
-texture_margin_left = 15.0
-texture_margin_top = 5.0
-texture_margin_right = 15.0
-texture_margin_bottom = 5.0
+expand_margin_left = 15.0
+expand_margin_top = 5.0
+expand_margin_right = 15.0
+expand_margin_bottom = 5.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vaxyy"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7l0gd"]
 content_margin_left = 5.0
-content_margin_top = 2.0
+content_margin_top = 3.0
 content_margin_right = 5.0
-content_margin_bottom = 2.0
+content_margin_bottom = 3.0
+texture = ExtResource("3_wvftq")
+expand_margin_left = 15.0
+expand_margin_top = 5.0
+expand_margin_right = 15.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6r88n"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 5.0
+content_margin_bottom = 3.0
 texture = ExtResource("3_wvftq")
 expand_margin_left = 15.0
 expand_margin_top = 5.0
@@ -102,22 +102,30 @@ anchors_preset = 4
 anchor_left = 0.0
 anchor_right = 0.0
 offset_left = 186.0
-offset_right = 248.0
-offset_bottom = 59.0
+offset_top = -21.0
+offset_right = 252.0
+offset_bottom = 28.0
 grow_horizontal = 1
 focus_neighbor_bottom = NodePath("../Go Back/MarginContainer/VBoxContainer/back")
 resource = ExtResource("2_8m423")
 
 [node name="MarginContainer" parent="Map" index="0"]
-offset_left = -148.0
-offset_right = 912.0
-offset_bottom = 410.0
+offset_left = -151.0
+offset_top = -198.0
+offset_right = 909.0
+offset_bottom = 408.0
+scale = Vector2(0.356088, 0.355189)
 
 [node name="TextureRect" parent="Map/MarginContainer/VBoxContainer" index="0"]
 texture = ExtResource("3_jn2vq")
 
 [node name="MarginContainer2" parent="Map" index="1"]
 visible = false
+offset_left = -149.0
+offset_top = -197.0
+offset_right = 1010.0
+offset_bottom = 464.0
+scale = Vector2(0.321989, 0.327562)
 
 [node name="Title" parent="Map" index="2"]
 offset_left = -166.0
@@ -133,8 +141,11 @@ offset_bottom = 91.0
 
 [node name="Map2" parent="." instance=ExtResource("1_sd08u")]
 layout_mode = 1
-offset_left = -39.0
-offset_right = 1.0
+offset_left = -41.0
+offset_top = -17.0
+offset_right = -1.0
+offset_bottom = 23.0
+scale = Vector2(1, 1.02813)
 focus_neighbor_left = NodePath("../Map")
 focus_neighbor_right = NodePath("../Map3")
 focus_neighbor_bottom = NodePath("../Start/MarginContainer/VBoxContainer/play")
@@ -143,32 +154,38 @@ resource = ExtResource("3_pxafi")
 [node name="MarginContainer" parent="Map2" index="0"]
 offset_left = -173.0
 offset_right = 986.0
+offset_bottom = 403.0
 
 [node name="TextureRect" parent="Map2/MarginContainer/VBoxContainer" index="0"]
 texture = ExtResource("5_mad3f")
 
 [node name="MarginContainer2" parent="Map2" index="1"]
 visible = false
+offset_left = -172.0
+offset_top = -196.474
+offset_right = 987.0
+offset_bottom = 464.526
+scale = Vector2(0.348293, 0.315691)
 
 [node name="Title" parent="Map2" index="2"]
-offset_left = -172.0
-offset_right = 234.0
+offset_top = -248.997
+offset_bottom = -206.997
 
 [node name="Cheese Needed" parent="Map2" index="3"]
-offset_left = -167.0
-offset_top = 50.0
-offset_right = 231.0
-offset_bottom = 92.0
+offset_left = -169.0
+offset_top = 47.6595
+offset_right = 229.0
+offset_bottom = 89.6595
 
 [node name="Map3" parent="." instance=ExtResource("1_sd08u")]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -255.0
-offset_top = -18.0
-offset_right = -215.0
-offset_bottom = 22.0
+offset_left = -253.0
+offset_top = -16.0
+offset_right = -213.0
+offset_bottom = 24.0
 grow_horizontal = 0
 scale = Vector2(1, 1.04)
 focus_neighbor_left = NodePath("../Map2")
@@ -179,13 +196,18 @@ resource = ExtResource("4_3qrg4")
 offset_left = -177.0
 offset_top = -194.0
 offset_right = 982.0
-offset_bottom = 467.0
+offset_bottom = 401.0
 
 [node name="TextureRect" parent="Map3/MarginContainer/VBoxContainer" index="0"]
 texture = ExtResource("6_h4lv7")
 
 [node name="MarginContainer2" parent="Map3" index="1"]
 visible = false
+offset_left = -175.0
+offset_top = -193.269
+offset_right = 984.0
+offset_bottom = 467.731
+scale = Vector2(0.347748, 0.318347)
 
 [node name="Title" parent="Map3" index="2"]
 offset_left = -176.0
@@ -194,8 +216,11 @@ offset_right = 230.0
 offset_bottom = -206.077
 
 [node name="Cheese Needed" parent="Map3" index="3"]
-offset_top = 41.3461
-offset_bottom = 83.3461
+offset_left = -169.0
+offset_top = 49.0385
+offset_right = 229.0
+offset_bottom = 91.0385
+scale = Vector2(1.00612, 1.00681)
 
 [node name="Go Back" type="Control" parent="."]
 layout_mode = 1
@@ -284,9 +309,9 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
-theme_override_styles/hover = SubResource("StyleBoxTexture_pp1kd")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_a15f3")
-theme_override_styles/focus = SubResource("StyleBoxTexture_vaxyy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gl1dl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7l0gd")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6r88n")
 text = "Start"
 
 [node name="Cheese" type="Control" parent="."]

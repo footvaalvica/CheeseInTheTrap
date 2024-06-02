@@ -7,12 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="5_s0y5b"]
 [ext_resource type="PackedScene" uid="uid://cj3gq3clc4b5o" path="res://scenes/prefabs/characters/tom.tscn" id="6_4dbs3"]
 [ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://scenes/prefabs/collectables/cheese.tscn" id="7_qjh10"]
-[ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="8_l20v5"]
-[ext_resource type="Texture2D" uid="uid://ppd13xe4k4w4" path="res://assets/cheese.png" id="9_neglr"]
-[ext_resource type="Texture2D" uid="uid://264o6fsvlvje" path="res://assets/trap1.png" id="10_4h3ew"]
-[ext_resource type="Texture2D" uid="uid://cp753obyi20re" path="res://assets/jerry_icon.png" id="11_w25j3"]
-[ext_resource type="Texture2D" uid="uid://dqjp1ohvp7mvt" path="res://assets/red_cross.jpg" id="12_n3xch"]
-[ext_resource type="Texture2D" uid="uid://dpgyenakgka4q" path="res://assets/tom_icon.jpg" id="13_j35gl"]
+[ext_resource type="Texture2D" uid="uid://cauf64l1sf13d" path="res://assets/background.jpg" id="8_l20v5"]
+[ext_resource type="Texture2D" uid="uid://cleng7eq770l8" path="res://assets/cheese.png" id="9_neglr"]
+[ext_resource type="Texture2D" uid="uid://ub3gxoh440pj" path="res://assets/trap1.png" id="10_4h3ew"]
+[ext_resource type="Texture2D" uid="uid://4d5qi8mcctts" path="res://assets/jerry_icon.png" id="11_w25j3"]
+[ext_resource type="Texture2D" uid="uid://g8kh5vhbpkql" path="res://assets/red_cross.jpg" id="12_n3xch"]
+[ext_resource type="Texture2D" uid="uid://cfcx2ka7w6mvv" path="res://assets/tom_icon.jpg" id="13_j35gl"]
 [ext_resource type="PackedScene" uid="uid://bgwjoavqfqj5d" path="res://scenes/prefabs/shortcuts/tom_shortcut.tscn" id="14_cs3d8"]
 [ext_resource type="PackedScene" uid="uid://dvix5xnryqlca" path="res://scenes/prefabs/shortcuts/piano.tscn" id="15_4wxxm"]
 [ext_resource type="PackedScene" uid="uid://ctqqoyedh15m8" path="res://scenes/prefabs/shortcuts/sofa.tscn" id="16_sl371"]
@@ -23,16 +23,16 @@
 [ext_resource type="PackedScene" uid="uid://dbygtbjtb5xnp" path="res://scenes/prefabs/house/hole.tscn" id="21_hfo8k"]
 [ext_resource type="PackedScene" uid="uid://c3t1gu16t1ea1" path="res://scenes/prefabs/trap_placer.tscn" id="22_81un2"]
 [ext_resource type="PackedScene" uid="uid://dfea4refpbec4" path="res://scenes/prefabs/safety_area.tscn" id="23_hi7ql"]
-[ext_resource type="AudioStream" uid="uid://dh2j4yrpun84g" path="res://fmod/cheeseinthetrap/Assets/figt music.mp3" id="24_u8qrv"]
-[ext_resource type="AudioStream" uid="uid://bdy22qbw3y48l" path="res://fmod/cheeseinthetrap/Assets/Shoji Meguro - I'll Face Myself (special ver.).mp3" id="25_7gyb5"]
+[ext_resource type="AudioStream" uid="uid://va83oefjo57" path="res://fmod/cheeseinthetrap/Assets/figt music.mp3" id="24_u8qrv"]
+[ext_resource type="AudioStream" uid="uid://fo6418idmi6x" path="res://fmod/cheeseinthetrap/Assets/Shoji Meguro - I'll Face Myself (special ver.).mp3" id="25_7gyb5"]
 [ext_resource type="PackedScene" uid="uid://ccabibhreo31q" path="res://scenes/prefabs/house/back_ground_object.tscn" id="25_mgcgw"]
-[ext_resource type="AudioStream" uid="uid://cgmgiji4a0el7" path="res://fmod/cheeseinthetrap/Assets/apanhar_queijo.wav" id="26_8qrm0"]
-[ext_resource type="AudioStream" uid="uid://yqxrm8yo5f3w" path="res://fmod/cheeseinthetrap/Assets/apanhar_trap.wav" id="27_e0m1s"]
-[ext_resource type="AudioStream" uid="uid://vlyhva2xhv4s" path="res://fmod/cheeseinthetrap/Assets/deixar_cair_trap.wav" id="28_rjpqp"]
-[ext_resource type="AudioStream" uid="uid://bgf2c1kk70c3e" path="res://fmod/cheeseinthetrap/Assets/caught_in_the_trap.wav" id="29_4m1ss"]
-[ext_resource type="AudioStream" uid="uid://cxudo6vknjumw" path="res://fmod/cheeseinthetrap/Assets/both_ready.mp3" id="30_qwrjf"]
-[ext_resource type="AudioStream" uid="uid://2c80s7uhfbwf" path="res://fmod/cheeseinthetrap/Assets/jerry_ready.wav" id="30_yujom"]
-[ext_resource type="AudioStream" uid="uid://cv611bpydw6q1" path="res://fmod/cheeseinthetrap/Assets/om_Tom_Ready.vag.wav" id="31_erps4"]
+[ext_resource type="AudioStream" uid="uid://oib1ekfun81r" path="res://fmod/cheeseinthetrap/Assets/apanhar_queijo.wav" id="26_8qrm0"]
+[ext_resource type="AudioStream" uid="uid://b4iysc7dlwtwk" path="res://fmod/cheeseinthetrap/Assets/apanhar_trap.wav" id="27_e0m1s"]
+[ext_resource type="AudioStream" uid="uid://cowjgqjkwqewh" path="res://fmod/cheeseinthetrap/Assets/deixar_cair_trap.wav" id="28_rjpqp"]
+[ext_resource type="AudioStream" uid="uid://b4cs1es2d5iiy" path="res://fmod/cheeseinthetrap/Assets/caught_in_the_trap.wav" id="29_4m1ss"]
+[ext_resource type="AudioStream" uid="uid://c8itrxsabw2dw" path="res://fmod/cheeseinthetrap/Assets/both_ready.mp3" id="30_qwrjf"]
+[ext_resource type="AudioStream" uid="uid://dht3n2v3ccstx" path="res://fmod/cheeseinthetrap/Assets/jerry_ready.wav" id="30_yujom"]
+[ext_resource type="AudioStream" uid="uid://fb4wyf2bkaqh" path="res://fmod/cheeseinthetrap/Assets/om_Tom_Ready.vag.wav" id="31_erps4"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -108,10 +108,10 @@ offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Cheese"]
 layout_mode = 0
-offset_left = 901.0
-offset_top = 15.0
-offset_right = 1055.0
-offset_bottom = 170.0
+offset_left = 925.0
+offset_top = 20.0
+offset_right = 1079.0
+offset_bottom = 175.0
 scale = Vector2(0.2, 0.2)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Cheese/MarginContainer"]
@@ -123,12 +123,12 @@ texture = ExtResource("9_neglr")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Cheese"]
 layout_mode = 0
-offset_left = 931.0
-offset_top = 19.0
-offset_right = 971.0
-offset_bottom = 42.0
+offset_left = 950.0
+offset_top = 24.0
+offset_right = 990.0
+offset_bottom = 47.0
 bbcode_enabled = true
-text = "[center]3[/center]"
+text = "[center][color=orange]3[/color][/center]"
 
 [node name="Traps" type="Control" parent="CanvasLayer/Control"]
 anchors_preset = 0
@@ -137,11 +137,11 @@ offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Traps"]
 layout_mode = 0
-offset_left = 978.0
-offset_top = 19.0
-offset_right = 1446.0
-offset_bottom = 174.0
-scale = Vector2(0.2, 0.2)
+offset_left = 1006.0
+offset_top = 24.0
+offset_right = 1474.0
+offset_bottom = 179.0
+scale = Vector2(0.16, 0.2)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Traps/MarginContainer"]
 layout_mode = 2
@@ -152,12 +152,12 @@ texture = ExtResource("10_4h3ew")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Traps"]
 layout_mode = 0
-offset_left = 1077.0
-offset_top = 15.0
-offset_right = 1117.0
-offset_bottom = 38.0
+offset_left = 1087.0
+offset_top = 23.0
+offset_right = 1127.0
+offset_bottom = 46.0
 bbcode_enabled = true
-text = "[center]3[/center]"
+text = "[center][color=orange]3[/color][/center]"
 
 [node name="Jerry" type="Control" parent="CanvasLayer/Control"]
 anchors_preset = 0
@@ -166,11 +166,11 @@ offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Jerry"]
 layout_mode = 0
-offset_left = 802.0
-offset_top = 14.0
-offset_right = 1270.0
-offset_bottom = 380.0
-scale = Vector2(0.0918788, 0.0918788)
+offset_left = 799.0
+offset_top = 12.0
+offset_right = 1309.0
+offset_bottom = 411.0
+scale = Vector2(0.104006, 0.105848)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Jerry/MarginContainer"]
 layout_mode = 2
@@ -182,10 +182,10 @@ expand_mode = 5
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Jerry"]
 layout_mode = 0
-offset_left = 854.0
-offset_top = 13.0
-offset_right = 1322.0
-offset_bottom = 480.0
+offset_left = 856.0
+offset_top = 12.0
+offset_right = 1351.0
+offset_bottom = 507.0
 scale = Vector2(0.0849208, 0.0849208)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Jerry/MarginContainer2"]
@@ -204,10 +204,10 @@ offset_bottom = 40.0
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Tom"]
 layout_mode = 0
 offset_left = 682.0
-offset_top = 13.0
+offset_top = 12.0
 offset_right = 1417.0
-offset_bottom = 577.0
-scale = Vector2(0.0706735, 0.0706735)
+offset_bottom = 578.0
+scale = Vector2(0.0706735, 0.0739461)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Tom/MarginContainer"]
 layout_mode = 2
@@ -218,10 +218,10 @@ texture = ExtResource("13_j35gl")
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Tom"]
 layout_mode = 0
-offset_left = 746.0
+offset_left = 737.0
 offset_top = 12.0
-offset_right = 1214.0
-offset_bottom = 480.0
+offset_right = 1232.0
+offset_bottom = 507.0
 scale = Vector2(0.0849208, 0.0849208)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Tom/MarginContainer2"]
@@ -239,40 +239,40 @@ offset_bottom = 40.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Time"]
 layout_mode = 0
-offset_left = 1113.0
-offset_top = 14.0
-offset_right = 1253.0
-offset_bottom = 40.0
+offset_left = 1124.0
+offset_top = 22.0
+offset_right = 1264.0
+offset_bottom = 48.0
 bbcode_enabled = true
-text = "[center]0[/center]"
+text = "[center][color=orange]0[/color][/center]"
 
 [node name="Preparation Phase" type="RichTextLabel" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 7.0
-offset_top = 14.0
-offset_right = 697.0
-offset_bottom = 94.0
+offset_left = 1.0
+offset_top = 6.0
+offset_right = 710.0
+offset_bottom = 86.0
 grow_horizontal = 2
 bbcode_enabled = true
-text = "[center][font_size={15}]Preparation Phase![/font_size][/center]
-[center][font_size={15}]Jerry - Place Safety Zone. Tom - Place traps[/font_size][/center]"
+text = "[center][font_size={18}][color=orange]Preparation Phase![/color][/font_size][/center]
+[center][font_size={14}][color=orange]Jerry place Safety Zone and Tom place traps! When both ready, press the ready button![/color][/font_size][/center]
+"
 
 [node name="Start Game" type="RichTextLabel" parent="CanvasLayer/Control"]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 3.0
-offset_top = 14.0
-offset_right = 693.0
-offset_bottom = 94.0
+offset_left = -262.0
+offset_top = 204.0
+offset_right = 1493.0
+offset_bottom = 586.0
 grow_horizontal = 2
 bbcode_enabled = true
-text = "[center][font_size={15}]Start![/font_size][/center]"
+text = "[center][font_size={200}][color=orange]Start![/color][/font_size][/center]"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -25)
