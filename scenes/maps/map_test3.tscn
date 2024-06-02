@@ -52,7 +52,7 @@ _tom_control = NodePath("../CanvasLayer/Control/Tom")
 
 [node name="Jerry" parent="." instance=ExtResource("5_rhf3o")]
 z_index = 1
-position = Vector2(-740, 426)
+position = Vector2(-812, 426)
 collision_mask = 17
 
 [node name="Tom" parent="." instance=ExtResource("6_608td")]
@@ -393,7 +393,7 @@ position = Vector2(-285, 57)
 position = Vector2(693, -393)
 
 [node name="SafetyArea" parent="." instance=ExtResource("23_xn6li")]
-position = Vector2(-646, 413)
+position = Vector2(-718, 413)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_7m88j")

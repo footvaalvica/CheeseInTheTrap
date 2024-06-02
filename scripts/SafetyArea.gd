@@ -1,6 +1,9 @@
 class_name SafetyArea extends Player
 
 var sprite : Sprite2D
+var area_set : bool = false
+
+@export var audio : AudioStreamPlayer
 
 func _ready():
 	_floor_0_y = position.y
@@ -8,6 +11,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if area_set :
+		return
 	stairs(delta)
 	if Input.is_action_just_pressed("trap_action_%s" % player_id): 
 		trap_action()
@@ -19,14 +24,19 @@ func _process(delta):
 		sprite.modulate.g = 1
 
 func _physics_process(delta):
+	if area_set :
+		return
 	movement(delta)
 
-func finished_climbing() -> bool : # Trap placer shouldn't have climb delay
+func finished_climbing() -> bool : # Safety Area shouldn't have climb delay
 	return true
 
 func trap_action() -> void :
+	sprite.modulate.a = 1
+	audio.play()
+	audio.finished.connect(func () : process_mode = Node.PROCESS_MODE_DISABLED)
 	GameManager.instance().set_safety_zone(position, _floor)
-	process_mode = Node.PROCESS_MODE_DISABLED
+	area_set = true
 
 func stairs(delta) -> void :
 	if _climbing_phase == Climbing_Phase.Entering :
