@@ -105,12 +105,20 @@ func destroy_blocking_object(delta : float) -> void :
 	var blocking_object_list : Array [Node] = get_tree().get_nodes_in_group(get_shortcut_name())
 	for blocking_object in blocking_object_list :
 		var shortcut_script : GameShortcut = blocking_object as GameShortcut
-		if GameManager.instance().in_destroy_shortcut_range(self, blocking_object) :
+		if GameManager.instance().in_destroy_shortcut_range(self, blocking_object) \
+			&& turned_to(shortcut_script.position):
 			shortcut_script.hit()
 			hammer_sound.play()
 			animated_sprite.play("destroy")
 			animated_sprite.offset.y = _destroy_offset
 			return
+
+func turned_to(pos : Vector2):
+	var diff : int = sign(pos.x - position.x)
+	print_debug("diff %d" %diff)
+	var scale_dir : int = sign(animated_sprite.scale.x)
+	print_debug("scale %s" % scale_dir)
+	return diff == scale_dir
 
 func stairs_enter(delta : float) :
 	_climbing_time += delta
