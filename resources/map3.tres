@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="MapResource" load_steps=4 format=3 uid="uid://cvwf6sunw367o"]
+[gd_resource type="Resource" script_class="MapResource" load_steps=6 format=3 uid="uid://cvwf6sunw367o"]
 
-[ext_resource type="Texture2D" uid="uid://d135frcdybhmc" path="res://assets/map_1.png" id="1_b7qge"]
+[ext_resource type="Texture2D" uid="uid://dk0t0oqf6bcse" path="res://assets/images/MAPA3.png" id="1_kljp2"]
+[ext_resource type="Texture2D" uid="uid://cjq0rvrkrhmbi" path="res://assets/images/map3foc.png" id="2_d7pfl"]
 [ext_resource type="PackedScene" uid="uid://bek1yalhlkun3" path="res://scenes/maps/map_test3.tscn" id="2_uw7qh"]
+[ext_resource type="Texture2D" uid="uid://cnxqb0akger5k" path="res://assets/images/map2sel.png" id="3_5hnat"]
 [ext_resource type="Script" path="res://resources/scripts/map_resource.gd" id="3_wgqdq"]
 
 [resource]
@@ -9,4 +11,6 @@ script = ExtResource("3_wgqdq")
 title = "The Trap House"
 necessary_cheese = 10
 map_scene = ExtResource("2_uw7qh")
-map_image = ExtResource("1_b7qge")
+map_image = ExtResource("1_kljp2")
+map_image_focus = ExtResource("2_d7pfl")
+map_image_selected = ExtResource("3_5hnat")
