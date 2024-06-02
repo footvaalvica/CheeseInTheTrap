@@ -316,7 +316,7 @@ floor = 4
 
 [node name="Trapdoor9" parent="." instance=ExtResource("14_qguk8")]
 position = Vector2(117, 249)
-floor = 1
+floor = 2
 
 [node name="Trapdoor10" parent="." instance=ExtResource("14_qguk8")]
 position = Vector2(-332, -299)
