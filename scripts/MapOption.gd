@@ -16,6 +16,7 @@ func _ready():
 	cheese_needed = $"Cheese Needed"
 	cheese = GameStateManager.cheese
 	focus_entered.connect(on_focus)
+	focus_exited.connect(off_focus)
 	if resource == null :
 		title.text = "[center]Locked[/center]"
 		image.texture = locked_image
@@ -34,7 +35,18 @@ func _ready():
 func on_focus():
 	print_debug("focus")
 	button.grab_focus()
+	image.texture = resource.map_image_focus 
 	
+func off_focus():
+	if image.texture!= resource.map_image_selected:
+		image.texture = resource.map_image
+
 func select():
 	if resource != null and resource.necessary_cheese <= GameStateManager.cheese:
+		image.texture = resource.map_image_selected
+		print(name)
 		MapSelection.instance.switch_map(resource)
+		
+func _process(delta):
+	if Input.is_action_just_pressed("ui_accept") and  resource!= null and image.texture==resource.map_image_focus:
+		select()

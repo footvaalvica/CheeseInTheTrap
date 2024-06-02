@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwvtbn87rqyvv"]
+[gd_scene load_steps=18 format=3 uid="uid://cwvtbn87rqyvv"]
 
 [ext_resource type="VideoStream" path="res://assets/menuvid.ogv" id="1_aaqpx"]
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_iawo3"]
@@ -10,47 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bhx13hde82jga" path="res://assets/cga_ui_gold/x symbol.png" id="8_ft16c"]
 [ext_resource type="Texture2D" uid="uid://b05hojyvoh7a0" path="res://assets/cga_ui_gold/b_4.png" id="8_m8uo1"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l3qxy"]
-content_margin_left = 10.0
-content_margin_top = 2.0
-content_margin_right = 10.0
-content_margin_bottom = 2.0
-texture = ExtResource("4_j0jqu")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yx5y7"]
-content_margin_left = 10.0
-content_margin_top = 2.0
-content_margin_right = 10.0
-content_margin_bottom = 2.0
-texture = ExtResource("4_j0jqu")
-expand_margin_left = 3.0
-expand_margin_top = 3.0
-expand_margin_right = 3.0
-expand_margin_bottom = 3.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wdw7r"]
-content_margin_left = 10.0
-content_margin_top = 2.0
-content_margin_right = 10.0
-content_margin_bottom = 2.0
-texture = ExtResource("4_j0jqu")
-expand_margin_left = 3.0
-expand_margin_top = 3.0
-expand_margin_right = 3.0
-expand_margin_bottom = 3.0
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e3j4a"]
-content_margin_left = 5.0
-content_margin_top = 5.0
-content_margin_right = 5.0
-content_margin_bottom = 5.0
 texture = ExtResource("4_y1mbn")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c3jdq"]
-content_margin_left = 5.0
-content_margin_top = 5.0
-content_margin_right = 5.0
-content_margin_bottom = 5.0
 texture = ExtResource("4_y1mbn")
 expand_margin_left = 3.0
 expand_margin_top = 3.0
@@ -66,6 +29,46 @@ texture = ExtResource("4_y1mbn")
 expand_margin_left = 3.0
 expand_margin_top = 3.0
 expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dowow"]
+texture = ExtResource("4_y1mbn")
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m202o"]
+content_margin_left = 5.0
+content_margin_top = 2.0
+content_margin_right = 5.0
+content_margin_bottom = 2.0
+texture = ExtResource("4_j0jqu")
+expand_margin_left = 13.0
+expand_margin_top = 3.0
+expand_margin_right = 13.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7dfr6"]
+content_margin_left = 5.0
+content_margin_top = 2.0
+content_margin_right = 5.0
+content_margin_bottom = 2.0
+texture = ExtResource("4_j0jqu")
+expand_margin_left = 13.0
+expand_margin_top = 3.0
+expand_margin_right = 13.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tectu"]
+content_margin_left = 5.0
+content_margin_top = 2.0
+content_margin_right = 5.0
+content_margin_bottom = 2.0
+texture = ExtResource("4_j0jqu")
+expand_margin_left = 13.0
+expand_margin_top = 3.0
+expand_margin_right = 13.0
 expand_margin_bottom = 3.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u8c7x"]
@@ -117,8 +120,9 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_right = NodePath("../../../Options")
-focus_neighbor_bottom = NodePath("../../../MarginContainer2/VBoxContainer/Button")
+focus_neighbor_left = NodePath("../../../Options")
+focus_neighbor_top = NodePath("../../../Options")
+focus_neighbor_bottom = NodePath("../../../MarginContainer2/VBoxContainer/quit")
 theme = ExtResource("2_u5qb5")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -126,9 +130,6 @@ theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxTexture_l3qxy")
-theme_override_styles/hover = SubResource("StyleBoxTexture_yx5y7")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_wdw7r")
 text = "Start"
 metadata/_edit_use_anchors_ = true
 
@@ -141,37 +142,43 @@ anchor_bottom = 1.0
 offset_left = -77.0
 offset_top = -78.0
 offset_right = -18.0
-offset_bottom = -45.0
+offset_bottom = -55.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1.93736, 1.93736)
+scale = Vector2(1.93736, 2.09736)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="RestofMenu/MarginContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="RestofMenu/MarginContainer2/VBoxContainer"]
+[node name="quit" type="Button" parent="RestofMenu/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Quit"
+focus_neighbor_left = NodePath("../../../Options")
 focus_neighbor_top = NodePath("../../../MarginContainer/VBoxContainer/play")
-focus_neighbor_right = NodePath("../../../Options")
+focus_neighbor_bottom = NodePath("../../../Options")
 theme = ExtResource("2_u5qb5")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxTexture_e3j4a")
 theme_override_styles/hover = SubResource("StyleBoxTexture_c3jdq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_bmest")
+theme_override_styles/focus = SubResource("StyleBoxTexture_dowow")
 text = "Quit"
 
 [node name="Options" type="Button" parent="RestofMenu"]
-offset_left = 1030.0
-offset_top = 613.0
-offset_right = 1250.0
-offset_bottom = 690.0
-focus_neighbor_left = NodePath("../MarginContainer/VBoxContainer/play")
-focus_neighbor_top = NodePath("../MarginContainer/VBoxContainer/play")
-focus_neighbor_bottom = NodePath("../MarginContainer2/VBoxContainer/Button")
+offset_left = 11.0
+offset_top = 10.0
+offset_right = 121.0
+offset_bottom = 56.0
+scale = Vector2(0.758913, 0.799999)
+focus_neighbor_right = NodePath("../MarginContainer/VBoxContainer/play")
+focus_neighbor_bottom = NodePath("../MarginContainer/VBoxContainer/play")
 theme = ExtResource("2_u5qb5")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "OPTIONS"
+theme_override_styles/hover = SubResource("StyleBoxTexture_m202o")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7dfr6")
+theme_override_styles/focus = SubResource("StyleBoxTexture_tectu")
+text = "Options"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_jvktc")
@@ -185,12 +192,12 @@ visible = false
 focus_neighbor_top = NodePath("../GO BACK")
 
 [node name="GO BACK" type="TextureButton" parent="UIOPTIONS"]
-offset_left = 878.0
-offset_top = 208.0
-offset_right = 937.0
-offset_bottom = 273.0
+offset_left = 847.0
+offset_top = 215.0
+offset_right = 897.0
+offset_bottom = 269.0
 focus_neighbor_bottom = NodePath("../MateusOptionsMenu")
-texture_normal = ExtResource("4_y1mbn")
+texture_normal = ExtResource("8_m8uo1")
 texture_pressed = ExtResource("8_m8uo1")
 texture_hover = ExtResource("8_m8uo1")
 texture_disabled = ExtResource("8_m8uo1")
@@ -200,11 +207,11 @@ stretch_mode = 0
 
 [node name="XSymbol" type="Sprite2D" parent="UIOPTIONS"]
 material = SubResource("CanvasItemMaterial_u8c7x")
-position = Vector2(908, 240)
-scale = Vector2(0.0981445, 0.102539)
+position = Vector2(872, 241)
+scale = Vector2(0.0783691, 0.0805664)
 texture = ExtResource("8_ft16c")
 
 [connection signal="pressed" from="RestofMenu/MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="RestofMenu/MarginContainer2/VBoxContainer/Button" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="RestofMenu/MarginContainer2/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="RestofMenu/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="UIOPTIONS/GO BACK" to="." method="_on_go_back_pressed"]

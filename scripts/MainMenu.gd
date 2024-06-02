@@ -15,8 +15,6 @@ func _process(delta):
 func _on_play_pressed():
 	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")
 
-func _on_quit_pressed():
-	get_tree().quit() 
 
 func _on_options_pressed():
 	options.show()
@@ -25,3 +23,7 @@ func _on_options_pressed():
 func _on_go_back_pressed():
 	options.hide()
 	rest_of_menu.show()
+
+
+func _on_quit_pressed():
+	get_tree().quit() 
