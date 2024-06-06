@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdbg3pu0tna3v"]
+[gd_scene load_steps=16 format=3 uid="uid://bdbg3pu0tna3v"]
 
 [ext_resource type="Texture2D" uid="uid://dux3u4h3is43j" path="res://assets/background.jpg" id="1_j8n33"]
 [ext_resource type="PackedScene" uid="uid://370afit8fmo7" path="res://scenes/prefabs/collectables/cheese.tscn" id="2_2o2ta"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://mo3813gedshy" path="res://scenes/prefabs/house/wallsMedium.tscn" id="8_t6y6w"]
 [ext_resource type="PackedScene" uid="uid://b7x4driqsukcu" path="res://scenes/prefabs/house/stairs_group_medium.tscn" id="9_wpsag"]
 [ext_resource type="PackedScene" uid="uid://dbygtbjtb5xnp" path="res://scenes/prefabs/house/hole.tscn" id="10_exxh8"]
+[ext_resource type="Script" path="res://scenes/statistics/MapStatistics.gd" id="11_1q223"]
+[ext_resource type="PackedScene" uid="uid://dvctcp7jn18vx" path="res://scenes/statistics/red_dot.tscn" id="12_5tk02"]
+[ext_resource type="PackedScene" uid="uid://wkov2mrrqewu" path="res://scenes/statistics/green_dot.tscn" id="13_s2r6s"]
+[ext_resource type="PackedScene" uid="uid://bkhktxkigb5cg" path="res://scenes/prefabs/characters/jerry.tscn" id="14_atwbe"]
+[ext_resource type="PackedScene" uid="uid://cj3gq3clc4b5o" path="res://scenes/prefabs/characters/tom.tscn" id="15_gghio"]
 
 [node name="Map2Statistics" type="Node2D"]
 
@@ -45,99 +50,80 @@ floor = 2
 position = Vector2(324, -225)
 floor = 7
 
-[node name="Trapdoor" parent="." node_paths=PackedStringArray("open_trapdoor") instance=ExtResource("3_3u67u")]
+[node name="Trapdoor" parent="." instance=ExtResource("3_3u67u")]
 position = Vector2(254, -113)
 floor = 6
-open_trapdoor = NodePath("")
 
-[node name="Trapdoor2" parent="." node_paths=PackedStringArray("open_trapdoor") instance=ExtResource("3_3u67u")]
+[node name="Trapdoor2" parent="." instance=ExtResource("3_3u67u")]
 position = Vector2(-554, -21)
 floor = 5
-open_trapdoor = NodePath("")
 
-[node name="Trapdoor3" parent="." node_paths=PackedStringArray("open_trapdoor") instance=ExtResource("3_3u67u")]
+[node name="Trapdoor3" parent="." instance=ExtResource("3_3u67u")]
 position = Vector2(-354, -113)
 floor = 6
-open_trapdoor = NodePath("")
 
-[node name="Trapdoor4" parent="." node_paths=PackedStringArray("open_trapdoor") instance=ExtResource("3_3u67u")]
+[node name="Trapdoor4" parent="." instance=ExtResource("3_3u67u")]
 position = Vector2(508, 70)
 floor = 4
-open_trapdoor = NodePath("")
 
-[node name="Trapdoor5" parent="." node_paths=PackedStringArray("open_trapdoor") instance=ExtResource("3_3u67u")]
+[node name="Trapdoor5" parent="." instance=ExtResource("3_3u67u")]
 position = Vector2(-63, -298)
 floor = 8
-open_trapdoor = NodePath("")
 
-[node name="Trapdoor6" parent="." node_paths=PackedStringArray("open_trapdoor") instance=ExtResource("3_3u67u")]
+[node name="Trapdoor6" parent="." instance=ExtResource("3_3u67u")]
 position = Vector2(-448, 161)
 floor = 3
-open_trapdoor = NodePath("")
 
-[node name="Trapdoor7" parent="." node_paths=PackedStringArray("open_trapdoor") instance=ExtResource("3_3u67u")]
+[node name="Trapdoor7" parent="." instance=ExtResource("3_3u67u")]
 position = Vector2(192, 253)
 floor = 2
-open_trapdoor = NodePath("")
 
-[node name="TomShortcut" parent="." node_paths=PackedStringArray("breaking_sound") instance=ExtResource("4_qdpan")]
+[node name="TomShortcut" parent="." instance=ExtResource("4_qdpan")]
 position = Vector2(-258, -216)
 floor = 7
-breaking_sound = NodePath("")
 
-[node name="TomShortcut2" parent="." node_paths=PackedStringArray("breaking_sound") instance=ExtResource("4_qdpan")]
+[node name="TomShortcut2" parent="." instance=ExtResource("4_qdpan")]
 position = Vector2(82, -216)
 floor = 7
-breaking_sound = NodePath("")
 
-[node name="TomShortcut3" parent="." node_paths=PackedStringArray("breaking_sound") instance=ExtResource("5_tvgjs")]
+[node name="TomShortcut3" parent="." instance=ExtResource("5_tvgjs")]
 position = Vector2(495, -28)
 floor = 5
-breaking_sound = NodePath("")
 
-[node name="TomShortcut4" parent="." node_paths=PackedStringArray("breaking_sound") instance=ExtResource("4_qdpan")]
+[node name="TomShortcut4" parent="." instance=ExtResource("4_qdpan")]
 position = Vector2(-360, 424)
-breaking_sound = NodePath("")
 
-[node name="TomShortcut5" parent="." node_paths=PackedStringArray("breaking_sound") instance=ExtResource("6_yemld")]
+[node name="TomShortcut5" parent="." instance=ExtResource("6_yemld")]
 position = Vector2(366, 245)
 floor = 2
-breaking_sound = NodePath("")
 
-[node name="JerryShortcut" parent="." node_paths=PackedStringArray("breaking_sound") instance=ExtResource("7_h5ckv")]
+[node name="JerryShortcut" parent="." instance=ExtResource("7_h5ckv")]
 position = Vector2(-660, -237)
 floor = 7
-breaking_sound = NodePath("")
 
-[node name="JerryShortcut2" parent="." node_paths=PackedStringArray("breaking_sound") instance=ExtResource("7_h5ckv")]
+[node name="JerryShortcut2" parent="." instance=ExtResource("7_h5ckv")]
 position = Vector2(-411, 38)
 floor = 4
-breaking_sound = NodePath("")
 
-[node name="JerryShortcut3" parent="." node_paths=PackedStringArray("breaking_sound") instance=ExtResource("7_h5ckv")]
+[node name="JerryShortcut3" parent="." instance=ExtResource("7_h5ckv")]
 position = Vector2(197, 131)
 floor = 3
-breaking_sound = NodePath("")
 
-[node name="JerryShortcut4" parent="." node_paths=PackedStringArray("breaking_sound") instance=ExtResource("7_h5ckv")]
+[node name="JerryShortcut4" parent="." instance=ExtResource("7_h5ckv")]
 position = Vector2(2, -55)
 floor = 5
-breaking_sound = NodePath("")
 
-[node name="JerryShortcut5" parent="." node_paths=PackedStringArray("breaking_sound") instance=ExtResource("7_h5ckv")]
+[node name="JerryShortcut5" parent="." instance=ExtResource("7_h5ckv")]
 position = Vector2(-275, 311)
 floor = 1
-breaking_sound = NodePath("")
 
-[node name="JerryShortcut6" parent="." node_paths=PackedStringArray("breaking_sound") instance=ExtResource("7_h5ckv")]
+[node name="JerryShortcut6" parent="." instance=ExtResource("7_h5ckv")]
 position = Vector2(546, -235)
 floor = 7
-breaking_sound = NodePath("")
 
-[node name="JerryShortcut7" parent="." node_paths=PackedStringArray("breaking_sound") instance=ExtResource("7_h5ckv")]
+[node name="JerryShortcut7" parent="." instance=ExtResource("7_h5ckv")]
 position = Vector2(-560, 222)
 floor = 2
-breaking_sound = NodePath("")
 
 [node name="Walls" parent="." instance=ExtResource("8_t6y6w")]
 
@@ -157,3 +143,20 @@ position = Vector2(-191, 56)
 
 [node name="OptionalDoor4" parent="." instance=ExtResource("10_exxh8")]
 position = Vector2(-108, -121)
+
+[node name="MapStatistics" type="Node" parent="."]
+script = ExtResource("11_1q223")
+death_heat = ExtResource("12_5tk02")
+trap_heat = ExtResource("13_s2r6s")
+
+[node name="Jerry" parent="." instance=ExtResource("14_atwbe")]
+z_index = 1
+position = Vector2(-816, 426)
+collision_mask = 17
+script = null
+
+[node name="Tom" parent="." instance=ExtResource("15_gghio")]
+z_index = 1
+position = Vector2(801, -409)
+collision_mask = 33
+script = null
