@@ -102,6 +102,8 @@ func stairs(delta) -> void :
 
 func destroy_blocking_object(delta : float) -> void :
 	var in_range_blocking_object : Shortcut = null
+	if ! get_tree(): # Godot still signals events after scene was changed
+		return
 	var blocking_object_list : Array [Node] = get_tree().get_nodes_in_group(get_shortcut_name())
 	for blocking_object in blocking_object_list :
 		var shortcut_script : GameShortcut = blocking_object as GameShortcut

@@ -28,8 +28,8 @@ func _switch():
 
 func load_video_streams():
 	if player1.character_name == "Jerry":
-		vid_stream_keyboard.file = "res://assets/videostutorial/jerrytomkeyboardc.ogv"
-		vid_stream_gamepad.file = "res://assets/videostutorial/jerrytompadc.ogv"
+		vid_stream_keyboard.file = "res://assets/videostutorial/jerrytomkeyboard.ogv"
+		vid_stream_gamepad.file = "res://assets/videostutorial/jerrytompad.ogv"
 	else :
 		vid_stream_keyboard.file = "res://assets/videostutorial/tomjerrykeyboard.ogv"
 		vid_stream_gamepad.file = "res://assets/videostutorial/tomjerrypad.ogv"
