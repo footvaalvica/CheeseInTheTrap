@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dljc612rv5u76"]
+
+[ext_resource type="Texture2D" uid="uid://buwhl0r6bsefb" path="res://assets/blue_dot.png" id="1_im8lh"]
+
+[node name="BlueDot" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.3)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("1_im8lh")

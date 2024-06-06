@@ -32,6 +32,8 @@ func print_entry():
 	var jerry_percentage = float(jerry_wins) / total_wins
 	var tom_wins = total_wins - jerry_wins
 	print("---------------------------------")
+	print("Total games : %d" % total_wins)
+	print("total cheese : %d" % cheese_total)
 	print("cheese_percentages : %s" % str(cheese_percentages))
 	print("door_percentages : %s" % str(doors_percentages))
 	print("jerry winning percentage : %f" % jerry_percentage)

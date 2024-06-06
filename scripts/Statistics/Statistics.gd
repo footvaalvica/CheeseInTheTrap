@@ -39,7 +39,8 @@ func read_logs():
 	var instance : Node2D = packed.instantiate() as Node2D
 	var map_stats : MapStatistics = instance.get_node("MapStatistics") as MapStatistics
 	map_stats.entry = statistics_entries[0]
-	map_stats.apply_death_heat()
+	#map_stats.apply_trap_heat()
+	#map_stats.apply_death_heat()
 	get_parent().add_child.call_deferred(instance)
 	get_parent().get_child_count()
 	
