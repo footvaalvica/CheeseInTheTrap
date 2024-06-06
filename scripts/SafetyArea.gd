@@ -14,14 +14,15 @@ func _process(delta):
 	if area_set :
 		return
 	stairs(delta)
-	if Input.is_action_just_pressed("trap_action_%s" % player_id): 
-		trap_action()
 	if ! GameManager.instance().can_place_safety_zone(position, _floor) :
 		sprite.modulate.b = 0
 		sprite.modulate.g = 0
+		return
 	else :
 		sprite.modulate.b = 1
 		sprite.modulate.g = 1
+	if Input.is_action_just_pressed("trap_action_%s" % player_id): 
+		trap_action()
 
 func _physics_process(delta):
 	if area_set :
